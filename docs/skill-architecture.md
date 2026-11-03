@@ -2,6 +2,8 @@
 
 Architecture baseline defined on November 3, 2026. This document translates the [product contract](product-contract.md) into package boundaries, reference responsibilities, and loading rules. The initial package implements this structure; current verification and host evaluation status are recorded in the [project overview](../README.md#validation-status).
 
+The next content revision is defined by the [workflow procedures](workflow-procedures.md). It adds complete intervention procedures and task-specific guidance to the shared package. That revision is specified but not yet implemented in the installed skill.
+
 ## 1. Architecture decisions
 
 | Decision | Rationale |
@@ -18,7 +20,7 @@ The runtime is the host coding agent. The skill supplies instructions and refere
 
 ## 2. Package and repository boundaries
 
-The target installable package is:
+The current installable package is:
 
 ```text
 skills/
@@ -35,7 +37,7 @@ skills/
         └── review.md
 ```
 
-These eight files form the initial installable package. Add supporting resources only when their concrete benefit justifies them; do not create empty scaffolds for possible future use.
+These eight files form the initial installable package. The [procedure implementation target](workflow-procedures.md#7-package-implementation-target) adds four conditional workflow guides and three task guides in the next revision. The planned fifteen-file package remains self-contained. Do not create empty scaffolds for future resources.
 
 | Location | Responsibility | Included in installation |
 |---|---|---|
@@ -44,7 +46,7 @@ These eight files form the initial installable package. Add supporting resources
 | Root `README.md`, `CHANGELOG.md`, `LICENSE`, and `CONTRIBUTING.md` | Project overview, release history, license, and contribution workflow | Not copied as skill instructions |
 | Root `install.sh` | Copy the self-contained package into a host's discovery directory | Installer only |
 | `.github/` | Repository checks and configuration | No |
-| Future `evals/` | Concrete evaluation requests, fixtures, and results | No |
+| `evals/` | Manual evaluation requests, fixtures, rubric, and report template; host runs remain pending | No |
 | Parent workspace | Research, exploratory notes, and temporary working material | No |
 
 The installed folder must work without access to the source repository or its parent workspace. Runtime instructions must not depend on `docs/`, `evals/`, or external research notes. Supporting links resolve relative to the installed skill directory or the reference containing them.
@@ -102,6 +104,8 @@ Cross-links are allowed, but must not form a chain that requires reading the ent
 
 Intent describes the requested intervention. Surface purpose describes what the visitor needs to accomplish. Both can usually be inferred from the request and existing interface; they are internal decisions, not a command catalog.
 
+The next revision also selects relevant task guidance for data interfaces, forms and journeys, or content interfaces. These concerns compose: a subscription screen can use creation, task-execution priorities, and forms-and-journeys guidance while inheriting an existing identity. The [selection rules](workflow-procedures.md#1-operating-model) define mixed requests, planning-only work, review with authorized fixes, and proportional loading.
+
 | Intent | Expected behavior |
 |---|---|
 | Create | Establish missing context, choose a suitable direction, build the requested interface, and review it |
@@ -119,6 +123,8 @@ The surface-purpose sections are:
 A mixed page can have a dominant purpose and embedded interfaces with a different purpose. A marketing page containing an application preview should retain a coherent visual identity while treating the preview's controls and data as a working interface.
 
 ## 6. Adaptive loading and execution
+
+The initial package follows this shared loop:
 
 ```mermaid
 flowchart TD
@@ -145,6 +151,8 @@ Loading examples:
 
 These are examples, not mandatory reading sequences. Once context or a reference section is already available and current, reuse it. New evidence can justify reading another section.
 
+In the next revision, the entry point selects a primary workflow, applicable task-guide sections, and needed subject references. The [procedures](workflow-procedures.md#3-primary-procedures) define the decisions and completion criteria inside the loop; [task guidance](workflow-procedures.md#4-task-specific-guidance) specializes them for the work behind the interface. Narrow requests can omit task guidance when subject references suffice. No routing chain should require loading the entire package.
+
 The correction loop ends when the task's material issues are resolved or a concrete limitation prevents further verification or correction. Report the remaining limitation; do not repeatedly redesign the interface to satisfy a subjective score. The skill does not impose a fixed screenshot count, animation quota, or universal design score.
 
 ## 7. Working context and outputs
@@ -155,6 +163,7 @@ Working context normally stays in the host's existing notes or conversation. Its
 |---|---|
 | Brief | Target, user task, desired outcome, implementation constraints, existing identity, available content/assets, confirmed facts, and assumptions |
 | Direction | Product-specific concept, composition, visual roles, imagery approach, interaction intent, and responsive behavior |
+| Solution outline | Information order, required actions and state transitions, integration boundary, and relevant acceptance cases |
 | Review findings | Observed issue, location, effect on the user, priority, recommended correction, and evidence |
 | Verification summary | What was rendered, inspected, interacted with, or checked; what remains unverified |
 
@@ -188,7 +197,7 @@ The existing root installer already targets `skills/flawless-ui-ux/`. During imp
 
 ## 9. Evaluation and maintenance
 
-Evaluation belongs outside the installed package. Add concrete fixtures under `evals/` when behavioral testing begins, rather than committing empty fixture directories now.
+Evaluation belongs outside the installed package. The [manual evaluation kit](../evals/README.md) contains concrete cases and fixtures; recorded host runs remain pending. The [procedure acceptance criteria](workflow-procedures.md#8-delivery-and-acceptance) extend this foundation to observable complete workflows and task-specific decisions.
 
 The initial evaluation set should cover:
 
@@ -205,12 +214,10 @@ Package checks should validate metadata, resolvable internal references, and ins
 
 Update the root changelog and release tag when distributing changes to instructions or resources. Maintain one source package and avoid introducing host-specific copies unless testing demonstrates an actual need.
 
-## 10. Implementation sequence
+## 10. Procedure evolution
 
-1. Write `SKILL.md`, its reference links and loading conditions, and the Codex presentation metadata.
-2. Write the six references with clear ownership and enough content to complete the initial workflows; do not ship links to unfinished placeholders.
-3. Validate package metadata and links, and exercise installation in isolated directories.
-4. Test actual activation and representative workflows in OpenCode and Codex.
-5. Use evaluation findings to revise instructions, then document the first release and its verified capabilities.
+1. **Define:** specify intervention procedures, task selection, preservation boundaries, working outputs, and evidence and completion criteria in [workflow-procedures.md](workflow-procedures.md).
+2. **Implement:** revise the entry point, add the conditional workflow and task guides, and deepen subject guidance and examples where those procedures need them. Preserve automatic discovery, shared host content, and package integrity.
+3. **Evaluate and consolidate:** exercise complete tasks and focused interventions in both hosts, correct observed failures, and document actual results and remaining limits.
 
-The architecture is ready to implement when the package boundary, entry responsibilities, reference ownership, adaptive routing, host fallback behavior, and evaluation approach are explicit. An installable release additionally requires the content and host checks described above.
+This documentation delivers the definition phase. Runtime implementation and observed workflow outcomes follow separately. The installable package must remain independent of repository documentation and use host-provided capabilities throughout.

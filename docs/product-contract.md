@@ -22,11 +22,14 @@ The skill interprets the request and selects relevant guidance. Users do not nee
 
 The depth of the workflow follows the request. A typography adjustment can be focused; a new interface or substantial redesign calls for broader exploration and review.
 
+A complete outcome should select a procedure suited to the intervention, visitor purpose, and work behind the interface. The user should not need to enumerate every visual adjustment, state, or verification step. The [workflow procedures](workflow-procedures.md) define this next content revision, including task-specific decisions and completion criteria; its implementation and evaluation status remain recorded in the project overview.
+
 ## Core workflow
 
 ### 1. Understand
 
 - Identify the product, audience, user task, content, and desired outcome.
+- Identify the information, available actions, state changes, and confirmed product rules needed for that task.
 - Inspect the existing implementation, visual system, available assets, and technical constraints.
 - Distinguish creation, focused refinement, and redesign; establish what the request permits changing.
 - Reuse existing project documentation and explicit user decisions. Record material assumptions without turning them into confirmed facts.
@@ -34,6 +37,7 @@ The depth of the workflow follows the request. A typography adjustment can be fo
 ### 2. Define the direction
 
 - Ground visual decisions in characteristics of the actual product and its content.
+- Establish the relevant content order and interaction structure so visual treatment supports a concrete task path.
 - Choose composition, typography, color, imagery, density, and interaction appropriate to the surface's purpose.
 - Preserve an established identity during refinement. For redesign, identify the constraints and functions that remain valid.
 - Explore alternatives when they resolve meaningful uncertainty. A fixed number of alternatives is not required for every request.
@@ -107,3 +111,5 @@ Visual novelty alone does not establish success. The interface must communicate 
 ## Architecture
 
 The [skill architecture](skill-architecture.md) defines the shared package, entry instructions, reference responsibilities, loading rules, host capabilities, and evaluation approach used to implement this contract.
+
+The [procedure specification](workflow-procedures.md) develops the architecture into creation, redesign, refinement, and review workflows composed with data-interface, forms-and-journeys, and content-interface guidance. These are internal selection concepts within the single skill, not a separate command catalog.
