@@ -1,0 +1,45 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #434b57;
+  background: #f4f5f7;
+  font-size: 13px;
+  --accent: #3949ab;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+.workspace { display: grid; grid-template-columns: 176px minmax(0, 1fr); min-height: 100vh; }
+nav { background: #fff; padding: 20px 14px; border-right: 1px solid #e1e3e8; }
+.brand { color: var(--accent); font-size: 14px; font-weight: 700; margin: 0 0 26px; }
+nav a { display: block; padding: 10px 0; color: var(--accent); }
+main { min-width: 0; padding: 22px; }
+h1, h2 { font-size: 14px; font-weight: 400; margin: 8px 0; }
+.eyebrow { font-size: 13px; margin: 0; }
+.hint { color: #a7adb9; font-size: 12px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0; }
+.summary > div { border: 1px solid #e1e3e8; padding: 14px; background: #fff; }
+.summary p { margin: 0 0 8px; }
+.summary strong { font-size: 14px; font-weight: 400; }
+.toolbar { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+label { display: flex; flex-direction: column; gap: 5px; }
+input, select, button { font: inherit; border: 1px solid #b9bec8; border-radius: 3px; padding: 7px 9px; }
+input { width: 230px; max-width: 100%; }
+input, select { background: #fff; color: inherit; }
+button { cursor: pointer; background: #fff; color: var(--accent); }
+button:disabled { cursor: default; color: #9299a5; }
+button:focus, input:focus, select:focus, a:focus { outline: none; }
+.table-wrap { overflow-x: auto; background: #fff; border: 1px solid #e1e3e8; }
+table { width: 100%; min-width: 780px; border-collapse: collapse; text-align: left; }
+caption { text-align: left; padding: 10px; color: #a7adb9; font-size: 12px; }
+th, td { padding: 10px; border-bottom: 1px solid #edf0f4; font-weight: 400; white-space: nowrap; }
+th { font-size: 13px; }
+.status { font-size: 12px; }
+#feedback { min-height: 20px; }
+
+@media (max-width: 600px) {
+  .workspace { display: block; }
+  nav { border-right: 0; border-bottom: 1px solid #e1e3e8; }
+  nav a { display: inline-block; margin-right: 16px; }
+  .brand { margin-bottom: 8px; }
+  main { padding: 14px; }
+}

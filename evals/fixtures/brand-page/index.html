@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Radiant After Hours</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="event-title">
+        <p class="wordmark">Radiant</p>
+        <p>One evening of independent print, music, and making.</p>
+        <h1 id="event-title">Radiant<br>After Hours</h1>
+        <p class="event-details">12 December 2026 · 18:00–22:00<br>Foundry Hall, 6 Foundry Lane, Northbridge</p>
+        <a class="pill" href="#tickets">Ticket interest · £18</a>
+      </section>
+      <section id="tickets" class="tickets" aria-labelledby="tickets-title">
+        <h2 id="tickets-title">Join the evening</h2>
+        <p>Tickets are £18. Leave your name and email to try the local interest form.</p>
+        <p class="demo-note" id="demo-note">Fictional event. This local demo does not reserve a ticket, take payment, store your details, or send email.</p>
+        <form id="interest-form" aria-describedby="demo-note">
+          <div class="fields">
+            <label for="name">Your name
+              <input id="name" name="name" autocomplete="name" required>
+            </label>
+            <label for="email">Email address
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </label>
+          </div>
+          <button class="pill" type="submit">Try the interest form</button>
+          <p id="form-feedback" role="status">Demo feedback will appear here after a valid submission.</p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
