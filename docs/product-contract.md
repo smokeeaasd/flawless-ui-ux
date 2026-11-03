@@ -1,6 +1,6 @@
 # Product contract
 
-Agreed on November 3, 2026. This document defines the intended behavior of flawless-ui-ux. It does not claim that the skill has already been implemented or validated.
+Agreed on November 3, 2026. This document defines the intended behavior of flawless-ui-ux. Implementation and validation status are recorded in the [project overview](../README.md#validation-status).
 
 ## Purpose
 

@@ -1,6 +1,6 @@
 # Skill architecture
 
-Architecture baseline defined on November 3, 2026. This document translates the [product contract](product-contract.md) into package boundaries, reference responsibilities, and loading rules. It defines the implementation target; the skill files are not implemented by this documentation change.
+Architecture baseline defined on November 3, 2026. This document translates the [product contract](product-contract.md) into package boundaries, reference responsibilities, and loading rules. The initial package implements this structure; current verification and host evaluation status are recorded in the [project overview](../README.md#validation-status).
 
 ## 1. Architecture decisions
 
@@ -35,7 +35,7 @@ skills/
         └── review.md
 ```
 
-These are planned files, not empty scaffolds to create before their content is ready.
+These eight files form the initial installable package. Add supporting resources only when their concrete benefit justifies them; do not create empty scaffolds for possible future use.
 
 | Location | Responsibility | Included in installation |
 |---|---|---|
