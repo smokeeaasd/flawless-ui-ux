@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Guided manual host evaluations with six design scenarios, static fixtures, discovery and baseline controls, a backend activation control, and an evidence-based rubric and report template.
 - Bun-based package and installation tests with isolated project/global destinations and preservation checks for existing files and links.
 - Ubuntu and Windows package CI, convention checks, and maintainer testing instructions using the pinned Bun toolchain.
 - npm package metadata, a distribution file list, and locked development dependencies.

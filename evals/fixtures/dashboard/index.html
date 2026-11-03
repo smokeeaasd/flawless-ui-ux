@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Benchroom repair queue</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="workspace">
+      <nav aria-label="Workshop">
+        <p class="brand">Benchroom</p>
+        <a href="#queue">Repair queue</a>
+        <a href="#summary">Queue summary</a>
+        <p class="hint">Local workshop demo</p>
+      </nav>
+      <main>
+        <header>
+          <p class="eyebrow">Workshop operations</p>
+          <h1>Repair queue</h1>
+          <p class="hint">Find a bicycle and update its pickup status.</p>
+        </header>
+        <section id="summary" aria-label="Whole queue summary" class="summary">
+          <div><p>Total jobs</p><strong id="total-count">6</strong></div>
+          <div><p>In progress</p><strong id="progress-count">2</strong></div>
+          <div><p>Ready for pickup</p><strong id="ready-count">2</strong></div>
+        </section>
+        <section id="queue" aria-labelledby="queue-heading">
+          <h2 id="queue-heading">Current jobs</h2>
+          <div class="toolbar">
+            <label for="search">Search jobs
+              <input id="search" type="search" placeholder="ID, customer, or bicycle">
+            </label>
+            <label for="status-filter">Status
+              <select id="status-filter">
+                <option value="all">All statuses</option>
+                <option value="received">Received</option>
+                <option value="in-progress">In progress</option>
+                <option value="ready">Ready</option>
+              </select>
+            </label>
+            <button id="clear-filters" type="button">Clear filters</button>
+          </div>
+          <p id="result-count" class="hint" aria-live="polite"></p>
+          <div class="table-wrap">
+            <table>
+              <caption>Repair jobs and pickup actions</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Job</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Bicycle</th>
+                  <th scope="col">Due</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Estimate</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="job-rows"></tbody>
+            </table>
+          </div>
+          <p id="feedback" role="status"></p>
+          <p class="hint">Changes last for this session and reset when the page reloads.</p>
+          <noscript>This queue requires JavaScript to display and update local demo jobs.</noscript>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

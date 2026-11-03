@@ -48,3 +48,5 @@ The skill selects guidance for the task and uses tools available in the host. It
 The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.
 
 These checks establish package integrity. Manual skill identification is confirmed in both initial hosts, while systematic evaluation of invocation methods, interface quality, and end-to-end behavior remains pending.
+
+The [guided manual evaluations](evals/README.md) provide six design scenarios, disposable fixtures, discovery and baseline controls, and a shared report template for that evaluation. The materials are ready; their preparation does not establish completed host runs.
