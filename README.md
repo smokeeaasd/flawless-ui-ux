@@ -2,7 +2,7 @@
 
 A portable UI/UX skill that guides coding agents from product context and visual direction through implementation, observation, and refinement.
 
-The [product contract](docs/product-contract.md) is defined; skill implementation has not started. Initial agent targets are OpenCode and Codex. Additional agents may be included when their workflows can be tested through an available free tier or local model.
+The [product contract](docs/product-contract.md) and [skill architecture](docs/skill-architecture.md) are defined; skill implementation has not started. Initial agent targets are OpenCode and Codex. Additional agents may be included when their workflows can be tested through an available free tier or local model.
 
 ## Scope
 

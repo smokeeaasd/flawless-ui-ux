@@ -104,6 +104,6 @@ A successful delivery:
 
 Visual novelty alone does not establish success. The interface must communicate clearly and support its intended use.
 
-## Next design step
+## Architecture
 
-Define the skill architecture: the entry instructions, supporting references, resources, and loading rules needed to execute this contract. Specific file layouts, procedure names, installation adapters, and evaluation fixtures remain implementation decisions.
+The [skill architecture](skill-architecture.md) defines the shared package, entry instructions, reference responsibilities, loading rules, host capabilities, and evaluation approach used to implement this contract.
