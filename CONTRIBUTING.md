@@ -55,3 +55,14 @@ Required status checks should be added only after the corresponding checks exist
 ## Repository boundary
 
 Maintain project documentation here. Keep exploratory research, personal notes, and temporary planning material in the parent workspace.
+
+## Package checks
+
+Run the package and installation suite when changing skill metadata, references, or the installer:
+
+```bash
+bun install --frozen-lockfile
+bun test
+```
+
+Use the pinned Bun toolchain and test setup described in [testing.md](docs/testing.md). The suite also runs in CI on Ubuntu and Windows. Required package checks should be enabled only after their first successful CI run.

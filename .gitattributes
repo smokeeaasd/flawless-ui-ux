@@ -5,6 +5,8 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.sh text eol=lf
+*.js text eol=lf
+bun.lock text eol=lf
 .gitattributes text eol=lf
 .gitignore text eol=lf
 
