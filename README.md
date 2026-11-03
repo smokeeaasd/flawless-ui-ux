@@ -2,7 +2,7 @@
 
 A portable UI/UX skill that guides coding agents from product context and visual direction through implementation, observation, and refinement.
 
-The initial skill package is implemented. OpenCode and Codex are the initial agent targets; end-to-end behavior evaluation is pending. See the [product contract](docs/product-contract.md) and [skill architecture](docs/skill-architecture.md) for its scope and organization.
+The initial skill package is implemented. Manual user testing has confirmed that the skill is identified in OpenCode and Codex; broader end-to-end behavior evaluation is pending. See the [product contract](docs/product-contract.md) and [skill architecture](docs/skill-architecture.md) for its scope and organization.
 
 ## Scope
 
@@ -23,7 +23,7 @@ bash ./install.sh --opencode
 bash ./install.sh --all-agents
 ```
 
-The default target is both agents. Existing installations are preserved; the installer refuses to overwrite them. On Windows, use Git Bash or WSL. The isolated installation smoke tests have been run with Git Bash; WSL has not been tested yet.
+The default target is both agents. Existing installations are preserved; the installer refuses to overwrite them. On Windows, use Git Bash or WSL. The Windows installation tests use Git Bash; WSL remains a separate, unverified environment.
 
 For a project-local installation, run the script from the target project's directory:
 
@@ -45,6 +45,6 @@ The skill selects guidance for the task and uses tools available in the host. It
 
 ## Validation status
 
-Package metadata, internal links and section references, and isolated project installations have passed authoring checks. The installation smoke tests cover the three agent options, paths containing spaces, complete file copies, and refusal to overwrite existing installations.
+The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.
 
-These checks establish package integrity. Natural-language activation, interface quality, and end-to-end behavior in the host agents still need evaluation.
+These checks establish package integrity. Manual skill identification is confirmed in both initial hosts, while systematic evaluation of invocation methods, interface quality, and end-to-end behavior remains pending.

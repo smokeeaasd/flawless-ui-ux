@@ -1,0 +1,26 @@
+{
+  "name": "flawless-ui-ux",
+  "version": "0.1.0-dev.0",
+  "description": "A UI/UX skill for coding agents to build distinctive, usable interfaces.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "bun@1.4.4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smokeeaasd/flawless-ui-ux.git"
+  },
+  "files": [
+    "skills/flawless-ui-ux/",
+    "install.sh",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "check:conventions": "bun scripts/check-conventions.js"
+  },
+  "devDependencies": {
+    "yaml": "2.9.1"
+  }
+}
