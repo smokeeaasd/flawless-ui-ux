@@ -2,6 +2,8 @@
 
 A portable UI/UX skill that guides coding agents from product context and visual direction through implementation, observation, and refinement.
 
+The [design philosophy](docs/product-contract.md#design-philosophy) connects product intent to specific visual decisions, treats function and expression as quality, and develops identity through refinement and observed evidence.
+
 The shared package implements creation, redesign, refinement, and review procedures, composed with guidance for data interfaces, forms and journeys, and content interfaces. See the [product contract](docs/product-contract.md), [workflow procedures](docs/workflow-procedures.md), and [skill architecture](docs/skill-architecture.md) for its scope and organization. Systematic host evaluation of the expanded workflows is pending.
 
 ## Scope
@@ -13,6 +15,7 @@ The shared package implements creation, redesign, refinement, and review procedu
 - Original visual studies for service offers, operational workspaces, editorial guides, and visual collections, with adaptation guidance and concrete design targets.
 - Product-fit decisions for composition, typography, density, and references, with scoped WCAG 2.2 accessibility acceptance and evidence-based review.
 - Refinement that preserves visual character, with an editorial pass for authorized copy changes and distinct checks for craft, scope, and informational repetition.
+- Conditional visual calibration for presence, competing emphasis, and finish, with proportional interventions and comparison against the existing intention.
 - Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - Visual review using capabilities available in the host agent.
 

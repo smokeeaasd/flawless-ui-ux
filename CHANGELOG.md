@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Product philosophy formalized in the existing contract and summarized in the skill entry point, covering context, function and expression, visual relationships, continuity, and evidence.
+- Conditional visual calibration guidance with original intervention examples and manual scenarios for presence, competing emphasis, ambiguous refinement, and scope preservation.
 - Original editorial examples and optional paired visual-only and copy-only refinement evaluations using a preserved creation baseline.
 - Four original design studies with local images, written anatomy, structural alternatives, adaptation, states, and quality targets for service offers, operational workspaces, editorial guides, and visual collections.
 - Contextual AI slop prevention reference with concrete signals, legitimate uses, alternatives, and verification across composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
@@ -27,6 +29,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Routed broad visual refinement to calibration while keeping clear local adjustments direct; connected craft and review without reopening identity or duplicating editorial responsibilities.
 - Rebalanced design guidance to preserve character and finish during refinement, allow contextual visual ambition without a named style, and separate copy cleanup from visual simplification. Recorded the steering audit and remaining behavioral validation.
 - Clarified deliberate font-family selection for new identities, separating intended typography from fallbacks and the families shown in instructional studies.
 - Reduced redundant action arrows in the visual studies and clarified meaningful directional cues; strengthened full-page review of repeated slogans while preserving useful information and brand voice.

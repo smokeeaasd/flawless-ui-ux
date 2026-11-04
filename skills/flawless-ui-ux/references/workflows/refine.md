@@ -16,7 +16,7 @@ If generic-looking output is part of the concern, use only the affected [prevent
 
 Identify the lever that addresses the cause: hierarchy, grouping, wording, state feedback, control behavior, or another relevant change. Decide how improvement will be checked and what could regress.
 
-Refinement can strengthen scale, contrast, rhythm, detail, or imagery as well as reduce friction. Preserve the existing character while improving the requested aspect. "More polished" or "enterprise" does not automatically mean quieter colors, lighter type, fewer visuals, or less content; use [Direction](../direction.md#fit-ambition-to-the-job) when that interpretation needs resolution, without reopening the identity.
+Use [Visual calibration](../calibration.md) for a broad visual request or unresolved problem in presence, hierarchy, expression, or finish. It connects the existing intention to a diagnosis, proportional intervention, and comparison. Clear local adjustments can use the relevant Craft section directly; copy-only and behavior-only work do not need calibration.
 
 Preserve colors, content, component structure, or behavior when the request fixes them. Text wrapping caused by an authorized type change can be necessary; changing the palette to solve the same problem is a separate decision. Compare alternatives only if their effects matter to the task.
 
@@ -29,6 +29,8 @@ Planning-only requests end with the diagnosed cause, proposed intervention, prot
 Reuse established tokens and accessible interaction primitives. Make necessary coupled changes inside the boundary, preserving unrelated content and product behavior. Do not create a new visual direction or project documentation as part of an ordinary focused adjustment.
 
 Check the improved aspect and its dependent states. Use real labels, values, and relevant content extremes. For changes to shared rules, inspect affected neighboring uses; for a local change, keep verification focused. Include the widths and input methods that can reveal regressions in this intervention.
+
+For calibrated work, compare the intended improvement and preserved character using the same content, states, and widths where evidence permits. A change in visual register alone does not establish success. Use [calibration comparison](../calibration.md#compare-the-result) for this check rather than restarting direction selection.
 
 When copy editing is authorized, use the [editorial pass](../tasks/content-interfaces.md#editorial-pass). If the request preserves wording or only concerns visual changes, retain it and report a material repetition problem separately. Copy cleanup and visual simplification are independent decisions.
 
