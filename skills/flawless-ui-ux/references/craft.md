@@ -16,6 +16,8 @@ Build hierarchy with a small set of meaningful roles. Adjust measure, size, weig
 
 Inspect real line breaks at narrow and wide sizes. Awkward last lines can often be improved by editing text, changing measure, or balancing a heading. Avoid forced line breaks that solve one viewport and damage another. Confirm that the intended font and weight actually load before judging spacing.
 
+Respect the change boundary when choosing that correction. If wording and outer layout are fixed, use permitted typography adjustments and check the resulting fit. A title, section heading, field label, and numeric summary need distinguishable roles; making every role larger does not necessarily improve their hierarchy.
+
 For numeric interfaces, align comparable values and consider tabular numerals. Preserve units and precision that affect decisions. For text-heavy surfaces, give paragraphs a bounded measure and clearly distinguish headings, body, and notes.
 
 ## Layout and spacing
@@ -23,6 +25,8 @@ For numeric interfaces, align comparable values and consider tabular numerals. P
 Choose an alignment structure and reuse it. Make the space within a group smaller than the space separating unrelated groups. Treat outer margins, reading widths, and component spacing as related decisions rather than a sequence of local fixes.
 
 Use containers when they communicate ownership, state, manipulation, or separation. A panel is useful when its boundary explains something. Nested containers that only repeat the same boundary usually consume room without adding meaning.
+
+Use the actual workload to set emphasis. In a repair queue, the record identity, status, and next action may deserve more attention than whole-queue summaries. Check whether a global token or selector change affects other components before using it to correct one local spacing problem.
 
 Inspect empty regions for intent. Whitespace can create focus and pacing; it can also expose missing content or a column that failed to use available width. Make the visual weight and reading order deliberate rather than filling every gap or removing every pause.
 
