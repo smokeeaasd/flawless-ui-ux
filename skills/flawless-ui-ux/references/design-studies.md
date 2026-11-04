@@ -13,6 +13,8 @@ Use a relevant study when choosing a new direction or resolving a composition pr
 
 A study is useful because of the relationship it solves, not its industry or style label. A quiet screen can be highly specific; an expressive screen can remain clear. The collection is deliberately small, not a complete vocabulary of styles. Existing brand material or a supplied reference may be a better basis.
 
+The families visible in these plates illustrate type roles, not a preferred font list. Choose the actual project's families using [Typography](craft.md#typography); do not copy a study's Arial or Georgia merely because it appears in the reference.
+
 ## Service offer
 
 [View the service study](../assets/design-studies/service.png).
