@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Workflow procedure specification covering intervention selection, task-specific decisions, preservation boundaries, evidence, completion criteria, and the next package implementation target.
 - Guided manual host evaluations with six design scenarios, static fixtures, discovery and baseline controls, a backend activation control, and an evidence-based rubric and report template.
 - Bun-based package and installation tests with isolated project/global destinations and preservation checks for existing files and links.
 - Ubuntu and Windows package CI, convention checks, and maintainer testing instructions using the pinned Bun toolchain.

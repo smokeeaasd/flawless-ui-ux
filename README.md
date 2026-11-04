@@ -43,6 +43,8 @@ Describe the result you want in ordinary language:
 
 The skill selects guidance for the task and uses tools available in the host. It can also be explicitly selected through the host's skill interface; in Codex, use `$flawless-ui-ux`.
 
+The next content revision is defined in the [workflow procedure specification](docs/workflow-procedures.md): complete creation, redesign, refinement, and review procedures with task-specific decisions and completion criteria. Implementation of that revision and its host evaluation are pending.
+
 ## Validation status
 
 The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.
