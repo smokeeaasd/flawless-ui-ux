@@ -2,7 +2,7 @@
 
 This specification defines the task-specific procedures implemented in flawless-ui-ux, supported by reusable design and interaction guidance. It develops the [product contract](product-contract.md) and [skill architecture](skill-architecture.md).
 
-**Status:** phases 1 and 2, definition and package implementation, are complete. The installed package contains the entry point, host metadata, four workflow guides, three task guides, eight subject references, and four original study images. Phase-3 behavioral evaluation of the expanded procedures remains pending; shipped instructions do not establish observed host outcomes.
+**Status:** phases 1 and 2, definition and package implementation, are complete. The installed package contains the entry point, host metadata, four workflow guides, three task guides, nine subject references, and four original study images. Phase-3 behavioral evaluation of the expanded procedures remains pending; shipped instructions do not establish observed host outcomes.
 
 ## 1. Operating model
 
@@ -13,6 +13,8 @@ Backend-only work and repository administration without an interface-design inte
 The procedures support task decisions without requiring conspicuous originality. A straightforward, coherent interface can be complete. Symbolic concepts, unusual layouts, and expressive copy follow the brief rather than being required for every creation; headings and explanations default to concrete content.
 
 Visual ambition can be inferred from the product, audience, and material without a named style in the request. Functional correctness is a baseline; requested composition, visual character, and finish remain part of completion. Refinement can strengthen those qualities as well as simplify an overloaded region. The [guidance review](design-guidance-review.md) records steering risks addressed in the current package. Copy changes use a concrete editorial pass and respect whether wording is inside the intervention.
+
+The [design philosophy](product-contract.md#design-philosophy) establishes context, combined functional and visual quality, relationships, continuity, and observed evidence as the shared basis. Broad visual refinement uses [calibration](../skills/flawless-ui-ux/references/calibration.md) when diagnosis is needed: recover intention, locate the difference, choose a proportional intervention, and compare improvement with preserved character. These are decision dependencies, not new public commands or required stage reports. Clear local adjustments use the relevant craft guidance directly.
 
 Positive studies connect references to concrete design targets: opening composition, information order, type and color roles, assets, states, and narrow-screen behavior. Creation and redesign use an appropriate existing reference or study when it resolves a decision, then compare the implementation against the target. Local additions inherit the visual system. Studies are neither mandatory templates nor a fixed style-selection ceremony; generated mockups remain optional host capabilities.
 
@@ -199,8 +201,9 @@ The installed skill includes these resources under its `references/` directory:
 | `tasks/content-interfaces.md` | Separate persuasion, reading, and exploration sections with concrete content and navigation decisions |
 | `anti-slop.md` | Preventive and diagnostic signals, legitimate counterexamples, alternatives, scope, and evidence |
 | `design-studies.md` | Positive studies, structural alternatives, product adaptation, and concrete design targets; links to four original images in `assets/design-studies/` |
+| `calibration.md` | Conditional visual refinement diagnosis, intervention, original examples, and comparison within the existing identity |
 
-The package contains twenty-one files: the entry point, metadata, four workflows, three task guides, eight subject references, and four study images. All runtime guidance is implemented inside the installed package; this repository document is not a runtime dependency.
+The package contains twenty-two files: the entry point, metadata, four workflows, three task guides, nine subject references, and four study images. All runtime guidance is implemented inside the installed package; this repository document is not a runtime dependency.
 
 Load the selected workflow once and reuse it while it remains current. Load task sections when they affect decisions and subject sections when their details are needed. Entry links must make the workflow and applicable task sections directly discoverable; no chain should force reading every guide. Narrow refinement and review can omit a task guide when relevant subject guidance is sufficient.
 

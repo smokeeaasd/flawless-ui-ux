@@ -14,6 +14,10 @@ Subsequent feedback reported overly plain refinements and continuing slogan repe
 
 For changes to positive design guidance, use cases 01 and 02 for creation and redesign, paired with 05 for brand preservation and 06 for unavailable browser tools. Keep tasks, model, tool availability, and settings fixed when comparing revisions; use independent sessions and fresh fixtures. Record observable reference use, the concrete target, adaptation to the product, drift in the implementation, and verification gaps using the rubric. Do not introduce image-generation access in only one arm or treat copied study styling as improvement. These focused runs supplement the full matrix below and have not been performed.
 
+### Focused calibration round
+
+Use [10 Visual calibration](cases/10-visual-calibration.md) for four independent runs from the existing fixtures: strengthen presence, redistribute competing emphasis, interpret ambiguous refinement, and edit wording without restyling. Runs A and D pair visual-only and copy-only boundaries on unchanged brand-page copies. Record both the specific improvement and the identity retained using matched content, states, and widths where possible. These runs remain pending; no source audit or package test substitutes for their observations.
+
 ## Cases and run matrix
 
 | Case | Starting project | Main observation |
@@ -27,6 +31,7 @@ For changes to positive design guidance, use cases 01 and 02 for creation and re
 | [07 Backend control](cases/07-backend-control.md) | [Backend](fixtures/backend/) | An unrelated task does not activate UI/UX guidance |
 | [08 Contextual prevention](cases/08-anti-slop-redesign.md) | [Restoration page](fixtures/restoration-page/) | Replace unconsidered decisions while preserving substance, facts, and functionality |
 | [09 Refinement continuity](cases/09-refinement-continuity.md) | Preserved completed case-01 output | Optional independent visual-only and copy-only follow-ups; character and scope survive targeted improvement |
+| [10 Visual calibration](cases/10-visual-calibration.md) | Fresh brand-page and dashboard copies | Optional presence, competing emphasis, ambiguous refinement, and complementary scope controls |
 
 Run this matrix separately in each host:
 
@@ -37,7 +42,7 @@ Run this matrix separately in each host:
 | Case 01, fresh project | No skills enabled | Baseline; identical natural-language task |
 | Case 07 | Only flawless-ui-ux enabled | Natural language; negative control |
 
-The core matrix is ten runs per host, twenty total; optional case 09 adds two follow-ups per host when a suitable preserved baseline exists. Start with case 03 in each host as the loading smoke check; successful smoke runs count toward the matrix. If loading cannot be established, investigate before spending time on the remaining cases. Preserve failed attempts as separate records.
+The core matrix is ten runs per host, twenty total. Optional case 09 adds two follow-ups per host when a suitable preserved baseline exists; optional case 10 adds four fixture-based runs per host. Start with case 03 in each host as the loading smoke check; successful smoke runs count toward the matrix. If loading cannot be established, investigate before spending time on the remaining cases. Preserve failed attempts as separate records.
 
 For a focused prevention round, use cases 01, 08, and 05: creation, replacement of a generic prototype, and intentional brand preservation. Add scope or review controls when shared changes affect them. The full matrix is not required for every small instruction change. All runs remain pending until their actual observations are recorded.
 

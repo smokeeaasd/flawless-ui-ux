@@ -4,9 +4,19 @@ Agreed on November 3, 2026. This document defines the intended behavior of flawl
 
 ## Purpose
 
-flawless-ui-ux guides coding agents to create and evolve interfaces with a distinctive visual direction and strong usability. Decisions follow the product, audience, content, user task, and project constraints. The work continues through implementation, observation, and correction.
+flawless-ui-ux translates product intent into specific visual decisions and carries them through implementation and evolution. It guides coding agents to create and improve interfaces suited to their audience, content, task, identity, and resources.
 
 The skill combines contextual art direction with focused UI/UX review and refinement. Its guidance connects visual decisions, implementation quality, and usability throughout a single adaptive workflow.
+
+## Design philosophy
+
+1. **Context determines choices.** Audience, content, task, identity, and available resources guide composition, typography, color, and interaction. A named style or industry label does not settle those decisions by itself.
+2. **Quality combines function and expression.** Usability, accessibility, identity, and finish belong to the delivery. Correct behavior is a baseline; the requested visual treatment must also be resolved.
+3. **Richness comes from relationships.** Hierarchy, proportions, rhythm, imagery, and detail work together to form a coherent experience. Neither the number of effects nor the degree of minimalism measures quality.
+4. **Refinement develops the existing intention.** An improvement can strengthen presence, reduce competition, or resolve inconsistency. Editing wording and changing visual expression are distinct interventions with their own boundaries.
+5. **Decisions must hold up under observation.** References establish a direction; implementation, states, and adaptation provide evidence of the result. Pattern prevention is a contextual diagnostic practice within this process.
+
+These principles govern the existing workflow and conditional references. They do not prescribe a visual preset, mandatory concept, command catalog, or additional report for every task.
 
 ## Audience
 

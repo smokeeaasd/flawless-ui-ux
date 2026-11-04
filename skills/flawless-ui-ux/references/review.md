@@ -27,7 +27,7 @@ Begin with the visitor's task and the requested intervention. Check the relevant
 6. **Behavior:** do relevant controls, states, keyboard paths, and recovery actions work?
 7. **Adaptation:** do small screens, long content, and changed states preserve meaning and access?
 
-For creation and visual refinement, inspect both the requested improvement and the character retained. A reduction in color, density, or ornament is a change, not evidence of improvement by itself. A larger visual gesture is not proof of quality either. Compare concrete hierarchy, proportions, imagery, and detail with the intended experience; relevant finish remains part of the deliverable after task and access failures are corrected.
+For creation and visual refinement, inspect both the requested improvement and the character retained. A reduction in color, density, or ornament is a change, not evidence of improvement by itself. A larger visual gesture is not proof of quality either. Compare concrete hierarchy, proportions, imagery, and detail with the intended experience; relevant finish remains part of the deliverable after task and access failures are corrected. For work that used [Visual calibration](calibration.md), check the diagnosed difference and chosen intervention without requiring calibration for every review or local fix.
 
 For a full page, inspect beyond the first viewport. For a focused component change, inspect its surrounding context and likely regressions without expanding into a whole-product redesign. Use the applicable [Surface](surfaces.md) priorities to distinguish intentional density or expression from a defect.
 

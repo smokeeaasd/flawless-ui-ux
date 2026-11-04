@@ -10,7 +10,8 @@ The [workflow procedures](workflow-procedures.md) define the complete interventi
 |---|---|
 | One skill named `flawless-ui-ux` | Users describe their goal in ordinary language through one entry point. |
 | One shared package for OpenCode and Codex | Design guidance stays consistent across hosts. |
-| A concise `SKILL.md`, four workflow guides, three task guides, and eight subject references | Shared decisions are immediately available; conditional detail is loaded when useful. |
+| A concise `SKILL.md`, four workflow guides, three task guides, and nine subject references | Shared decisions are immediately available; conditional detail is loaded when useful. |
+| Philosophy in the existing contract, summarized in the entry point | Intent, quality, relationships, continuity, and evidence guide decisions without another always-loaded manifesto. |
 | Original design studies with four local reference images | Positive examples make composition and quality targets inspectable without an external service. |
 | Guidance selected by intervention, surface purpose, and task structure | The procedure governs scope; the purpose governs priorities; the work behind the screen supplies concrete decisions and checks. |
 | Host-provided editing, browser, and image capabilities | The skill does not need an execution engine or browser integration of its own. |
@@ -37,6 +38,7 @@ skills/
     │       └── collection.png
     └── references/
         ├── anti-slop.md
+        ├── calibration.md
         ├── context.md
         ├── direction.md
         ├── design-studies.md
@@ -55,7 +57,7 @@ skills/
             └── content-interfaces.md
 ```
 
-These twenty-one files form the self-contained installable package. The [procedure package description](workflow-procedures.md#7-package-implementation-target) records the workflow, task, and supporting resources. Add supporting resources only when they change useful decisions; do not create empty scaffolds for future resources.
+These twenty-two files form the self-contained installable package. The [procedure package description](workflow-procedures.md#7-package-implementation-target) records the workflow, task, and supporting resources. Add supporting resources only when they change useful decisions; do not create empty scaffolds for future resources.
 
 | Location | Responsibility | Included in installation |
 |---|---|---|
@@ -101,6 +103,7 @@ Detailed typography rules, examples, state handling, and review procedures live 
 |---|---|---|
 | `context.md` | Extracting the product brief; inspecting existing visual decisions, content, assets, and constraints; separating facts from assumptions | A new surface, redesign, or significant gap in project understanding requires investigation |
 | `direction.md` | Developing a product-specific concept; comparing useful alternatives; composing the page argument; choosing visual roles and imagery | Creating a visual direction or intentionally replacing one |
+| `calibration.md` | Recovering an existing visual intention, diagnosing presence, competition, or finish, selecting a proportional intervention, and comparing results | A broad visual refinement or unresolved hierarchy/expression problem needs diagnosis; clear local, copy-only, and behavior-only changes bypass it |
 | `design-studies.md` | Original positive examples, structural alternatives, complete-system relationships, adaptation, and observable quality targets | A new direction or composition problem benefits from a concrete reference; read only useful studies |
 | `surfaces.md` | Purpose-specific priorities for persuasion, task execution, reading, and exploration | The surface's purpose changes composition or interaction decisions; read its relevant section |
 | `craft.md` | Hierarchy, typography, layout, spacing, color, imagery, and responsive composition | Implementing or refining those visual aspects; read the relevant sections |
@@ -117,6 +120,7 @@ Each reference explains its purpose, decision criteria, concrete failure signals
 ### Ownership rules
 
 - `context.md` establishes what is true and what must remain; `direction.md` decides how to express it.
+- `calibration.md` develops an existing intention within refinement; it does not replace the identity or own copy editing. Craft and interaction references supply execution details, and review owns evidence distinctions.
 - `surfaces.md` establishes priorities for the visitor's job; `craft.md` and `interaction.md` address execution.
 - Responsive composition belongs in `craft.md`; responsive control behavior belongs in `interaction.md`.
 - `review.md` owns review and evidence reporting. Other references can link to it instead of repeating its procedure.

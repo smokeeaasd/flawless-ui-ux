@@ -1,6 +1,6 @@
 # Craft
 
-Read the sections relevant to the visual change. Preserve existing tokens and component conventions unless replacing them is part of the intervention.
+Read the sections relevant to the visual change. Preserve existing tokens and component conventions unless replacing them is part of the intervention. If a broad refinement goal still needs diagnosis, use [Visual calibration](calibration.md); a clear execution problem can be resolved here directly.
 
 For concrete warning signals and legitimate counterexamples, use the relevant [prevention sections](anti-slop.md), especially [visual language](anti-slop.md#visual-language-and-system-fit) and [typography](anti-slop.md#typography-and-emphasis). Evaluate their consequences in the actual composition rather than banning a font, effect, or layout by name.
 
