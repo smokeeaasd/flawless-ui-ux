@@ -25,6 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Reduced pressure for symbolic concepts and conspicuous originality; clarified that conventional layouts and descriptive copy can be complete outcomes, with targeted prevention guidance instead of exhaustive style checks.
 - Integrated prevention into direction and post-implementation review, with scoped use during refinement and read-only critique while preserving product truth, brand choices, and useful substance.
 - Routed the shared skill by intervention, surface purpose, and task structure, with conditional loading and support for planning-only and mixed requests.
 - Deepened subject references with information/action modeling, structural direction, proportional visual changes, state feedback, and task-specific review evidence.

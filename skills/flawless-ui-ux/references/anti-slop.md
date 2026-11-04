@@ -1,10 +1,12 @@
 # AI slop prevention
 
-Use when establishing a direction, replacing an incumbent treatment, or investigating generic-looking output. During refinement and review, read only the sections relevant to the authorized target. Treat the signals below as prompts for a decision: a familiar visual device alone does not establish poor quality or AI authorship.
+Use the relevant section when a concrete concern about output needs investigation. This is a diagnostic reference, not a checklist to load or satisfy in full before designing. A familiar visual device alone does not establish poor quality or AI authorship.
 
 ## Apply within the intervention
 
 Before implementing a new direction, connect its major choices to the product, audience, content, or task. After implementation, inspect whether those choices actually work. Keep an explicit brand decision unless replacing it is authorized; correct its readability or behavior within the allowed scope.
+
+Clarity, working behavior, and coherent execution are sufficient goals. Do not add an elaborate concept or force a visibly unusual result to prove intentionality. A restrained or expressive treatment can both be appropriate; preserve the model's reasonable choices when no concrete problem is established.
 
 For a suspected pattern, establish:
 
@@ -54,6 +56,8 @@ One family can support a complete hierarchy. Familiar system fonts can suit a pr
 Name what the visitor can do, what they receive, and the confirmed constraint or consequence. For a restoration service, an agreed written estimate explains more than an unsupported claim of exceptional innovation. Remove repeated text when it answers no additional question, while retaining useful instructions and field-specific help.
 
 Expressive copy can support the product's voice. Preserve it when the subject, offer, and next action remain understandable. A verified business figure may be important; an illustrative number must be identified as sample content. Neither novelty nor an attractive arrangement makes unsupported proof acceptable.
+
+Default to descriptive section headings and direct explanations. A product name, requested custom identity, or evocative opening is not a reason to turn every section into another tagline. Keep useful supplied wording and edit only what needs improvement.
 
 **Check:** trace material claims to supplied facts and controls to actual outcomes. Inspect error, pending, and completion wording too. A demo must describe the local result without claiming a request, payment, email, or persisted update occurred.
 

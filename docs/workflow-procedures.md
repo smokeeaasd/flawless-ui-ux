@@ -10,6 +10,8 @@ A user supplies an outcome, such as developing a subscription-management screen 
 
 Backend-only work and repository administration without an interface-design intervention remain outside this workflow.
 
+The procedures support task decisions without requiring conspicuous originality. A straightforward, coherent interface can be complete. Symbolic concepts, unusual layouts, and expressive copy follow the brief rather than being required for every creation; headings and explanations default to concrete content.
+
 Selection combines three independent decisions:
 
 | Decision | Question | Effect |

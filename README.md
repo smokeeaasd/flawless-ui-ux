@@ -53,6 +53,8 @@ Procedure selection is internal to the skill. Each procedure defines the investi
 
 [AI slop prevention](skills/flawless-ui-ux/references/anti-slop.md) is part of direction and review. It connects concrete warning signals to their consequences, legitimate uses, alternatives, and verification, while preserving intentional brand choices and useful content. It does not assign authorship from appearance or require a particular visual style.
 
+Use the relevant prevention sections for concrete concerns rather than an exhaustive style check. Clear conventional layouts and descriptive copy are valid outcomes; custom design does not require symbolic concepts or slogans throughout the page.
+
 ## Validation status
 
 The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.

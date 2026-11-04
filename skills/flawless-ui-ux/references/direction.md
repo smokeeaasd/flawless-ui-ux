@@ -4,13 +4,13 @@ Use this reference for creation or intentional replacement of a visual direction
 
 ## Turn the subject into a decision
 
-Identify what gives this product its particular character: its output, audience, operating constraint, material, place, process, or way of organizing information. Connect one of those facts to a visible decision.
+Start with the task, actual content, existing identity, and implementation constraints. Establish readable hierarchy, useful grouping, and coherent visual roles. A new screen does not automatically need a symbolic concept or a novel visual language.
 
-For example, a service that repairs instruments can organize its page around the instrument's diagnosis and repair record. A dispatch dashboard can organize around the next intervention and its urgency. Each concept changes what information leads, how sections relate, and what the visitor can do.
+When the brief calls for a more expressive direction, use relevant product characteristics to guide consequential choices. That can affect composition, imagery, or emphasis without becoming a metaphor in every heading. The meaning of a product name alone is not an instruction to build a visual narrative around it.
 
-Write a short working direction: **what the interface emphasizes, why it belongs to this product, and how that changes composition or behavior.** Adjectives such as premium, clean, or modern need concrete decisions to become useful.
+Keep the working direction practical: what leads, how information relates, which visual decisions are fixed, and how the screen adapts. Resolve vague aesthetic requests through concrete choices without adding a manifesto or expanding the page's copy.
 
-Test whether replacing the product name would leave the direction equally convincing. If so, look for a more specific source in the brief. A well-executed convention is still appropriate when recognition and efficient operation are the task's priorities.
+Specificity can come from accurate content, appropriate data, and useful interactions within a familiar layout. Do not force differentiation by changing sound conventions, adding effects, or inventing a more elaborate theme.
 
 ## Build the content argument
 
@@ -18,7 +18,7 @@ Before arranging sections, identify the visitor's questions and the content that
 
 Let those relationships determine order and layout. Do not add testimonials, pricing columns, metric tiles, or a feature grid solely because a familiar template contains them. Conversely, do not remove useful information merely to produce a cleaner picture.
 
-Use headings and actions that name real content. When a feature is visual, show the actual feature or its output if available. A picture should demonstrate, explain, orient, or establish character; decoration has to earn the attention it consumes.
+Use headings and actions that name real content. Let section headings identify their subject; use promotional language only where it communicates something useful and fits the requested voice. Preserve good supplied copy instead of rewriting every section into slogans. When a feature is visual, show its actual output if available.
 
 Turn that argument into a concrete structure before polishing it: which region carries the current state, which supports comparison or explanation, where the action belongs, and what changes after it. On a plan-change screen, current subscription, eligible alternatives, and confirmed consequences have different roles; making them three equally emphasized panels can obscure the decision. Inherit the established visual language when the screen belongs to an existing product.
 
@@ -35,7 +35,7 @@ Decide the roles together:
 
 An expressive first screen needs a coherent continuation. Carry the concept through navigation, details, forms, and lower sections without forcing every region into the same composition.
 
-Use [prevention guidance](anti-slop.md#composition-and-substance) to challenge interchangeable structures and inspect the relevant visual-language or copy sections before settling the direction. Replace unconsidered decisions with product-specific ones while preserving useful conventions and explicit brand choices.
+Use relevant [prevention guidance](anti-slop.md#composition-and-substance) when there is a concrete concern about structure or expression. A familiar structure that serves the content does not need replacement. Avoid exhaustive pattern hunting or restyling merely to demonstrate that the guide was applied.
 
 Compare alternatives when there is a real choice to resolve, such as demonstration-led versus comparison-led content. Make their structural tradeoffs visible. Do not generate a fixed number of themes or interrupt routine implementation with an unnecessary selection ceremony.
 
@@ -45,6 +45,6 @@ Use the priorities in [Surfaces](surfaces.md) when the visitor's purpose affects
 
 Plan around available resources. A concept that depends on nonexistent photography must adapt or acquire suitable assets within scope. Motion can strengthen a concept, but essential meaning and actions must remain available without its reveal sequence.
 
-Before implementing, be able to explain the dominant decision, its relationship to the subject, and what it helps the visitor accomplish. Then use relevant [Craft](craft.md) and [Interaction](interaction.md) sections to execute it.
+Before implementing, understand the information order, useful action, and applicable visual constraints. Use relevant [Craft](craft.md) and [Interaction](interaction.md) sections where their detail is needed.
 
 Carry a few task-specific acceptance cases with the direction. They should establish whether the intended structure and behavior serve the visitor, not whether the result matches a favored template. The selected workflow owns implementation and completion; this reference supplies the visual and structural decisions it needs.

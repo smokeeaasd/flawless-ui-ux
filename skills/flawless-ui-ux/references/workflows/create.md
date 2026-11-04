@@ -25,11 +25,11 @@ These are working decisions, not required project files. A small independent com
 
 ## Give the solution a direction
 
-Use [Direction](../direction.md) when the surface needs a new visual approach. Tie a consequential decision to a particular fact about the product: a repair service can lead with the repair process; an operations queue can lead with the next intervention. Set composition, hierarchy, density, type, color, imagery, and interaction together.
+Use [Direction](../direction.md) for unresolved visual decisions. Prioritize content, hierarchy, appropriate density, and recognizable controls. A new page can use established patterns; create a more expressive concept when the brief warrants it, without turning the product name or ordinary features into recurring slogans.
 
 Within an existing system, express the task through its established tokens and primitives. A new settings screen does not need a new brand. Explore alternatives only when there is a meaningful structural or visual choice, and explain the tradeoff rather than producing a fixed number of themes.
 
-Before committing to that direction, use the relevant [prevention guidance](../anti-slop.md): examine whether composition, emphasis, copy, and effects explain this subject or merely fill familiar slots. Retain meaningful brand decisions and useful content while replacing unconsidered defaults.
+Use relevant [prevention guidance](../anti-slop.md) if a concrete concern needs investigation. Retain useful conventions, brand decisions, and content. The guide does not require an exhaustive style audit or a conspicuously original treatment.
 
 For a planning-only request, complete the applicable solution and direction decisions, then return the outline and proposed checks. Stop before implementation and do not claim those checks ran.
 

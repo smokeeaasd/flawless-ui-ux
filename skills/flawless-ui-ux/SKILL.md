@@ -5,7 +5,7 @@ description: Create, redesign, refine, or review web interfaces with contextual 
 
 # Flawless UI/UX
 
-Turn the requested interface goal into a complete, usable result. Select the procedure for the intervention, model the work behind the screen, and carry it through implementation, observation, and correction. Make the visual decisions belong to the product. Scale the process to the intervention.
+Help the visitor understand and complete the requested task. Use the existing project context, preserve sound decisions, and improve clarity, behavior, and visual coherence. Scale investigation and guidance to what the work actually needs.
 
 ## Select the procedure
 
@@ -55,7 +55,8 @@ Use short working notes for the task basis, solution, and acceptance cases; keep
 
 - Explicit user choices take precedence over the skill's aesthetic preferences. Preserve established identity during refinement.
 - Tie visual choices to content, brand, task, or experience. A familiar font, gradient, card, or layout is a reason to examine its purpose, not an automatic defect.
-- Apply prevention before committing to a new direction and when reviewing its result. Preserve intentional brand choices and useful substance; identify a pattern's consequence before treating it as a defect. Appearance does not prove AI authorship.
+- Use prevention guidance when a relevant concern needs investigation; it is not an exhaustive checklist for every edit. Preserve intentional brand choices and useful substance. Appearance does not prove AI authorship.
+- A familiar, well-executed solution can be the finished result. Expressiveness, novelty, and minimalism are choices governed by the brief, not quality requirements. Prefer descriptive headings and concrete copy over recurring slogans.
 - Do not invent testimonials, customers, awards, business metrics, or other proof. Identify sample content that needs confirmation; never present a decorative control as a working integration.
 - Keep controls understandable, content accessible, and responsive behavior appropriate to the task. Do not expand a focused request into an unrelated audit.
 - Report only checks and observations actually performed. A screenshot cannot establish keyboard behavior or full accessibility compliance.
