@@ -17,17 +17,20 @@ The user previously confirmed skill identification in both hosts and reported a 
 | [05 Brand preservation](cases/05-brand-preservation.md) | [Brand page](fixtures/brand-page/) | Explicit visual choices survive usability improvements |
 | [06 No browser](cases/06-no-browser.md) | Empty directory | Useful implementation and accurate verification limits |
 | [07 Backend control](cases/07-backend-control.md) | [Backend](fixtures/backend/) | An unrelated task does not activate UI/UX guidance |
+| [08 Contextual prevention](cases/08-anti-slop-redesign.md) | [Restoration page](fixtures/restoration-page/) | Replace unconsidered decisions while preserving substance, facts, and functionality |
 
 Run this matrix separately in each host:
 
 | Runs | Skill availability | Invocation |
 |---|---|---|
-| Cases 01–06, once each | Only flawless-ui-ux enabled | Explicit |
+| Cases 01–06 and 08, once each | Only flawless-ui-ux enabled | Explicit |
 | Case 01, fresh project | Only flawless-ui-ux enabled | Natural language |
 | Case 01, fresh project | No skills enabled | Baseline; identical natural-language task |
 | Case 07 | Only flawless-ui-ux enabled | Natural language; negative control |
 
-This is nine runs per host, eighteen total. Start with case 03 in each host as the loading smoke check; successful smoke runs count toward the matrix. If loading cannot be established, investigate before spending time on the remaining cases. Preserve failed attempts as separate records.
+The full matrix is ten runs per host, twenty total. Start with case 03 in each host as the loading smoke check; successful smoke runs count toward the matrix. If loading cannot be established, investigate before spending time on the remaining cases. Preserve failed attempts as separate records.
+
+For a focused prevention round, use cases 01, 08, and 05: creation, replacement of a generic prototype, and intentional brand preservation. Add scope or review controls when shared changes affect them. The full matrix is not required for every small instruction change. All runs remain pending until their actual observations are recorded.
 
 ## Prepare the environment
 
@@ -49,7 +52,7 @@ git init -q
 bash "$flawless_repo/install.sh" --codex --project
 ```
 
-For OpenCode use `--opencode`, in a different directory. Use `brand-page` or `backend` for their cases; omit the copy for empty-project cases. Omit installation for the baseline, and also disable any globally available copy. The installer preserves existing destinations, so use a fresh directory rather than trying to reinstall over a previous run.
+For OpenCode use `--opencode`, in a different directory. Use `brand-page`, `backend`, or `restoration-page` for their cases; omit the copy for empty-project cases. Omit installation for the baseline, and also disable any globally available copy. The installer preserves existing destinations, so use a fresh directory rather than trying to reinstall over a previous run.
 
 ### Skill isolation and invocation
 

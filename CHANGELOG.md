@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Contextual AI slop prevention reference with concrete signals, legitimate uses, alternatives, and verification across composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
+- A manual prevention redesign case and restoration-page fixture, paired with intentional brand preservation and evaluated through task evidence rather than pattern counts.
 - Four complete workflow guides for creation, redesign, refinement, and read-only review, with decision sequences, scope boundaries, completion criteria, and worked examples.
 - Task guidance for data interfaces, forms and journeys, and persuasion, reading, and exploration paths, including concrete states and verification cases.
 - Workflow procedure specification covering intervention selection, task-specific decisions, preservation boundaries, evidence, completion criteria, and the next package implementation target.
@@ -23,6 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Integrated prevention into direction and post-implementation review, with scoped use during refinement and read-only critique while preserving product truth, brand choices, and useful substance.
 - Routed the shared skill by intervention, surface purpose, and task structure, with conditional loading and support for planning-only and mixed requests.
 - Deepened subject references with information/action modeling, structural direction, proportional visual changes, state feedback, and task-specific review evidence.
 - Recorded implementation of the fifteen-file procedure package separately from pending behavioral evaluation of the expanded workflows.

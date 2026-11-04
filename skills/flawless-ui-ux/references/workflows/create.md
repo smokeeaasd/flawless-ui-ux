@@ -29,6 +29,8 @@ Use [Direction](../direction.md) when the surface needs a new visual approach. T
 
 Within an existing system, express the task through its established tokens and primitives. A new settings screen does not need a new brand. Explore alternatives only when there is a meaningful structural or visual choice, and explain the tradeoff rather than producing a fixed number of themes.
 
+Before committing to that direction, use the relevant [prevention guidance](../anti-slop.md): examine whether composition, emphasis, copy, and effects explain this subject or merely fill familiar slots. Retain meaningful brand decisions and useful content while replacing unconsidered defaults.
+
 For a planning-only request, complete the applicable solution and direction decisions, then return the outline and proposed checks. Stop before implementation and do not claim those checks ran.
 
 ## Build a working slice, then complete the target
@@ -40,6 +42,8 @@ Use the relevant [Craft](../craft.md) and [Interaction](../interaction.md) secti
 ## Observe, correct, and finish
 
 Use [Review](../review.md) to distinguish source, rendered, interaction, and project-check evidence. Verify the primary path, an applicable recovery or alternate path, supplied facts, and representative wide and narrow layouts when capabilities permit. Inspect the complete target, including content beyond its first screen. Correct task and access failures before comprehension and finish; rerun affected checks after the final change.
+
+Recheck the relevant prevention signals against the implemented result. Removing decorative layers must leave a complete, usable interface rather than an empty substitute. Report only effects supported by the available evidence.
 
 **Completion:** the requested surface supports its task, relevant content and states are complete, and material in-scope issues are resolved or explicitly reported. Summarize consequential decisions, performed checks, and limitations. Unavailable rendering remains unverified; a successful build does not establish it.
 

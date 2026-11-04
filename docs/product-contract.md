@@ -73,6 +73,7 @@ The following practices enrich the core workflow:
 - Clear UX writing, responsive behavior, accessibility, empty states, loading states, and error handling where relevant.
 - Prioritized critique that connects each finding to its effect on the user or product.
 - An explicit distinction between refinement and replacement of a visual direction.
+- Contextual prevention of generic output through recognizable signals, task consequences, legitimate uses, alternatives, and verification throughout direction and review.
 
 A supporting practice belongs in flawless-ui-ux when it improves a decision or the execution of a step in the core workflow and serves the product's goals.
 

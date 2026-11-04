@@ -10,6 +10,8 @@ Translate a vague symptom into something actionable: equally emphasized text can
 
 Choose only guidance that changes this intervention. Typography may need the relevant [Craft](../craft.md#typography) section and focused verification. A filter or submission change may need the relevant task and [Interaction](../interaction.md) sections. Do not load an entire dashboard or journey procedure for a heading adjustment.
 
+If generic-looking output is part of the concern, use only the affected [prevention sections](../anti-slop.md). Establish a consequence within the target and preserve intentional treatments. The presence of another familiar pattern elsewhere does not widen this request.
+
 ## Choose a proportional intervention
 
 Identify the lever that addresses the cause: hierarchy, grouping, wording, state feedback, control behavior, or another relevant change. Decide how improvement will be checked and what could regress.

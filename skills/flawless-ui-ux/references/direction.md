@@ -35,6 +35,8 @@ Decide the roles together:
 
 An expressive first screen needs a coherent continuation. Carry the concept through navigation, details, forms, and lower sections without forcing every region into the same composition.
 
+Use [prevention guidance](anti-slop.md#composition-and-substance) to challenge interchangeable structures and inspect the relevant visual-language or copy sections before settling the direction. Replace unconsidered decisions with product-specific ones while preserving useful conventions and explicit brand choices.
+
 Compare alternatives when there is a real choice to resolve, such as demonstration-led versus comparison-led content. Make their structural tradeoffs visible. Do not generate a fixed number of themes or interrupt routine implementation with an unnecessary selection ceremony.
 
 ## Fit ambition to the job

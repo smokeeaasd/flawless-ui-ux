@@ -33,6 +33,8 @@ Check the task's concrete acceptance cases, not just its visual categories. A fi
 
 For a redesign, compare corresponding content, states, and widths when baseline evidence exists. Verify that the result addresses the stated objective while preserving protected decisions. Record absent before/after evidence as a limitation rather than inventing a visual history.
 
+Use [AI slop prevention](anti-slop.md) to investigate concrete composition, visual, copy, imagery, and behavior signals. Report the observed consequence and appropriate correction; retain intentional choices that serve the task. Neither eliminating every familiar device nor an authorship label is a review objective. After cleanup, verify that substance, actions, and protected identity remain intact.
+
 ## Prioritize and correct
 
 Classify findings by effect rather than personal preference:

@@ -24,6 +24,8 @@ Do not average these statuses into a design score. An observed scope violation o
 
 Apply criteria within the authorized intervention. Unchanged fixture defects outside a typography-only request do not become refinement failures. For a review-only run, judge the specificity, priority, user impact, and suggested correction of findings. The source remains intentionally unchanged; do not fail the reviewer because it did not repair the fixture. For the backend control, interface craft and usability are unobserved because they do not apply.
 
+For prevention cases, connect each relevant signal to a task consequence and the decision to retain, adapt, or replace it. Intentional brand treatments and useful conventional patterns can remain. Removing facts, controls, or substance to reduce decoration is a failure of the corresponding criterion. A different fashionable style, a zero-pattern count, or an AI-authorship assertion does not establish improvement.
+
 ## Evidence levels
 
 Label each observation as **static inspection**, **rendered inspection**, **interaction**, or **automated check**. Include the actor: agent or evaluator. Keep these levels separate in the report.

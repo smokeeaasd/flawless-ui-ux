@@ -1,6 +1,6 @@
 ---
 name: flawless-ui-ux
-description: Create, redesign, refine, or review web interfaces with contextual art direction and UI/UX guidance.
+description: Create, redesign, refine, or review web interfaces with contextual art direction, task-specific workflows, and AI slop prevention.
 ---
 
 # Flawless UI/UX
@@ -44,6 +44,7 @@ References are relative to this skill directory. Read only the subject sections 
 |---|---|
 | Establish a brief, inspect existing constraints, or resolve an asset gap | [Context](references/context.md) |
 | Choose or replace a visual direction | [Direction](references/direction.md) |
+| Prevent generic defaults or investigate visual and content patterns | Relevant sections of [AI slop prevention](references/anti-slop.md), during direction and affected review |
 | Adjust visual execution | Relevant sections of [Craft](references/craft.md): [hierarchy](references/craft.md#hierarchy), [typography](references/craft.md#typography), [layout](references/craft.md#layout-and-spacing), [color](references/craft.md#color), [imagery](references/craft.md#imagery), [responsive composition](references/craft.md#responsive-composition) |
 | Change controls, wording, accessibility, states, or motion | The relevant sections of [Interaction](references/interaction.md) |
 | Critique an interface or verify a change | [Review](references/review.md) |
@@ -54,6 +55,7 @@ Use short working notes for the task basis, solution, and acceptance cases; keep
 
 - Explicit user choices take precedence over the skill's aesthetic preferences. Preserve established identity during refinement.
 - Tie visual choices to content, brand, task, or experience. A familiar font, gradient, card, or layout is a reason to examine its purpose, not an automatic defect.
+- Apply prevention before committing to a new direction and when reviewing its result. Preserve intentional brand choices and useful substance; identify a pattern's consequence before treating it as a defect. Appearance does not prove AI authorship.
 - Do not invent testimonials, customers, awards, business metrics, or other proof. Identify sample content that needs confirmation; never present a decorative control as a working integration.
 - Keep controls understandable, content accessible, and responsive behavior appropriate to the task. Do not expand a focused request into an unrelated audit.
 - Report only checks and observations actually performed. A screenshot cannot establish keyboard behavior or full accessibility compliance.

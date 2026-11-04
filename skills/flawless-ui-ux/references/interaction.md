@@ -8,6 +8,8 @@ Match the element to its job: links navigate, buttons perform actions, and form 
 
 Keep primary and secondary actions distinguishable. Place object actions close to the object and clarify consequences when ambiguity matters. Avoid hiding essential actions behind hover alone. For dense interfaces, use familiar disclosure patterns without turning every row into an unlabeled collection of icons.
 
+Use [affordance and task-flow signals](anti-slop.md#affordance-and-task-flow) when decorative treatments imply actions, icons displace meaning, or an overlay crowds the task. Preserve useful controls and their recognizable behavior while simplifying decoration.
+
 ## UX writing
 
 Name the action, object, and consequence at the point of decision. Prefer concrete labels such as "Download invoice" to vague labels when the object is known. Use the product's established terminology consistently.
@@ -52,5 +54,7 @@ Reflect the result actually confirmed by the integration or local demo. Clear or
 Use motion to explain a state change, spatial relationship, or meaningful transition. Give feedback promptly and keep the duration proportional to the interaction. Avoid motion that competes with reading, repeatedly requests attention, or requires users to wait for content.
 
 Honor reduced-motion preferences and keep essential content and controls available when animation or scripting fails. Prefer transitions that avoid unnecessary layout work; consider rendering cost when effects cover large areas.
+
+Use [attention and motion](anti-slop.md#attention-and-motion) to assess repeated idle effects, ongoing movement, and user control. Keep feedback for real activity and distinguish automatic motion from interaction-triggered animation when evaluating applicable requirements.
 
 On touch and narrow screens, preserve an equivalent route to hover actions, readable errors, and usable overlays. Test the interaction with the keyboard or the relevant input method; a screenshot alone cannot establish that it works.

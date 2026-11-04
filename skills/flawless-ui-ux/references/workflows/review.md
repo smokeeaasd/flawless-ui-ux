@@ -33,6 +33,8 @@ Separate:
 
 An intentional gradient, familiar font, or repeated panel is not automatically a defect. Assess it against the brief, surface purpose, readability, and actual use. Do not invent issues to fill a requested maximum finding count. A review can establish no actionable defect within its observed coverage.
 
+Use the relevant [prevention sections](../anti-slop.md) for concrete signals, legitimate uses, and alternatives. Connect each finding to evidence and the visitor's task; distinguish a visual suggestion from a functional defect. A pattern does not establish AI authorship, and review-only scope still forbids implementing the suggested cleanup.
+
 ## Deliver the assessment
 
 Use the [findings format](../review.md#communicate-findings), prioritizing the most consequential issues. State what was actually inspected and what remains unverified. Give enough specificity for a correction without claiming the correction was made.
