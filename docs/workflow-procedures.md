@@ -2,7 +2,7 @@
 
 This specification defines the task-specific procedures implemented in flawless-ui-ux, supported by reusable design and interaction guidance. It develops the [product contract](product-contract.md) and [skill architecture](skill-architecture.md).
 
-**Status:** phases 1 and 2, definition and package implementation, are complete. The installed package contains the entry point, host metadata, four workflow guides, three task guides, and seven subject references, including contextual AI slop prevention. Phase-3 behavioral evaluation of the expanded procedures remains pending; shipped instructions do not establish observed host outcomes.
+**Status:** phases 1 and 2, definition and package implementation, are complete. The installed package contains the entry point, host metadata, four workflow guides, three task guides, eight subject references, and four original study images. Phase-3 behavioral evaluation of the expanded procedures remains pending; shipped instructions do not establish observed host outcomes.
 
 ## 1. Operating model
 
@@ -11,6 +11,8 @@ A user supplies an outcome, such as developing a subscription-management screen 
 Backend-only work and repository administration without an interface-design intervention remain outside this workflow.
 
 The procedures support task decisions without requiring conspicuous originality. A straightforward, coherent interface can be complete. Symbolic concepts, unusual layouts, and expressive copy follow the brief rather than being required for every creation; headings and explanations default to concrete content.
+
+Positive studies connect references to concrete design targets: opening composition, information order, type and color roles, assets, states, and narrow-screen behavior. Creation and redesign use an appropriate existing reference or study when it resolves a decision, then compare the implementation against the target. Local additions inherit the visual system. Studies are neither mandatory templates nor a fixed style-selection ceremony; generated mockups remain optional host capabilities.
 
 Selection combines three independent decisions:
 
@@ -194,8 +196,9 @@ The installed skill includes these resources under its `references/` directory:
 | `tasks/forms-and-journeys.md` | Input, state transitions, consequences, recovery, and verification |
 | `tasks/content-interfaces.md` | Separate persuasion, reading, and exploration sections with concrete content and navigation decisions |
 | `anti-slop.md` | Preventive and diagnostic signals, legitimate counterexamples, alternatives, scope, and evidence |
+| `design-studies.md` | Positive studies, structural alternatives, product adaptation, and concrete design targets; links to four original images in `assets/design-studies/` |
 
-The package contains sixteen files: the entry point, metadata, four workflows, three task guides, and seven subject references. All runtime guidance is implemented inside the installed package; this repository document is not a runtime dependency.
+The package contains twenty-one files: the entry point, metadata, four workflows, three task guides, eight subject references, and four study images. All runtime guidance is implemented inside the installed package; this repository document is not a runtime dependency.
 
 Load the selected workflow once and reuse it while it remains current. Load task sections when they affect decisions and subject sections when their details are needed. Entry links must make the workflow and applicable task sections directly discoverable; no chain should force reading every guide. Narrow refinement and review can omit a task guide when relevant subject guidance is sufficient.
 

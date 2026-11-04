@@ -1,0 +1,186 @@
+<!doctype html>
+<!--
+  Maintained source for assets/design-studies/*.png in the installed skill.
+  Original fictional reference plates, not working or responsive UI templates.
+  To refresh an image: serve this file locally, open ?study=service, workspace,
+  reading, or collection, and capture at 1280 x 840 CSS px with device scale 1.
+  Use system fonts, hide browser scrollbars, and inspect the resulting PNG.
+  Editing this source does not automatically regenerate the distributed images.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Original design studies</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e7e9ed; color: #192320; font: 16px/1.5 Arial, sans-serif; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { line-height: 1.12; }
+    .plate { width: 1280px; height: 840px; padding: 32px 40px; overflow: hidden; }
+    .plate[hidden] { display: none; }
+    .plate-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
+    .plate-head h1 { font-size: 22px; letter-spacing: -.4px; }
+    .plate-head p, .plate-foot { color: #4d5860; font-size: 14px; }
+    .plate-foot { margin-top: 17px; }
+    .screen { overflow: hidden; background: white; border: 1px solid #cbd1d1; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .study-label { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+    .service { background: #f7f5ed; height: 652px; color: #193d34; padding: 28px 34px; }
+    .service nav { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 22px; border-bottom: 1px solid #bdc8bc; font-size: 14px; }
+    .service nav strong { font-size: 24px; letter-spacing: -1px; }
+    .service h2 { font-size: 40px; letter-spacing: -1.3px; max-width: 440px; margin: 24px 0 15px; }
+    .service .lead { max-width: 420px; font-size: 16px; }
+    .price-list { margin: 18px 0 20px; font-size: 19px; }
+    .price-list div { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #bdc8bc; }
+    .price-list strong { font-variant-numeric: tabular-nums; }
+    .action { display: inline-block; background: #e4bd42; color: #193d34; padding: 12px 18px; font-weight: 700; font-size: 16px; }
+    .visit { margin-top: 22px; padding-top: 19px; border-top: 1px solid #bdc8bc; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 14px; }
+    .visit strong { display: block; margin-bottom: 6px; }
+    .process { margin: 25px 0 22px; border-left: 2px solid #bdc8bc; padding-left: 19px; display: grid; gap: 16px; }
+    .process h3 { font-size: 18px; margin-bottom: 5px; }
+    .process p { font-size: 14px; }
+    .service.process-first h2 { font-size: 40px; }
+    .price-summary { margin-top: 22px; font-size: 14px; border-top: 1px solid #bdc8bc; padding-top: 18px; }
+    .price-summary strong { display: block; margin-bottom: 5px; }
+    .workspace { height: 665px; display: grid; grid-template-columns: 145px 1fr; background: #f7f8fc; color: #252b3f; }
+    .sidebar { padding: 25px 19px; background: #202b52; color: #e9edff; font-size: 14px; }
+    .sidebar h2 { font-size: 20px; margin-bottom: 37px; letter-spacing: -.6px; }
+    .sidebar p { padding: 9px; margin: 3px -9px; }
+    .sidebar .active { background: #384779; font-weight: 700; }
+    .queue { padding: 28px 27px; }
+    .queue-top { display: flex; justify-content: space-between; align-items: baseline; }
+    .queue h2 { font-size: 30px; letter-spacing: -.6px; }
+    .queue-top span { font-size: 14px; color: #525d74; }
+    .tools { display: flex; gap: 12px; margin: 24px 0 21px; font-size: 14px; }
+    .search { padding: 10px 13px; border: 1px solid #a8b0c4; background: white; width: 262px; color: #525d74; }
+    .filter { padding: 10px 13px; border: 1px solid #a8b0c4; background: white; }
+    .queue-body { display: grid; grid-template-columns: 1fr 245px; gap: 20px; align-items: start; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; background: white; }
+    th { background: #edf0f7; color: #525d74; font-weight: 400; padding: 12px 10px; }
+    td { padding: 13px 10px; border-bottom: 1px solid #e0e4ee; vertical-align: top; }
+    td small { display: block; font-size: 13px; color: #525d74; margin-top: 4px; }
+    .money { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .selected { background: #e9edfc; box-shadow: inset 3px 0 #4356aa; }
+    .status { font-weight: 700; color: #394879; }
+    .waiting { color: #795000; }
+    .detail { padding: 20px; background: white; border: 1px solid #c8cfdf; }
+    .detail .ref { font-size: 13px; color: #525d74; margin-bottom: 10px; }
+    .detail h3 { font-size: 22px; }
+    .detail p { font-size: 14px; margin: 12px 0 18px; }
+    .detail dl { font-size: 14px; margin: 0; }
+    .detail dt { color: #525d74; margin-top: 15px; }
+    .detail dd { margin: 3px 0 0; }
+    .detail .action { margin-top: 22px; width: 100%; text-align: center; background: #344997; color: white; font-size: 14px; padding-inline: 8px; }
+    .reading { height: 665px; background: #fffdf9; color: #2c302e; padding: 24px 46px; }
+    .publication { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #c9cec6; padding-bottom: 18px; }
+    .publication strong { font: bold 24px Georgia, serif; }
+    .publication span { font-size: 14px; }
+    .article-layout { display: grid; grid-template-columns: 180px 1fr 215px; gap: 35px; margin-top: 30px; }
+    .contents { padding-top: 12px; font-size: 14px; }
+    .contents strong { display: block; margin-bottom: 17px; }
+    .contents p { padding: 9px 0; }
+    .contents .current { color: #964025; text-decoration: underline; text-underline-offset: 5px; }
+    .article h2 { font: 44px/1.08 Georgia, serif; letter-spacing: -.8px; margin-bottom: 18px; }
+    .article .intro { font-size: 19px; line-height: 1.55; color: #4b554e; margin-bottom: 24px; }
+    .article h3 { font: bold 24px/1.25 Georgia, serif; margin-bottom: 12px; }
+    .article p { font: 17px/1.65 Georgia, serif; margin-bottom: 18px; }
+    .article a { color: #964025; text-underline-offset: 3px; }
+    .reading-aside { margin-top: 16px; }
+    .reading-aside .swatch { height: 155px; background: #d6b18a; padding: 25px; }
+    .wood { border: 2px solid #765338; border-radius: 50%; width: 126px; height: 100px; display: grid; place-items: center; }
+    .wood::before { content: ''; display: block; width: 83px; height: 60px; border: 1px solid #765338; border-radius: 50%; }
+    .caption { font-size: 13px; color: #4b554e; margin-top: 9px; line-height: 1.5; }
+    .note { margin-top: 30px; border-top: 2px solid #964025; padding-top: 12px; font-size: 14px; }
+    .note strong { display: block; margin-bottom: 8px; }
+    .collection { height: 665px; padding: 24px 35px; background: #f1d956; color: #22291f; }
+    .collection nav { display: flex; justify-content: space-between; font-size: 14px; align-items: baseline; border-bottom: 1px solid #6e682c; padding-bottom: 17px; }
+    .collection nav strong { font-size: 24px; letter-spacing: -.8px; }
+    .collection-intro { display: flex; justify-content: space-between; align-items: end; margin: 25px 0 24px; }
+    .collection-intro h2 { font-size: 38px; letter-spacing: -1.4px; }
+    .collection-intro p { font-size: 15px; max-width: 330px; }
+    .works { display: grid; grid-template-columns: 1.4fr 1fr .8fr; gap: 25px; align-items: start; }
+    .work svg { display: block; width: 100%; height: 280px; background: #f8f4e8; }
+    .work:nth-child(2) { margin-top: 35px; }
+    .work:nth-child(2) svg { height: 240px; }
+    .work:nth-child(3) { margin-top: 75px; }
+    .work:nth-child(3) svg { height: 200px; }
+    .work h3 { font-size: 17px; margin-top: 12px; }
+    .work p { font-size: 13px; margin-top: 5px; }
+    .collection-bottom { display: flex; justify-content: space-between; border-top: 1px solid #6e682c; padding-top: 14px; margin-top: 28px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <section class="plate" id="service">
+    <header class="plate-head"><h1>Service offer / two reading paths</h1><p>Original fictional study · same facts, different structure</p></header>
+    <div class="split">
+      <div><p class="study-label">A. Compare the offer first</p><div class="screen service">
+        <nav><strong>Wheelhouse</strong><span>Repairs &nbsp; Visit</span></nav>
+        <h2>Bicycle repairs.<br>Clear prices.</h2><p class="lead">Walk in for an inspection and agreed price. We call when ready; same-day completion is not guaranteed.</p>
+        <div class="price-list"><div><span>Puncture repair</span><strong>£16</strong></div><div><span>Brake adjustment</span><strong>£24</strong></div><div><span>Full tune-up</span><strong>£78</strong></div></div>
+        <span class="action">Plan your visit →</span>
+        <div class="visit"><div><strong>Walk-ins welcome</strong>Tuesday–Saturday<br>10:00–18:00</div><div><strong>8 Cedar Street</strong>Riverton<br>We call when it is ready.</div></div>
+      </div></div>
+      <div><p class="study-label">B. Understand the process first</p><div class="screen service process-first">
+        <nav><strong>Wheelhouse</strong><span>Repairs &nbsp; Visit</span></nav>
+        <h2>Bring it in.<br>We will take a look.</h2>
+        <div class="process"><div><h3>Visit the workshop</h3><p>Walk-ins welcome, Tuesday–Saturday, 10:00–18:00.<br>8 Cedar Street, Riverton.</p></div><div><h3>Agree on the repair</h3><p>We inspect your bicycle and confirm the work and price.</p></div><div><h3>Collect when it is ready</h3><p>We call you. Same-day completion is not guaranteed.</p></div></div>
+        <span class="action">Plan your visit →</span>
+        <div class="price-summary"><strong>Repair prices</strong>Puncture £16 · Brakes £24 · Full tune-up £78</div>
+      </div></div>
+    </div>
+    <p class="plate-foot">Adapt the structure to the visitor's uncertainty. Both directions preserve prices, process, hours, and arrival information.</p>
+  </section>
+
+  <section class="plate" id="workspace">
+    <header class="plate-head"><h1>Operational workspace / the record leads</h1><p>Original fictional study · selected record and local action</p></header>
+    <div class="screen workspace">
+      <aside class="sidebar"><h2>Repair desk</h2><p class="active">Repair queue</p><p>Customers</p><p>History</p><p>Settings</p></aside>
+      <main class="queue"><div class="queue-top"><h2>Repair queue</h2><span>6 active repairs</span></div>
+        <div class="tools"><span class="search">Search customer or repair ID</span><span class="filter">Status: All ▾</span><span class="filter">Due date ▾</span></div>
+        <div class="queue-body"><div><table><thead><tr><th>Repair / customer</th><th>Due</th><th>Status</th><th class="money">Estimate</th></tr></thead><tbody>
+          <tr><td><strong>WK-2071</strong><small>Alex Webb · Brake adjustment</small></td><td>Today</td><td class="waiting">Awaiting part</td><td class="money">£48.00</td></tr>
+          <tr class="selected"><td><strong>WK-2072</strong><small>Sam Lewis · Full tune-up</small></td><td>Today</td><td class="status">In progress</td><td class="money">£78.00</td></tr>
+          <tr><td><strong>WK-2073</strong><small>Jamie King · Puncture repair</small></td><td>Tomorrow</td><td>Ready</td><td class="money">£16.00</td></tr>
+          <tr><td><strong>WK-2074</strong><small>Robin Ellis · Wheel alignment</small></td><td>Tomorrow</td><td class="status">In progress</td><td class="money">£44.00</td></tr>
+          <tr><td><strong>WK-2075</strong><small>Casey Lane · Brake adjustment</small></td><td>Friday</td><td>Not started</td><td class="money">£24.00</td></tr>
+          <tr><td><strong>WK-2076</strong><small>Taylor Ford · Chain replacement</small></td><td>Friday</td><td>Not started</td><td class="money">£39.00</td></tr>
+        </tbody></table></div>
+        <aside class="detail"><p class="ref">Selected repair · WK-2072</p><h3>Sam Lewis</h3><p>Full tune-up<br>Touring bicycle</p><dl><dt>Status</dt><dd>In progress</dd><dt>Agreed estimate</dt><dd>£78.00</dd><dt>Due</dt><dd>Today</dd></dl><span class="action">Mark ready for collection</span></aside></div>
+      </main>
+    </div>
+    <p class="plate-foot">At narrow widths, use labeled records and an on-demand detail view. Preserve query, context, units, and return position.</p>
+  </section>
+
+  <section class="plate" id="reading">
+    <header class="plate-head"><h1>Editorial guide / reading and wayfinding</h1><p>Original fictional study · separate type roles</p></header>
+    <div class="screen reading"><nav class="publication"><strong>Common Materials</strong><span>Guides &nbsp; Materials &nbsp; About</span></nav>
+      <div class="article-layout"><aside class="contents"><strong>In this guide</strong><p class="current">Everyday care</p><p>Spills and marks</p><p>When to seek repair</p><p>Further reading</p></aside>
+        <article class="article"><h2>Caring for<br>wooden furniture</h2><p class="intro">A practical guide to looking after the surfaces you use every day.</p><h3>Everyday care</h3><p>Start with the finish. A sealed tabletop and an unfinished timber surface may need different care. Check the maker's instructions before choosing a treatment.</p><p>Use a soft cloth to remove loose dust. Keep standing water away from joints and wipe up spills promptly. A mat beneath a hot cup can help protect the finish.</p><h3>Spills and marks</h3><p>Identify the surface and the mark before acting. If the finish is unfamiliar, ask a restorer before applying a cleaning product.</p><a href="#reading">Read about furniture finishes →</a></article>
+        <aside class="reading-aside"><div class="swatch"><div class="wood"></div></div><p class="caption">Diagram: grain rings. A finish is a separate layer over the timber surface.</p><div class="note"><strong>Know your surface</strong>The maker's care instructions take precedence over a general guide.</div></aside>
+      </div>
+    </div>
+    <p class="plate-foot">On narrow screens, move contents above the article. Preserve heading destinations, paragraph measure, and text resizing.</p>
+  </section>
+
+  <section class="plate" id="collection">
+    <header class="plate-head"><h1>Visual collection / let the work set the scale</h1><p>Original fictional study · authored geometric works</p></header>
+    <div class="screen collection"><nav><strong>Form / Field</strong><span>Selected work &nbsp; Index &nbsp; Contact</span></nav>
+      <div class="collection-intro"><h2>Studies in form<br>and printed color.</h2><p>Three graphic experiments, presented with their context and a route to explore each work.</p></div>
+      <div class="works">
+        <article class="work"><svg viewBox="0 0 450 342" role="img" aria-label="Overlap: blue and red rectangles on cream"><rect width="450" height="342" fill="#f8f4e8"/><rect x="55" y="40" width="220" height="245" fill="#21519c"/><rect x="170" y="96" width="220" height="205" fill="#b83b2d"/><rect x="170" y="96" width="105" height="189" fill="#422f68"/><text x="24" y="325" font-family="Arial" font-size="15" fill="#20261e">FORM / FIELD — OVERLAP</text></svg><h3>Overlap →</h3><p>Color study · 2026</p></article>
+        <article class="work"><svg viewBox="0 0 310 292" role="img" aria-label="Intervals: a sequence of dark vertical bars on orange"><rect width="310" height="292" fill="#e9863f"/><g fill="#273a32"><rect x="32" y="24" width="12" height="212"/><rect x="61" y="24" width="20" height="212"/><rect x="98" y="24" width="30" height="212"/><rect x="145" y="24" width="43" height="212"/><rect x="205" y="24" width="67" height="212"/></g><text x="28" y="270" font-family="Arial" font-size="15" fill="#20261e">INTERVALS</text></svg><h3>Intervals →</h3><p>Rhythm study · 2026</p></article>
+        <article class="work"><svg viewBox="0 0 250 242" role="img" aria-label="Orbit: concentric green circles on cream"><rect width="250" height="242" fill="#f8f4e8"/><g fill="none" stroke="#3d6451" stroke-width="13"><circle cx="125" cy="107" r="80"/><circle cx="125" cy="107" r="53"/><circle cx="125" cy="107" r="26"/></g><text x="25" y="222" font-family="Arial" font-size="15" fill="#20261e">ORBIT</text></svg><h3>Orbit →</h3><p>Shape study · 2026</p></article>
+      </div><div class="collection-bottom"><span>Selected work · 3 studies</span><span>Explore the complete index →</span></div>
+    </div>
+    <p class="plate-foot">Detail views retain title and context. Return preserves position. Keyboard and touch expose the same exploration path.</p>
+  </section>
+  <script>
+    // Export one fixed-size reference plate; this is not an application template.
+    const requested = new URLSearchParams(location.search).get('study');
+    if (requested) {
+      for (const plate of document.querySelectorAll('.plate')) plate.hidden = plate.id !== requested;
+    }
+  </script>
+</body>
+</html>

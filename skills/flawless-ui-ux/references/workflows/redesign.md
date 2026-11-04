@@ -16,6 +16,8 @@ Separate task failures, structural problems, and the requested change in express
 
 Use the relevant task-guide sections to reconsider information order and interaction where permitted. Develop the replacement with [Direction](../direction.md): establish product fit, information hierarchy, coherent visual roles, and how they continue throughout the target. Preserve required brand decisions while changing the authorized structure or treatment.
 
+Establish a [concrete design target](../direction.md#establish-a-concrete-design-target) from suitable references or studies. Make the intended improvement visible in composition and task behavior, not only in a style description. Adapt the reference to protected facts and identity; the replaced design remains evidence of existing behavior rather than the sole source of the new direction.
+
 Use applicable [AI slop prevention](../anti-slop.md) sections to diagnose generic composition, unsupported proof, or competing visual signals. Explain their consequence and retain legitimate uses; substituting a different fashionable default is not a replacement objective.
 
 Compare alternatives where they resolve a real choice, such as a record-first workspace versus a monitoring overview. State the consequence for the visitor. Reuse current technical conventions and integrations unless changing them is part of the request. Planning-only work ends with the replacement outline, preservation boundary, and proposed verification.
@@ -35,6 +37,8 @@ Recheck the preserved task paths, facts, and data meaning. Compare corresponding
 Assess the result against the stated objective and relevant [Surface](../surfaces.md) priorities. Use [Review](../review.md) for evidence, correction order, and reporting. Fix material regressions and inspect again after changes; verify visual coherence across the complete agreed target.
 
 Confirm that visual cleanup preserves useful content, functioning controls, and explicit brand constraints. Compare the affected task path and composition, rather than counting eliminated patterns or asserting machine authorship.
+
+Compare the implementation with the [replacement target](../review.md#compare-with-the-design-target). Resolve material drift, including lower sections and states, while retaining adaptations needed for real content, access, and responsive behavior.
 
 **Completion:** the replacement serves its objective, the target has a coherent treatment, and preserved facts and behavior still hold. Report actual evidence and any missing comparison or interaction coverage. Do not claim the old version was observed when only its source was available.
 

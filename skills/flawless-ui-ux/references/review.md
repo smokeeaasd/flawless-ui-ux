@@ -45,6 +45,14 @@ Use [accessibility acceptance](interaction.md#accessibility-acceptance) for affe
 
 Before finishing, correct material mismatches within scope and repeat the affected observations. If a check cannot run, keep it outstanding; a plausible rationale or passing build does not turn it into verified quality.
 
+## Compare with the design target
+
+When creation or redesign established a target, compare it with the actual implementation, including lower regions, relevant states, and narrow layouts. Inspect hierarchy, proportions, type roles, color distribution, image treatment, and the visitor's path. Use the selected reference or [study](design-studies.md) for the qualities being transferred, not as a page to copy pixel for pixel.
+
+Distinguish productive adaptation from unexplained drift. Replacing a wide comparison with labeled stacked records may preserve the target on a phone; retaining its colors while losing the comparison does not. If a font, image, or composition changed because of content, access, or technical constraints, check that the alternative still achieves its purpose. Do not accept a polished opening followed by unrelated stock sections as a coherent result.
+
+Correct material gaps within the authorized scope, then repeat the affected observations together. A reference image establishes a target, not proof of rendering, keyboard behavior, or functional completion. If no visual inspection is available, report the comparison as outstanding. Do not reopen an inherited identity during focused refinement or invent a target retroactively to justify the result.
+
 ## Prioritize and correct
 
 Classify findings by effect rather than personal preference:

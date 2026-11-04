@@ -10,7 +10,8 @@ The [workflow procedures](workflow-procedures.md) define the complete interventi
 |---|---|
 | One skill named `flawless-ui-ux` | Users describe their goal in ordinary language through one entry point. |
 | One shared package for OpenCode and Codex | Design guidance stays consistent across hosts. |
-| A concise `SKILL.md`, four workflow guides, three task guides, and seven subject references | Shared decisions are immediately available; conditional detail is loaded when useful. |
+| A concise `SKILL.md`, four workflow guides, three task guides, and eight subject references | Shared decisions are immediately available; conditional detail is loaded when useful. |
+| Original design studies with four local reference images | Positive examples make composition and quality targets inspectable without an external service. |
 | Guidance selected by intervention, surface purpose, and task structure | The procedure governs scope; the purpose governs priorities; the work behind the screen supplies concrete decisions and checks. |
 | Host-provided editing, browser, and image capabilities | The skill does not need an execution engine or browser integration of its own. |
 | Session-local working context by default | Small tasks do not create documentation or hidden project state automatically. |
@@ -28,10 +29,17 @@ skills/
     ├── SKILL.md
     ├── agents/
     │   └── openai.yaml
+    ├── assets/
+    │   └── design-studies/
+    │       ├── service.png
+    │       ├── workspace.png
+    │       ├── reading.png
+    │       └── collection.png
     └── references/
         ├── anti-slop.md
         ├── context.md
         ├── direction.md
+        ├── design-studies.md
         ├── surfaces.md
         ├── craft.md
         ├── interaction.md
@@ -47,7 +55,7 @@ skills/
             └── content-interfaces.md
 ```
 
-These sixteen files form the self-contained installable package. The [procedure package description](workflow-procedures.md#7-package-implementation-target) records the workflow and task resources and the prevention reference. Add supporting resources only when they change useful decisions; do not create empty scaffolds for future resources.
+These twenty-one files form the self-contained installable package. The [procedure package description](workflow-procedures.md#7-package-implementation-target) records the workflow, task, and supporting resources. Add supporting resources only when they change useful decisions; do not create empty scaffolds for future resources.
 
 | Location | Responsibility | Included in installation |
 |---|---|---|
@@ -61,7 +69,7 @@ These sixteen files form the self-contained installable package. The [procedure 
 
 The installed folder must work without access to the source repository or its parent workspace. Runtime instructions must not depend on `docs/`, `evals/`, or external research notes. Supporting links resolve relative to the installed skill directory or the reference containing them.
 
-No `scripts/` or `assets/` directory is required initially. Add an asset only when there is a real output resource to copy or adapt. Add a script only for a demonstrated repeated operation that existing host tools cannot reliably handle. Instruction examples and direction criteria belong in references.
+The four assets are original, static visual studies linked from `references/design-studies.md`, with text anatomy and adaptation guidance usable without an image viewer. Their maintained source is [design-studies.html](design-studies.html), outside the installed package. They are instructional references, not application templates or proof of working interactions. They introduce no runtime dependency. Add a script only for a demonstrated repeated operation that existing host tools cannot reliably handle.
 
 ## 3. Entry point: SKILL.md
 
@@ -93,6 +101,7 @@ Detailed typography rules, examples, state handling, and review procedures live 
 |---|---|---|
 | `context.md` | Extracting the product brief; inspecting existing visual decisions, content, assets, and constraints; separating facts from assumptions | A new surface, redesign, or significant gap in project understanding requires investigation |
 | `direction.md` | Developing a product-specific concept; comparing useful alternatives; composing the page argument; choosing visual roles and imagery | Creating a visual direction or intentionally replacing one |
+| `design-studies.md` | Original positive examples, structural alternatives, complete-system relationships, adaptation, and observable quality targets | A new direction or composition problem benefits from a concrete reference; read only useful studies |
 | `surfaces.md` | Purpose-specific priorities for persuasion, task execution, reading, and exploration | The surface's purpose changes composition or interaction decisions; read its relevant section |
 | `craft.md` | Hierarchy, typography, layout, spacing, color, imagery, and responsive composition | Implementing or refining those visual aspects; read the relevant sections |
 | `interaction.md` | UX writing, controls, semantics, accessibility, motion, and relevant loading, empty, success, and error states | The request affects interaction, comprehension, accessibility, or state behavior |

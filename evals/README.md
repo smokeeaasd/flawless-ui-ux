@@ -6,6 +6,12 @@ These materials evaluate skill behavior in Codex and OpenCode. They are maintain
 
 The user previously confirmed skill identification in both hosts and reported a satisfactory initial design result. The exact model, revision, invocation method, and inspection capabilities were not recorded. Those observations remain separate from this round: **the runs below have not been performed**.
 
+Later informal feedback reported improved colors and visual hierarchy across several models with minimal prompts, and tolerable limits in personalization. Exact conditions were not recorded. This feedback predates the original visual studies and does not establish their effect.
+
+### Focused reference-guidance round
+
+For changes to positive design guidance, use cases 01 and 02 for creation and redesign, paired with 05 for brand preservation and 06 for unavailable browser tools. Keep tasks, model, tool availability, and settings fixed when comparing revisions; use independent sessions and fresh fixtures. Record observable reference use, the concrete target, adaptation to the product, drift in the implementation, and verification gaps using the rubric. Do not introduce image-generation access in only one arm or treat copied study styling as improvement. These focused runs supplement the full matrix below and have not been performed.
+
 ## Cases and run matrix
 
 | Case | Starting project | Main observation |
