@@ -29,6 +29,10 @@ Begin with the visitor's task and the requested intervention. Check the relevant
 
 For a full page, inspect beyond the first viewport. For a focused component change, inspect its surrounding context and likely regressions without expanding into a whole-product redesign. Use the applicable [Surface](surfaces.md) priorities to distinguish intentional density or expression from a defect.
 
+Check the task's concrete acceptance cases, not just its visual categories. A filtered queue must retain the intended summary scope; a form must distinguish a confirmed result from a failed attempt; a collection must connect finding an item to reading and returning. Reference loading establishes guidance use, not completion of those paths.
+
+For a redesign, compare corresponding content, states, and widths when baseline evidence exists. Verify that the result addresses the stated objective while preserving protected decisions. Record absent before/after evidence as a limitation rather than inventing a visual history.
+
 ## Prioritize and correct
 
 Classify findings by effect rather than personal preference:

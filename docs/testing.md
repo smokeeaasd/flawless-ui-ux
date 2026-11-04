@@ -48,10 +48,12 @@ A future CLI should expose a `bin` entry pointing to portable JavaScript with a 
 
 ## Behavioral evidence
 
-Manual user testing has confirmed that the skill is identified in OpenCode and Codex. A satisfactory initial design result was also reported. These observations are separate from the automated checks above and do not establish every workflow or invocation method as tested.
+Earlier manual user testing confirmed identification in OpenCode and Codex and a satisfactory initial design result. These observations predate the expanded procedure package. They are separate from the automated checks above and do not establish the current workflows or every invocation method as tested.
 
 The [guided manual evaluation kit](../evals/README.md) covers creation, redesign, typography-only refinement, review-only requests, intentional brand choices, and accurate reporting without rendering tools. It includes natural-language discovery, a paired no-skill baseline, and an unrelated backend activation control in both hosts.
 
 The kit contains copy-ready tasks, dependency-free fixtures, an evidence-based rubric, and a report template. Runs use disposable projects and fresh sessions, with host, model, input, skill revision, isolation, actual loading when observable, and verification limits recorded. Reports and evaluator criteria stay outside the projects shown to agents.
 
 These materials are excluded from the skill and npm distribution. No automated agent invocation, design scoring, or additional CI checks are introduced. The planned host runs remain pending until their observations are recorded; preparing the kit does not add compatibility evidence.
+
+The [workflow procedure specification](workflow-procedures.md#8-delivery-and-acceptance) defines phase-3 evaluation of complete tasks and focused interventions. It calls for a full forms-and-journeys case and a collection-to-article case alongside the existing kit. Those additions and actual host observations remain pending. Package checks cover the nested references and complete installation copies; they do not establish task-specific decision quality.

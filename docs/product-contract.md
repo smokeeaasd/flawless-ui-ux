@@ -22,7 +22,7 @@ The skill interprets the request and selects relevant guidance. Users do not nee
 
 The depth of the workflow follows the request. A typography adjustment can be focused; a new interface or substantial redesign calls for broader exploration and review.
 
-A complete outcome should select a procedure suited to the intervention, visitor purpose, and work behind the interface. The user should not need to enumerate every visual adjustment, state, or verification step. The [workflow procedures](workflow-procedures.md) define this next content revision, including task-specific decisions and completion criteria; its implementation and evaluation status remain recorded in the project overview.
+A complete outcome should select a procedure suited to the intervention, visitor purpose, and work behind the interface. The user should not need to enumerate every visual adjustment, state, or verification step. The [workflow procedures](workflow-procedures.md) define the implemented task-specific decisions and completion criteria; package verification and behavioral evaluation status remain recorded in the project overview.
 
 ## Core workflow
 

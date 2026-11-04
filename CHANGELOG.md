@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Four complete workflow guides for creation, redesign, refinement, and read-only review, with decision sequences, scope boundaries, completion criteria, and worked examples.
+- Task guidance for data interfaces, forms and journeys, and persuasion, reading, and exploration paths, including concrete states and verification cases.
 - Workflow procedure specification covering intervention selection, task-specific decisions, preservation boundaries, evidence, completion criteria, and the next package implementation target.
 - Guided manual host evaluations with six design scenarios, static fixtures, discovery and baseline controls, a backend activation control, and an evidence-based rubric and report template.
 - Bun-based package and installation tests with isolated project/global destinations and preservation checks for existing files and links.
@@ -21,4 +23,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Routed the shared skill by intervention, surface purpose, and task structure, with conditional loading and support for planning-only and mixed requests.
+- Deepened subject references with information/action modeling, structural direction, proportional visual changes, state feedback, and task-specific review evidence.
+- Recorded implementation of the fifteen-file procedure package separately from pending behavioral evaluation of the expanded workflows.
 - Recorded user-confirmed skill identification in OpenCode and Codex separately from pending systematic behavior evaluation.

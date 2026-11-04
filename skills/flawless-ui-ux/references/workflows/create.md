@@ -1,0 +1,50 @@
+# Create
+
+Use for a missing screen, page, route, or independent component. A complete request should produce the task path and its relevant states, not a styled opening with unfinished behavior. A new surface inside an established product inherits its system unless replacing it is authorized.
+
+## Establish the task basis
+
+Inspect the target stack, routes, content sources, shared components, tokens, and real assets. Recover the visitor's situation and intended outcome using [Context](../context.md) when needed. Existing project facts take precedence over sample copy or a convenient design assumption.
+
+Identify what can actually be built: an existing integration, a local interaction, or an illustrative preview. Keep that boundary visible in the implementation and its feedback. Missing product rules that change a consequential action require clarification; they do not prevent independent layout or content work.
+
+## Model the complete path
+
+Choose the relevant task guide from the entry point. Establish what information the visitor needs, which actions exist, what changes after an action, and how they recover from a relevant failure. Derive states from the task and supplied product behavior, rather than adding a standard collection of panels.
+
+For a working screen, determine how the user locates an object, understands its current state, and acts. For a commercial page, connect visitor questions to actual explanations and supplied evidence. For a collection, connect discovery to a meaningful detail view and a return path. Work out these relationships before deciding how many columns or cards to draw.
+
+Keep a concise solution outline:
+
+- Information order and primary action or reading path.
+- Applicable actions, transitions, and integration boundaries.
+- Visual roles and responsive changes.
+- Concrete acceptance cases and facts that must remain true.
+
+These are working decisions, not required project files. A small independent component may resolve them in a short note.
+
+## Give the solution a direction
+
+Use [Direction](../direction.md) when the surface needs a new visual approach. Tie a consequential decision to a particular fact about the product: a repair service can lead with the repair process; an operations queue can lead with the next intervention. Set composition, hierarchy, density, type, color, imagery, and interaction together.
+
+Within an existing system, express the task through its established tokens and primitives. A new settings screen does not need a new brand. Explore alternatives only when there is a meaningful structural or visual choice, and explain the tradeoff rather than producing a fixed number of themes.
+
+For a planning-only request, complete the applicable solution and direction decisions, then return the outline and proposed checks. Stop before implementation and do not claim those checks ran.
+
+## Build a working slice, then complete the target
+
+Implement the primary path with real content and functioning controls using the existing stack. Connect permitted integrations or implement the honest local behavior specified by the brief. Complete the related states and remaining regions before concentrating on decorative details.
+
+Use the relevant [Craft](../craft.md) and [Interaction](../interaction.md) sections as decisions arise. Carry the direction into lower sections, dense rows, forms, errors, and narrow layouts. Do not hide missing substance with empty space, invented metrics, or decorative controls.
+
+## Observe, correct, and finish
+
+Use [Review](../review.md) to distinguish source, rendered, interaction, and project-check evidence. Verify the primary path, an applicable recovery or alternate path, supplied facts, and representative wide and narrow layouts when capabilities permit. Inspect the complete target, including content beyond its first screen. Correct task and access failures before comprehension and finish; rerun affected checks after the final change.
+
+**Completion:** the requested surface supports its task, relevant content and states are complete, and material in-scope issues are resolved or explicitly reported. Summarize consequential decisions, performed checks, and limitations. Unavailable rendering remains unverified; a successful build does not establish it.
+
+## Example: subscription management
+
+A request to add subscription management selects task-execution priorities and [Forms and journeys](../tasks/forms-and-journeys.md). Recover the actual plan, billing period, user permissions, supported changes, cancellation rules, and integration behavior. Arrange current state before available actions and their consequences; inherit the product's controls and identity.
+
+Implement only supported transitions, with applicable pending, failure, and completion feedback. If cancellation timing is unknown, resolve it before presenting a factual promise; continue independent work on confirmed information. Verify the permitted action and recovery paths. A local demo must not claim that a subscription was changed on the server.

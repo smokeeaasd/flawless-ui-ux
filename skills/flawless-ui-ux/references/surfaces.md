@@ -12,6 +12,8 @@ Sequence content around real questions: what it does, how it works, relevant tra
 
 **Improve by:** showing actual output, making comparisons concrete, editing generic copy, and changing section structure to match the content. Useful repetition can reinforce a decision; novelty in every section is not a requirement.
 
+Use [Content: persuasion](tasks/content-interfaces.md#persuasion) when this priority needs a complete content and action path.
+
 ## Task execution
 
 Begin with the question the user must answer and the action they most often take. Organize the screen so they can locate the relevant object, understand its state, and act without decoding decoration.
@@ -21,6 +23,8 @@ Set density from the workload. Repeated panels, tables, small labels, and famili
 **Watch for:** generic KPI tiles that displace the actual work, ambiguous chart scales, controls with no effect, and important actions available only after unnecessary navigation.
 
 **Improve by:** aligning related values, making the default view useful, prioritizing meaningful exceptions, and keeping actions close to their objects. Preserve the product's established terminology and workflows during refinement.
+
+Use [Data interfaces](tasks/data-interfaces.md) for record-oriented work or [Forms and journeys](tasks/forms-and-journeys.md) for input and state changes. Load the secondary guide only for a region that needs it.
 
 ## Reading
 
@@ -32,6 +36,8 @@ Let readers recover their location and continue after following a link. On long 
 
 **Improve by:** tightening the information hierarchy, grouping related material, using clear link labels, and giving complex content an appropriate presentation instead of shrinking it to fit.
 
+Use [Content: reading](tasks/content-interfaces.md#reading) to connect document structure, navigation, and rendered reading checks.
+
 ## Exploration
 
 Make the work, collection, or experience easy to encounter and understand. Its strongest material should set the scale and visual character. Navigation can recede visually while remaining discoverable and operable.
@@ -41,6 +47,8 @@ Use distinctive composition, sequence, imagery, and motion when they express the
 **Watch for:** elaborate entry gates, hidden navigation, interaction that depends on hover alone, and effects that obscure the actual work or monopolize scrolling.
 
 **Improve by:** bringing the artifact forward, making controls legible, and offering a clear path through the experience. A striking transition must remain understandable with reduced motion and smaller screens.
+
+Use [Content: exploration](tasks/content-interfaces.md#exploration) for discovery, item detail, and return-path decisions.
 
 ## Mixed surfaces
 

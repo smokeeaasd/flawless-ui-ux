@@ -5,45 +5,50 @@ description: Create, redesign, refine, or review web interfaces with contextual 
 
 # Flawless UI/UX
 
-Make the interface belong to the product and help its visitors do what they came to do. Establish a direction when needed, implement the requested work, and correct what the rendered result reveals. Scale the process to the intervention.
+Turn the requested interface goal into a complete, usable result. Select the procedure for the intervention, model the work behind the screen, and carry it through implementation, observation, and correction. Make the visual decisions belong to the product. Scale the process to the intervention.
 
-## Establish the intervention
+## Select the procedure
 
-Read the request and inspect the relevant interface before choosing a treatment. Identify the visitor's task, the target, existing visual decisions, available content, and what must remain. Reuse context already established in the session.
+Read the request and inspect its target. Identify the visitor's task, existing visual decisions, supplied content, and what must remain. Select one primary procedure and read it before making the decisions it governs; reuse guidance already current in the session.
 
-| Intent | Boundary |
+| Procedure | Select when and preserve |
 |---|---|
-| Create | Establish the missing direction and deliver the requested interface and behavior. |
-| Redesign | Replace the permitted visual decisions while preserving valid product facts, functions, and constraints. |
-| Refine | Improve the named target within its existing identity; keep unrelated behavior and content intact. |
-| Review | Inspect and prioritize findings. Make changes only when the request also authorizes fixes. |
+| [Create](references/workflows/create.md) | A missing surface is needed. Build its complete task path; inherit the surrounding system when one exists. |
+| [Redesign](references/workflows/redesign.md) | Visual replacement is authorized. Replace permitted decisions while preserving facts and required behavior. |
+| [Refine](references/workflows/refine.md) | An existing target needs improvement. Preserve identity, content, behavior, and everything outside the intervention. |
+| [Review](references/workflows/review.md) | Findings are requested without implementation. Inspect and report with project files unchanged. |
 
-Treat a vague request to improve an existing interface as refinement when there is no evidence that replacement is wanted. State consequential assumptions; ask only when missing information would materially change scope, product truth, or an irreversible decision. Backend-only work and repository administration do not need this workflow.
+Default an ambiguous existing-interface improvement to refinement. Adding a field does not require a new visual identity. Review with authorized fixes uses the appropriate editing procedure with diagnosis before changes. Planning-only work stops at a solution outline, without edits or claims of completed verification. Separate mixed targets by their own boundaries.
 
-## Load guidance by need
+Inspect existing sources before asking about missing information. Ask when an unresolved fact changes product truth, scope, or consequential behavior; continue independent work while awaiting the answer. Backend-only work and repository administration do not need this skill.
 
-References are relative to this skill directory. Read the relevant sections before making the decisions they govern; do not load every file by default. Reuse guidance already read while it remains applicable.
+## Match the work behind the screen
+
+Select a primary task guide when it changes the decisions needed. A screen name is not a specification: billing settings and a public pricing page support different work. Narrow refinements and reviews can use subject guidance alone.
+
+| Work | Relevant guidance |
+|---|---|
+| Find, understand, compare, or act on records; dashboards, queues, tables, inboxes | [Data interfaces](references/tasks/data-interfaces.md) |
+| Collect information or change state; settings, registration, onboarding, checkout, subscriptions | [Forms and journeys](references/tasks/forms-and-journeys.md) |
+| Explain an offer and support an informed next action | [Content: persuasion](references/tasks/content-interfaces.md#persuasion) |
+| Explain or reference information over sustained reading | [Content: reading](references/tasks/content-interfaces.md#reading) |
+| Discover a collection or explore work and its detail views | [Content: exploration](references/tasks/content-interfaces.md#exploration) |
+
+Pair these with the applicable purpose in [Surfaces](references/surfaces.md): persuasion, task execution, reading, or exploration. Use a secondary task section only for the region that needs it. A dashboard's edit dialog needs form guidance locally; its help panel does not turn the dashboard into a marketing page. Unfamiliar surfaces can use the primary procedure and relevant subject guidance without forcing a category.
+
+## Load subject detail by need
+
+References are relative to this skill directory. Read only the subject sections needed for the current decisions, reusing guidance while it remains applicable.
 
 | Need | Reference |
 |---|---|
 | Establish a brief, inspect existing constraints, or resolve an asset gap | [Context](references/context.md) |
 | Choose or replace a visual direction | [Direction](references/direction.md) |
-| Adapt priorities to persuasion, task execution, reading, or exploration | The applicable section of [Surfaces](references/surfaces.md) |
 | Adjust visual execution | Relevant sections of [Craft](references/craft.md): [hierarchy](references/craft.md#hierarchy), [typography](references/craft.md#typography), [layout](references/craft.md#layout-and-spacing), [color](references/craft.md#color), [imagery](references/craft.md#imagery), [responsive composition](references/craft.md#responsive-composition) |
 | Change controls, wording, accessibility, states, or motion | The relevant sections of [Interaction](references/interaction.md) |
 | Critique an interface or verify a change | [Review](references/review.md) |
 
-A heading adjustment normally needs typography and focused review. A new page needs context, its surface priorities, a direction, and the execution guidance its content calls for. A form error correction needs interaction guidance and layout only where the correction affects composition.
-
-## Work from intent to evidence
-
-1. **Understand:** identify the user task, confirmed facts, project constraints, and real assets. Keep working context in existing notes unless durable documentation is requested or needs maintenance.
-2. **Define the direction:** for creation or redesign, choose a product-specific organizing idea and visual roles before building. Compare alternatives when they resolve useful uncertainty. For refinement, inherit the current direction.
-3. **Implement:** use the existing stack, components, and tokens where they fit. Deliver real content and working behavior within scope, including relevant responsive layouts and states.
-4. **Observe:** use available browser and image tools to inspect what users receive. Run applicable project checks. Reading source, viewing screenshots, and testing interaction are distinct evidence.
-5. **Correct:** fix functional and comprehension failures first, then improve coherence and finish. Repeat the affected verification after changes. Stop when material issues are resolved or a concrete limitation prevents progress.
-
-Host tools and permissions govern execution. Do not assume a particular browser tool, model, component library, or paid service exists. When rendering is unavailable, complete useful static work and say what remains visually unverified.
+Use short working notes for the task basis, solution, and acceptance cases; keep them in the conversation or existing project records unless durable documentation is requested or needs maintenance. The procedures are decision guidance, not mandatory reports or approval ceremonies.
 
 ## Keep decisions honest
 
@@ -52,5 +57,7 @@ Host tools and permissions govern execution. Do not assume a particular browser 
 - Do not invent testimonials, customers, awards, business metrics, or other proof. Identify sample content that needs confirmation; never present a decorative control as a working integration.
 - Keep controls understandable, content accessible, and responsive behavior appropriate to the task. Do not expand a focused request into an unrelated audit.
 - Report only checks and observations actually performed. A screenshot cannot establish keyboard behavior or full accessibility compliance.
+
+Use host tools and permissions. Do not assume a browser, image generator, paid service, model, or component library exists. Correct task and access failures first, then comprehension and finish; repeat affected checks after changes. Stop when material in-scope issues are resolved or a specific limitation prevents progress. If a requested check cannot run, identify it as outstanding. Useful static work can be delivered with rendered and interaction behavior explicitly unverified.
 
 Deliver the result with material decisions, relevant verification, and remaining limitations. Keep the report proportional; use the finding structure in [Review](references/review.md#communicate-findings) when a critique is the deliverable.

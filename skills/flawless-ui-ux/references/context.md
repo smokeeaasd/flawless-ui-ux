@@ -18,6 +18,14 @@ Keep a working brief with only useful information:
 
 Reuse an established brief instead of writing it again. Preserve language, locale, units, and terminology unless changing them is part of the request.
 
+## Trace information and actions
+
+For a complete surface, identify the information objects, their authoritative sources, permitted actions, and meaningful state changes. Recover the current system's integration and navigation boundaries. Separate a display value from an editable value and a local preview from a confirmed service result.
+
+Use the relevant task guide to turn that inventory into decisions: [Data interfaces](tasks/data-interfaces.md) for records and comparisons, [Forms and journeys](tasks/forms-and-journeys.md) for input and transitions, or [Content interfaces](tasks/content-interfaces.md) for content and navigation. Keep only the sections that affect this target.
+
+A subscription screen needs confirmed terms and supported changes before it promises their consequences. An article collection needs real metadata and a route between discovery and reading. These facts shape the interface before a visual treatment is chosen; a screen name alone does not supply them.
+
 ## Separate facts from assumptions
 
 Treat supplied product facts, current data sources, and confirmed requirements as constraints. Inconsistent sources are an uncertainty to resolve, not permission to invent a convenient answer.

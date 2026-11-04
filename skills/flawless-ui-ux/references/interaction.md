@@ -45,6 +45,8 @@ Use suitable input types, autocomplete, and mobile keyboard hints when relevant.
 
 For asynchronous actions, provide pending feedback and a safe retry path. Disable only what cannot currently be used; preserve navigation and reading where possible. Keep loading changes from displacing the action the user is trying to reach.
 
+Reflect the result actually confirmed by the integration or local demo. Clear or update stale feedback when a new attempt would otherwise appear successful. An uncertain network outcome does not prove a consequential operation failed; use the project's established status and retry behavior. For complete input or state-change work, use [Forms and journeys](tasks/forms-and-journeys.md) to connect these details to the action contract and verification cases.
+
 ## Motion and responsive behavior
 
 Use motion to explain a state change, spatial relationship, or meaningful transition. Give feedback promptly and keep the duration proportional to the interaction. Avoid motion that competes with reading, repeatedly requests attention, or requires users to wait for content.

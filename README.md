@@ -2,11 +2,12 @@
 
 A portable UI/UX skill that guides coding agents from product context and visual direction through implementation, observation, and refinement.
 
-The initial skill package is implemented. Manual user testing has confirmed that the skill is identified in OpenCode and Codex; broader end-to-end behavior evaluation is pending. See the [product contract](docs/product-contract.md) and [skill architecture](docs/skill-architecture.md) for its scope and organization.
+The shared package implements creation, redesign, refinement, and review procedures, composed with guidance for data interfaces, forms and journeys, and content interfaces. See the [product contract](docs/product-contract.md), [workflow procedures](docs/workflow-procedures.md), and [skill architecture](docs/skill-architecture.md) for its scope and organization. Systematic host evaluation of the expanded workflows is pending.
 
 ## Scope
 
-- Context-aware interface critique and refinement.
+- Complete, task-specific creation, redesign, refinement, and review workflows.
+- Decisions for records and actions, input and state transitions, and persuasion, reading, or exploration paths.
 - Typography, layout, color, UX writing, accessibility, responsive behavior, and edge cases.
 - Art direction grounded in the product, audience, and available assets.
 - Visual review using capabilities available in the host agent.
@@ -35,20 +36,24 @@ Replace `--codex` with `--opencode` or `--all-agents` for the other targets. Sta
 
 ## Usage
 
-Describe the result you want in ordinary language:
+Describe the outcome and relevant boundaries in ordinary language:
 
-- "Build a product page around this brief and the available assets."
-- "Improve this dashboard's hierarchy while preserving its identity and workflows."
-- "Review the pricing page and prioritize the problems without editing it."
+| Request | Typical procedure and task guidance |
+|---|---|
+| "Develop subscription management using this product's existing rules, components, and integrations." | Create + forms and journeys; inherit the existing identity |
+| "Redesign the repair queue while preserving records, filters, and ready-for-pickup behavior." | Redesign + data interfaces |
+| "Build a searchable knowledge collection with article views and a useful return path." | Create + content exploration and reading |
+| "Improve only the heading hierarchy; preserve colors, layout, wording, and behavior." | Refine + focused typography guidance |
+| "Review the pricing page and prioritize the problems without editing files." | Review + content persuasion |
 
 The skill selects guidance for the task and uses tools available in the host. It can also be explicitly selected through the host's skill interface; in Codex, use `$flawless-ui-ux`.
 
-The next content revision is defined in the [workflow procedure specification](docs/workflow-procedures.md): complete creation, redesign, refinement, and review procedures with task-specific decisions and completion criteria. Implementation of that revision and its host evaluation are pending.
+Procedure selection is internal to the skill. Each procedure defines the investigation, decisions, implementation or findings, verification, and completion criteria relevant to the task. Supporting detail is loaded as needed; a focused change does not require a complete redesign process. The [procedure specification](docs/workflow-procedures.md) documents the operating model and worked routing examples.
 
 ## Validation status
 
 The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.
 
-These checks establish package integrity. Manual skill identification is confirmed in both initial hosts, while systematic evaluation of invocation methods, interface quality, and end-to-end behavior remains pending.
+These checks establish package integrity. Earlier manual user testing confirmed identification in both initial hosts and a satisfactory initial result. Those observations predate the expanded procedures; systematic evaluation of their invocation, interface quality, and end-to-end behavior remains pending.
 
 The [guided manual evaluations](evals/README.md) provide six design scenarios, disposable fixtures, discovery and baseline controls, and a shared report template for that evaluation. The materials are ready; their preparation does not establish completed host runs.

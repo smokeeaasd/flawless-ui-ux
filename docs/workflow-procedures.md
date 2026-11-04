@@ -1,8 +1,8 @@
 # Workflow procedures
 
-This specification defines the next revision of flawless-ui-ux: complete, task-specific procedures supported by reusable design and interaction guidance. It develops the [product contract](product-contract.md) and [skill architecture](skill-architecture.md).
+This specification defines the task-specific procedures implemented in flawless-ui-ux, supported by reusable design and interaction guidance. It develops the [product contract](product-contract.md) and [skill architecture](skill-architecture.md).
 
-**Status:** phase 1, procedure definition. The current installed package still contains the initial entry point and six references. The workflow and task guides described here are phase-2 implementation targets, not shipped files or verified behavior.
+**Status:** phases 1 and 2, definition and package implementation, are complete. The installed package contains the entry point, host metadata, four workflow guides, three task guides, and six subject references. Phase-3 behavioral evaluation of the expanded procedures remains pending; shipped instructions do not establish observed host outcomes.
 
 ## 1. Operating model
 
@@ -178,9 +178,9 @@ Without browser access, these routes retain their task and scope. Their verifica
 
 The entry point owns selection, shared boundaries, and direct reference links. The four primary procedures belong in conditional workflow references. The three task guides specialize the work. The six existing subject references retain their responsibilities; they supply context, surface priorities, direction, visual execution, interaction, and review evidence without repeating full workflows.
 
-Phase 2 will add these resources under the installed skill's `references/` directory:
+The installed skill includes these resources under its `references/` directory:
 
-| Planned path | Responsibility |
+| Path | Responsibility |
 |---|---|
 | `workflows/create.md` | Missing-surface procedure and completion criteria |
 | `workflows/redesign.md` | Incumbent baseline, replacement decisions, and preserved behavior |
@@ -190,7 +190,7 @@ Phase 2 will add these resources under the installed skill's `references/` direc
 | `tasks/forms-and-journeys.md` | Input, state transitions, consequences, recovery, and verification |
 | `tasks/content-interfaces.md` | Separate persuasion, reading, and exploration sections with concrete content and navigation decisions |
 
-These seven additions make fifteen package files including the existing entry point, metadata, and six references. Do not create placeholder files during phase 1. All runtime guidance must be implemented inside the installed package; this repository document is not a runtime dependency.
+These seven additions make fifteen package files including the entry point, metadata, and six subject references. All runtime guidance is implemented inside the installed package; this repository document is not a runtime dependency.
 
 Load the selected workflow once and reuse it while it remains current. Load task sections when they affect decisions and subject sections when their details are needed. Entry links must make the workflow and applicable task sections directly discoverable; no chain should force reading every guide. Narrow refinement and review can omit a task guide when relevant subject guidance is sufficient.
 

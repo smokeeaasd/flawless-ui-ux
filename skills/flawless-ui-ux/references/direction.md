@@ -20,6 +20,8 @@ Let those relationships determine order and layout. Do not add testimonials, pri
 
 Use headings and actions that name real content. When a feature is visual, show the actual feature or its output if available. A picture should demonstrate, explain, orient, or establish character; decoration has to earn the attention it consumes.
 
+Turn that argument into a concrete structure before polishing it: which region carries the current state, which supports comparison or explanation, where the action belongs, and what changes after it. On a plan-change screen, current subscription, eligible alternatives, and confirmed consequences have different roles; making them three equally emphasized panels can obscure the decision. Inherit the established visual language when the screen belongs to an existing product.
+
 ## Choose a coherent visual system
 
 Decide the roles together:
@@ -42,3 +44,5 @@ Use the priorities in [Surfaces](surfaces.md) when the visitor's purpose affects
 Plan around available resources. A concept that depends on nonexistent photography must adapt or acquire suitable assets within scope. Motion can strengthen a concept, but essential meaning and actions must remain available without its reveal sequence.
 
 Before implementing, be able to explain the dominant decision, its relationship to the subject, and what it helps the visitor accomplish. Then use relevant [Craft](craft.md) and [Interaction](interaction.md) sections to execute it.
+
+Carry a few task-specific acceptance cases with the direction. They should establish whether the intended structure and behavior serve the visitor, not whether the result matches a favored template. The selected workflow owns implementation and completion; this reference supplies the visual and structural decisions it needs.
