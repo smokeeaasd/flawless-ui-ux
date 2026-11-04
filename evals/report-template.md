@@ -18,6 +18,7 @@ Status: Not run. Replace placeholders with observations; leave unsupported crite
 - Other instructions, plugins, or configuration affecting the run:
 - Isolation: confirmed / incomplete / unobserved; supporting evidence:
 - Execution limits, elapsed time, and usage if exposed:
+- Time to first implementation/preview, if observable; interruptions and setup time distinguished:
 
 ## Exact input
 
@@ -36,6 +37,8 @@ Include the full submitted task, any explicit prefix or native skill selection, 
 | Reference reads, when observable | Unobserved | |
 
 Availability is not loading; a self-reported use is not a load trace. If an explicit request was ignored in an observable trace, record the failure. If tracing is unavailable, record the gap.
+
+For instruction-efficiency comparisons, record actual files/sections read and reread, approximate word volume, and other loaded skill/plugin instructions. Keep source-size estimates separate from token usage and observed elapsed time.
 
 ## Output and changes
 
@@ -67,6 +70,7 @@ Record the case-specific checks too. For inapplicable criteria, retain Unobserve
 - Paired report and matching task body, fixture, model, settings, and capabilities:
 - Actual loading and isolation established in both runs:
 - Observable differences, with artifact references:
+- Elapsed time and actual instruction reads versus concrete design/function benefits:
 - Confounds or unavailable evidence:
 
 ## Conclusion and follow-up

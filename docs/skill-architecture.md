@@ -1,257 +1,49 @@
 # Skill architecture
 
-Architecture baseline defined on November 3, 2026. This document translates the [product contract](product-contract.md) into package boundaries, reference responsibilities, and loading rules. The shared package implements the procedures and guidance described here; current verification and host evaluation status are recorded in the [project overview](../README.md#validation-status).
+The shared package implements the [product contract](product-contract.md) for Codex and OpenCode. One entry point provides a direct working path; references answer specific design questions. Evaluation and repository documentation remain outside the installed skill.
 
-The [workflow procedures](workflow-procedures.md) define the complete intervention procedures and task-specific guidance included in the installed package. Their implementation is complete; representative behavioral evaluation in the host agents remains pending.
+## Package boundary
 
-## 1. Architecture decisions
+The installable package has fourteen files:
 
-| Decision | Rationale |
-|---|---|
-| One skill named `flawless-ui-ux` | Users describe their goal in ordinary language through one entry point. |
-| One shared package for OpenCode and Codex | Design guidance stays consistent across hosts. |
-| A concise `SKILL.md`, four workflow guides, three task guides, and nine subject references | Shared decisions are immediately available; conditional detail is loaded when useful. |
-| Philosophy in the existing contract, summarized in the entry point | Intent, quality, relationships, continuity, and evidence guide decisions without another always-loaded manifesto. |
-| Original design studies with four local reference images | Positive examples make composition and quality targets inspectable without an external service. |
-| Guidance selected by intervention, surface purpose, and task structure | The procedure governs scope; the purpose governs priorities; the work behind the screen supplies concrete decisions and checks. |
-| Host-provided editing, browser, and image capabilities | The skill does not need an execution engine or browser integration of its own. |
-| Session-local working context by default | Small tasks do not create documentation or hidden project state automatically. |
-| Existing project conventions govern implementation | The package provides design guidance without imposing a framework, component library, or visual preset. |
+- SKILL.md: discovery, intervention boundaries, direct execution, reference access, and proportional checking.
+- agents/openai.yaml: Codex presentation metadata with normal automatic discovery.
+- Eight Markdown references: direction, product structure, craft, interaction, calibration, contextual prevention, review, and design studies.
+- Four original study images under assets/design-studies/.
 
-The runtime is the host coding agent. The skill supplies instructions and references; the host selects tools, executes changes, and observes the result within its available capabilities.
+The installer copies this same package for both hosts. No runtime, dependency, host-specific design fork, model runner, hook, or browser service is required. The [study source](design-studies.html) stays in maintainer documentation. Tests, evaluations, and project docs are not installed.
 
-## 2. Package and repository boundaries
+## Responsibilities
 
-The current installable package is:
-
-```text
-skills/
-└── flawless-ui-ux/
-    ├── SKILL.md
-    ├── agents/
-    │   └── openai.yaml
-    ├── assets/
-    │   └── design-studies/
-    │       ├── service.png
-    │       ├── workspace.png
-    │       ├── reading.png
-    │       └── collection.png
-    └── references/
-        ├── anti-slop.md
-        ├── calibration.md
-        ├── context.md
-        ├── direction.md
-        ├── design-studies.md
-        ├── surfaces.md
-        ├── craft.md
-        ├── interaction.md
-        ├── review.md
-        ├── workflows/
-        │   ├── create.md
-        │   ├── redesign.md
-        │   ├── refine.md
-        │   └── review.md
-        └── tasks/
-            ├── data-interfaces.md
-            ├── forms-and-journeys.md
-            └── content-interfaces.md
-```
-
-These twenty-two files form the self-contained installable package. The [procedure package description](workflow-procedures.md#7-package-implementation-target) records the workflow, task, and supporting resources. Add supporting resources only when they change useful decisions; do not create empty scaffolds for future resources.
-
-| Location | Responsibility | Included in installation |
+| Reference | Read when | Owns |
 |---|---|---|
-| `skills/flawless-ui-ux/` | Complete portable skill and its supporting resources | Yes |
-| `docs/` | Maintained product and architecture decisions | No |
-| Root `README.md`, `CHANGELOG.md`, `LICENSE`, and `CONTRIBUTING.md` | Project overview, release history, license, and contribution workflow | Not copied as skill instructions |
-| Root `install.sh` | Copy the self-contained package into a host's discovery directory | Installer only |
-| `.github/` | Repository checks and configuration | No |
-| `evals/` | Manual evaluation requests, fixtures, rubric, and report template; host runs remain pending | No |
-| Parent workspace | Research, exploratory notes, and temporary working material | No |
+| direction.md | Creating or replacing a visual direction | Composition, visual roles, suitable expression, material, continuity |
+| structure.md | Navigation, data, forms, or content relationships need decisions | Destinations and detail presentation, records and measures, transitions, discovery, editorial sequence |
+| craft.md | A visual execution question needs detail | Hierarchy, typography, spacing, color measurement, imagery, responsive composition |
+| interaction.md | Controls, feedback, keyboard behavior, or access need detail | Semantics, focus, applicable states and accessibility criteria |
+| calibration.md | A broad refinement needs diagnosis | Presence, competing emphasis, finish, proportional intervention and comparison |
+| anti-slop.md | A recurring pattern has a concrete consequence | Contextual diagnosis and correction without a universal style |
+| review.md | Critique or deeper diagnosis is requested or needed | Evidence, task inspection, priorities, correction and reporting |
+| design-studies.md | A worked composition would clarify a choice | Original examples and links to the relevant images |
 
-The installed folder must work without access to the source repository or its parent workspace. Runtime instructions must not depend on `docs/`, `evals/`, or external research notes. Supporting links resolve relative to the installed skill directory or the reference containing them.
+References do not introduce another required workflow or task-selection stage. Their useful sections can be read independently. The four intervention boundaries live in the entry point; they no longer require separate workflow files. Product structure consolidates the former context, surface-purpose, and task guides.
 
-The four assets are original, static visual studies linked from `references/design-studies.md`, with text anatomy and adaptation guidance usable without an image viewer. Their maintained source is [design-studies.html](design-studies.html), outside the installed package. They are instructional references, not application templates or proof of working interactions. They introduce no runtime dependency. Add a script only for a demonstrated repeated operation that existing host tools cannot reliably handle.
+## Loading and execution
 
-## 3. Entry point: SKILL.md
+For new visual direction, read Direction and implement from the actual project. Other references are selected for a concrete question. Existing-interface work can proceed from the entry point and project context when those suffice. Read the relevant section and reuse current material.
 
-The entry point owns discovery, shared decision criteria, and reference selection. Use the common frontmatter fields:
+Work directly: inspect, make product-specific choices, implement the authorized result, and check affected behavior and presentation. These are working responsibilities rather than required written artifacts or approval stages. The [workflow guide](workflow-procedures.md) explains their application without adding installed procedures.
 
-```yaml
----
-name: flawless-ui-ux
-description: Create, redesign, refine, or review web interfaces with contextual art direction, task-specific workflows, and AI slop prevention.
----
-```
+Keep functional correctness and visual quality connected. Required data updates need coherent calculations; a good build does not establish readable layout or appropriate navigation. Verification uses capabilities already available in the host and reports actual limits.
 
-The name matches the containing folder. Discovery metadata should remain short and describe requests that actually require interface design. Backend-only changes and repository administration do not need this skill.
+## Instruction budget
 
-The body contains:
+The simplified Markdown package contains 4,335 whitespace-separated words across nine documents, compared with 18,551 across seventeen at revision b2399cf. The entry point contains 525 words. Entry, Direction, and Product structure together contain 1,765 words; this is an example reading set, not a required sequence or a measured host trace.
 
-1. The intended outcome and the boundary of the requested work.
-2. How to identify the intervention, surface purpose, task structure, existing constraints, and available evidence.
-3. Selection of a complete primary procedure, including planning-only and mixed requests.
-4. Direct links to task and subject references, with clear conditions for loading each one.
-5. Essential constraints about preserving explicit requirements, factual content, scope, and verification honesty.
-6. Delivery expectations proportional to the task.
+The observed previous creation requested nine files totaling 11,407 words. That evidence supports reducing habitual reading, but does not establish that all additional time came from text. Treat the 400–600-word entry and approximately 1,500–3,000-word ordinary creation reading range as initial authoring targets, not runtime limits or reasons to omit useful guidance.
 
-Detailed typography rules, examples, state handling, and review procedures live in their owning references. The entry point does not duplicate them or require every reference to be read for every task.
+## Validation
 
-## 4. Reference responsibilities
+Package checks cover metadata, internal links and reachability, encoding, and installation preservation. They impose no aesthetic score or instruction-length gate. The [efficiency and design comparison](../evals/cases/11-instruction-efficiency.md) records actual loading, elapsed time, scope, output, and tool conditions.
 
-| Reference | Owns | Load when |
-|---|---|---|
-| `context.md` | Extracting the product brief; inspecting existing visual decisions, content, assets, and constraints; separating facts from assumptions | A new surface, redesign, or significant gap in project understanding requires investigation |
-| `direction.md` | Developing a product-specific concept; comparing useful alternatives; composing the page argument; choosing visual roles and imagery | Creating a visual direction or intentionally replacing one |
-| `calibration.md` | Recovering an existing visual intention, diagnosing presence, competition, or finish, selecting a proportional intervention, and comparing results | A broad visual refinement or unresolved hierarchy/expression problem needs diagnosis; clear local, copy-only, and behavior-only changes bypass it |
-| `design-studies.md` | Original positive examples, structural alternatives, complete-system relationships, adaptation, and observable quality targets | A new direction or composition problem benefits from a concrete reference; read only useful studies |
-| `surfaces.md` | Purpose-specific priorities for persuasion, task execution, reading, and exploration | The surface's purpose changes composition or interaction decisions; read its relevant section |
-| `craft.md` | Hierarchy, typography, layout, spacing, color, imagery, and responsive composition | Implementing or refining those visual aspects; read the relevant sections |
-| `interaction.md` | UX writing, controls, semantics, accessibility, motion, and relevant loading, empty, success, and error states | The request affects interaction, comprehension, accessibility, or state behavior |
-| `review.md` | Prioritized critique, rendered inspection, interaction evidence, correction order, and reporting | Reviewing an existing interface or checking the result of a change |
-| `anti-slop.md` | Concrete generic-output signals, task consequences, legitimate uses, corrections, and evidence | Establishing a direction or investigating relevant patterns during scoped refinement and review |
-| `workflows/create.md`, `workflows/redesign.md`, `workflows/refine.md`, `workflows/review.md` | Intervention-specific decisions, sequence, scope, completion, and worked examples | Read the selected procedure and reuse it while current |
-| `tasks/data-interfaces.md` | Record-oriented work, query and summary meaning, actions, states, density, and verification | Records or data relationships determine the requested work |
-| `tasks/forms-and-journeys.md` | Action contracts, field progression, state transitions, recovery, and verification | Input or a change of state determines the requested work |
-| `tasks/content-interfaces.md` | Separate persuasion, reading, and exploration decisions and paths | Content order or navigation determines the work; read the applicable section |
-
-Each reference explains its purpose, decision criteria, concrete failure signals, and useful corrective approaches. Examples should clarify a decision rather than prescribe a universal layout.
-
-### Ownership rules
-
-- `context.md` establishes what is true and what must remain; `direction.md` decides how to express it.
-- `calibration.md` develops an existing intention within refinement; it does not replace the identity or own copy editing. Craft and interaction references supply execution details, and review owns evidence distinctions.
-- `surfaces.md` establishes priorities for the visitor's job; `craft.md` and `interaction.md` address execution.
-- Responsive composition belongs in `craft.md`; responsive control behavior belongs in `interaction.md`.
-- `review.md` owns review and evidence reporting. Other references can link to it instead of repeating its procedure.
-- Shared guarantees stay in `SKILL.md`. A reference adds only the detail relevant to its subject.
-- Workflow guides own the intervention process; task guides specialize the decisions and acceptance cases. Subject references supply execution detail without repeating complete workflows.
-- Prevention informs direction before implementation and affected verification afterward. It preserves explicit brand decisions, task scope, and useful substance; it is not a deterministic detector, an authorship classifier, or a mandatory style.
-
-Cross-links are allowed, but must not form a chain that requires reading the entire package to complete an ordinary task. References should link directly to the section needed.
-
-## 5. Intent and surface selection
-
-Intent describes the requested intervention. Surface purpose describes what the visitor needs to accomplish. Both can usually be inferred from the request and existing interface; they are internal decisions, not a command catalog.
-
-The entry point also selects relevant task guidance for data interfaces, forms and journeys, or content interfaces. These concerns compose: a subscription screen can use creation, task-execution priorities, and forms-and-journeys guidance while inheriting an existing identity. The [selection rules](workflow-procedures.md#1-operating-model) define mixed requests, planning-only work, review with authorized fixes, and proportional loading.
-
-| Intent | Expected behavior |
-|---|---|
-| Create | Establish missing context, choose a suitable direction, build the requested interface, and review it |
-| Redesign | Inspect the incumbent interface, preserve valid product and functional constraints, and deliberately replace the permitted visual decisions |
-| Refine | Improve the named target while preserving identity, behavior, and everything outside scope |
-| Review | Inspect and report prioritized findings; implement fixes only when the request authorizes them |
-
-The surface-purpose sections are:
-
-- **Persuasion:** communicate value and support an informed next action.
-- **Task execution:** prioritize legibility, density, navigation, states, and efficient work.
-- **Reading:** prioritize comprehension, information structure, and sustained readability.
-- **Exploration:** let the work or content lead and keep navigation understandable.
-
-A mixed page can have a dominant purpose and embedded interfaces with a different purpose. A marketing page containing an application preview should retain a coherent visual identity while treating the preview's controls and data as a working interface.
-
-## 6. Adaptive loading and execution
-
-The installed package follows this selection and execution model:
-
-```mermaid
-flowchart TD
-    A[User request] --> B[SKILL.md]
-    B --> C[Select procedure, purpose, task, and relevant guides]
-    C --> D{Requested output}
-    D -->|Plan| E[Define solution and proposed checks]
-    D -->|Review| F[Inspect and prioritize findings without edits]
-    D -->|Implement| G[Define and build the task path]
-    G --> H[Inspect with available host tools]
-    H --> I{Material in-scope issue can be corrected?}
-    I -->|Yes| J[Correct the issue]
-    J --> H
-    I -->|No| K[Report result, evidence, and limitations]
-    E --> K
-    F --> K
-```
-
-Loading examples:
-
-| Request | Likely reference path | Expected depth |
-|---|---|---|
-| Build a new product page | Create procedure + content persuasion; relevant context, direction, and execution sections | A complete content, action, direction, and implementation cycle |
-| Redesign a dashboard while preserving its workflows | Redesign procedure + data interfaces; task-execution priorities and relevant subject sections | Establish what can change, then verify the replacement and preserved behavior |
-| Improve the heading hierarchy | Refine procedure + typography and focused review | Reuse the existing direction; omit unnecessary task guidance |
-| Improve form errors on mobile | Refine procedure + forms feedback and relevant interaction/responsive sections | Handle wording, states, keyboard behavior, and layout as needed |
-| Critique a pricing page | Review procedure + content persuasion and relevant evidence sections | Prioritized findings with project files unchanged |
-
-These are examples, not mandatory reading sequences. Once context or a reference section is already available and current, reuse it. New evidence can justify reading another section.
-
-The entry point selects a primary workflow, applicable task-guide sections, and needed subject references. The [procedures](workflow-procedures.md#3-primary-procedures) define the decisions and completion criteria inside the loop; [task guidance](workflow-procedures.md#4-task-specific-guidance) specializes them for the work behind the interface. Narrow requests can omit task guidance when subject references suffice. No routing chain should require loading the entire package.
-
-The correction loop ends when the task's material issues are resolved or a concrete limitation prevents further verification or correction. Report the remaining limitation; do not repeatedly redesign the interface to satisfy a subjective score. The skill does not impose a fixed screenshot count, animation quota, or universal design score.
-
-## 7. Working context and outputs
-
-Working context normally stays in the host's existing notes or conversation. Its depth scales with the task:
-
-| Working record | Useful content |
-|---|---|
-| Brief | Target, user task, desired outcome, implementation constraints, existing identity, available content/assets, confirmed facts, and assumptions |
-| Direction | Product-specific concept, composition, visual roles, imagery approach, interaction intent, and responsive behavior |
-| Solution outline | Information order, required actions and state transitions, integration boundary, and relevant acceptance cases |
-| Review findings | Observed issue, location, effect on the user, priority, recommended correction, and evidence |
-| Verification summary | What was rendered, inspected, interacted with, or checked; what remains unverified |
-
-These are information contracts, not required JSON schemas or files. A small edit may need only a short note.
-
-Reuse existing project documentation for durable product and visual decisions. Persist new decisions when the user requests documentation or the work calls for maintaining an established project record. Do not automatically create a new configuration file, hidden state directory, product brief, or full report for every request.
-
-The final response should focus on the result, material decisions, meaningful verification, and unresolved limitations. A short change should receive a short report.
-
-## 8. Host capabilities and installation
-
-The shared instructions refer to capabilities rather than hard-coded tool names:
-
-| Capability | Use | When unavailable |
-|---|---|---|
-| Read project files | Understand constraints, content, components, and styles | Use supplied material and identify missing evidence |
-| Edit files and execute project commands | Implement and run applicable checks | Deliver the authorized plan or review and describe the implementation limitation |
-| Render and inspect browser pages | Observe desktop/mobile layouts and actual interface states | Perform useful static review without claiming rendered verification |
-| View images | Inspect screenshots, supplied references, and available assets | Explain which visual judgments could not be established |
-| Search or generate imagery | Support the chosen direction when assets are needed and the capability is available | Adapt the direction to honest existing resources |
-
-Host permissions remain authoritative. The skill does not install browser tools, configure external services, require a particular model, or assume paid capabilities are available. Rendered screenshots and interaction tests provide different evidence; neither should be claimed solely from reading source code.
-
-The OpenAI skill model supports instructions with optional references and assets loaded as needed. The package uses that structure without requiring an MCP server. [OpenAI skill documentation](https://developers.openai.com/plugins/concepts/skills).
-
-OpenCode supports directory-based skills and supporting files loaded when the instructions require them. Its documented native discovery directories are compatible with installing the same package without rewriting the design guidance. Invocation syntax differs between host versions, so shared instructions do not prescribe a specific loader call. [OpenCode V1 skills](https://opencode.ai/docs/skills), [OpenCode V2 skills](https://opencode.ai/v2/docs/skills).
-
-`agents/openai.yaml` is host-facing presentation metadata for Codex: display name, short description, and an example prompt. It does not contain a second workflow or require separate design instructions. Keep normal automatic discovery enabled. No plugin manifest, generated provider copies, or separate adapter package is needed initially.
-
-The existing root installer already targets `skills/flawless-ui-ux/`. During implementation, verify that it copies the complete folder, preserves relative references, respects existing installations, and works in the supported Bash environments. Installed behavior still requires a real host test; a copied folder alone does not establish support.
-
-## 9. Evaluation and maintenance
-
-Evaluation belongs outside the installed package. The [manual evaluation kit](../evals/README.md) contains concrete cases and fixtures; recorded host runs remain pending. The [procedure acceptance criteria](workflow-procedures.md#8-delivery-and-acceptance) extend this foundation to observable complete workflows and task-specific decisions.
-
-The initial evaluation set should cover:
-
-1. A new promotional page with enough product information to establish a specific direction.
-2. A dashboard redesign that must preserve workflow, data meaning, and explicit brand constraints.
-3. A focused typography change that should not expand into a redesign.
-4. A review-only request that should produce actionable findings without edits.
-5. A brand that intentionally uses a commonly discouraged visual treatment.
-6. An environment without browser access, where verification claims must remain accurate.
-
-Observe task completion, scope control, relevant reference use, coherence, usability, and verification honesty. Compare results with and without the skill using similar model settings and execution budgets. Self-assigned visual scores are supporting judgments, not proof of quality.
-
-Package checks should validate metadata, resolvable internal references, and installation integrity. These are maintenance checks for the skill, not a deterministic interface detector. Document the host version, model, and capabilities used for behavioral evaluations. Additional agent support follows demonstrated behavior rather than file-format assumptions.
-
-Update the root changelog and release tag when distributing changes to instructions or resources. Maintain one source package and avoid introducing host-specific copies unless testing demonstrates an actual need.
-
-## 10. Procedure evolution
-
-1. **Define:** specify intervention procedures, task selection, preservation boundaries, working outputs, and evidence and completion criteria in [workflow-procedures.md](workflow-procedures.md).
-2. **Implement:** revise the entry point, add the conditional workflow and task guides, and deepen subject guidance and examples where those procedures need them. Preserve automatic discovery, shared host content, and package integrity.
-3. **Evaluate and consolidate:** exercise complete tasks and focused interventions in both hosts, correct observed failures, and document actual results and remaining limits.
-
-Definition and package implementation are complete. Phase 3 requires actual observed workflow outcomes; package checks alone do not complete it. The installed package remains independent of repository documentation and uses host-provided capabilities throughout.
+Post-simplification host performance and visual outcomes remain pending. Smaller files are evidence of a smaller package, not evidence of a faster or better generated interface.
