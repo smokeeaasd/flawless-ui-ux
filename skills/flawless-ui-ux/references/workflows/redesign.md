@@ -14,7 +14,7 @@ Establish a few useful before/after checks from the visitor's task. For a queue,
 
 Separate task failures, structural problems, and the requested change in expression. Explain what the redesign should improve. A desire for a different visual character is a valid objective when explicit; it does not justify changing product claims or behavior.
 
-Use the relevant task-guide sections to reconsider information order and interaction where permitted. Develop the replacement with [Direction](../direction.md): choose a visible organizing idea, coherent visual roles, and how they continue throughout the target. Preserve required brand decisions while changing the authorized structure or treatment.
+Use the relevant task-guide sections to reconsider information order and interaction where permitted. Develop the replacement with [Direction](../direction.md): establish product fit, information hierarchy, coherent visual roles, and how they continue throughout the target. Preserve required brand decisions while changing the authorized structure or treatment.
 
 Use applicable [AI slop prevention](../anti-slop.md) sections to diagnose generic composition, unsupported proof, or competing visual signals. Explain their consequence and retain legitimate uses; substituting a different fashionable default is not a replacement objective.
 

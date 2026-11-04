@@ -10,6 +10,7 @@ The shared package implements creation, redesign, refinement, and review procedu
 - Decisions for records and actions, input and state transitions, and persuasion, reading, or exploration paths.
 - Typography, layout, color, UX writing, accessibility, responsive behavior, and edge cases.
 - Art direction grounded in the product, audience, and available assets.
+- Product-fit decisions for composition, typography, density, and references, with scoped WCAG 2.2 accessibility acceptance and evidence-based review.
 - Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - Visual review using capabilities available in the host agent.
 

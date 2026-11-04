@@ -35,6 +35,16 @@ For a redesign, compare corresponding content, states, and widths when baseline 
 
 Use [AI slop prevention](anti-slop.md) to investigate concrete composition, visual, copy, imagery, and behavior signals. Report the observed consequence and appropriate correction; retain intentional choices that serve the task. Neither eliminating every familiar device nor an authorship label is a review objective. After cleanup, verify that substance, actions, and protected identity remain intact.
 
+## Check design fit and access
+
+Compare the implementation with the brief, not just with recurring-pattern warnings. Does the chosen type work for the actual language, reading length, and numbers? Does density fit the workload? Do imagery and expression fit the intended character without imitating an unrelated identity? Can section content explain its own position and emphasis? Inspect lower sections and working states as well as the opening. Cite the mismatch and its consequence; a familiar font or library component is not itself a finding.
+
+For creation and redesign, check that customization reaches the information hierarchy and relevant interactions where the task calls for it. A new palette over an unsuitable starter composition is not enough. For refinement, evaluate only the permitted decisions and affected regressions; do not penalize the agent for preserving a required identity.
+
+Use [accessibility acceptance](interaction.md#accessibility-acceptance) for affected content and controls. Separate measured contrast and target dimensions, observed keyboard and focus behavior, and tested resize/reflow from static expectations. For a failure, record the element, state, conditions, and applicable requirement. For a style preference, record how it fits or conflicts with the brief instead of labeling it a WCAG violation. Passing accessibility checks does not by itself establish good visual design.
+
+Before finishing, correct material mismatches within scope and repeat the affected observations. If a check cannot run, keep it outstanding; a plausible rationale or passing build does not turn it into verified quality.
+
 ## Prioritize and correct
 
 Classify findings by effect rather than personal preference:

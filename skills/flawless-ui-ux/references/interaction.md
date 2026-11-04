@@ -26,6 +26,20 @@ Check reading and focus order, visible focus, and keyboard operation of the chan
 
 For dialogs, menus, tabs, or other composite widgets, preserve the established keyboard model and focus management. A dialog should not strand focus behind it; closing it should return users to a sensible location. Keep expanded, selected, invalid, and disabled states consistent between visuals and exposed semantics. Prefer a reliable existing primitive over hand-built ARIA behavior.
 
+## Accessibility acceptance
+
+Treat applicable WCAG 2.2 A/AA requirements as acceptance criteria for the content and interactions being created or changed. Apply them within the authorized scope, rather than turning every edit into a whole-product audit. Brand preferences do not establish that an inaccessible treatment is acceptable: seek a compatible accessible treatment and explain any unresolved conflict.
+
+Use the following checks where relevant, alongside the semantics and keyboard guidance above:
+
+- **Contrast:** measure text contrast using [Craft](craft.md#color). Visual information needed to identify authored controls, states, and meaningful graphics generally needs 3:1 against adjacent colors, subject to the criterion's exceptions. This is not a requirement for every decorative border. [Non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html).
+- **Keyboard and focus:** operate the affected path without a pointer; check entry, activation, dismissal, and focus after changes. Keep focus visible and prevent author-created sticky regions or overlays from entirely hiding the focused component. [Focus not obscured](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html).
+- **Pointer targets:** for WCAG 2.2 AA, check at least 24 by 24 CSS px or the applicable spacing or other exception. Prefer more generous targets when the context permits; do not confuse the AA minimum with a universal 44 px requirement. [Target size](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
+- **Text and layout:** check text resizing to 200% without loss and vertical-content reflow at 320 CSS px, accounting for applicable exceptions such as genuinely two-dimensional content. Do not disable zoom or shrink type to conceal overflow. [Resize text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), [reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
+- **Spacing overrides:** where applicable, ensure no loss when users set line height to 1.5 times font size, paragraph spacing to 2 times, letter spacing to 0.12 times, and word spacing to 0.16 times. These are override test values, not mandatory authored defaults. [Text spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html).
+
+These are common checks, not an exhaustive conformance checklist. Use the relevant standard for other affected behavior. Use available tools for measurements and browser checks; do not infer a passing result from CSS intentions. Record exact combinations, states, and interactions checked when reporting a finding. If rendering, keyboard testing, or a measurement is unavailable, report that specific gap. Neither an automated scan nor this partial set of checks establishes full WCAG conformance.
+
 ## Relevant states
 
 Design states that the changed feature can actually encounter. Distinguish them instead of rendering every absence as an empty panel:

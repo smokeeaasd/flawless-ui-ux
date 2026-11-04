@@ -46,7 +46,7 @@ References are relative to this skill directory. Read only the subject sections 
 | Choose or replace a visual direction | [Direction](references/direction.md) |
 | Prevent generic defaults or investigate visual and content patterns | Relevant sections of [AI slop prevention](references/anti-slop.md), during direction and affected review |
 | Adjust visual execution | Relevant sections of [Craft](references/craft.md): [hierarchy](references/craft.md#hierarchy), [typography](references/craft.md#typography), [layout](references/craft.md#layout-and-spacing), [color](references/craft.md#color), [imagery](references/craft.md#imagery), [responsive composition](references/craft.md#responsive-composition) |
-| Change controls, wording, accessibility, states, or motion | The relevant sections of [Interaction](references/interaction.md) |
+| Change controls, wording, accessibility, states, or motion | The relevant sections of [Interaction](references/interaction.md), including [accessibility acceptance](references/interaction.md#accessibility-acceptance) for affected content and controls |
 | Critique an interface or verify a change | [Review](references/review.md) |
 
 Use short working notes for the task basis, solution, and acceptance cases; keep them in the conversation or existing project records unless durable documentation is requested or needs maintenance. The procedures are decision guidance, not mandatory reports or approval ceremonies.
@@ -57,6 +57,7 @@ Use short working notes for the task basis, solution, and acceptance cases; keep
 - Tie visual choices to content, brand, task, or experience. A familiar font, gradient, card, or layout is a reason to examine its purpose, not an automatic defect.
 - Use prevention guidance when a relevant concern needs investigation; it is not an exhaustive checklist for every edit. Preserve intentional brand choices and useful substance. Appearance does not prove AI authorship.
 - A familiar, well-executed solution can be the finished result. Expressiveness, novelty, and minimalism are choices governed by the brief, not quality requirements. Prefer descriptive headings and concrete copy over recurring slogans.
+- Do not confuse avoiding recurring patterns with making good decisions. Choose composition, type, density, and imagery for the actual audience and task; adapt starter and library defaults where they conflict. Validate the result against that basis using [Review](references/review.md#check-design-fit-and-access), rather than accepting either novelty or familiarity as proof of quality.
 - Do not invent testimonials, customers, awards, business metrics, or other proof. Identify sample content that needs confirmation; never present a decorative control as a working integration.
 - Keep controls understandable, content accessible, and responsive behavior appropriate to the task. Do not expand a focused request into an unrelated audit.
 - Report only checks and observations actually performed. A screenshot cannot establish keyboard behavior or full accessibility compliance.

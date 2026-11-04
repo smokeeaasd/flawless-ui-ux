@@ -25,7 +25,7 @@ These are working decisions, not required project files. A small independent com
 
 ## Give the solution a direction
 
-Use [Direction](../direction.md) for unresolved visual decisions. Prioritize content, hierarchy, appropriate density, and recognizable controls. A new page can use established patterns; create a more expressive concept when the brief warrants it, without turning the product name or ordinary features into recurring slogans.
+Use [Direction](../direction.md) for unresolved visual decisions, including [product fit](../direction.md#fit-the-direction-to-the-product). Prioritize content, hierarchy, appropriate density, and recognizable controls. A new page can use established patterns; create a more expressive concept when the brief warrants it, without turning the product name or ordinary features into recurring slogans.
 
 Within an existing system, express the task through its established tokens and primitives. A new settings screen does not need a new brand. Explore alternatives only when there is a meaningful structural or visual choice, and explain the tradeoff rather than producing a fixed number of themes.
 

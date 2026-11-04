@@ -12,6 +12,16 @@ Keep the working direction practical: what leads, how information relates, which
 
 Specificity can come from accurate content, appropriate data, and useful interactions within a familiar layout. Do not force differentiation by changing sound conventions, adding effects, or inventing a more elaborate theme.
 
+## Fit the direction to the product
+
+Resolve the audience's situation, the amount and kind of information, the intended brand character, and the primary task into visible decisions. For example, a small studio's cash-planning tool needs legible amounts, clear time horizons, and current-versus-projected distinctions; a theatrical visual theme cannot substitute for those needs. Do not infer a required style from an industry label alone.
+
+Select composition, type roles, density, and image treatment together. Check where a starter or component library has already made those decisions for you. Retain useful primitives and interaction conventions, but adapt their presentation when it gives every region equal weight or conflicts with the brief. Changing only the accent color and product name is insufficient when the content requires a different hierarchy.
+
+When using references, identify the useful principle: comparison structure, reading rhythm, crop, or feedback behavior. Adapt it to the current content and constraints instead of reproducing another product's distinctive composition, copy, or identity. Follow explicit user-provided reproduction or brand requirements within their authorized scope. Do not browse for inspiration unless it resolves a real need.
+
+Keep the rationale short and tied to consequential choices. A convincing rationale does not excuse a result whose hierarchy or visual character conflicts with the brief. Check the implemented result using [Review](review.md#check-design-fit-and-access).
+
 ## Build the content argument
 
 Before arranging sections, identify the visitor's questions and the content that answers them. On a promotional page, connect each meaningful claim to an explanation, demonstration, or supplied proof. On a working screen, connect each region to a decision or action.
@@ -33,7 +43,7 @@ Decide the roles together:
 - **Interaction:** the useful action and how feedback supports it.
 - **Responsive behavior:** what remains prominent, what reflows, and what changes form on smaller screens.
 
-An expressive first screen needs a coherent continuation. Carry the concept through navigation, details, forms, and lower sections without forcing every region into the same composition.
+A coherent system must continue beyond the first screen. Carry its type, alignment, color roles, and interaction conventions through navigation, details, forms, and lower sections. Let each region's content determine its composition; coherence does not require repeating a slogan, motif, or layout everywhere.
 
 Use relevant [prevention guidance](anti-slop.md#composition-and-substance) when there is a concrete concern about structure or expression. A familiar structure that serves the content does not need replacement. Avoid exhaustive pattern hunting or restyling merely to demonstrate that the guide was applied.
 
