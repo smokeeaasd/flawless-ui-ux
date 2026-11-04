@@ -22,6 +22,16 @@ When using references, identify the useful principle: comparison structure, read
 
 Keep the rationale short and tied to consequential choices. A convincing rationale does not excuse a result whose hierarchy or visual character conflicts with the brief. Check the implemented result using [Review](review.md#check-design-fit-and-access).
 
+## Establish a concrete design target
+
+Use the existing identity, supplied references, or a relevant [design study](design-studies.md) to move from adjectives to a visible structure. Inspect the actual reference when tools permit. Identify what makes it useful: the focal point, information relationships, type roles, color distribution, asset treatment, and interaction. Transfer that discipline into the current content rather than reproducing its fictional facts or surface styling.
+
+For a whole new surface or replacement direction, consider a materially different structure when the obvious one may miss the task: offer-first versus process-first, for example, rather than two palettes over the same layout. Choose according to audience, clarity, identity, and feasibility. A clear brief can proceed directly; compare options with the user when requested or when an unresolved decision warrants it. These studies supply starting points, not a fixed menu or a requirement to explore every style.
+
+Keep a concise working target: opening composition, information order, type and color roles, suitable assets, a key action or state, and narrow-screen behavior. Reuse current notes or project records. For an established system, settle only the new surface's structure; focused refinement does not reopen identity. With a minimal brief, make proportionate visual assumptions without inventing product claims or a brand mythology.
+
+A supplied mockup or sketch can serve as the target. Where image generation is available and authorized, a mockup may help resolve a consequential visual choice before coding. Otherwise, build directly from the structural target. Do not make an image tool, additional approval round, or new documentation file a prerequisite. Inspect [Craft](craft.md) and [Interaction](interaction.md) when translating a picture into readable type, responsive layout, accessible controls, and working states.
+
 ## Build the content argument
 
 Before arranging sections, identify the visitor's questions and the content that answers them. On a promotional page, connect each meaningful claim to an explanation, demonstration, or supplied proof. On a working screen, connect each region to a decision or action.
@@ -58,3 +68,5 @@ Plan around available resources. A concept that depends on nonexistent photograp
 Before implementing, understand the information order, useful action, and applicable visual constraints. Use relevant [Craft](craft.md) and [Interaction](interaction.md) sections where their detail is needed.
 
 Carry a few task-specific acceptance cases with the direction. They should establish whether the intended structure and behavior serve the visitor, not whether the result matches a favored template. The selected workflow owns implementation and completion; this reference supplies the visual and structural decisions it needs.
+
+Use the chosen target again during [review](review.md#compare-with-the-design-target). Passing mechanical checks does not establish that the intended composition, character, and level of finish survived implementation.

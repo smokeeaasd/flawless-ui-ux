@@ -74,7 +74,7 @@ describe("Bash installer", () => {
   }, 30000);
 
   test("copies include hidden files and nested resources", () => {
-    mkdirSync(join(source, "assets"));
+    mkdirSync(join(source, "assets"), { recursive: true });
     writeFileSync(join(source, "assets", "example.txt"), "Resource fixture\n");
     writeFileSync(join(source, ".resource"), "Hidden fixture\n");
     const target = paths("copy", true);

@@ -24,6 +24,7 @@ Complete the page, verify it with the tools available, and briefly explain the d
 - The three prices, opening hours, location, walk-in policy, and repair process are accurate and easy to find.
 - The main action has a useful, honest destination, such as service or visit information. It does not simulate a successful booking or payment.
 - The organizing idea and hierarchy fit a local repair workshop. No particular font, color, or layout is required.
+- A study or supplied reference, when used, informs a concrete composition suited to these facts. Do not award credit merely for copying the study's appearance; inspect information order, useful actions, lower content, and narrow-screen adaptation. A reference image is not proof of working behavior.
 - The page is complete beyond the first screen, readable at desktop and narrow widths, and free of network resource dependencies.
 - Claimed checks match their actual evidence.
 

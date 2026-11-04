@@ -37,6 +37,7 @@ A complete outcome should select a procedure suited to the intervention, visitor
 ### 2. Define the direction
 
 - Ground visual decisions in characteristics of the actual product and its content.
+- Use suitable references or original design studies to establish a concrete target; adapt their useful principles to the product and compare the implementation against that target.
 - Establish the relevant content order and interaction structure so visual treatment supports a concrete task path.
 - Choose composition, typography, color, imagery, density, and interaction appropriate to the surface's purpose.
 - Preserve an established identity during refinement. For redesign, identify the constraints and functions that remain valid.

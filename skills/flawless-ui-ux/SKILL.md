@@ -43,7 +43,7 @@ References are relative to this skill directory. Read only the subject sections 
 | Need | Reference |
 |---|---|
 | Establish a brief, inspect existing constraints, or resolve an asset gap | [Context](references/context.md) |
-| Choose or replace a visual direction | [Direction](references/direction.md) |
+| Choose or replace a visual direction | [Direction](references/direction.md), using relevant [design studies](references/design-studies.md) to make structural choices and quality targets concrete |
 | Prevent generic defaults or investigate visual and content patterns | Relevant sections of [AI slop prevention](references/anti-slop.md), during direction and affected review |
 | Adjust visual execution | Relevant sections of [Craft](references/craft.md): [hierarchy](references/craft.md#hierarchy), [typography](references/craft.md#typography), [layout](references/craft.md#layout-and-spacing), [color](references/craft.md#color), [imagery](references/craft.md#imagery), [responsive composition](references/craft.md#responsive-composition) |
 | Change controls, wording, accessibility, states, or motion | The relevant sections of [Interaction](references/interaction.md), including [accessibility acceptance](references/interaction.md#accessibility-acceptance) for affected content and controls |

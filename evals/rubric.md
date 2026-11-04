@@ -36,6 +36,8 @@ Record applicable accessibility checks separately: measured text and non-text co
 
 ## Evidence levels
 
+For reference-guided work, record the reference and chosen target only when observable. Evaluate whether the implementation transfers the useful hierarchy, proportions, information relationships, and interaction principles to the actual product. Copying study names, facts, palette, or composition without product fit is not success. Compare lower regions and narrow layouts as well as the opening, and distinguish useful adaptation from unexplained drift. Do not require study loading, a mockup, or a choice ceremony when the brief or incumbent system already settles the decision. Preserve task and accessibility criteria; an attractive reference is not behavioral evidence.
+
 Label each observation as **static inspection**, **rendered inspection**, **interaction**, or **automated check**. Include the actor: agent or evaluator. Keep these levels separate in the report.
 
 For visual judgments, connect a concrete detail to its effect, for example: “At 390 px, the estimate and action require horizontal scrolling, slowing down the ready-for-pickup task.” Avoid unsupported judgments such as “more professional” or “obviously AI-generated.” Multiple visual solutions can meet a brief.

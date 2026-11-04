@@ -10,6 +10,7 @@ The shared package implements creation, redesign, refinement, and review procedu
 - Decisions for records and actions, input and state transitions, and persuasion, reading, or exploration paths.
 - Typography, layout, color, UX writing, accessibility, responsive behavior, and edge cases.
 - Art direction grounded in the product, audience, and available assets.
+- Original visual studies for service offers, operational workspaces, editorial guides, and visual collections, with adaptation guidance and concrete design targets.
 - Product-fit decisions for composition, typography, density, and references, with scoped WCAG 2.2 accessibility acceptance and evidence-based review.
 - Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - Visual review using capabilities available in the host agent.
@@ -61,5 +62,7 @@ Use the relevant prevention sections for concrete concerns rather than an exhaus
 The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.
 
 These checks establish package integrity. Earlier manual user testing confirmed identification in both initial hosts and a satisfactory initial result. Those observations predate the expanded procedures; systematic evaluation of their invocation, interface quality, and end-to-end behavior remains pending.
+
+Later user feedback reported improved colors and hierarchy across multiple models with minimal prompts, with limited personalization. The exact run conditions were not recorded. That feedback is separate from the unperformed systematic round and does not validate the new reference-guided studies.
 
 The [guided manual evaluations](evals/README.md) provide seven design scenarios, disposable fixtures, discovery and baseline controls, and a shared report template for that evaluation. These include contextual prevention and intentional brand preservation. The materials are ready; their preparation does not establish completed host runs.
