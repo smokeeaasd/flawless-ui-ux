@@ -12,9 +12,9 @@ If the page reduces to many similar visual masses, choose the real priority and 
 
 ## Typography
 
-Choose fonts for the reading task, product character, language coverage, and actual availability. Reuse an established type system during refinement. For a new identity, make an explicit family choice for display and reading roles; Arial, a platform stack, or the scaffold's font is not a preferred starting point merely because it is available. A familiar typeface can still fit a deliberate direction.
+Choose fonts for the reading task, product character, language coverage, and actual availability. Reuse an established type system during refinement. For a new identity, assess how the families serve display and reading roles rather than carrying over the scaffold's choice without considering its fit. Familiar and system fonts can be appropriate choices.
 
-For a new type system, inspect plausible candidates with actual headings, accented characters, body copy, and numbers. Choose by letterform character, readability, required weights, and fit with the direction. Use an available, appropriately licensed font source within project constraints and provide a usable fallback. Keep the fallback distinct from the intended design choice: an unloaded custom font does not complete that choice. When system fonts are required or deliberately suited to the task, work within that constraint; otherwise do not let convenience settle the typography. A single well-chosen family can serve multiple roles.
+For a new type system, inspect plausible candidates with actual headings, accented characters, body copy, and numbers. Consider letterform character, readability, required weights, and fit with the direction. Use available, appropriately licensed sources within project constraints and provide a usable fallback when loading a custom font. A single well-chosen family can serve multiple roles; adding another family or a font dependency should improve the result.
 
 Build hierarchy with a small set of meaningful roles. Adjust measure, size, weight, and leading together. Body text should remain comfortable at the intended viewing distance; do not make important information faint or tiny to accommodate oversized display type.
 
