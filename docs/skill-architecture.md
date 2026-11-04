@@ -10,7 +10,7 @@ The [workflow procedures](workflow-procedures.md) define the complete interventi
 |---|---|
 | One skill named `flawless-ui-ux` | Users describe their goal in ordinary language through one entry point. |
 | One shared package for OpenCode and Codex | Design guidance stays consistent across hosts. |
-| A concise `SKILL.md`, four workflow guides, three task guides, and six subject references | Shared decisions are immediately available; conditional detail is loaded when useful. |
+| A concise `SKILL.md`, four workflow guides, three task guides, and seven subject references | Shared decisions are immediately available; conditional detail is loaded when useful. |
 | Guidance selected by intervention, surface purpose, and task structure | The procedure governs scope; the purpose governs priorities; the work behind the screen supplies concrete decisions and checks. |
 | Host-provided editing, browser, and image capabilities | The skill does not need an execution engine or browser integration of its own. |
 | Session-local working context by default | Small tasks do not create documentation or hidden project state automatically. |
@@ -29,6 +29,7 @@ skills/
     ├── agents/
     │   └── openai.yaml
     └── references/
+        ├── anti-slop.md
         ├── context.md
         ├── direction.md
         ├── surfaces.md
@@ -46,7 +47,7 @@ skills/
             └── content-interfaces.md
 ```
 
-These fifteen files form the self-contained installable package. The [procedure package description](workflow-procedures.md#7-package-implementation-target) records the seven conditional workflow and task resources. Add supporting resources only when they change useful decisions; do not create empty scaffolds for future resources.
+These sixteen files form the self-contained installable package. The [procedure package description](workflow-procedures.md#7-package-implementation-target) records the workflow and task resources and the prevention reference. Add supporting resources only when they change useful decisions; do not create empty scaffolds for future resources.
 
 | Location | Responsibility | Included in installation |
 |---|---|---|
@@ -69,7 +70,7 @@ The entry point owns discovery, shared decision criteria, and reference selectio
 ```yaml
 ---
 name: flawless-ui-ux
-description: Create, redesign, refine, or review web interfaces with contextual art direction and UI/UX guidance.
+description: Create, redesign, refine, or review web interfaces with contextual art direction, task-specific workflows, and AI slop prevention.
 ---
 ```
 
@@ -96,6 +97,7 @@ Detailed typography rules, examples, state handling, and review procedures live 
 | `craft.md` | Hierarchy, typography, layout, spacing, color, imagery, and responsive composition | Implementing or refining those visual aspects; read the relevant sections |
 | `interaction.md` | UX writing, controls, semantics, accessibility, motion, and relevant loading, empty, success, and error states | The request affects interaction, comprehension, accessibility, or state behavior |
 | `review.md` | Prioritized critique, rendered inspection, interaction evidence, correction order, and reporting | Reviewing an existing interface or checking the result of a change |
+| `anti-slop.md` | Concrete generic-output signals, task consequences, legitimate uses, corrections, and evidence | Establishing a direction or investigating relevant patterns during scoped refinement and review |
 | `workflows/create.md`, `workflows/redesign.md`, `workflows/refine.md`, `workflows/review.md` | Intervention-specific decisions, sequence, scope, completion, and worked examples | Read the selected procedure and reuse it while current |
 | `tasks/data-interfaces.md` | Record-oriented work, query and summary meaning, actions, states, density, and verification | Records or data relationships determine the requested work |
 | `tasks/forms-and-journeys.md` | Action contracts, field progression, state transitions, recovery, and verification | Input or a change of state determines the requested work |
@@ -111,6 +113,7 @@ Each reference explains its purpose, decision criteria, concrete failure signals
 - `review.md` owns review and evidence reporting. Other references can link to it instead of repeating its procedure.
 - Shared guarantees stay in `SKILL.md`. A reference adds only the detail relevant to its subject.
 - Workflow guides own the intervention process; task guides specialize the decisions and acceptance cases. Subject references supply execution detail without repeating complete workflows.
+- Prevention informs direction before implementation and affected verification afterward. It preserves explicit brand decisions, task scope, and useful substance; it is not a deterministic detector, an authorship classifier, or a mandatory style.
 
 Cross-links are allowed, but must not form a chain that requires reading the entire package to complete an ordinary task. References should link directly to the section needed.
 

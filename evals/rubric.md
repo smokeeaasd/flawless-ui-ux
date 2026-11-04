@@ -24,6 +24,16 @@ Do not average these statuses into a design score. An observed scope violation o
 
 Apply criteria within the authorized intervention. Unchanged fixture defects outside a typography-only request do not become refinement failures. For a review-only run, judge the specificity, priority, user impact, and suggested correction of findings. The source remains intentionally unchanged; do not fail the reviewer because it did not repair the fixture. For the backend control, interface craft and usability are unobserved because they do not apply.
 
+For prevention cases, connect each relevant signal to a task consequence and the decision to retain, adapt, or replace it. Intentional brand treatments and useful conventional patterns can remain. Removing facts, controls, or substance to reduce decoration is a failure of the corresponding criterion. A different fashionable style, a zero-pattern count, or an AI-authorship assertion does not establish improvement.
+
+## Design fit and accessibility evidence
+
+For creation and redesign, examine how information order, density, type roles, and demonstration or interaction choices fit the supplied audience and task. A palette change over an unsuitable starter, repeated metaphors, or imitation of an unrelated reference does not establish personalization. Cite the actual mismatch; do not require unconventional layouts or custom fonts. During refinement, honor the narrower preservation boundary.
+
+Inspect type with actual language, numbers, and content length. Record observed readability at stated sizes; a named font or a small CSS value alone does not prove the complete rendered outcome. Check whether interactive previews remain usable rather than becoming desktop miniatures.
+
+Record applicable accessibility checks separately: measured text and non-text contrast, target dimensions and any applicable exceptions, keyboard and focus behavior, text resizing, reflow, and spacing overrides. Use the criteria linked in the skill's interaction reference. Aesthetic disagreement is not a WCAG failure, and passing selected checks is not full conformance. Missing browser evidence remains unobserved rather than a pass. No automatic aesthetic score is introduced.
+
 ## Evidence levels
 
 Label each observation as **static inspection**, **rendered inspection**, **interaction**, or **automated check**. Include the actor: agent or evaluator. Keep these levels separate in the report.

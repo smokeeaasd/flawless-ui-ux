@@ -16,7 +16,9 @@ Map supplied content to those questions before arranging sections. Connect claim
 
 Establish an opening that makes the subject and useful next action understandable. Let the content determine whether comparison, process, examples, pricing, or another structure should lead. Keep secondary actions available without making every region compete equally. Required prices, units, billing periods, hours, locations, or restrictions must stay accurate and easy to find.
 
-When a new direction is authorized, use [Direction](../direction.md) to tie a visible organizing idea to the subject. Decide how type, composition, color, imagery, and pacing express it across the whole page. Do not finish a distinctive opening and then fill the rest with unrelated template blocks. Familiar patterns remain useful when they explain the product well.
+Use [Direction](../direction.md) to resolve visual choices at the depth the brief needs. Keep type, composition, color, and imagery coherent across the page. Conventional sections can be appropriate when they explain the actual product; a symbolic organizing idea is optional.
+
+Write section headings that identify their content: pricing, workflow, supported features, or another relevant subject. Use concise factual explanations beneath them. Promotional language can support an explicitly requested brand voice, but custom design does not require slogans, wordplay, or repeated metaphors throughout the page.
 
 Every action needs an honest destination. A static workshop page can lead to service or visit information; it cannot simulate a completed booking. A pricing control must reflect the actual interaction or be clearly identified as a preview. Apply [Forms and journeys](forms-and-journeys.md) only when a real form or consequential flow is in scope.
 

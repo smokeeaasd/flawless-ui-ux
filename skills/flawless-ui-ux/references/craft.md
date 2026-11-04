@@ -2,6 +2,8 @@
 
 Read the sections relevant to the visual change. Preserve existing tokens and component conventions unless replacing them is part of the intervention.
 
+For concrete warning signals and legitimate counterexamples, use the relevant [prevention sections](anti-slop.md), especially [visual language](anti-slop.md#visual-language-and-system-fit) and [typography](anti-slop.md#typography-and-emphasis). Evaluate their consequences in the actual composition rather than banning a font, effect, or layout by name.
+
 ## Hierarchy
 
 Decide what should be noticed first, understood next, and available on inspection. Use differences in scale, weight, placement, contrast, and grouping to establish that order. Give important content room to lead rather than making every element equally emphatic.
@@ -12,7 +14,11 @@ If the page reduces to many similar visual masses, choose the real priority and 
 
 Choose fonts for the reading task, product character, language coverage, and actual availability. Reuse an established type system during refinement. A familiar typeface can be right; changing it solely to look unusual can weaken recognition and introduce loading costs.
 
+For a new type system, inspect candidate fonts with actual headings, accented characters, body copy, and numbers. Check whether the needed weights and glyph distinctions work at the intended sizes. Accept a system stack or library default deliberately, not just because the scaffold supplied it. If a custom font materially improves fit, use an available, appropriately licensed source within project constraints and provide a usable fallback; do not add a remote font dependency by habit.
+
 Build hierarchy with a small set of meaningful roles. Adjust measure, size, weight, and leading together. Body text should remain comfortable at the intended viewing distance; do not make important information faint or tiny to accommodate oversized display type.
+
+Around 1rem is a useful starting point for continuous body reading, not a universal rule or a WCAG minimum font size. Check labels, notes, and data at their actual rendered size as well. An interactive product preview is a usable interface: simplify its content or change its layout instead of shrinking essential text and controls to make a desktop miniature fit a phone.
 
 Inspect real line breaks at narrow and wide sizes. Awkward last lines can often be improved by editing text, changing measure, or balancing a heading. Avoid forced line breaks that solve one viewport and damage another. Confirm that the intended font and weight actually load before judging spacing.
 
@@ -34,7 +40,7 @@ Inspect empty regions for intent. Whitespace can create focus and pacing; it can
 
 Assign roles before choosing individual values: backgrounds, content ink, secondary information, actions, boundaries, and status. Use the existing palette when it is a constraint. Give an accent a clear purpose so it remains useful for navigation or action.
 
-Color must not be the sole carrier of state. Pair status with wording, shape, or another discernible cue. Assess contrast on the rendered combination, including overlays, images, and interaction states. For WCAG AA text contrast, the usual minimum is 4.5:1, or 3:1 for large text as defined by the criterion; meeting it alone does not establish accessibility compliance. [Contrast reference](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+Color must not be the sole carrier of state. Pair status with wording, shape, or another discernible cue. Measure contrast for the actual foreground and background, including overlays, images, and interaction states, rather than judging it by eye. WCAG AA text contrast is at least 4.5:1, or 3:1 for large text (at least 18 pt, or 14 pt bold), subject to the criterion's exceptions; meeting it alone does not establish accessibility compliance. [Contrast reference](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). Use [accessibility acceptance](interaction.md#accessibility-acceptance) for affected controls, meaningful graphics, and adaptation checks.
 
 A gradient, saturated palette, or subdued theme can serve the direction. Evaluate whether it helps meaning, character, and legibility. During refinement, improve the role and contrast of an intentional brand treatment before proposing its replacement.
 

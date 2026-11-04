@@ -25,9 +25,11 @@ These are working decisions, not required project files. A small independent com
 
 ## Give the solution a direction
 
-Use [Direction](../direction.md) when the surface needs a new visual approach. Tie a consequential decision to a particular fact about the product: a repair service can lead with the repair process; an operations queue can lead with the next intervention. Set composition, hierarchy, density, type, color, imagery, and interaction together.
+Use [Direction](../direction.md) for unresolved visual decisions, including [product fit](../direction.md#fit-the-direction-to-the-product). Prioritize content, hierarchy, appropriate density, and recognizable controls. A new page can use established patterns; create a more expressive concept when the brief warrants it, without turning the product name or ordinary features into recurring slogans.
 
 Within an existing system, express the task through its established tokens and primitives. A new settings screen does not need a new brand. Explore alternatives only when there is a meaningful structural or visual choice, and explain the tradeoff rather than producing a fixed number of themes.
+
+Use relevant [prevention guidance](../anti-slop.md) if a concrete concern needs investigation. Retain useful conventions, brand decisions, and content. The guide does not require an exhaustive style audit or a conspicuously original treatment.
 
 For a planning-only request, complete the applicable solution and direction decisions, then return the outline and proposed checks. Stop before implementation and do not claim those checks ran.
 
@@ -40,6 +42,8 @@ Use the relevant [Craft](../craft.md) and [Interaction](../interaction.md) secti
 ## Observe, correct, and finish
 
 Use [Review](../review.md) to distinguish source, rendered, interaction, and project-check evidence. Verify the primary path, an applicable recovery or alternate path, supplied facts, and representative wide and narrow layouts when capabilities permit. Inspect the complete target, including content beyond its first screen. Correct task and access failures before comprehension and finish; rerun affected checks after the final change.
+
+Recheck the relevant prevention signals against the implemented result. Removing decorative layers must leave a complete, usable interface rather than an empty substitute. Report only effects supported by the available evidence.
 
 **Completion:** the requested surface supports its task, relevant content and states are complete, and material in-scope issues are resolved or explicitly reported. Summarize consequential decisions, performed checks, and limitations. Unavailable rendering remains unverified; a successful build does not establish it.
 

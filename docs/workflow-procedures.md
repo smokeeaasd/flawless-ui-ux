@@ -2,13 +2,15 @@
 
 This specification defines the task-specific procedures implemented in flawless-ui-ux, supported by reusable design and interaction guidance. It develops the [product contract](product-contract.md) and [skill architecture](skill-architecture.md).
 
-**Status:** phases 1 and 2, definition and package implementation, are complete. The installed package contains the entry point, host metadata, four workflow guides, three task guides, and six subject references. Phase-3 behavioral evaluation of the expanded procedures remains pending; shipped instructions do not establish observed host outcomes.
+**Status:** phases 1 and 2, definition and package implementation, are complete. The installed package contains the entry point, host metadata, four workflow guides, three task guides, and seven subject references, including contextual AI slop prevention. Phase-3 behavioral evaluation of the expanded procedures remains pending; shipped instructions do not establish observed host outcomes.
 
 ## 1. Operating model
 
 A user supplies an outcome, such as developing a subscription-management screen or redesigning a repair queue. The skill selects the intervention, understands the work the interface supports, and carries it through the applicable decisions, implementation, observation, and correction. Users can still request a small adjustment without initiating a whole-screen process.
 
 Backend-only work and repository administration without an interface-design intervention remain outside this workflow.
+
+The procedures support task decisions without requiring conspicuous originality. A straightforward, coherent interface can be complete. Symbolic concepts, unusual layouts, and expressive copy follow the brief rather than being required for every creation; headings and explanations default to concrete content.
 
 Selection combines three independent decisions:
 
@@ -156,6 +158,8 @@ Use evidence available in the host: source inspection, rendered inspection, inte
 
 For visual quality, explain a particular choice and its effect on understanding, use, or product expression. Check whether the direction survives beyond the hero, whether important information leads, and whether restraint has removed useful substance. Judge refinement within the inherited identity. Aesthetic conventions are not automatic defects, and no universal score, image quota, animation count, or fixed number of alternatives defines success.
 
+Use the relevant [prevention guidance](../skills/flawless-ui-ux/references/anti-slop.md) before committing to a new direction and when examining its implementation. Assess the signal, its product role, the observed consequence, and whether to retain, adapt, or replace it. Keep intentional treatments and useful content; do not widen a focused request or infer authorship from appearance.
+
 Correct task and access failures before significant comprehension issues, then finish. Reinspect the affected paths and layouts after changes. Return to solution definition if the evidence exposes a structural cause; do not continue decorating an incorrect structure.
 
 Stop when material issues within scope are resolved and applicable checks have been performed, or when a specific dependency prevents further work. State remaining failures or unverified behavior plainly. If rendering is unavailable, deliver useful implementation or static findings and identify that limit. If the user explicitly required verification that could not run, that portion of the request remains outstanding.
@@ -176,7 +180,7 @@ Without browser access, these routes retain their task and scope. Their verifica
 
 ## 7. Package implementation target
 
-The entry point owns selection, shared boundaries, and direct reference links. The four primary procedures belong in conditional workflow references. The three task guides specialize the work. The six existing subject references retain their responsibilities; they supply context, surface priorities, direction, visual execution, interaction, and review evidence without repeating full workflows.
+The entry point owns selection, shared boundaries, and direct reference links. The four primary procedures belong in conditional workflow references. The three task guides specialize the work. Subject references supply context, surface priorities, direction, visual execution, interaction, review evidence, and contextual prevention without repeating full workflows.
 
 The installed skill includes these resources under its `references/` directory:
 
@@ -189,8 +193,9 @@ The installed skill includes these resources under its `references/` directory:
 | `tasks/data-interfaces.md` | Record-oriented work, data meaning, actions, states, and verification |
 | `tasks/forms-and-journeys.md` | Input, state transitions, consequences, recovery, and verification |
 | `tasks/content-interfaces.md` | Separate persuasion, reading, and exploration sections with concrete content and navigation decisions |
+| `anti-slop.md` | Preventive and diagnostic signals, legitimate counterexamples, alternatives, scope, and evidence |
 
-These seven additions make fifteen package files including the entry point, metadata, and six subject references. All runtime guidance is implemented inside the installed package; this repository document is not a runtime dependency.
+The package contains sixteen files: the entry point, metadata, four workflows, three task guides, and seven subject references. All runtime guidance is implemented inside the installed package; this repository document is not a runtime dependency.
 
 Load the selected workflow once and reuse it while it remains current. Load task sections when they affect decisions and subject sections when their details are needed. Entry links must make the workflow and applicable task sections directly discoverable; no chain should force reading every guide. Narrow refinement and review can omit a task guide when relevant subject guidance is sufficient.
 
@@ -205,6 +210,8 @@ Keep the single skill identity, normal automatic discovery, and explicit host in
 | 3. Evaluate and consolidate | Actual host runs, observed corrections, and representative documented outputs | Representative complete tasks and focused interventions are observed in both hosts, relevant failures are addressed, and remaining gaps are documented |
 
 Use the existing [manual evaluations](../evals/README.md) as the starting set. Cases 01 and 06 exercise creation, case 02 redesign, cases 03 and 05 refinement, and case 04 review. The backend control remains a check against unrelated activation.
+
+Case 08 adds contextual prevention during redesign. Pair it with case 05 to check that generic-output diagnosis does not become removal of intentional brand treatments. Observed improvements, retained substance, preserved behavior, and scope matter more than a count of eliminated patterns.
 
 For phase 3, add a complete forms-and-journeys case and a collection-to-article case to cover task decisions that the existing fixtures do not establish. Specify confirmed product rules and local demo boundaries in those fixtures. Reuse the current Met, Failed, and Unobserved reporting; do not introduce an aesthetic score or an automated agent runner.
 

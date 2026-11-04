@@ -10,6 +10,8 @@ The shared package implements creation, redesign, refinement, and review procedu
 - Decisions for records and actions, input and state transitions, and persuasion, reading, or exploration paths.
 - Typography, layout, color, UX writing, accessibility, responsive behavior, and edge cases.
 - Art direction grounded in the product, audience, and available assets.
+- Product-fit decisions for composition, typography, density, and references, with scoped WCAG 2.2 accessibility acceptance and evidence-based review.
+- Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - Visual review using capabilities available in the host agent.
 
 A deterministic interface detector, dedicated runtime engine, browser extension, and live editing platform are outside the initial scope.
@@ -50,10 +52,14 @@ The skill selects guidance for the task and uses tools available in the host. It
 
 Procedure selection is internal to the skill. Each procedure defines the investigation, decisions, implementation or findings, verification, and completion criteria relevant to the task. Supporting detail is loaded as needed; a focused change does not require a complete redesign process. The [procedure specification](docs/workflow-procedures.md) documents the operating model and worked routing examples.
 
+[AI slop prevention](skills/flawless-ui-ux/references/anti-slop.md) is part of direction and review. It connects concrete warning signals to their consequences, legitimate uses, alternatives, and verification, while preserving intentional brand choices and useful content. It does not assign authorship from appearance or require a particular visual style.
+
+Use the relevant prevention sections for concrete concerns rather than an exhaustive style check. Clear conventional layouts and descriptive copy are valid outcomes; custom design does not require symbolic concepts or slogans throughout the page.
+
 ## Validation status
 
 The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.
 
 These checks establish package integrity. Earlier manual user testing confirmed identification in both initial hosts and a satisfactory initial result. Those observations predate the expanded procedures; systematic evaluation of their invocation, interface quality, and end-to-end behavior remains pending.
 
-The [guided manual evaluations](evals/README.md) provide six design scenarios, disposable fixtures, discovery and baseline controls, and a shared report template for that evaluation. The materials are ready; their preparation does not establish completed host runs.
+The [guided manual evaluations](evals/README.md) provide seven design scenarios, disposable fixtures, discovery and baseline controls, and a shared report template for that evaluation. These include contextual prevention and intentional brand preservation. The materials are ready; their preparation does not establish completed host runs.

@@ -14,7 +14,9 @@ Establish a few useful before/after checks from the visitor's task. For a queue,
 
 Separate task failures, structural problems, and the requested change in expression. Explain what the redesign should improve. A desire for a different visual character is a valid objective when explicit; it does not justify changing product claims or behavior.
 
-Use the relevant task-guide sections to reconsider information order and interaction where permitted. Develop the replacement with [Direction](../direction.md): choose a visible organizing idea, coherent visual roles, and how they continue throughout the target. Preserve required brand decisions while changing the authorized structure or treatment.
+Use the relevant task-guide sections to reconsider information order and interaction where permitted. Develop the replacement with [Direction](../direction.md): establish product fit, information hierarchy, coherent visual roles, and how they continue throughout the target. Preserve required brand decisions while changing the authorized structure or treatment.
+
+Use applicable [AI slop prevention](../anti-slop.md) sections to diagnose generic composition, unsupported proof, or competing visual signals. Explain their consequence and retain legitimate uses; substituting a different fashionable default is not a replacement objective.
 
 Compare alternatives where they resolve a real choice, such as a record-first workspace versus a monitoring overview. State the consequence for the visitor. Reuse current technical conventions and integrations unless changing them is part of the request. Planning-only work ends with the replacement outline, preservation boundary, and proposed verification.
 
@@ -31,6 +33,8 @@ Keep unrelated routes and product rules intact. Visual replacement does not auth
 Recheck the preserved task paths, facts, and data meaning. Compare corresponding content, state, and viewport conditions when before/after rendering exists. Distinguish a changed hierarchy from a change in the underlying dataset.
 
 Assess the result against the stated objective and relevant [Surface](../surfaces.md) priorities. Use [Review](../review.md) for evidence, correction order, and reporting. Fix material regressions and inspect again after changes; verify visual coherence across the complete agreed target.
+
+Confirm that visual cleanup preserves useful content, functioning controls, and explicit brand constraints. Compare the affected task path and composition, rather than counting eliminated patterns or asserting machine authorship.
 
 **Completion:** the replacement serves its objective, the target has a coherent treatment, and preserved facts and behavior still hold. Report actual evidence and any missing comparison or interaction coverage. Do not claim the old version was observed when only its source was available.
 

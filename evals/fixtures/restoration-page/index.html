@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Second Grain restoration</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="shell navigation">
+      <a class="brand" href="#home">Second Grain</a>
+      <nav aria-label="Main"><a href="#services">Services</a><a href="#assessment">Assessment</a></nav>
+    </header>
+    <main id="home" class="shell">
+      <section class="hero">
+        <p class="badge">Future-ready craftsmanship</p>
+        <h1>Reimagine the <span>future of furniture.</span></h1>
+        <p class="pitch">Limitless possibilities. Seamless transformation. Your next chapter starts here.</p>
+        <p class="availability"><span class="dot" aria-hidden="true"></span>Always moving forward<span class="cursor" aria-hidden="true">|</span></p>
+        <a class="button" href="#assessment">Request an assessment</a>
+        <div class="metrics"><p><strong>12,000+</strong> delighted homes</p><p><strong>99.9%</strong> satisfaction</p></div>
+      </section>
+      <section class="panel" aria-labelledby="difference-title">
+        <p class="eyebrow">Our difference</p>
+        <h2 id="difference-title">What makes us different</h2>
+        <div class="features">
+          <article class="card"><div class="inner"><span class="icon" aria-hidden="true">✦</span><h3>Limitless craft</h3><p>Remarkable results for your next chapter.</p></div></article>
+          <article class="card"><div class="inner"><span class="icon" aria-hidden="true">✦</span><h3>Seamless care</h3><p>Remarkable results for your next chapter.</p></div></article>
+          <article class="card"><div class="inner"><span class="icon" aria-hidden="true">✦</span><h3>Elevated living</h3><p>Remarkable results for your next chapter.</p></div></article>
+        </div>
+      </section>
+      <section id="services" class="panel" aria-labelledby="services-title">
+        <p class="eyebrow">Our services</p>
+        <h2 id="services-title">Services for your furniture</h2>
+        <p>We restore solid-wood chairs, tables, and small cabinets: repairing joints, treating surface damage, and renewing finishes while preserving the wood's character.</p>
+        <ul><li>Chair repairs from £45</li><li>Small-table restoration from £120</li><li>Dining-table restoration from £280</li></ul>
+        <p>Final scope and price are agreed after assessment.</p>
+      </section>
+      <section class="panel" aria-labelledby="process-title">
+        <p class="eyebrow">Our process</p>
+        <h2 id="process-title">How the work happens</h2>
+        <ol><li>Describe the item.</li><li>Receive an assessment.</li><li>Approve a written estimate.</li><li>Arrange the work.</li></ol>
+      </section>
+      <section id="assessment" class="panel" aria-labelledby="assessment-title">
+        <p class="eyebrow">Your assessment</p>
+        <h2 id="assessment-title">Request an assessment</h2>
+        <p id="demo-note">Local demo only. No request is sent or stored, and no booking, payment, or email is created.</p>
+        <form id="assessment-form" aria-describedby="demo-note">
+          <label for="name">Name<input id="name" name="name" autocomplete="name" required></label>
+          <label for="email">Email<input id="email" name="email" type="email" autocomplete="email" required></label>
+          <label for="furniture">Furniture type<select id="furniture" name="furniture" required><option value="">Select an item</option><option>Chair</option><option>Table</option><option>Small cabinet</option></select></label>
+          <label for="description">Describe the problem<textarea id="description" name="description" rows="4" required></textarea></label>
+          <button class="button" type="submit">Try the assessment form</button>
+          <p id="feedback" role="status">Demo feedback appears here after a valid submission.</p>
+        </form>
+      </section>
+    </main>
+    <footer class="shell"><p>Second Grain · 18 Mill Street, Bristol · Tuesday–Saturday, 09:00–17:00</p><p>Fictional workshop. Local demonstration.</p></footer>
+  </body>
+</html>
