@@ -8,6 +8,8 @@ The user previously confirmed skill identification in both hosts and reported a 
 
 Later informal feedback reported improved colors and visual hierarchy across several models with minimal prompts, and tolerable limits in personalization. Exact conditions were not recorded. This feedback predates the original visual studies and does not establish their effect.
 
+Subsequent feedback reported overly plain refinements and continuing slogan repetition. Those reports motivated the [guidance review](../docs/design-guidance-review.md), but do not isolate a cause or establish an outcome for its corrections. The follow-up evaluation remains pending.
+
 ### Focused reference-guidance round
 
 For changes to positive design guidance, use cases 01 and 02 for creation and redesign, paired with 05 for brand preservation and 06 for unavailable browser tools. Keep tasks, model, tool availability, and settings fixed when comparing revisions; use independent sessions and fresh fixtures. Record observable reference use, the concrete target, adaptation to the product, drift in the implementation, and verification gaps using the rubric. Do not introduce image-generation access in only one arm or treat copied study styling as improvement. These focused runs supplement the full matrix below and have not been performed.
@@ -24,6 +26,7 @@ For changes to positive design guidance, use cases 01 and 02 for creation and re
 | [06 No browser](cases/06-no-browser.md) | Empty directory | Useful implementation and accurate verification limits |
 | [07 Backend control](cases/07-backend-control.md) | [Backend](fixtures/backend/) | An unrelated task does not activate UI/UX guidance |
 | [08 Contextual prevention](cases/08-anti-slop-redesign.md) | [Restoration page](fixtures/restoration-page/) | Replace unconsidered decisions while preserving substance, facts, and functionality |
+| [09 Refinement continuity](cases/09-refinement-continuity.md) | Preserved completed case-01 output | Optional independent visual-only and copy-only follow-ups; character and scope survive targeted improvement |
 
 Run this matrix separately in each host:
 
@@ -34,7 +37,7 @@ Run this matrix separately in each host:
 | Case 01, fresh project | No skills enabled | Baseline; identical natural-language task |
 | Case 07 | Only flawless-ui-ux enabled | Natural language; negative control |
 
-The full matrix is ten runs per host, twenty total. Start with case 03 in each host as the loading smoke check; successful smoke runs count toward the matrix. If loading cannot be established, investigate before spending time on the remaining cases. Preserve failed attempts as separate records.
+The core matrix is ten runs per host, twenty total; optional case 09 adds two follow-ups per host when a suitable preserved baseline exists. Start with case 03 in each host as the loading smoke check; successful smoke runs count toward the matrix. If loading cannot be established, investigate before spending time on the remaining cases. Preserve failed attempts as separate records.
 
 For a focused prevention round, use cases 01, 08, and 05: creation, replacement of a generic prototype, and intentional brand preservation. Add scope or review controls when shared changes affect them. The full matrix is not required for every small instruction change. All runs remain pending until their actual observations are recorded.
 

@@ -38,7 +38,7 @@ Inspect empty regions for intent. Whitespace can create focus and pacing; it can
 
 ## Color
 
-Assign roles before choosing individual values: backgrounds, content ink, secondary information, actions, boundaries, and status. Use the existing palette when it is a constraint. Give an accent a clear purpose so it remains useful for navigation or action.
+Assign roles before choosing individual values: backgrounds, content ink, secondary information, actions, boundaries, and status. Use the existing palette when it is a constraint. Give accents clear roles in hierarchy, identity, or atmosphere, with functional colors remaining distinguishable. The number and saturation of colors follow the direction and content rather than a fixed accent quota.
 
 Color must not be the sole carrier of state. Pair status with wording, shape, or another discernible cue. Measure contrast for the actual foreground and background, including overlays, images, and interaction states, rather than judging it by eye. WCAG AA text contrast is at least 4.5:1, or 3:1 for large text (at least 18 pt, or 14 pt bold), subject to the criterion's exceptions; meeting it alone does not establish accessibility compliance. [Contrast reference](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). Use [accessibility acceptance](interaction.md#accessibility-acceptance) for affected controls, meaningful graphics, and adaptation checks.
 

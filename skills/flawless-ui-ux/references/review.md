@@ -27,6 +27,8 @@ Begin with the visitor's task and the requested intervention. Check the relevant
 6. **Behavior:** do relevant controls, states, keyboard paths, and recovery actions work?
 7. **Adaptation:** do small screens, long content, and changed states preserve meaning and access?
 
+For creation and visual refinement, inspect both the requested improvement and the character retained. A reduction in color, density, or ornament is a change, not evidence of improvement by itself. A larger visual gesture is not proof of quality either. Compare concrete hierarchy, proportions, imagery, and detail with the intended experience; relevant finish remains part of the deliverable after task and access failures are corrected.
+
 For a full page, inspect beyond the first viewport. For a focused component change, inspect its surrounding context and likely regressions without expanding into a whole-product redesign. Use the applicable [Surface](surfaces.md) priorities to distinguish intentional density or expression from a defect.
 
 Check the task's concrete acceptance cases, not just its visual categories. A filtered queue must retain the intended summary scope; a form must distinguish a confirmed result from a failed attempt; a collection must connect finding an item to reading and returning. Reference loading establishes guidance use, not completion of those paths.
@@ -34,6 +36,8 @@ Check the task's concrete acceptance cases, not just its visual categories. A fi
 For a redesign, compare corresponding content, states, and widths when baseline evidence exists. Verify that the result addresses the stated objective while preserving protected decisions. Record absent before/after evidence as a limitation rather than inventing a visual history.
 
 Use [AI slop prevention](anti-slop.md) to investigate concrete composition, visual, copy, imagery, and behavior signals. Report the observed consequence and appropriate correction; retain intentional choices that serve the task. Neither eliminating every familiar device nor an authorship label is a review objective. After cleanup, verify that substance, actions, and protected identity remain intact.
+
+When repeated promotional copy is a concern, use the [editorial pass](tasks/content-interfaces.md#editorial-pass) to assess the complete sequence. During a visual-only intervention, report material copy concerns separately rather than silently changing protected wording. Do not fail a scoped edit for leaving those words intact.
 
 ## Check design fit and access
 

@@ -13,6 +13,8 @@ Use a relevant study when choosing a new direction or resolving a composition pr
 
 A study is useful because of the relationship it solves, not its industry or style label. A quiet screen can be highly specific; an expressive screen can remain clear. The collection is deliberately small, not a complete vocabulary of styles. Existing brand material or a supplied reference may be a better basis.
 
+The plates show selected structural relationships at a fixed size, not a ceiling on visual ambition. A price-led offer can use bold poster typography or a restrained service ledger while keeping prices comparable. An editorial guide can use strong photography or a precise text-first composition while keeping its reading path clear. Transfer the relationship that helps the current product; neither matching nor reversing a plate's visual register is a requirement.
+
 The families visible in these plates illustrate type roles, not a preferred font list. Assess their suitability for the actual project using [Typography](craft.md#typography), adapting or retaining them according to the content and direction.
 
 ## Service offer
