@@ -12,6 +12,7 @@ The shared package implements creation, redesign, refinement, and review procedu
 - Art direction grounded in the product, audience, and available assets.
 - Original visual studies for service offers, operational workspaces, editorial guides, and visual collections, with adaptation guidance and concrete design targets.
 - Product-fit decisions for composition, typography, density, and references, with scoped WCAG 2.2 accessibility acceptance and evidence-based review.
+- Refinement that preserves visual character, with an editorial pass for authorized copy changes and distinct checks for craft, scope, and informational repetition.
 - Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - Visual review using capabilities available in the host agent.
 
@@ -65,4 +66,4 @@ These checks establish package integrity. Earlier manual user testing confirmed 
 
 Later user feedback reported improved colors and hierarchy across multiple models with minimal prompts, with limited personalization. The exact run conditions were not recorded. That feedback is separate from the unperformed systematic round and does not validate the new reference-guided studies.
 
-The [guided manual evaluations](evals/README.md) provide seven design scenarios, disposable fixtures, discovery and baseline controls, and a shared report template for that evaluation. These include contextual prevention and intentional brand preservation. The materials are ready; their preparation does not establish completed host runs.
+The [guided manual evaluations](evals/README.md) provide seven core design scenarios, disposable fixtures, discovery and baseline controls, optional refinement follow-ups, and a shared report template. These include contextual prevention, intentional brand preservation, and copy contribution. The materials are ready; their preparation does not establish completed host runs.

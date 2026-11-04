@@ -6,7 +6,7 @@ Use the relevant section when a concrete concern about output needs investigatio
 
 Before implementing a new direction, connect its major choices to the product, audience, content, or task. After implementation, inspect whether those choices actually work. Keep an explicit brand decision unless replacing it is authorized; correct its readability or behavior within the allowed scope.
 
-Clarity, working behavior, and coherent execution are sufficient goals. Do not add an elaborate concept or force a visibly unusual result to prove intentionality. A restrained or expressive treatment can both be appropriate; preserve the model's reasonable choices when no concrete problem is established.
+Clarity and working behavior are a baseline. Also assess composition, visual character, and finish against the product and requested result. A restrained or expressive treatment can both succeed; improve the actual weakness rather than defaulting to either more effects or less expression.
 
 For a suspected pattern, establish:
 
@@ -33,7 +33,7 @@ Organize from those relationships. Give different information different roles, e
 
 **Signals:** an accent on every region; decorative halos or patterned backgrounds that overwhelm the subject; blur, outlines, shadows, and large curves stacked on each panel; a badge that looks like a control without being one; unrelated colors or radii introduced into an established system. An automatic beige treatment can be as interchangeable as an automatic saturated one.
 
-Assign each treatment a job. Use emphasis for a meaningful priority, a boundary for an actual region, and depth for a useful relationship. Start from existing tokens and components. If a local exception is justified, make its relationship to the system clear instead of silently creating another scale.
+Assess treatments together: hierarchy, identity, atmosphere, and material character can all justify visual choices. Use emphasis for a meaningful priority, a boundary for an actual region, and depth for a useful relationship. Start from existing tokens and components. If a local exception is justified, make its relationship to the system clear instead of silently creating another scale. Reducing repeated wording or redundant controls is not a reason to flatten typography, imagery, or color across the page.
 
 An intentional gradient, expressive palette, glass surface, or soft radius can serve a brand or explain layering. Preserve it when it does. Adjust competing emphasis, contrast, layering, or spacing before proposing an identity replacement. A pill may be appropriate for a real status or selectable filter; its appearance should agree with its role.
 
@@ -59,7 +59,7 @@ Expressive copy can support the product's voice. Preserve it when the subject, o
 
 Default to descriptive section headings and direct explanations. A product name, requested custom identity, or evocative opening is not a reason to turn every section into another tagline. Keep useful supplied wording and edit only what needs improvement.
 
-**Check:** read headings and supporting copy in page order, including the form and footer. If several regions make the same promise with different wording, keep the strongest useful expression and replace the others with distinct information or remove the redundant line. Then trace material claims to supplied facts and controls to actual outcomes. Inspect error, pending, and completion wording too. A demo must describe the local result without claiming a request, payment, email, or persisted update occurred.
+**Check:** use the [editorial pass](tasks/content-interfaces.md#editorial-pass) when creating or editing promotional content. Trace material claims to supplied facts and controls to actual outcomes. Inspect error, pending, and completion wording too. A demo must describe the local result without claiming a request, payment, email, or persisted update occurred. During visual-only refinement, report a material copy problem outside scope rather than silently rewriting protected text.
 
 ## Imagery and representation
 

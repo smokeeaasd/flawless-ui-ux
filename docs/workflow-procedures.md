@@ -12,6 +12,8 @@ Backend-only work and repository administration without an interface-design inte
 
 The procedures support task decisions without requiring conspicuous originality. A straightforward, coherent interface can be complete. Symbolic concepts, unusual layouts, and expressive copy follow the brief rather than being required for every creation; headings and explanations default to concrete content.
 
+Visual ambition can be inferred from the product, audience, and material without a named style in the request. Functional correctness is a baseline; requested composition, visual character, and finish remain part of completion. Refinement can strengthen those qualities as well as simplify an overloaded region. The [guidance review](design-guidance-review.md) records steering risks addressed in the current package. Copy changes use a concrete editorial pass and respect whether wording is inside the intervention.
+
 Positive studies connect references to concrete design targets: opening composition, information order, type and color roles, assets, states, and narrow-screen behavior. Creation and redesign use an appropriate existing reference or study when it resolves a decision, then compare the implementation against the target. Local additions inherit the visual system. Studies are neither mandatory templates nor a fixed style-selection ceremony; generated mockups remain optional host capabilities.
 
 Selection combines three independent decisions:

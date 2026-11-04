@@ -25,7 +25,7 @@ These are working decisions, not required project files. A small independent com
 
 ## Give the solution a direction
 
-Use [Direction](../direction.md) for unresolved visual decisions, including [product fit](../direction.md#fit-the-direction-to-the-product). Prioritize content, hierarchy, appropriate density, and recognizable controls. A new page can use established patterns; create a more expressive concept when the brief warrants it, without turning the product name or ordinary features into recurring slogans.
+Use [Direction](../direction.md) for unresolved visual decisions, including [product fit](../direction.md#fit-the-direction-to-the-product). Resolve content, hierarchy, density, controls, and visual character together. Derive a fitting level of expression from the task and material even when the brief is short, without turning the product name or ordinary features into recurring slogans.
 
 Within an existing system, express the task through its established tokens and primitives. A new settings screen does not need a new brand. Use the [concrete design target](../direction.md#establish-a-concrete-design-target) to connect a relevant reference or study to this surface's composition and behavior. Explore alternatives only when there is a meaningful structural or visual choice, and explain the tradeoff rather than producing a fixed number of themes.
 
@@ -47,7 +47,7 @@ Recheck the relevant prevention signals against the implemented result. Removing
 
 Compare the implemented result with the [design target](../review.md#compare-with-the-design-target), not only with warning signals. Resolve unexplained losses of hierarchy, character, or finish within scope; preserve useful adaptations for actual content, access, and smaller screens.
 
-**Completion:** the requested surface supports its task, relevant content and states are complete, and material in-scope issues are resolved or explicitly reported. Summarize consequential decisions, performed checks, and limitations. Unavailable rendering remains unverified; a successful build does not establish it.
+**Completion:** the requested surface supports its task, relevant content and states are complete, and the intended composition, character, and finish are carried through the target. Resolve material in-scope issues or report the specific limitation. Summarize consequential decisions, performed checks, and limitations. Unavailable rendering remains unverified; a successful build does not establish it.
 
 ## Example: subscription management
 

@@ -4,13 +4,13 @@ Use this reference for creation or intentional replacement of a visual direction
 
 ## Turn the subject into a decision
 
-Start with the task, actual content, existing identity, and implementation constraints. Establish readable hierarchy, useful grouping, and coherent visual roles. A new screen does not automatically need a symbolic concept or a novel visual language.
+Start with the task, actual content, existing identity, and implementation constraints. Establish the intended experience as well as readable hierarchy, useful grouping, and coherent visual roles. Infer appropriate visual ambition from the audience, surface, and material; the user need not supply a style name.
 
-When the brief calls for a more expressive direction, use relevant product characteristics to guide consequential choices. That can affect composition, imagery, or emphasis without becoming a metaphor in every heading. The meaning of a product name alone is not an instruction to build a visual narrative around it.
+Use relevant product characteristics and references to develop composition, imagery, type, and emphasis. Expression can come from an arresting image, a strong typographic composition, precise data treatment, or another choice suited to the task. It does not depend on adding a metaphor to every heading. The meaning of a product name alone need not determine the visual narrative.
 
 Keep the working direction practical: what leads, how information relates, which visual decisions are fixed, and how the screen adapts. Resolve vague aesthetic requests through concrete choices without adding a manifesto or expanding the page's copy.
 
-Specificity can come from accurate content, appropriate data, and useful interactions within a familiar layout. Do not force differentiation by changing sound conventions, adding effects, or inventing a more elaborate theme.
+Specificity can come from accurate content, appropriate data, useful interactions, and a resolved visual treatment. A familiar layout can support a distinctive identity, while an unusual composition still needs to serve the visitor. Choose that relationship deliberately rather than treating familiarity or novelty as the safe answer.
 
 ## Fit the direction to the product
 
@@ -62,6 +62,8 @@ Compare alternatives when there is a real choice to resolve, such as demonstrati
 ## Fit ambition to the job
 
 Use the priorities in [Surfaces](surfaces.md) when the visitor's purpose affects the direction. A working interface can express identity through language, proportions, data treatment, and precise controls. An expressive portfolio can give its work more visual space while keeping navigation understandable.
+
+Interpret labels such as "enterprise", "professional", or "premium" through the intended use and existing identity. For an engineering product, maturity may mean precise data, coherent states, reliable controls, and confident presentation. It does not by itself settle saturation, font weight, imagery, or density. Resolve what needs improvement instead of automatically desaturating the page or removing its character.
 
 Plan around available resources. A concept that depends on nonexistent photography must adapt or acquire suitable assets within scope. Motion can strengthen a concept, but essential meaning and actions must remain available without its reveal sequence.
 

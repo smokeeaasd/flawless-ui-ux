@@ -18,13 +18,33 @@ Establish an opening that makes the subject and useful next action understandabl
 
 Use [Direction](../direction.md) to resolve visual choices at the depth the brief needs. Keep type, composition, color, and imagery coherent across the page. Conventional sections can be appropriate when they explain the actual product; a symbolic organizing idea is optional.
 
-Write section headings that identify their content: pricing, workflow, supported features, or another relevant subject. Use concise factual explanations beneath them. Reserve promotional phrasing for a useful role in the brand voice. Across the full page, each heading and supporting sentence should answer a different visitor question or add relevant information. An expressive opening does not need another tagline in every section, form, and footer. Remove paraphrases of the same benefit while retaining distinct facts, necessary instructions, and useful repeated actions. Preserve supplied campaign copy when it is a requirement.
+Distribute the visitor's questions across the page. Headings can identify a subject or carry an appropriate brand voice; supporting content must make the meaning concrete. Use the [editorial pass](#editorial-pass) to resolve repetition across regions before final typography and line-break adjustments.
 
 Every action needs an honest destination. A static workshop page can lead to service or visit information; it cannot simulate a completed booking. A pricing control must reflect the actual interaction or be clearly identified as a preview. Apply [Forms and journeys](forms-and-journeys.md) only when a real form or consequential flow is in scope.
 
 **Check:** a visitor can identify the offer, material terms, and next action; factual content and imagery remain credible; lower sections continue the argument; links and relevant controls work; representative wide and narrow compositions remain understandable where observed.
 
 **Example:** a bicycle workshop page can organize around diagnosis, agreed work, and collection. Give supplied service prices and opening information clear roles, then lead to how a rider brings in a bicycle. This produces a useful structure from the service itself without invented social proof or a fake booking integration.
+
+### Editorial pass
+
+Use this pass for new promotional content or authorized copy changes. In review-only work, report findings and proposed wording; preserve required campaign text and the intervention boundary.
+
+Read the actual headings, descriptions, captions, action notes, form introduction, and footer together. Identify what each region contributes: product explanation, evidence, comparison, terms, action guidance, or brand expression. Group lines that promise the same outcome even when their words differ. A repeated action or a reminder at a later decision can be useful; several interchangeable payoffs usually add less.
+
+Replace a redundant line with the distinct confirmed information its region needs, or remove it if the surrounding content already does the job. Avoid replacing it with another slogan. For example, for a release tool confirmed to provide an event timeline, version comparison, and early access:
+
+| Location and weak wording | Possible revision | Information gained |
+|---|---|---|
+| Product explanation: "Everything, connected." | "Deployments and incidents in one timeline" | Names the records and their relationship |
+| Comparison section: "From change to clarity" | "Compare release versions" | Names the capability shown below |
+| Access form: "Your next chapter starts here" | "Request early access" | Identifies the actual next step |
+
+These are examples of reasoning, not phrases to insert into unrelated products. Use only facts available for the current project. If a replacement would require inventing a claim, retain the useful existing information, remove the redundant line, or identify the unresolved fact as appropriate.
+
+Keep expressive language when it has a distinct role and suits the brand. A playful invitation with clear event details can work; repeating that invitation in every section is a separate decision. Short sentences, parallel phrasing, and punctuation are not defects by themselves. Do not use a slogan quota or a banned-word list as a substitute for reading.
+
+After editing, read the sequence again. Confirm that the offer, relevant terms, form instructions, and action destinations remain understandable. Check the new copy at affected widths. Keep visual character intact: removing redundant wording does not require changing the palette, type weight, imagery, or composition beyond what the authorized edit needs.
 
 ## Reading
 

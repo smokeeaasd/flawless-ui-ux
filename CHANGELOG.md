@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Original editorial examples and optional paired visual-only and copy-only refinement evaluations using a preserved creation baseline.
 - Four original design studies with local images, written anatomy, structural alternatives, adaptation, states, and quality targets for service offers, operational workspaces, editorial guides, and visual collections.
 - Contextual AI slop prevention reference with concrete signals, legitimate uses, alternatives, and verification across composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - A manual prevention redesign case and restoration-page fixture, paired with intentional brand preservation and evaluated through task evidence rather than pattern counts.
@@ -26,6 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Rebalanced design guidance to preserve character and finish during refinement, allow contextual visual ambition without a named style, and separate copy cleanup from visual simplification. Recorded the steering audit and remaining behavioral validation.
 - Clarified deliberate font-family selection for new identities, separating intended typography from fallbacks and the families shown in instructional studies.
 - Reduced redundant action arrows in the visual studies and clarified meaningful directional cues; strengthened full-page review of repeated slogans while preserving useful information and brand voice.
 - Connected creation and redesign to a concrete design target and post-implementation comparison, with optional visual references and product-specific adaptation instead of a fixed style menu.
