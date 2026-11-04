@@ -30,13 +30,15 @@ For a new visual direction, start with [Direction](references/direction.md). For
 | How should type, spacing, color, imagery, or responsive layout be executed? | [Craft](references/craft.md) |
 | How should controls, feedback, keyboard access, and states behave? | [Interaction](references/interaction.md) |
 | What should change in a broad visual refinement? | [Calibration](references/calibration.md) |
-| Is a recurring design or copy pattern causing a problem? | [Contextual prevention](references/anti-slop.md) |
+| Which recurring patterns need inspection? | [Contextual prevention](references/anti-slop.md) |
 | Would a worked composition clarify the design? | The relevant [design study](references/design-studies.md) |
 | Is a critique or deeper diagnosis needed? | [Review](references/review.md) |
 
 ## Check the result
 
-Observe the primary task, affected states, and wide/narrow layouts with available tools. Check hierarchy, readable content, navigation, and overflow as well as calculations and controls. Read generated headings and supporting copy together: each should contribute useful information or intentional brand expression, rather than repeat a payoff.
+Observe the primary task, affected states, and wide/narrow layouts with available tools. Check hierarchy, readable content, navigation, and overflow as well as calculations and controls.
+
+Before delivering a creation or redesign, read and perform the [final pattern pass](references/anti-slop.md#final-pass) on the completed target. For refinement, apply its affected checks within the authorized scope. Inspect actual copy and icons in source even when rendering is unavailable; correct observed repetition rather than merely claiming a review.
 
 Measure contrast against actual backgrounds. Run relevant project checks and meaningful tests; repeat affected checks after corrections. If rendering is unavailable, continue useful source work and state the limit. Static checks cannot establish visual quality.
 

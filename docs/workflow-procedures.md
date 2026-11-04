@@ -20,7 +20,7 @@ Inspect the actual target and immediate project context. Establish the task, con
 
 Choose a coherent composition and implement the requested experience in the existing stack. Complete useful content, interactions, and visual treatment across the target. Avoid inventing product features to populate familiar dashboard or landing-page structures.
 
-Inspect the relevant result with available tools. Correct material issues and repeat affected observations. Summarize the result and actual checks without turning each working decision into a report.
+Inspect the relevant result with available tools. Before delivering creation or redesign, perform the short [final pattern pass](../skills/flawless-ui-ux/references/anti-slop.md#final-pass) across the implemented target. Focused refinement checks the affected scope. Correct material issues and repeat affected observations. Summarize the result and actual checks without turning each working decision into a report.
 
 The entry point owns these shared responsibilities. Direction supports a new visual system; the other [references](skill-architecture.md#responsibilities) answer particular questions. No separate procedure, purpose, and task routing chain is required.
 

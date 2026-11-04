@@ -45,6 +45,8 @@ Inspect whether hierarchy, typography, color, proportions, and density support s
 
 Read generated copy as a sequence. Identify useful information, unnecessary repeated reassurance, unsupported claims, and instructions that would be lost through cleanup. Assess scope expansion and whether added features improved the requested task.
 
+Record observable use of the final pattern pass and corrections to the implemented result. Inspect arrows across buttons, links, captions, and imagery: judge their meaning and cumulative repetition while preserving useful action cues. Rephrased slogans still count as repeated information. A claim that a review happened is not evidence of inspection, and a zero-arrow or zero-slogan count is not the objective. Record unavailable observations without requiring an extra agent-authored report.
+
 Report concrete improvements and remaining defects alongside elapsed time and actual reads. Fewer words or checks do not prove better design; longer execution needs an observable benefit. One generation does not establish a stable average. Repeat a comparison when variation or different tool conditions could change the conclusion, and preserve all results.
 
 Until these observations exist, performance and visual improvement remain unobserved.

@@ -22,7 +22,7 @@ The installer copies this same package for both hosts. No runtime, dependency, h
 | craft.md | A visual execution question needs detail | Hierarchy, typography, spacing, color measurement, imagery, responsive composition |
 | interaction.md | Controls, feedback, keyboard behavior, or access need detail | Semantics, focus, applicable states and accessibility criteria |
 | calibration.md | A broad refinement needs diagnosis | Presence, competing emphasis, finish, proportional intervention and comparison |
-| anti-slop.md | A recurring pattern has a concrete consequence | Contextual diagnosis and correction without a universal style |
+| anti-slop.md | Final check of creation/redesign; affected checks in refinement or review | Cumulative arrow, copy, and composition inspection; contextual correction without a universal style |
 | review.md | Critique or deeper diagnosis is requested or needed | Evidence, task inspection, priorities, correction and reporting |
 | design-studies.md | A worked composition would clarify a choice | Original examples and links to the relevant images |
 
@@ -30,7 +30,7 @@ References do not introduce another required workflow or task-selection stage. T
 
 ## Loading and execution
 
-For new visual direction, read Direction and implement from the actual project. Other references are selected for a concrete question. Existing-interface work can proceed from the entry point and project context when those suffice. Read the relevant section and reuse current material.
+For new visual direction, read Direction and implement from the actual project. Before delivering creation or redesign, read and perform the short final pattern pass in Contextual prevention. Other detail is selected for a concrete question. Focused existing-interface work uses the affected checks and project context. Read the relevant section and reuse current material.
 
 Work directly: inspect, make product-specific choices, implement the authorized result, and check affected behavior and presentation. These are working responsibilities rather than required written artifacts or approval stages. The [workflow guide](workflow-procedures.md) explains their application without adding installed procedures.
 
@@ -38,7 +38,7 @@ Keep functional correctness and visual quality connected. Required data updates 
 
 ## Instruction budget
 
-The simplified Markdown package contains 4,335 whitespace-separated words across nine documents, compared with 18,551 across seventeen at revision b2399cf. The entry point contains 525 words. Entry, Direction, and Product structure together contain 1,765 words; this is an example reading set, not a required sequence or a measured host trace.
+The simplified Markdown package contains 4,553 whitespace-separated words across nine documents, compared with 18,551 across seventeen at revision b2399cf. The entry point contains 547 words. Entry, Direction, and Product structure together contain 1,787 words; the final-pass section adds 185 words, excluding its heading. This illustrates a possible creation reading set, not a required sequence or a measured host trace. The remaining prevention sections are diagnostic detail rather than another mandatory reading chain.
 
 The observed previous creation requested nine files totaling 11,407 words. That evidence supports reducing habitual reading, but does not establish that all additional time came from text. Treat the 400–600-word entry and approximately 1,500–3,000-word ordinary creation reading range as initial authoring targets, not runtime limits or reasons to omit useful guidance.
 
