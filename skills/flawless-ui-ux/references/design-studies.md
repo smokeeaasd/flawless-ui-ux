@@ -13,6 +13,8 @@ Use a relevant study when choosing a new direction or resolving a composition pr
 
 A study is useful because of the relationship it solves, not its industry or style label. A quiet screen can be highly specific; an expressive screen can remain clear. The collection is deliberately small, not a complete vocabulary of styles. Existing brand material or a supplied reference may be a better basis.
 
+The families visible in these plates illustrate type roles, not a preferred font list. Assess their suitability for the actual project using [Typography](craft.md#typography), adapting or retaining them according to the content and direction.
+
 ## Service offer
 
 [View the service study](../assets/design-studies/service.png).
@@ -24,6 +26,8 @@ A study is useful because of the relationship it solves, not its industry or sty
 **Process-led anatomy:** workshop name and navigation; a short explanation of arrival, assessment, and collection; a visit action; prices and practical details immediately afterward. A strong heading and a vertical process line organize the opening instead of three equal feature cards. It serves visitors who need to understand what happens before they commit to a visit.
 
 **Carry the system:** reuse the alignment and price treatment in service details. Give location and hours their own readable group. If a contact form exists, its field labels and feedback use the reading typography, while the page's action color stays reserved for useful actions.
+
+The visit action uses a direct label without an appended arrow. Headings explain different parts of the offer rather than repeating the same benefit as several slogans. Transfer that economy of expression, not a fixed number of headings or icons.
 
 **Adaptation and states:** on a phone, service names and prices remain paired, and the arrival action follows the relevant information. Navigation and focus remain visible. A visit link leads to actual visit information; opening hours do not justify claiming the workshop is currently open without the necessary time context.
 

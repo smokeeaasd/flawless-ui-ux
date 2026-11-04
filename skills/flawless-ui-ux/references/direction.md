@@ -47,7 +47,7 @@ Turn that argument into a concrete structure before polishing it: which region c
 Decide the roles together:
 
 - **Composition:** the first focal point, reading order, alignment structure, density, and section rhythm.
-- **Typography:** display and reading roles, hierarchy, and where the product's voice appears.
+- **Typography:** family choices for display and reading roles, hierarchy, and where the product's voice appears. Use [Craft: typography](craft.md#typography) to assess fit, readability, and availability when establishing a new type system.
 - **Color:** dominant surfaces, readable ink, brand emphasis, and functional states.
 - **Imagery:** what is shown, its source, scale, crop, and relationship to text.
 - **Interaction:** the useful action and how feedback supports it.

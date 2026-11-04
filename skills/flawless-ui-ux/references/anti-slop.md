@@ -59,7 +59,7 @@ Expressive copy can support the product's voice. Preserve it when the subject, o
 
 Default to descriptive section headings and direct explanations. A product name, requested custom identity, or evocative opening is not a reason to turn every section into another tagline. Keep useful supplied wording and edit only what needs improvement.
 
-**Check:** trace material claims to supplied facts and controls to actual outcomes. Inspect error, pending, and completion wording too. A demo must describe the local result without claiming a request, payment, email, or persisted update occurred.
+**Check:** read headings and supporting copy in page order, including the form and footer. If several regions make the same promise with different wording, keep the strongest useful expression and replace the others with distinct information or remove the redundant line. Then trace material claims to supplied facts and controls to actual outcomes. Inspect error, pending, and completion wording too. A demo must describe the local result without claiming a request, payment, email, or persisted update occurred.
 
 ## Imagery and representation
 
@@ -76,6 +76,8 @@ Atmosphere imagery can establish a mood without representing the actual premises
 **Signals:** decorative elements that resemble actions; icon containers more prominent than the feature; duplicate instructions around a simple field; essential actions available only on hover; an entire workflow compressed into an overlay that obscures information needed for the decision.
 
 Make the visible form and name agree with the element's behavior. Use links for destinations, buttons for actions, and text for static information. Keep object actions and relevant consequences close to the object. Remove a decorative wrapper or icon when it adds no meaning; preserve useful recognition and status cues.
+
+Repeated arrows on unrelated controls are a signal to inspect, not a universal ban. Keep arrows that clarify direction, disclosure, or a meaningful destination distinction; remove those that merely duplicate an already clear label and control style. See [Interaction](interaction.md#ux-writing).
 
 A focused dialog can be appropriate. When the task requires extensive browsing or comparing background information, consider an in-page region or route within the authorized scope. For a modal that remains, preserve its keyboard sequence, appropriate initial focus, and a sensible return location. [Modal dialog guidance](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 

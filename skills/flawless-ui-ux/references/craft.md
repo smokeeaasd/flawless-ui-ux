@@ -12,9 +12,9 @@ If the page reduces to many similar visual masses, choose the real priority and 
 
 ## Typography
 
-Choose fonts for the reading task, product character, language coverage, and actual availability. Reuse an established type system during refinement. A familiar typeface can be right; changing it solely to look unusual can weaken recognition and introduce loading costs.
+Choose fonts for the reading task, product character, language coverage, and actual availability. Reuse an established type system during refinement. For a new identity, assess how the families serve display and reading roles rather than carrying over the scaffold's choice without considering its fit. Familiar and system fonts can be appropriate choices.
 
-For a new type system, inspect candidate fonts with actual headings, accented characters, body copy, and numbers. Check whether the needed weights and glyph distinctions work at the intended sizes. Accept a system stack or library default deliberately, not just because the scaffold supplied it. If a custom font materially improves fit, use an available, appropriately licensed source within project constraints and provide a usable fallback; do not add a remote font dependency by habit.
+For a new type system, inspect plausible candidates with actual headings, accented characters, body copy, and numbers. Consider letterform character, readability, required weights, and fit with the direction. Use available, appropriately licensed sources within project constraints and provide a usable fallback when loading a custom font. A single well-chosen family can serve multiple roles; adding another family or a font dependency should improve the result.
 
 Build hierarchy with a small set of meaningful roles. Adjust measure, size, weight, and leading together. Body text should remain comfortable at the intended viewing distance; do not make important information faint or tiny to accommodate oversized display type.
 

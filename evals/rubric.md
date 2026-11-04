@@ -36,6 +36,8 @@ Record applicable accessibility checks separately: measured text and non-text co
 
 ## Evidence levels
 
+When evaluating repeated copy or icons, inspect the full page, including forms and the footer. Identify repeated promises and arrows that duplicate clear labels without communicating direction or behavior. Judge the information and affordances retained after correction; neither a zero-arrow count nor removing all brand expression is a success criterion. Keep supplied campaign wording and useful navigation conventions within their preservation boundary.
+
 For reference-guided work, record the reference and chosen target only when observable. Evaluate whether the implementation transfers the useful hierarchy, proportions, information relationships, and interaction principles to the actual product. Copying study names, facts, palette, or composition without product fit is not success. Compare lower regions and narrow layouts as well as the opening, and distinguish useful adaptation from unexplained drift. Do not require study loading, a mockup, or a choice ceremony when the brief or incumbent system already settles the decision. Preserve task and accessibility criteria; an attractive reference is not behavioral evidence.
 
 Label each observation as **static inspection**, **rendered inspection**, **interaction**, or **automated check**. Include the actor: agent or evaluator. Keep these levels separate in the report.
