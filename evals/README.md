@@ -18,6 +18,10 @@ For changes to positive design guidance, use cases 01 and 02 for creation and re
 
 Use [10 Visual calibration](cases/10-visual-calibration.md) for four independent runs from the existing fixtures: strengthen presence, redistribute competing emphasis, interpret ambiguous refinement, and edit wording without restyling. Runs A and D pair visual-only and copy-only boundaries on unchanged brand-page copies. Record both the specific improvement and the identity retained using matched content, states, and widths where possible. These runs remain pending; no source audit or package test substitutes for their observations.
 
+### Focused instruction-efficiency comparison
+
+Use [11 Instruction efficiency](cases/11-instruction-efficiency.md) to compare the simplified skill, the previous revision, and a no-skill baseline on identical React/Vite/TypeScript scaffolds. Record actual reads, elapsed time, active plugins, scope, functional correctness, and observed design. The earlier user-reported Bloom regression is prior evidence, not a completed candidate comparison. This new comparison remains pending.
+
 ## Cases and run matrix
 
 | Case | Starting project | Main observation |
@@ -32,6 +36,7 @@ Use [10 Visual calibration](cases/10-visual-calibration.md) for four independent
 | [08 Contextual prevention](cases/08-anti-slop-redesign.md) | [Restoration page](fixtures/restoration-page/) | Replace unconsidered decisions while preserving substance, facts, and functionality |
 | [09 Refinement continuity](cases/09-refinement-continuity.md) | Preserved completed case-01 output | Optional independent visual-only and copy-only follow-ups; character and scope survive targeted improvement |
 | [10 Visual calibration](cases/10-visual-calibration.md) | Fresh brand-page and dashboard copies | Optional presence, competing emphasis, ambiguous refinement, and complementary scope controls |
+| [11 Instruction efficiency](cases/11-instruction-efficiency.md) | Independent copies of an identical clean React/Vite/TypeScript scaffold | Candidate versus previous revision and baseline: actual reading, elapsed time, scope, function, and design |
 
 Run this matrix separately in each host:
 

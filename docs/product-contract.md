@@ -28,11 +28,11 @@ OpenCode and Codex are the initial host agents. Additional agents may be support
 
 Users describe the result they want in ordinary language. Examples include building a product page, improving an existing screen, and redesigning an onboarding flow.
 
-The skill interprets the request and selects relevant guidance. Users do not need to learn a command catalog or choose individual procedures to receive a complete result. Supporting procedures are loaded as needed.
+The skill supports the requested intervention directly. Users do not need to learn a command catalog or choose procedures. Read supporting references when a concrete decision needs their detail.
 
 The depth of the workflow follows the request. A typography adjustment can be focused; a new interface or substantial redesign calls for broader exploration and review.
 
-A complete outcome should select a procedure suited to the intervention, visitor purpose, and work behind the interface. The user should not need to enumerate every visual adjustment, state, or verification step. The [workflow procedures](workflow-procedures.md) define the implemented task-specific decisions and completion criteria; package verification and behavioral evaluation status remain recorded in the project overview.
+A complete outcome addresses the task without requiring the user to enumerate every visual adjustment, state, or verification step. The [workflow guide](workflow-procedures.md) describes intervention boundaries and completion. Routine creation should not require a chain of procedure, purpose, and task-guide selection or separate written artifacts. Instruction overhead must earn its place through useful decisions and observed results.
 
 ## Core workflow
 
@@ -47,7 +47,7 @@ A complete outcome should select a procedure suited to the intervention, visitor
 ### 2. Define the direction
 
 - Ground visual decisions in characteristics of the actual product and its content.
-- Use suitable references or original design studies to establish a concrete target; adapt their useful principles to the product and compare the implementation against that target.
+- Use suitable references or original studies when they help resolve a visual choice; adapt their useful principles and compare the implemented relationships when tools permit.
 - Establish the relevant content order and interaction structure so visual treatment supports a concrete task path.
 - Choose composition, typography, color, imagery, density, and interaction appropriate to the surface's purpose.
 - Preserve an established identity during refinement. For redesign, identify the constraints and functions that remain valid.
@@ -124,4 +124,4 @@ Visual novelty alone does not establish success. The interface must communicate 
 
 The [skill architecture](skill-architecture.md) defines the shared package, entry instructions, reference responsibilities, loading rules, host capabilities, and evaluation approach used to implement this contract.
 
-The [procedure specification](workflow-procedures.md) develops the architecture into creation, redesign, refinement, and review workflows composed with data-interface, forms-and-journeys, and content-interface guidance. These are internal selection concepts within the single skill, not a separate command catalog.
+The [workflow guide](workflow-procedures.md) describes creation, redesign, refinement, and review within that direct path. Conditional references supply product structure and execution detail without introducing another mandatory selection layer.

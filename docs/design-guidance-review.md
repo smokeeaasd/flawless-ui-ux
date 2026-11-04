@@ -1,5 +1,7 @@
 # Design guidance balance
 
+This historical review records the earlier steering corrections. The later [architecture simplification](skill-architecture.md) consolidates the instructions and removes overlapping routing; the [efficiency comparison](../evals/cases/11-instruction-efficiency.md) is pending. Earlier corrections alone do not establish the outcome of the simplified package.
+
 ## Scope and evidence
 
 This review addresses repeated user feedback that refinement can make interfaces too plain while promotional repetition persists. Source inspection identified steering risks in the instructions; it does not establish that any single sentence caused a rendered regression. Host outcomes for the revised guidance remain pending.

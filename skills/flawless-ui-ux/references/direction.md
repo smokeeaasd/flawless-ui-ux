@@ -1,74 +1,35 @@
 # Direction
 
-Use this reference for creation or intentional replacement of a visual direction. A focused refinement normally inherits the current system.
+Use for a new visual system or an authorized replacement. Start from the task and available material, then make choices visible in the implementation.
 
-## Turn the subject into a decision
+## Compose around the product
 
-Start with the task, actual content, existing identity, and implementation constraints. Establish the intended experience as well as readable hierarchy, useful grouping, and coherent visual roles. Infer appropriate visual ambition from the audience, surface, and material; the user need not supply a style name.
+Identify the first useful thing to see and the relationship that organizes the rest. A cash-planning screen may lead with available money and scheduled obligations; a release tool may lead with deployment state and the event timeline; a workshop page may lead with comparable service prices or arrival instructions. These are different information structures, not interchangeable card grids.
 
-Use relevant product characteristics and references to develop composition, imagery, type, and emphasis. Expression can come from an arresting image, a strong typographic composition, precise data treatment, or another choice suited to the task. It does not depend on adding a metaphor to every heading. The meaning of a product name alone need not determine the visual narrative.
+Choose where visual presence belongs. An image, product demonstration, typographic composition, data display, or distinctive material treatment can carry the opening. Let supporting regions take the form their content needs: comparison, sequence, illustration, working table, or explanation. Coherence comes from shared visual relationships; sections need not have identical silhouettes.
 
-Keep the working direction practical: what leads, how information relates, which visual decisions are fixed, and how the screen adapts. Resolve vague aesthetic requests through concrete choices without adding a manifesto or expanding the page's copy.
+Match density to use. Keep operational information easy to compare; give expressive material enough scale to register. Richness can come from deliberate contrast between dense and open regions, a strong crop, precise alignment, varied proportions, or crafted details. Preserve useful content and visual character when simplifying.
 
-Specificity can come from accurate content, appropriate data, useful interactions, and a resolved visual treatment. A familiar layout can support a distinctive identity, while an unusual composition still needs to serve the visitor. Choose that relationship deliberately rather than treating familiarity or novelty as the safe answer.
+## Establish visual roles
 
-## Fit the direction to the product
+Choose these together, using the actual text, values, and assets:
 
-Resolve the audience's situation, the amount and kind of information, the intended brand character, and the primary task into visible decisions. For example, a small studio's cash-planning tool needs legible amounts, clear time horizons, and current-versus-projected distinctions; a theatrical visual theme cannot substitute for those needs. Do not infer a required style from an industry label alone.
+- **Typography:** select for the product's character, reading task, language, numbers, and available weights. Give titles, body, labels, and amounts distinct roles. Inspect a promising family in real content instead of accepting the scaffold's font by inertia. A familiar or system family can fit.
+- **Color:** distinguish surfaces, text, brand emphasis, and functional states. Decide where saturation or a dark region creates focus; inspect the relationships across the screen, not just individual swatches.
+- **Composition:** establish alignment, relative scale, grouping, and spacing. Make the main content lead while keeping useful secondary information accessible.
+- **Imagery and detail:** use actual product output, photography, illustration, textures, diagrams, borders, or motion where they serve the subject. Choose scale and treatment intentionally; avoid adding the same decoration to every region.
+- **Adaptation:** decide what rearranges on narrower screens while retaining hierarchy, legibility, and the main action.
 
-Select composition, type roles, density, and image treatment together. Check where a starter or component library has already made those decisions for you. Retain useful primitives and interaction conventions, but adapt their presentation when it gives every region equal weight or conflicts with the brief. Changing only the accent color and product name is insufficient when the content requires a different hierarchy.
+An expressive event can use large type, vivid color, and a generous image while ticket details remain precise. An engineering workspace can express maturity through a confident information layout and distinctive typography while retaining saturated brand accents. Industry labels and requests such as “enterprise” do not prescribe one visual style.
 
-When using references, identify the useful principle: comparison structure, reading rhythm, crop, or feedback behavior. Adapt it to the current content and constraints instead of reproducing another product's distinctive composition, copy, or identity. Follow explicit user-provided reproduction or brand requirements within their authorized scope. Do not browse for inspiration unless it resolves a real need.
+## Use material as evidence
 
-Keep the rationale short and tied to consequential choices. A convincing rationale does not excuse a result whose hierarchy or visual character conflicts with the brief. Check the implemented result using [Review](review.md#check-design-fit-and-access).
+Inspect supplied references or assets before relying on them. Transfer a useful relationship—such as the balance between a preview and explanation—into the current product. Existing brand material can supply the direction; consult a design study only when its composition helps resolve an actual choice. Build directly when the direction is clear.
 
-## Establish a concrete design target
+For a commercial page, demonstrate what the product does and arrange distinct information around the next decision. A dashboard needs meaningful records and comparisons. Product names can inform character without becoming a recurring metaphor in the copy.
 
-Use the existing identity, supplied references, or a relevant [design study](design-studies.md) to move from adjectives to a visible structure. Inspect the actual reference when tools permit. Identify what makes it useful: the focal point, information relationships, type roles, color distribution, asset treatment, and interaction. Transfer that discipline into the current content rather than reproducing its fictional facts or surface styling.
+Use real facts and permitted assets. Identify illustrative data, and never turn it into customer proof or performance claims. If an image-led direction lacks suitable material, acquire it within scope or choose a viable treatment using the content available.
 
-For a whole new surface or replacement direction, consider a materially different structure when the obvious one may miss the task: offer-first versus process-first, for example, rather than two palettes over the same layout. Choose according to audience, clarity, identity, and feasibility. A clear brief can proceed directly; compare options with the user when requested or when an unresolved decision warrants it. These studies supply starting points, not a fixed menu or a requirement to explore every style.
+## Carry the direction through
 
-Keep a concise working target: opening composition, information order, type and color roles, suitable assets, a key action or state, and narrow-screen behavior. Reuse current notes or project records. For an established system, settle only the new surface's structure; focused refinement does not reopen identity. With a minimal brief, make proportionate visual assumptions without inventing product claims or a brand mythology.
-
-A supplied mockup or sketch can serve as the target. Where image generation is available and authorized, a mockup may help resolve a consequential visual choice before coding. Otherwise, build directly from the structural target. Do not make an image tool, additional approval round, or new documentation file a prerequisite. Inspect [Craft](craft.md) and [Interaction](interaction.md) when translating a picture into readable type, responsive layout, accessible controls, and working states.
-
-## Build the content argument
-
-Before arranging sections, identify the visitor's questions and the content that answers them. On a promotional page, connect each meaningful claim to an explanation, demonstration, or supplied proof. On a working screen, connect each region to a decision or action.
-
-Let those relationships determine order and layout. Do not add testimonials, pricing columns, metric tiles, or a feature grid solely because a familiar template contains them. Conversely, do not remove useful information merely to produce a cleaner picture.
-
-Use headings and actions that name real content. Let section headings identify their subject; use promotional language only where it communicates something useful and fits the requested voice. Preserve good supplied copy instead of rewriting every section into slogans. When a feature is visual, show its actual output if available.
-
-Turn that argument into a concrete structure before polishing it: which region carries the current state, which supports comparison or explanation, where the action belongs, and what changes after it. On a plan-change screen, current subscription, eligible alternatives, and confirmed consequences have different roles; making them three equally emphasized panels can obscure the decision. Inherit the established visual language when the screen belongs to an existing product.
-
-## Choose a coherent visual system
-
-Decide the roles together:
-
-- **Composition:** the first focal point, reading order, alignment structure, density, and section rhythm.
-- **Typography:** family choices for display and reading roles, hierarchy, and where the product's voice appears. Use [Craft: typography](craft.md#typography) to assess fit, readability, and availability when establishing a new type system.
-- **Color:** dominant surfaces, readable ink, brand emphasis, and functional states.
-- **Imagery:** what is shown, its source, scale, crop, and relationship to text.
-- **Interaction:** the useful action and how feedback supports it.
-- **Responsive behavior:** what remains prominent, what reflows, and what changes form on smaller screens.
-
-A coherent system must continue beyond the first screen. Carry its type, alignment, color roles, and interaction conventions through navigation, details, forms, and lower sections. Let each region's content determine its composition; coherence does not require repeating a slogan, motif, or layout everywhere.
-
-Use relevant [prevention guidance](anti-slop.md#composition-and-substance) when there is a concrete concern about structure or expression. A familiar structure that serves the content does not need replacement. Avoid exhaustive pattern hunting or restyling merely to demonstrate that the guide was applied.
-
-Compare alternatives when there is a real choice to resolve, such as demonstration-led versus comparison-led content. Make their structural tradeoffs visible. Do not generate a fixed number of themes or interrupt routine implementation with an unnecessary selection ceremony.
-
-## Fit ambition to the job
-
-Use the priorities in [Surfaces](surfaces.md) when the visitor's purpose affects the direction. A working interface can express identity through language, proportions, data treatment, and precise controls. An expressive portfolio can give its work more visual space while keeping navigation understandable.
-
-Interpret labels such as "enterprise", "professional", or "premium" through the intended use and existing identity. For an engineering product, maturity may mean precise data, coherent states, reliable controls, and confident presentation. It does not by itself settle saturation, font weight, imagery, or density. Resolve what needs improvement instead of automatically desaturating the page or removing its character.
-
-Plan around available resources. A concept that depends on nonexistent photography must adapt or acquire suitable assets within scope. Motion can strengthen a concept, but essential meaning and actions must remain available without its reveal sequence.
-
-Before implementing, understand the information order, useful action, and applicable visual constraints. Use relevant [Craft](craft.md) and [Interaction](interaction.md) sections where their detail is needed.
-
-Carry a few task-specific acceptance cases with the direction. They should establish whether the intended structure and behavior serve the visitor, not whether the result matches a favored template. The selected workflow owns implementation and completion; this reference supplies the visual and structural decisions it needs.
-
-Use the chosen target again during [review](review.md#compare-with-the-design-target). Passing mechanical checks does not establish that the intended composition, character, and level of finish survived implementation.
+Implement the same type roles, alignment, color logic, and level of finish in lower sections, detail views, forms, and relevant states. Compare the result with the intended relationships when rendering is available. Revise a weak focal point or unsuitable structure rather than compensating with another slogan or decorative panel.

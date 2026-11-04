@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- A manual instruction-efficiency comparison using a financial dashboard request, previous and simplified skill revisions, a no-skill baseline, actual read evidence, elapsed time, and observed design outcomes; runs remain pending.
+
 - Product philosophy formalized in the existing contract and summarized in the skill entry point, covering context, function and expression, visual relationships, continuity, and evidence.
 - Conditional visual calibration guidance with original intervention examples and manual scenarios for presence, competing emphasis, ambiguous refinement, and scope preservation.
 - Original editorial examples and optional paired visual-only and copy-only refinement evaluations using a preserved creation baseline.
@@ -29,6 +31,11 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Simplified the skill from seventeen Markdown documents and 18,551 words to nine documents and 4,335 words, with a 525-word entry point and direct intervention boundaries.
+- Consolidated context, surface purpose, and task guidance into focused product-structure sections; retained visual direction, craft, accessibility, calibration, original studies, contextual prevention, and evidence-based review without a mandatory reading chain.
+- Made navigation/detail choices, distinct editorial contributions, requested feature scope, and actual-background contrast checks concrete while preserving visual expression and meaningful functional tests.
+- Aligned the product contract, architecture, workflow documentation, and evaluation records with the simplified package; performance and visual-quality improvements remain unverified until host comparisons run.
+
 - Routed broad visual refinement to calibration while keeping clear local adjustments direct; connected craft and review without reopening identity or duplicating editorial responsibilities.
 - Rebalanced design guidance to preserve character and finish during refinement, allow contextual visual ambition without a named style, and separate copy cleanup from visual simplification. Recorded the steering audit and remaining behavioral validation.
 - Clarified deliberate font-family selection for new identities, separating intended typography from fallbacks and the families shown in instructional studies.
@@ -41,3 +48,7 @@ All notable changes to this project will be documented in this file.
 - Deepened subject references with information/action modeling, structural direction, proportional visual changes, state feedback, and task-specific review evidence.
 - Recorded implementation of the fifteen-file procedure package separately from pending behavioral evaluation of the expanded workflows.
 - Recorded user-confirmed skill identification in OpenCode and Codex separately from pending systematic behavior evaluation.
+
+### Removed
+
+- Separate installed workflow files and overlapping context, surface, and task-guide routing layers.
