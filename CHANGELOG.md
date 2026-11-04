@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Reduced redundant action arrows in the visual studies and clarified meaningful directional cues; strengthened full-page review of repeated slogans while preserving useful information and brand voice.
 - Connected creation and redesign to a concrete design target and post-implementation comparison, with optional visual references and product-specific adaptation instead of a fixed style menu.
 - Strengthened positive design guidance for product fit, deliberate typography, adaptation of starter defaults, and principled use of references; added scoped WCAG 2.2 acceptance checks and corresponding manual evaluation evidence.
 - Reduced pressure for symbolic concepts and conspicuous originality; clarified that conventional layouts and descriptive copy can be complete outcomes, with targeted prevention guidance instead of exhaustive style checks.

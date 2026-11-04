@@ -25,6 +25,8 @@ A study is useful because of the relationship it solves, not its industry or sty
 
 **Carry the system:** reuse the alignment and price treatment in service details. Give location and hours their own readable group. If a contact form exists, its field labels and feedback use the reading typography, while the page's action color stays reserved for useful actions.
 
+The visit action uses a direct label without an appended arrow. Headings explain different parts of the offer rather than repeating the same benefit as several slogans. Transfer that economy of expression, not a fixed number of headings or icons.
+
 **Adaptation and states:** on a phone, service names and prices remain paired, and the arrival action follows the relevant information. Navigation and focus remain visible. A visit link leads to actual visit information; opening hours do not justify claiming the workshop is currently open without the necessary time context.
 
 **Quality target:** a reader can compare the three prices and find arrival instructions without deciphering promotional wording. Choose the first structure when price comparison leads the decision, the second when uncertainty about the process leads it. The same facts must survive either choice. Transfer the hierarchy and action placement, not the fictional name, colors, or repair theme.

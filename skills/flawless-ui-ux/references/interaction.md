@@ -12,6 +12,8 @@ Use [affordance and task-flow signals](anti-slop.md#affordance-and-task-flow) wh
 
 ## UX writing
 
+Use an arrow when its direction or convention helps predict behavior: next/previous navigation, disclosure, or an external destination where that distinction matters. A clear label such as "Save changes" or "View pricing" usually stands on its own. Do not append the same arrow to every button, text link, and clickable item just to signal clickability; communicate that through consistent control styling. Preserve established icon conventions when they serve the product, and keep decorative icons out of accessible names.
+
 Name the action, object, and consequence at the point of decision. Prefer concrete labels such as "Download invoice" to vague labels when the object is known. Use the product's established terminology consistently.
 
 Help text should answer a likely question rather than repeat the label. Errors should explain what failed and what the user can do next. Preserve the user's input where possible and avoid blaming them for a network or service failure.

@@ -18,7 +18,7 @@ Establish an opening that makes the subject and useful next action understandabl
 
 Use [Direction](../direction.md) to resolve visual choices at the depth the brief needs. Keep type, composition, color, and imagery coherent across the page. Conventional sections can be appropriate when they explain the actual product; a symbolic organizing idea is optional.
 
-Write section headings that identify their content: pricing, workflow, supported features, or another relevant subject. Use concise factual explanations beneath them. Promotional language can support an explicitly requested brand voice, but custom design does not require slogans, wordplay, or repeated metaphors throughout the page.
+Write section headings that identify their content: pricing, workflow, supported features, or another relevant subject. Use concise factual explanations beneath them. Reserve promotional phrasing for a useful role in the brand voice. Across the full page, each heading and supporting sentence should answer a different visitor question or add relevant information. An expressive opening does not need another tagline in every section, form, and footer. Remove paraphrases of the same benefit while retaining distinct facts, necessary instructions, and useful repeated actions. Preserve supplied campaign copy when it is a requirement.
 
 Every action needs an honest destination. A static workshop page can lead to service or visit information; it cannot simulate a completed booking. A pricing control must reflect the actual interaction or be clearly identified as a preview. Apply [Forms and journeys](forms-and-journeys.md) only when a real form or consequential flow is in scope.
 
