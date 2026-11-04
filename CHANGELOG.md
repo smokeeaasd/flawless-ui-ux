@@ -31,7 +31,9 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Simplified the skill from seventeen Markdown documents and 18,551 words to nine documents and 4,335 words, with a 525-word entry point and direct intervention boundaries.
+- Made the short final pattern pass explicit before delivery of creation and redesign, with scoped use in refinement and review, source-level copy/icon inspection when rendering is unavailable, and correction of cumulative arrows and repeated promises while preserving identity and useful affordances.
+
+- Simplified the skill from seventeen Markdown documents and 18,551 words to nine documents and 4,553 words, with a 547-word entry point and direct intervention boundaries.
 - Consolidated context, surface purpose, and task guidance into focused product-structure sections; retained visual direction, craft, accessibility, calibration, original studies, contextual prevention, and evidence-based review without a mandatory reading chain.
 - Made navigation/detail choices, distinct editorial contributions, requested feature scope, and actual-background contrast checks concrete while preserving visual expression and meaningful functional tests.
 - Aligned the product contract, architecture, workflow documentation, and evaluation records with the simplified package; performance and visual-quality improvements remain unverified until host comparisons run.

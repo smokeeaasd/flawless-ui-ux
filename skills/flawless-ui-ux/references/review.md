@@ -19,7 +19,7 @@ Check whether the visitor can understand the relevant information and complete t
 
 Review the whole target, including lower sections and working states. Check the primary focal point, supporting hierarchy, proportions, type roles, imagery, and continuity. During refinement, compare both the intended improvement and character retained.
 
-Look at navigation and detail presentation: does the apparent destination match what happens, and does an overlay fit the work? Read generated copy together for distinct information, accurate claims, and appropriate voice. Compare representative widths and content extremes where tools permit.
+Look at navigation and detail presentation: does the apparent destination match what happens, and does an overlay fit the work? Use the [final pattern pass](anti-slop.md#final-pass) within the review's scope, including cumulative icon and copy repetition. Compare representative widths and content extremes where tools permit.
 
 Verify access using the relevant interaction criteria. Measure contrast against actual backgrounds; distinguish text, icons, and decoration. Source-based candidate scans require confirmation, not blanket restyling.
 

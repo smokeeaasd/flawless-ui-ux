@@ -1,6 +1,16 @@
 # Contextual prevention
 
-Use when a recurring pattern creates a concrete design or content problem. Diagnose its effect; appearance alone does not establish authorship or poor quality.
+Use the final pass before delivering creation or redesign, and the relevant checks for focused work. Diagnose the pattern's effect; appearance alone does not establish authorship or poor quality.
+
+## Final pass
+
+Inspect the implemented target as a whole, including lower sections and working states. Use source for copy and icon use; use rendered inspection for visual relationships when available.
+
+- **Arrows and icons:** inspect buttons, links, captions, cards, and illustrations together. Remove arrows that merely decorate an already clear action. Retain useful direction, disclosure, chart meaning, and recognizable interaction cues; preserve or replace a sole action affordance before removing it.
+- **Copy:** read headings, descriptions, notes, and footer in sequence. Group repeated promises by meaning, including rephrased reassurance and rhetorical contrasts. Replace redundant wording with the distinct confirmed information needed there, or remove it. Preserve deliberate brand voice and protected text.
+- **Composition and treatment:** check repeated region shapes, competing emphasis, type roles, default styling, decoration, and unsupported proof. Use the relevant sections below when a signal needs diagnosis; retain choices that serve the product.
+
+Correct authorized issues, then recheck the affected content, controls, and layout. Preserve identity, useful density, and visual richness. During review-only work or outside the edit scope, report material findings instead. Keep unobserved visual effects explicit; a source pass cannot establish them.
 
 ## Composition and substance
 

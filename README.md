@@ -57,7 +57,7 @@ The skill selects guidance for the task and uses tools available in the host. It
 
 The entry point handles the intervention directly. For a new visual direction, start with Direction; use other reference sections for particular questions rather than reading the package in sequence. The [workflow guide](docs/workflow-procedures.md) documents scope and completion without separate procedure files.
 
-[Contextual prevention](skills/flawless-ui-ux/references/anti-slop.md) helps investigate recurring patterns that cause a concrete problem, while preserving intentional brand choices and useful content. It does not assign authorship from appearance or require a particular visual style.
+[Contextual prevention](skills/flawless-ui-ux/references/anti-slop.md#final-pass) includes a short final check of created or redesigned interfaces for cumulative arrow/icon use, repeated slogans, and unsuitable composition. Focused refinements check only the affected scope. Diagnosis preserves intentional brand choices and useful content; it does not assign authorship from appearance or require a particular visual style.
 
 Use the relevant prevention sections for concrete concerns rather than an exhaustive style check. Clear conventional layouts and descriptive copy are valid outcomes; custom design does not require symbolic concepts or slogans throughout the page.
 
@@ -71,4 +71,4 @@ Later user feedback reported improved colors and hierarchy across multiple model
 
 The [guided manual evaluations](evals/README.md) provide seven core design scenarios, disposable fixtures, discovery and baseline controls, optional refinement follow-ups, and a shared report template. These include contextual prevention, intentional brand preservation, and copy contribution. The materials are ready; their preparation does not establish completed host runs.
 
-The simplified package reduces available Markdown from 18,551 to 4,335 words and removes overlapping routing layers. This is an authoring measurement, not a measured speed or design improvement. The [instruction-efficiency comparison](evals/cases/11-instruction-efficiency.md) is prepared and remains pending.
+The simplified package reduces available Markdown from 18,551 to 4,553 words and removes overlapping routing layers. This is an authoring measurement, not a measured speed or design improvement. The [instruction-efficiency comparison](evals/cases/11-instruction-efficiency.md) is prepared and remains pending.
