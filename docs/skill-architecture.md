@@ -1,49 +1,99 @@
-# Skill architecture
+# Product architecture
 
-The shared package implements the [product contract](product-contract.md) for Codex and OpenCode. One entry point provides a direct working path; references answer specific design questions. Evaluation and repository documentation remain outside the installed skill.
-
-## Package boundary
-
-The installable package has fourteen files:
-
-- SKILL.md: discovery, intervention boundaries, direct execution, reference access, and proportional checking.
-- agents/openai.yaml: Codex presentation metadata with normal automatic discovery.
-- Eight Markdown references: direction, product structure, craft, interaction, calibration, contextual prevention, review, and design studies.
-- Four original study images under assets/design-studies/.
-
-The installer copies this same package for both hosts. No runtime, dependency, host-specific design fork, model runner, hook, or browser service is required. The [study source](design-studies.html) stays in maintainer documentation. Tests, evaluations, and project docs are not installed.
+Status: target architecture for the next implementation. Only the skill, installer, package checks, and manual evaluation materials currently exist. This document supersedes the instruction-only architecture without claiming a runtime has shipped. See the [contract](product-contract.md) and [delivery plan](implementation-plan.md).
 
 ## Responsibilities
 
-| Reference | Read when | Owns |
+| Component | Owns | Boundary |
 |---|---|---|
-| direction.md | Creating or replacing a visual direction | Composition, visual roles, suitable expression, material, continuity |
-| structure.md | Navigation, data, forms, or content relationships need decisions | Destinations and detail presentation, records and measures, transitions, discovery, editorial sequence |
-| craft.md | A visual execution question needs detail | Hierarchy, typography, spacing, color measurement, imagery, responsive composition |
-| interaction.md | Controls, feedback, keyboard behavior, or access need detail | Semantics, focus, applicable states and accessibility criteria |
-| calibration.md | A broad refinement needs diagnosis | Presence, competing emphasis, finish, proportional intervention and comparison |
-| anti-slop.md | Final check of creation/redesign; affected checks in refinement or review | Cumulative arrow, copy, and composition inspection; contextual correction without a universal style |
-| review.md | Critique or deeper diagnosis is requested or needed | Evidence, task inspection, priorities, correction and reporting |
-| design-studies.md | A worked composition would clarify a choice | Original examples and links to the relevant images |
+| Skill | Product interpretation, direction, creation/refinement/review, and semantic corrections | Loads relevant guidance; does not infer successful verification from its own intent |
+| Context reader | Explicit project root, selected sources, existing records, and optional saved decisions | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
+| Inspection coordinator | Requested checks, target scope, evidence collection, and coverage | Runs a meaningful batch; does not start applications or change their dependencies |
+| Source adapter | File/line observations in selected source files | No claim of rendered failure when dynamic styles or framework behavior are unresolved |
+| Browser adapter | DOM/style observations, screenshots, named automated access checks, and runtime errors | Uses an explicit URL and isolated browser context; no application-changing actions in ordinary inspection |
+| Findings and comparison | Stable check identities, evidence, conditions, and differences between corresponding runs | An absent element is not automatically a corrected defect |
+| CLI | Input validation, text/JSON presentation, output artifacts, and exit status | Calls the shared core; no independent check logic |
+| Host integration | Invocation and capability adaptation for Codex/OpenCode | Shares the core and guidance; automatic hooks are a later delivery |
 
-References do not introduce another required workflow or task-selection stage. Their useful sections can be read independently. The four intervention boundaries live in the entry point; they no longer require separate workflow files. Product structure consolidates the former context, surface-purpose, and task guides.
+## Dependency direction
 
-## Loading and execution
+The agent uses the skill and CLI. The CLI calls the coordinator, context reader, and comparison code. The coordinator invokes source/browser adapters; adapters return observations that the findings layer normalizes. The core does not import host integrations, presentation code, or model clients.
 
-For new visual direction, read Direction and implement from the actual project. Before delivering creation or redesign, read and perform the short final pattern pass in Contextual prevention. Other detail is selected for a concrete question. Focused existing-interface work uses the affected checks and project context. Read the relevant section and reuse current material.
+The intended source layout is a small ESM codebase: src/cli, src/context, src/inspection, src/adapters, and src/reports. Add modules only as implemented responsibilities need them; no workspace or plugin framework is required.
 
-Work directly: inspect, make product-specific choices, implement the authorized result, and check affected behavior and presentation. These are working responsibilities rather than required written artifacts or approval stages. The [workflow guide](workflow-procedures.md) explains their application without adding installed procedures.
+The package retains skills/flawless-ui-ux and its existing invocation. Repository docs, evaluations, and research are not automatically loaded into agent tasks.
 
-Keep functional correctness and visual quality connected. Required data updates need coherent calculations; a good build does not establish readable layout or appropriate navigation. Verification uses capabilities already available in the host and reports actual limits.
+## Runtime choices
 
-## Instruction budget
+Use JavaScript ESM with Node-compatible APIs and Bun for development and tests, continuing the current repository conventions. No compilation or separate native runtime is needed for the first slice.
 
-The simplified Markdown package contains 4,553 whitespace-separated words across nine documents, compared with 18,551 across seventeen at revision b2399cf. The entry point contains 547 words. Entry, Direction, and Product structure together contain 1,787 words; the final-pass section adds 185 words, excluding its heading. This illustrates a possible creation reading set, not a required sequence or a measured host trace. The remaining prevention sections are diagnostic detail rather than another mandatory reading chain.
+Use [Playwright Library](https://playwright.dev/docs/library) behind the browser adapter. Use [@axe-core/playwright](https://playwright.dev/docs/accessibility-testing) for selected automated access checks rather than implementing a new accessibility engine. These are planned implementation dependencies; this documentation change adds none. Pin tested versions and supported Node versions when implementing.
 
-The observed previous creation requested nine files totaling 11,407 words. That evidence supports reducing habitual reading, but does not establish that all additional time came from text. Treat the 400–600-word entry and approximately 1,500–3,000-word ordinary creation reading range as initial authoring targets, not runtime limits or reasons to omit useful guidance.
+Browser discovery/selection must be explicit and testable. Use a compatible configured executable or a separately prepared browser. Do not silently download a browser, take over an existing personal session, or evade host permissions. The source/context path remains usable without a browser. An unavailable requested browser yields partial coverage, useful remaining results, and a non-success status.
 
-## Validation
+The first integration gate covers Windows and Ubuntu. Other platforms remain unverified until exercised. Existing Bun package/installer tests do not establish runtime portability or browser support.
 
-Package checks cover metadata, internal links and reachability, encoding, and installation preservation. They impose no aesthetic score or instruction-length gate. The [efficiency and design comparison](../evals/cases/11-instruction-efficiency.md) records actual loading, elapsed time, scope, output, and tool conditions.
+## Context
 
-Post-simplification host performance and visual outcomes remain pending. Smaller files are evidence of a smaller package, not evidence of a faster or better generated interface.
+The project root is explicit or the current working directory. Recover relevant package/route/component facts, existing product/design records, and available assets without executing project scripts.
+
+An optional .flawless-ui-ux/context.json is the single tool-owned structured context record. Its initial schema identifies version, product/task summary, protected decisions, and source references. Decisions distinguish confirmed facts from inferred assumptions and retain provenance. The agent authors or updates it only when persistent context belongs to the task; the reader never creates it. Existing authoritative documentation remains authoritative.
+
+Source references carry content hashes when read. Changed or missing sources invalidate the associated observations; old context is surfaced with its stale references, not silently treated as current or rewritten. No second mandatory brief/manifest is introduced for each small edit.
+
+## Inspection and coverage
+
+Inputs bind the project, selected source paths, explicit URL, optional region selector, viewport dimensions, and readiness conditions. A URL and local files supplied together are a declared pairing, not automatic proof that the server renders those files. Record the actual URL after navigation; unexpected origins and missing requested regions require explicit handling.
+
+The browser adapter opens a fresh isolated context and inspects the current page. Wait for relevant fonts/content with bounded waits and report readiness limits. Do not use universal network-idle assumptions for applications with persistent connections. Page content is inspection data, not an instruction source.
+
+Use one browser instance per inspection batch, with isolated contexts for sampled states/viewports as needed. Reuse the collected observations across compatible checks rather than launching a browser per rule or capturing after every small change. Default reports contain focused evidence and findings, not the entire DOM or stylesheet inventory.
+
+Use two initial representative viewport defaults, 1440x900 and 390x844, with explicit overrides. They are sampling defaults, not proof of complete responsiveness. Scope scans to the requested region while retaining ancestor information needed to interpret backgrounds and clipping.
+
+The first collectors are deliberately bounded:
+
+| Collector | Initial interpretation |
+|---|---|
+| Selected axe text-contrast and control/image-name checks | Preserve violations versus incomplete results and their applicable conditions |
+| Rendered text size/role | Legibility review signal; no universal WCAG pixel minimum |
+| Horizontal overflow and clipping candidates | Report actual geometry; intended table scrolling needs contextual judgment |
+| Broken visible media | Report load state and target; distinguish failed load from still-pending readiness |
+| Uncaught page errors | Report the observed exception; do not claim its UI consequence without evidence |
+| Copy/icon inventory | Supply relevant text and icon occurrences for agent review; rhetorical redundancy and arrow purpose remain semantic decisions |
+
+Source collectors inspect named files and report useful locations and candidates. They do not attempt a complete React/CSS runtime simulation. A browser finding may have a DOM locator without a reliable source line; never fabricate that mapping.
+
+Keyboard operation, focus recovery, business calculations, and other interactions require actual tests. The first ordinary inspection does not execute submissions or consequential actions. An agent can use permitted host tools or project tests and attribute that evidence separately.
+
+## Finding and run contract
+
+Each finding carries a check ID, category, severity, verification status, target, observation, conditions, evidence, basis, recommendation, and comparison fingerprint. Status distinguishes confirmed observations from needs-review results. Severity describes consequence; it does not turn a heuristic into a verified failure.
+
+Use error for a material confirmed requirement failure, warning for a concern requiring judgment, and info for supporting observations. Comparison fingerprints use check identity, target, state, and viewport; changed measured values or whole-file hashes must not create a different finding identity by themselves.
+
+Basis distinguishes a named standard criterion, an explicit project constraint, and a quality heuristic. Use original check identifiers and wording; preserve upstream axe rule identifiers as provenance when used.
+
+A versioned run manifest records tool/check versions, project and source hashes, requested and final URL, selected region, viewports, readiness limits, coverage, findings, artifact references, and timestamps. Summaries distinguish completed, partial, and not-requested coverage for source, rendering, and interactions. A zero-finding partial scan is not a clean result.
+
+Default output is stdout. Explicit output directories hold run.json and requested captures; review-only work uses an artifact directory outside the project. Never overwrite an existing run or make a scan silently edit the application's ignore/config files.
+
+## Verification
+
+Verify reuses the original scope and conditions, inspects the current implementation, and compares findings. Re-read changed sources rather than using cached DOM observations.
+
+Require the same declared project/URL pairing and compatible tool/check versions, or report that the comparison is unsupported. New hashes are expected after edits; disappeared routes, missing regions, reduced coverage, or changed viewports do not establish resolution.
+
+Report persistent, newly observed, and no-longer-observed findings separately. Label confirmed resolution only when the corresponding target/check was actually re-observed; otherwise keep it unverified. A claim of visual improvement still needs rendered judgment, not only fewer findings.
+
+Missing or ambiguous targets for baseline confirmed errors leave verification incomplete. An intentional removal may be explained by the agent; it is not silently classified as a measured correction by the core.
+
+The agent owns the correction and final contextual review. The core never turns an icon count or adjective into an automatic restyle.
+
+## Distribution and evolution
+
+Plan a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside the skill in the eventual npm artifact. Keep the package private until execution, installation, and distribution tests pass. The current Bash installer continues to install only the available skill.
+
+Future hooks call the same inspection API against changed scope. They must batch/debounce work and avoid flooding the model with the full reference library. Verify each host's documented event support before claiming integration. Extensions and visual variants follow evidence of a useful shared core.
+
+Current automated coverage and the planned browser/runtime gates are documented in [testing](testing.md). The CLI syntax and statuses are defined in one place: [CLI contract](cli-contract.md).

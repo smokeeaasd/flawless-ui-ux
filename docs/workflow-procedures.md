@@ -1,50 +1,44 @@
 # Workflow procedures
 
-The skill supports creation, redesign, refinement, and review through one direct working path. These describe intervention boundaries, not separate commands or mandatory installed procedures.
+The toolkit supports creation, redesign, refinement, review, and verification through one working cycle. This guide describes the target workflow; the local executable operations remain planned in the [delivery plan](implementation-plan.md). The current installed skill continues to use its available host tools.
 
 ## Intervention boundaries
 
 | Request | Work to deliver | Preserve |
 |---|---|---|
-| Create | The requested surface, content, interactions, and relevant states | Surrounding product conventions and confirmed rules |
-| Redesign | The authorized replacement of visual decisions | Required facts, functioning paths, data meaning, and explicit brand constraints |
-| Refine | A specific improvement within the current intention | Identity and all decisions outside the intervention |
-| Review | Prioritized findings supported by available evidence | Project files and live state |
-| Plan | A proposed solution and checks | The implementation remains unchanged |
+| Create | The requested surface, content, interactions, and relevant states | Surrounding conventions and confirmed rules |
+| Redesign | An authorized replacement of visual decisions | Required facts, functioning paths, data meaning, and protected identity |
+| Refine | A proportional improvement in the existing intention | All decisions outside the intervention |
+| Review | Prioritized findings from available evidence | Project files and live state |
+| Verify | Repeated observations and a comparison under corresponding conditions | Sources and application state unless explicit test actions are authorized |
+| Plan | A proposed solution and checks | Implementation remains unchanged |
 
-Mixed requests follow their local boundaries. Review with authorized fixes permits the specified editing work. A vague improvement to an existing screen normally preserves identity; ask if the ambiguity would materially change scope or character.
+Mixed requests follow their local boundaries. Review with fixes authorizes the specified editing work. Resolve genuine identity or scope ambiguity without asking for routine preferences already evident in the project.
 
 ## Working path
 
-Inspect the actual target and immediate project context. Establish the task, content, available resources, required behavior, and protected decisions. Resolve consequential unknowns before promising an outcome; routine aesthetic choices can proceed.
+Recover the actual project, target, content, assets, constraints, and required behavior. Use current records rather than generating a new brief for every edit. Planned context output supplies facts and provenance; it does not choose the design.
 
-Choose a coherent composition and implement the requested experience in the existing stack. Complete useful content, interactions, and visual treatment across the target. Avoid inventing product features to populate familiar dashboard or landing-page structures.
+Resolve information and visual relationships together, then implement in the existing stack. Carry typography, color, density, imagery, and finish through lower sections and states. A new interface needs coherent product-specific execution; a local correction does not reopen every visual decision.
 
-Inspect the relevant result with available tools. Before delivering creation or redesign, perform the short [final pattern pass](../skills/flawless-ui-ux/references/anti-slop.md#final-pass) across the implemented target. Focused refinement checks the affected scope. Correct material issues and repeat affected observations. Summarize the result and actual checks without turning each working decision into a report.
+Inspect the implementation through source, rendering, and relevant interactions where available. The planned inspect operation supplies concrete observations and coverage. Confirm the actual URL/port and target; do not use another generated project as an unstated reference.
 
-The entry point owns these shared responsibilities. Direction supports a new visual system; the other [references](skill-architecture.md#responsibilities) answer particular questions. No separate procedure, purpose, and task routing chain is required.
+Before delivering creation or redesign, perform the short [final pattern pass](../skills/flawless-ui-ux/references/anti-slop.md#final-pass). Inspect arrows/icons and copy cumulatively; preserve useful affordances and deliberate expression. Refinement checks the affected scope.
 
-## Examples
+Correct material authorized issues and repeat affected observations. Planned verify output compares corresponding runs, while the agent checks preserved behavior, identity, and semantic consequences. Neither a lower finding count nor a passing build establishes a better design.
 
-| Request | Useful guidance | Observable result |
-|---|---|---|
-| Build a financial dashboard | Direction; Product structure for records, measures, and requested actions | Distinct current/projected figures, coherent updates, suitable navigation and useful hierarchy |
-| Redesign an existing queue | Direction if replacing the visual system; relevant structure/craft sections | Improved presentation with retained records, filters, statuses, and actions |
-| Improve heading typography | Entry and typography detail if needed | Better type relationships with wording, palette, layout, and behavior protected as requested |
-| Make an expressive event page more professional | Calibration if the requested improvement is unclear | A concrete improvement that develops the existing character |
-| Reduce repeated promotional copy | Product structure's editorial pass if needed | Distinct information across regions, facts and presentation preserved |
-| Review a pricing page | Review and any subject detail needed | Useful findings without changed project files |
+## Guidance and tools
 
-These examples identify useful decisions rather than establishing required file-read counts.
+The skill owns product interpretation and semantic edits. The [architecture responsibilities](skill-architecture.md#responsibilities) assign context, observations, reporting, and comparison to the core. Routine work should consume focused guidance and concise results rather than read maintainer specifications or every reference.
+
+A tool can report a small rendered label or repeated arrow occurrences. The agent must determine their role and suitable correction. Protected copy in a visual-only task is preserved; report an out-of-scope issue rather than silently rewriting it.
 
 ## Verification and completion
 
-Check the primary task, affected states, facts, and preserved behavior. For visual work, inspect hierarchy, proportions, typography, imagery, navigation, overflow, and lower regions at appropriate widths when tools permit. Access checks remain part of the intervention.
+Keep source, rendered, interaction, and project-check evidence distinct. Keyboard behavior and business calculations need actual relevant tests. With unavailable rendering, complete useful work and identify which visual observations remain unverified; the planned CLI must return incomplete requested coverage explicitly.
 
-Keep source, rendered, interaction, and project-check evidence distinct. With unavailable rendering, report the visual limit and complete useful source work. Do not compensate for absent visual feedback with unrelated audits or treat passing calculations as proof of design quality.
-
-Finish when the requested result is complete and material in-scope issues are resolved, or identify the specific outstanding limit. Meaningful tests remain useful for consequential calculations and state changes; their number is not a visual-quality measure.
+Finish when material in-scope issues are resolved or a specific limit remains. Reports lead with the result and relevant evidence. Review-only work uses external artifact locations and avoids project-generated files. Planning does not claim implementation.
 
 ## Evaluation
 
-The [manual kit](../evals/README.md) covers complete tasks, focused refinements, scope preservation, and unavailable tools. The [instruction-efficiency case](../evals/cases/11-instruction-efficiency.md) compares the simplified skill with the previous revision and a no-skill baseline. Preserve actual traces and outputs; post-change host outcomes remain pending until those runs occur.
+The [manual kit](../evals/README.md) covers complete tasks, focused changes, scope, and unavailable tools. The [instruction-efficiency comparison](../evals/cases/11-instruction-efficiency.md) records actual loading and cost, while the [delivery plan](implementation-plan.md#behavioral-gate) defines the toolkit's usefulness gate. Post-runtime results remain pending.

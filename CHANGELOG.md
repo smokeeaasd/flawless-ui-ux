@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- A planned CLI contract for project context, source/browser inspection, and corresponding verification, with explicit coverage, output, artifact preservation, and exit-status behavior.
+- A toolkit delivery plan defining one complete inspection/correction workflow, runtime verification gates, and matched design/usefulness evaluation before automatic host integrations.
+
 - A manual instruction-efficiency comparison using a financial dashboard request, previous and simplified skill revisions, a no-skill baseline, actual read evidence, elapsed time, and observed design outcomes; runs remain pending.
 
 - Product philosophy formalized in the existing contract and summarized in the skill entry point, covering context, function and expression, visual relationships, continuity, and evidence.
@@ -30,6 +33,8 @@ All notable changes to this project will be documented in this file.
 - Repository attributes, MIT license, and skill installation script.
 
 ### Changed
+
+- Redefined the product contract and architecture from an instruction-only skill to a local design toolkit with a shared executable core, original contextual judgment, and evidence-based corrections. Runtime capabilities remain specified rather than implemented; the existing skill, invocation, dependencies, and installer are unchanged.
 
 - Made the short final pattern pass explicit before delivery of creation and redesign, with scoped use in refinement and review, source-level copy/icon inspection when rendering is unavailable, and correction of cumulative arrows and repeated promises while preserving identity and useful affordances.
 
