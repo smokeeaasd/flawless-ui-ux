@@ -21,20 +21,30 @@ export function parse(argv) {
   const options = { project: '.', sources: [], viewports: [], timeout: 15000, format: 'text' };
   if (['--help', '-h', undefined].includes(operation)) return { operation: 'help', options };
   if (operation === '--version') return { operation: 'version', options };
-  if (!['context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
+  if (!['install', 'context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
+  if (argv.length === 1 && ['--help', '-h'].includes(argv[0])) return { operation: 'help', options };
+  if (operation === 'install') { options.project = undefined; options.agent = 'all'; }
   if (operation === 'verify') {
     options.baseline = argv.shift();
     if (!options.baseline || options.baseline.startsWith('--')) throw new Error('verify requires a run.json path.');
   }
   const seen = new Set();
-  const allowed = operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
+  const allowed = operation === 'install' ? ['codex', 'opencode', 'all-agents', 'global', 'project', 'format'] : operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
   while (argv.length) {
     const flag = argv.shift();
     if (!flag.startsWith('--') || !allowed.includes(flag.slice(2))) throw new Error(`Unknown option: ${flag}`);
-    const name = flag.slice(2), value = argv.shift();
-    if (!value || value.startsWith('--')) throw new Error(`Missing value for ${flag}`);
+    const name = flag.slice(2);
     if (seen.has(name) && !['source', 'viewport'].includes(name)) throw new Error(`Repeated option: ${flag}`);
+    if (operation === 'install' && ['codex', 'opencode', 'all-agents'].includes(name)) {
+      if (['codex', 'opencode', 'all-agents'].some(agent => seen.has(agent))) throw new Error('Select one agent option, or use --all-agents for both.');
+      options.agent = name === 'all-agents' ? 'all' : name;
+      seen.add(name);
+      continue;
+    }
     seen.add(name);
+    if (operation === 'install' && name === 'global') continue;
+    const value = argv.shift();
+    if (!value || value.startsWith('--')) throw new Error(`Missing value for ${flag}`);
     if (name === 'source') options.sources.push(value);
     else if (name === 'viewport') {
       const match = /^(\d+)x(\d+)$/.exec(value);
@@ -43,6 +53,7 @@ export function parse(argv) {
     } else options[{ 'browser-executable': 'browserExecutable' }[name] || name] = name === 'timeout' ? Number(value) : value;
   }
   if (!['text', 'json'].includes(options.format)) throw new Error('Format must be text or json.');
+  if (operation === 'install' && seen.has('global') && seen.has('project')) throw new Error('Choose --global or --project, not both.');
   if (operation === 'inspect' && options.url) options.browserExecutable ||= process.env.FLAWLESS_BROWSER_EXECUTABLE;
   if (operation === 'inspect') validateInspection(options);
   return { operation, options };

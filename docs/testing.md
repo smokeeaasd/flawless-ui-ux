@@ -51,9 +51,11 @@ Branch protection should require these checks after their first successful execu
 
 ## npm distribution
 
-`package.json` defines an explicit distribution list, runtime dependencies, Node engine, the `flawless-ui-ux` bin, and public npm publishing configuration. The archive includes the runtime, portable skill, README, changelog, license, installer, and logo; maintainer documents and evaluation fixtures remain excluded. Skill installation uses `install.sh` separately.
+`package.json` defines an explicit distribution list, runtime dependencies, Node engine, the `flawless-ui-ux` bin, and public npm publishing configuration. The archive includes the runtime, portable skill, README, changelog, license, installer, and logo; maintainer documents and evaluation fixtures remain excluded. The install command copies the bundled skill natively; `install.sh` remains an alternative.
 
 The portable JavaScript entry point supports `bunx`/`npx` distribution. Tests pack and unpack the actual archive and run its source-only CLI with Node. Registry publication follows [releasing](releasing.md); tests do not publish or call a model service.
+
+Native installation tests copy only into temporary destinations, covering each agent/scope selection, complete package resources, environment overrides under Node/Bun, existing files/directories/links, escaped project parents, overlapping paths, copy-failure cleanup, and concurrent destination creation. The distribution test runs install from the unpacked archive in an unrelated project, without a checkout or Bash, and rejects a package missing SKILL.md. The Bash installer retains its separate preservation tests. CI runs on Windows/Ubuntu; these checks do not establish macOS behavior.
 
 ## Runtime gates
 

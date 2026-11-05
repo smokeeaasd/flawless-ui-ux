@@ -1,6 +1,6 @@
 # Executable inspection
 
-Use the local CLI when its executable or checkout is available. The skill installer copies instructions only; do not assume a registry package exists or install dependencies during review. Otherwise use available host tools and state which checks remain unperformed.
+Use the CLI when its executable, package runner, or checkout is available. Its install operation copies the bundled agent instructions; running context, inspect, or verify does not install the skill. Do not change installation or dependencies during a review unless authorized. Otherwise use available host tools and state which checks remain unperformed.
 
 Replace `flawless-ui-ux` below with `node /known/checkout/bin/flawless-ui-ux.js` when using a checkout. Use the actual project, running server URL/port, and affected sources:
 
