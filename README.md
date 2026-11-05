@@ -94,7 +94,7 @@ The version matches the CLI's browser adapter. Alternatively, select an installe
 Inspect the actual development-server URL and save a baseline:
 
 ```bash
-npx flawless-ui-ux inspect --project . --source src/App.tsx --url http://localhost:5173 --output ../bloom-before --format json
+npx flawless-ui-ux inspect --project . --source src/App.tsx --url http://localhost:5173 --output ../app-before --format json
 ```
 
 Repeat `--source` for additional files, use `--selector` for a specific region, or repeat `--viewport WIDTHxHEIGHT` to select widths. Default samples are **1440×900** and **390×844**.
@@ -104,7 +104,7 @@ Repeat `--source` for additional files, use `--selector` for a specific region, 
 Review the findings, make the relevant corrections, then repeat the saved scope:
 
 ```bash
-npx flawless-ui-ux verify ../bloom-before/run.json --output ../bloom-after --format json
+npx flawless-ui-ux verify ../app-before/run.json --output ../app-after --format json
 ```
 
 Verification separates persistent, new, and no-longer-observed findings. A missing confirmed target or changed conditions remain unverified instead of being counted as a repair. Keep the same browser selection between runs.
