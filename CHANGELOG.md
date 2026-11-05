@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.4.0
+
+### Added
+
+- Antigravity installation through `install --antigravity` and the Bash alternative, using the documented project and global skill locations.
+- Antigravity discovery and workflow evaluation procedure, with CLI discovery evidence recorded separately from pending model-driven and App/IDE checks.
+
+### Changed
+
+- Default and all-agent installation now include Codex, OpenCode, and Antigravity. Codex and Antigravity share one project-local copy; reports retain the selected agents.
+- Canonical destinations are copied once, distinct nested destinations are rejected across all targets, and copy failures roll back newly allocated directories.
+- Extended installation, alias, rollback, and distribution coverage without adding dependencies or changing the shared design guidance.
+
 ## 0.3.0
 
 ### Changed

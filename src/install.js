@@ -60,20 +60,26 @@ export async function install(options, runtime = {}) {
   const home = runtime.home || os.homedir();
   const project = options.global ? null : await projectRoot(options.project || '.');
   const agent = options.agent || 'all';
-  if (!['all', 'codex', 'opencode'].includes(agent)) throw new Error('Unknown installation agent.');
+  if (!['all', 'codex', 'opencode', 'antigravity'].includes(agent)) throw new Error('Unknown installation agent.');
   if (!(await fs.stat(path.join(bundledSkill, 'SKILL.md'))).isFile()) throw new Error('The package does not contain an installable skill.');
   const entries = await fs.readdir(bundledSkill);
   const candidates = [
     { agent: 'codex', path: project ? path.join(project, '.agents', 'skills', skillName) : path.resolve(env.CODEX_HOME || path.join(home, '.codex'), 'skills', skillName) },
     { agent: 'opencode', path: project ? path.join(project, '.opencode', 'skills', skillName) : path.resolve(env.XDG_CONFIG_HOME || path.join(home, '.config'), 'opencode', 'skills', skillName) },
+    { agent: 'antigravity', path: project ? path.join(project, '.agents', 'skills', skillName) : path.join(home, '.gemini', 'config', 'skills', skillName) },
   ].filter(target => agent === 'all' || target.agent === agent);
   // Preflight every target before creating any installation directories.
   const targets = [];
   for (const candidate of candidates) targets.push({ ...candidate, path: await destinationPath(candidate.path, project) });
-  if (targets.length === 2 && (within(targets[0].path, targets[1].path) || within(targets[1].path, targets[0].path))) throw new Error('Agent installation destinations overlap. Check CODEX_HOME and XDG_CONFIG_HOME.');
+  // Multiple agents may discover the same physical skill directory.
+  const uniqueTargets = [];
+  for (const target of targets) if (!uniqueTargets.some(existing => path.relative(existing.path, target.path) === '')) uniqueTargets.push(target);
+  for (let i = 0; i < uniqueTargets.length; i++) for (let j = i + 1; j < uniqueTargets.length; j++) {
+    if (within(uniqueTargets[i].path, uniqueTargets[j].path) || within(uniqueTargets[j].path, uniqueTargets[i].path)) throw new Error('Agent installation destinations overlap. Check the selected configuration paths.');
+  }
   const created = [];
   try {
-    for (const target of targets) {
+    for (const target of uniqueTargets) {
       await fs.mkdir(path.dirname(target.path), { recursive: true });
       // Exclusive mkdir also preserves a destination created after preflight.
       await fs.mkdir(target.path);
