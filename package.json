@@ -1,6 +1,6 @@
 {
   "name": "flawless-ui-ux",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A UI/UX skill and local inspection CLI for coding agents to build and refine product-specific interfaces.",
   "type": "module",
   "license": "MIT",

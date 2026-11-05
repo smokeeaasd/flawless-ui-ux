@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.1.1
+
+### Fixed
+
+- Added a black (#000000) background to the README logo so the white wordmark remains readable on light pages.
+- Updated the README image URL to use the matching published package asset.
+
 ## 0.1.0
 
 Initial public release, consolidating the pre-release development iterations.

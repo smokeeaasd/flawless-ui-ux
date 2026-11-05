@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="334" height="80" viewBox="0 0 334 80" role="img" aria-labelledby="title"><title id="title">flawless-ui-ux</title>
+  <rect width="334" height="80" fill="#000000"/>
   <g transform="translate(20 20) scale(1.666667)"><path d="M4 20l1-5L16 4a2.83 2.83 0 0 1 4 4L9 19l-5 1Z" fill="#0ce491" stroke="#0ce491" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></g>
   <g fill="#ffffff" transform="translate(72 52) scale(0.018 -0.018)">
     <path transform="translate(0 0)" d="M679 933L679 1080L969 1080L969 933ZM243 0L243 1139Q243 1180 246.5 1224Q250 1268 264.5 1309.5Q279 1351 311 1386Q348 1426 392 1444Q436 1462 481.5 1466Q527 1470 568 1470L705 1470L705 1322L578 1322Q499 1322 460 1283Q421 1244 421 1167L421 0ZM60 933L60 1080L705 1080L705 933ZM954 0L954 1470L1132 1470L1132 0Z"/>
