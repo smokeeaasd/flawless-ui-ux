@@ -1,10 +1,12 @@
 # flawless-ui-ux
 
-A portable UI/UX skill that guides coding agents from product context and visual direction through implementation, observation, and refinement.
+A local design and UI/UX toolkit for coding agents, connecting product-specific decisions, implementation, inspection, and correction.
+
+**Current delivery:** the installable product is the portable skill described below. The local CLI, inspection core, and browser adapter are specified but not implemented. See the [delivery plan](docs/implementation-plan.md) for the first functional slice and acceptance gates.
 
 The [design philosophy](docs/product-contract.md#design-philosophy) connects product intent to specific visual decisions, treats function and expression as quality, and develops identity through refinement and observed evidence.
 
-The shared package supports creation, redesign, refinement, and review through a direct working path and focused references. See the [product contract](docs/product-contract.md), [workflow guide](docs/workflow-procedures.md), and [skill architecture](docs/skill-architecture.md). The simplified guidance still requires a new host comparison to establish its effect on time and design quality.
+The current skill supports creation, redesign, refinement, and review through a direct working path and focused references. The revised [product contract](docs/product-contract.md), [workflow guide](docs/workflow-procedures.md), and [architecture](docs/skill-architecture.md) define the transition to a shared executable core. Post-change design and performance benefits remain unverified.
 
 ## Scope
 
@@ -19,7 +21,7 @@ The shared package supports creation, redesign, refinement, and review through a
 - Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - Visual review using capabilities available in the host agent.
 
-A deterministic interface detector, dedicated runtime engine, browser extension, and live editing platform are outside the initial scope.
+The planned first functional delivery adds project context, source/browser inspection, and before/after verification through a Node-compatible CLI developed with Bun. The [CLI contract](docs/cli-contract.md) specifies context, inspect, and verify; these operations are not yet available. Automatic host integrations follow the validated core. Extension overlays, live editing, and native mobile are later candidates.
 
 ## Installation
 

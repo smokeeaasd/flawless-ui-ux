@@ -1,127 +1,66 @@
 # Product contract
 
-Agreed on November 3, 2026. This document defines the intended behavior of flawless-ui-ux. Implementation and validation status are recorded in the [project overview](../README.md#validation-status).
+Revised on November 4, 2026. This contract defines the toolkit being developed. The current installed product is still the instruction-only skill; the executable capabilities below are planned. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [project overview](../README.md#validation-status).
 
 ## Purpose
 
-flawless-ui-ux translates product intent into specific visual decisions and carries them through implementation and evolution. It guides coding agents to create and improve interfaces suited to their audience, content, task, identity, and resources.
+flawless-ui-ux helps coding agents conceive, build, inspect, and evolve web interfaces through product-specific design decisions and evidence from the implementation. It combines a skill, compact project context, and a local inspection core.
 
-The skill combines contextual art direction with focused UI/UX review and refinement. Its guidance connects visual decisions, implementation quality, and usability throughout a single adaptive workflow.
+The product must improve both the design and the work needed to deliver it. More instructions, findings, or reports do not establish usefulness.
 
 ## Design philosophy
 
-1. **Context determines choices.** Audience, content, task, identity, and available resources guide composition, typography, color, and interaction. A named style or industry label does not settle those decisions by itself.
-2. **Quality combines function and expression.** Usability, accessibility, identity, and finish belong to the delivery. Correct behavior is a baseline; the requested visual treatment must also be resolved.
-3. **Richness comes from relationships.** Hierarchy, proportions, rhythm, imagery, and detail work together to form a coherent experience. Neither the number of effects nor the degree of minimalism measures quality.
-4. **Refinement develops the existing intention.** An improvement can strengthen presence, reduce competition, or resolve inconsistency. Editing wording and changing visual expression are distinct interventions with their own boundaries.
-5. **Decisions must hold up under observation.** References establish a direction; implementation, states, and adaptation provide evidence of the result. Pattern prevention is a contextual diagnostic practice within this process.
+**Product intent directs the design; observation tests the execution; correction develops the intended experience.**
 
-These principles govern the existing workflow and conditional references. They do not prescribe a visual preset, mandatory concept, command catalog, or additional report for every task.
+1. **Context determines choices.** Audience, task, content, identity, and resources become concrete composition, typography, color, imagery, density, and interaction decisions.
+2. **Quality combines function and expression.** Usability, accessibility, identity, and finish belong to the delivery. Both a dense working interface and an expressive page can be well designed.
+3. **Richness comes from relationships.** Hierarchy, proportions, rhythm, imagery, and detail work together. Neither effect counts nor minimalism define quality.
+4. **Refinement develops the existing intention.** Preserve protected identity, wording, facts, and behavior. Redesign replaces only the authorized decisions.
+5. **Decisions must hold up under observation.** Tools supply repeatable evidence; the agent interprets context and applies authorized corrections. Keep measurements, hypotheses, and unobserved behavior distinct.
 
-## Audience
+Implement original procedures, examples, interfaces, and checks. No universal palette, font list, composition, metaphor, or style is imposed.
 
-The skill serves people using coding agents to build or improve web interfaces, including promotional pages, product interfaces, dashboards, and reading experiences.
+## Capabilities
 
-OpenCode and Codex are the initial host agents. Additional agents may be supported when their behavior can be tested through an available free tier or local model. Format compatibility alone does not establish tested support.
+| Capability | Required outcome |
+|---|---|
+| Context | Recover useful project facts and decisions, preserve provenance, and reuse current information without repeatedly rediscovering it |
+| Design and construction | Implement the requested content, visual treatment, interactions, and relevant states in the existing stack |
+| Review and refinement | Diagnose concrete problems and select proportional improvements within scope |
+| Inspection | Produce localized source and rendered findings with conditions, evidence, and explicit coverage |
+| Correction and verification | Let the agent fix authorized problems, then repeat affected observations and report regressions or unresolved limits |
+| Contextual prevention | Review cumulative copy, icon use, composition, and treatment while preserving intentional expression and useful affordances |
 
-## User experience
+Users can request these activities in ordinary language through the existing skill invocation. A short brief still permits confident choices. The user should not need to enumerate every visual adjustment or check.
 
-Users describe the result they want in ordinary language. Examples include building a product page, improving an existing screen, and redesigning an onboarding flow.
+## Division of responsibility
 
-The skill supports the requested intervention directly. Users do not need to learn a command catalog or choose procedures. Read supporting references when a concrete decision needs their detail.
+The skill and agent resolve product meaning, visual direction, information structure, and semantic edits. The local core supplies relevant context, measurements, artifacts, and comparable reports. It does not require a model API or autonomously redesign a page.
 
-The depth of the workflow follows the request. A typography adjustment can be focused; a new interface or substantial redesign calls for broader exploration and review.
+A reviewed finding can justify retaining an intentional choice. Repeated arrows and promises require examination across the target, not a zero-pattern quota. Familiar styling alone is not proof of a defect or AI authorship.
 
-A complete outcome addresses the task without requiring the user to enumerate every visual adjustment, state, or verification step. The [workflow guide](workflow-procedures.md) describes intervention boundaries and completion. Routine creation should not require a chain of procedure, purpose, and task-guide selection or separate written artifacts. Instruction overhead must earn its place through useful decisions and observed results.
+Relevant WCAG 2.2 A/AA requirements guide implementation. Automated checks cover only named criteria under observed conditions; no scan establishes full conformance. Typography heuristics must not be presented as WCAG minimum pixel sizes.
 
-## Core workflow
+## Working cycle
 
-### 1. Understand
+Recover relevant context, resolve design decisions, implement, inspect, correct, and recheck. Existing-interface work can enter at diagnosis.
 
-- Identify the product, audience, user task, content, and desired outcome.
-- Identify the information, available actions, state changes, and confirmed product rules needed for that task.
-- Inspect the existing implementation, visual system, available assets, and technical constraints.
-- Distinguish creation, focused refinement, and redesign; establish what the request permits changing.
-- Reuse existing project documentation and explicit user decisions. Record material assumptions without turning them into confirmed facts.
+Creation and redesign include a final contextual pattern review. Focused refinements inspect the affected scope. Review-only work preserves project files and live state; planning produces a proposal. A CLI inspection does not authorize arbitrary application actions.
 
-### 2. Define the direction
-
-- Ground visual decisions in characteristics of the actual product and its content.
-- Use suitable references or original studies when they help resolve a visual choice; adapt their useful principles and compare the implemented relationships when tools permit.
-- Establish the relevant content order and interaction structure so visual treatment supports a concrete task path.
-- Choose composition, typography, color, imagery, density, and interaction appropriate to the surface's purpose.
-- Preserve an established identity during refinement. For redesign, identify the constraints and functions that remain valid.
-- Explore alternatives when they resolve meaningful uncertainty. A fixed number of alternatives is not required for every request.
-
-### 3. Implement
-
-- Work within the project's existing technology and conventions.
-- Deliver the requested interface and behavior at an appropriate level of completeness.
-- Address responsive composition, semantic structure, accessibility, UX writing, and relevant interaction states.
-- Keep changes proportional to the agreed scope.
-
-### 4. Observe
-
-- Use browser and image capabilities available in the host environment to inspect the rendered result.
-- Review representative desktop and mobile layouts where applicable, including content beyond the first screen.
-- Run existing project checks relevant to the change.
-- Distinguish implementation inspection from visual observation and actual interaction testing.
-
-### 5. Correct
-
-- Prioritize failures of function, understanding, accessibility, and layout before decorative details.
-- Evaluate coherence, product specificity, and visual quality after the essential behavior is sound.
-- Fix observed problems and repeat the relevant verification after changes.
-- Report unresolved limitations honestly.
-
-## Supporting UI/UX practices
-
-The following practices enrich the core workflow:
-
-- Durable product context and awareness of the existing visual system.
-- Different design criteria for persuasion, task execution, reading, and exploration.
-- Focused refinement of hierarchy, typography, layout, spacing, color, and interaction.
-- Clear UX writing, responsive behavior, accessibility, empty states, loading states, and error handling where relevant.
-- Prioritized critique that connects each finding to its effect on the user or product.
-- An explicit distinction between refinement and replacement of a visual direction.
-- Contextual prevention of generic output through recognizable signals, task consequences, legitimate uses, alternatives, and verification throughout direction and review.
-
-A supporting practice belongs in flawless-ui-ux when it improves a decision or the execution of a step in the core workflow and serves the product's goals.
-
-## Behavioral guarantees
-
-- Explicit user requirements take precedence over aesthetic preferences in the skill.
-- Design choices must serve the content, task, brand, or intended experience.
-- Familiar AI-generated patterns are signals for contextual review, not proof of poor quality or machine authorship.
-- Colors, fonts, cards, gradients, minimalism, and animation are not universally good or bad.
-- Do not invent customers, testimonials, awards, performance figures, or other credibility claims.
-- Identify sample content and assumptions that need confirmation before publication.
-- Preserve factual content and functioning behavior outside the authorized scope.
-- Do not claim a browser review, accessibility test, interaction test, or project check that did not run.
+Keep product claims accurate, identify sample data, and preserve functioning paths. Never invent customer proof or present local-demo feedback as a real integration result. Report only checks actually performed.
 
 ## Technical boundary
 
-The initial product is a portable skill with instructions, supporting references, and assets. It uses capabilities already available in the host agent.
+The first functional delivery includes a small local CLI, a shared inspection core, source observations, and a replaceable browser adapter. Bun remains the development toolchain; executable JavaScript must support Node for future npx/bunx distribution. Browser availability and setup are explicit capabilities.
 
-A deterministic interface detector, dedicated runtime engine, browser extension, custom live-editing platform, and required external model service are outside the initial scope. A proprietary browser driver or inspection system is not required.
+Codex and OpenCode remain the initial hosts, sharing the same design guidance and core. Claim discovery, execution, browser coverage, and automatic integration separately and only after testing.
 
-Visual review depends on available host capabilities. When rendering or interaction tools are unavailable, the agent should complete useful work that remains possible and identify what could not be verified. Static inspection must not be presented as equivalent evidence.
+Host-triggered checks follow a useful, verified core. Extension overlays, live variants, native mobile targets, cloud services, and image-generation infrastructure are later candidates. Suitable existing host tools can still support a task.
 
-## Successful delivery
+## Acceptance
 
-A successful delivery:
+A delivery must demonstrate useful design choices, relevant content and working behavior, accurate observations, and scoped corrections that preserve identity and avoid regressions. Execution cost must be assessed against observable benefit.
 
-- Addresses the requested task at the agreed scope.
-- Gives the interface a coherent direction suited to the product and surface.
-- Preserves applicable brand, content, functional, and technical constraints.
-- Includes the responsive behavior and interaction states relevant to the task.
-- Uses observed evidence to guide corrections when inspection tools are available.
-- Explains material decisions, completed verification, and remaining limitations.
+Evaluate representative creation, data-interface work, and expressive refinement under matched conditions, including a no-tool baseline. Preserve prior failures and the first completed results. A smaller package, green infrastructure tests, or a single attractive output does not establish general improvement.
 
-Visual novelty alone does not establish success. The interface must communicate clearly and support its intended use.
-
-## Architecture
-
-The [skill architecture](skill-architecture.md) defines the shared package, entry instructions, reference responsibilities, loading rules, host capabilities, and evaluation approach used to implement this contract.
-
-The [workflow guide](workflow-procedures.md) describes creation, redesign, refinement, and review within that direct path. Conditional references supply product structure and execution detail without introducing another mandatory selection layer.
+The [architecture](skill-architecture.md), [CLI contract](cli-contract.md), and [workflow guide](workflow-procedures.md) define the first implementation boundary. Runtime and behavioral acceptance remain pending.

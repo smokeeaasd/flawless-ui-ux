@@ -2,6 +2,8 @@
 
 These materials evaluate skill behavior in Codex and OpenCode. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
 
+The [toolkit delivery plan](../docs/implementation-plan.md#behavioral-gate) reuses these cases to evaluate the planned executable workflow. That runtime has not been implemented or evaluated. Preserve earlier skill-only evidence separately, and record future source, browser, and interaction coverage rather than treating a passing scan as complete design or accessibility validation.
+
 ## Current evidence
 
 The user previously confirmed skill identification in both hosts and reported a satisfactory initial design result. The exact model, revision, invocation method, and inspection capabilities were not recorded. Those observations remain separate from this round: **the runs below have not been performed**.

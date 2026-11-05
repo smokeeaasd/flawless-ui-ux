@@ -46,6 +46,14 @@ Branch protection should require these checks after their first successful execu
 
 A future CLI should expose a `bin` entry pointing to portable JavaScript with a Node-compatible entry point. That allows both `bunx` and `npx` to run it while Bun remains the development toolchain. Registry publication and CLI implementation are separate delivery steps.
 
+## Planned toolkit gates
+
+The revised [architecture](skill-architecture.md) and [CLI contract](cli-contract.md) define executable context, inspection, and verification. They are specifications; no runtime dependencies, commands, or browser tests are added by the architecture change.
+
+The [delivery plan](implementation-plan.md#verification-gates) requires Node/Bun execution, scoped/read-only behavior, structured output and exit status, browser fixtures with positive and negative cases, partial capability results, artifact preservation, and corresponding before/after verification. Windows and Ubuntu are the first runtime integration targets. Other platforms and automatic host hooks remain unverified.
+
+Add these tests with implemented behavior. Existing package/installer tests cannot establish inspection accuracy, browser support, correction safety, design quality, or faster execution. Agent-driven manual evaluations stay outside routine CI and must record matching model/settings, active plugins, actual reads, evidence, and elapsed time.
+
 ## Behavioral evidence
 
 Earlier manual user testing confirmed identification in OpenCode and Codex and a satisfactory initial design result. These observations predate the expanded procedure package. They are separate from the automated checks above and do not establish the current workflows or every invocation method as tested.
