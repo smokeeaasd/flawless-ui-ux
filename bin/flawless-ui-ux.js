@@ -19,7 +19,8 @@ try {
           [--timeout MS] [--browser-executable FILE] [--format text|json]
   verify RUN_JSON [--output NEW_DIR] [--browser-executable FILE] [--format text|json]
 
-install defaults to both agents globally. Existing installations are preserved.
+install defaults to both agents in the current project. Use --global for user-wide installation.
+Existing installations are preserved.
 inspect requires a source or URL. Defaults: 1440x900 and 390x844, 15000 ms.
 Inspection does not start servers, download browsers, edit sources, or submit forms.
 FLAWLESS_BROWSER_EXECUTABLE explicitly selects an installed Chromium executable.

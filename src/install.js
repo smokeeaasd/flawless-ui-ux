@@ -58,7 +58,7 @@ async function rollback(created) {
 export async function install(options, runtime = {}) {
   const env = runtime.env || process.env;
   const home = runtime.home || os.homedir();
-  const project = options.project ? await projectRoot(options.project) : null;
+  const project = options.global ? null : await projectRoot(options.project || '.');
   const agent = options.agent || 'all';
   if (!['all', 'codex', 'opencode'].includes(agent)) throw new Error('Unknown installation agent.');
   if (!(await fs.stat(path.join(bundledSkill, 'SKILL.md'))).isFile()) throw new Error('The package does not contain an installable skill.');

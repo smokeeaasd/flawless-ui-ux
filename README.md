@@ -8,7 +8,7 @@ flawless-ui-ux helps coding agents create, redesign, and refine web interfaces w
 
 ## Setup
 
-Choose your package manager to install the skill for **Codex and OpenCode globally**. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
+From your project directory, choose your package manager to install the skill for **Codex and OpenCode in that project**. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
 
 ```bash
 npx flawless-ui-ux@latest install
@@ -20,14 +20,14 @@ Run one of these commands. The examples below use `npx`; replace it with `pnpm d
 
 ### Choose an agent and scope
 
-For a specific agent, or a project-local installation:
+For a specific agent, or an installation across projects:
 
 ```bash
 npx flawless-ui-ux install --codex
-npx flawless-ui-ux install --opencode --project .
+npx flawless-ui-ux install --opencode --global
 ```
 
-The default is both agents globally. Use `--codex`, `--opencode`, or `--all-agents` to select targets. `--project <directory>` installs only in that project; `--global` makes the default scope explicit. Start a new agent session if needed for discovery.
+The default is both agents in the current project. Use `--codex`, `--opencode`, or `--all-agents` to select targets. `--global` explicitly installs in your user profile; `--project <directory>` selects another project. Start a new agent session if needed for discovery.
 
 Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor `CODEX_HOME` and `XDG_CONFIG_HOME`; project paths are `.agents/skills/flawless-ui-ux` for Codex and `.opencode/skills/flawless-ui-ux` for OpenCode.
 
@@ -35,11 +35,11 @@ Existing installations are never overwritten, including links and local changes.
 <summary>Alternative: install from a checkout with Bash</summary>
 
 ```bash
-bash ./install.sh --codex
-bash ./install.sh --opencode
+bash ./install.sh --codex --project
+bash ./install.sh --opencode --project
 ```
 
-Use `--all-agents` for both. For project-local installation, run `bash /path/to/flawless-ui-ux/install.sh --all-agents --project` from the target project's directory. On Windows, the Bash alternative requires Git Bash or WSL.
+Run these from the target project's directory, using the script's absolute path when the checkout is elsewhere. Use `--all-agents` for both. The legacy Bash script requires `--project` for local installation and otherwise installs globally. On Windows, this alternative requires Git Bash or WSL.
 
 </details>
 

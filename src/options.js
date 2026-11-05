@@ -42,7 +42,7 @@ export function parse(argv) {
       continue;
     }
     seen.add(name);
-    if (operation === 'install' && name === 'global') continue;
+    if (operation === 'install' && name === 'global') { options.global = true; continue; }
     const value = argv.shift();
     if (!value || value.startsWith('--')) throw new Error(`Missing value for ${flag}`);
     if (name === 'source') options.sources.push(value);

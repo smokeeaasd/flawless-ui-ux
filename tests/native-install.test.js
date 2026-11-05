@@ -16,7 +16,7 @@ test('native installation copies the complete skill for every agent and scope se
     for (const scope of ['project', 'global']) for (const agent of ['codex', 'opencode', 'all']) {
       const root = path.join(workspace.root, `${scope}-${agent}`);
       await fs.mkdir(root);
-      const report = await install({ agent, ...(scope === 'project' ? { project: root } : {}) }, { home: root, env: {} });
+      const report = await install({ agent, ...(scope === 'project' ? { project: root } : { global: true }) }, { home: root, env: {} });
       assert.equal(report.exitCode, 0);
       assert.deepEqual(report.installations.map(i => i.agent), agent === 'all' ? ['codex', 'opencode'] : [agent]);
       for (const target of report.installations) {
@@ -47,12 +47,47 @@ test('global CLI installation honors environment overrides under Node and Bun', 
       assert.deepEqual(await Promise.all(report.installations.map(i => fs.realpath(i.path))), await Promise.all([path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill)].map(destination => fs.realpath(destination))));
       assert.deepEqual(snapshot(report.installations[0].path), snapshot(packageRoot));
       const before = snapshot(root);
-      const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--format', 'json'], {
+      const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
         cwd: root, env: { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config }, encoding: 'utf8',
       });
       assert.equal(repeat.status, 2);
       assert.equal(JSON.parse(repeat.stdout).completion, 'partial');
       assert.deepEqual(snapshot(root), before);
+      for (const destination of localPaths(root)) await assert.rejects(fs.stat(destination), { code: 'ENOENT' });
+    }
+  } finally { workspace.cleanup(); }
+});
+
+test('bare install targets the working project and preserves global installations under Node and Bun', async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    for (const runtime of ['node', 'bun']) {
+      const root = path.join(workspace.root, runtime);
+      const project = path.join(root, 'project');
+      const profile = path.join(root, 'profile');
+      const codex = path.join(profile, 'codex');
+      const config = path.join(profile, 'config');
+      await fs.mkdir(project, { recursive: true });
+      for (const destination of [path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill)]) {
+        await fs.mkdir(destination, { recursive: true });
+        await fs.writeFile(path.join(destination, 'SKILL.md'), 'Preserve global customization');
+      }
+      const profileBefore = snapshot(profile);
+      const result = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--format', 'json'], {
+        cwd: project, env: { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config }, encoding: 'utf8',
+      });
+      assert.equal(result.status, 0, result.stderr);
+      const report = JSON.parse(result.stdout);
+      assert.equal(report.project, await fs.realpath(project));
+      assert.deepEqual(report.installations.map(i => i.scope), ['project', 'project']);
+      for (const destination of localPaths(project)) assert.deepEqual(snapshot(destination), snapshot(packageRoot));
+      assert.deepEqual(snapshot(profile), profileBefore);
+      const beforeRepeat = snapshot(root);
+      const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--format', 'json'], {
+        cwd: project, env: { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config }, encoding: 'utf8',
+      });
+      assert.equal(repeat.status, 2);
+      assert.deepEqual(snapshot(root), beforeRepeat);
     }
   } finally { workspace.cleanup(); }
 });
@@ -131,11 +166,13 @@ test('invalid selections, unavailable project roots, and overlapping global path
     ['install', '--codex', '--codex'], ['install', '--url', 'http://localhost'],
   ]) assert.throws(() => parse(args));
   assert.equal(parse(['install']).options.agent, 'all');
+  assert.notEqual(parse(['install']).options.global, true);
+  assert.equal(parse(['install', '--global']).options.global, true);
   assert.equal(parse(['install', '--help']).operation, 'help');
   const workspace = temporaryWorkspace();
   try {
     await assert.rejects(install({ project: path.join(workspace.root, 'missing') }), { code: 'ENOENT' });
-    await assert.rejects(install({}, { env: { CODEX_HOME: path.join(workspace.root, 'opencode'), XDG_CONFIG_HOME: workspace.root }, home: workspace.root }), /overlap/);
+    await assert.rejects(install({ global: true }, { env: { CODEX_HOME: path.join(workspace.root, 'opencode'), XDG_CONFIG_HOME: workspace.root }, home: workspace.root }), /overlap/);
     assert.deepEqual(await fs.readdir(workspace.root), []);
   } finally { workspace.cleanup(); }
 });

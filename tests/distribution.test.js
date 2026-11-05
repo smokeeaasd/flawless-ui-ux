@@ -29,10 +29,11 @@ test('packed distribution contains the executable core and portable skill withou
     assert.equal(JSON.parse(result.stdout).coverage.source, 'completed');
     const project = path.join(workspace.root, 'consumer');
     await fs.mkdir(project);
-    const installed = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'install', '--project', project, '--format', 'json'], { cwd: project, encoding: 'utf8' });
+    const installed = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'install', '--format', 'json'], { cwd: project, encoding: 'utf8' });
     assert.equal(installed.status, 0, installed.stderr);
     const report = JSON.parse(installed.stdout);
     assert.equal(report.installations.length, 2);
+    assert.ok(report.installations.every(target => target.scope === 'project'));
     for (const target of report.installations) assert.equal(await fs.readFile(path.join(target.path, 'SKILL.md'), 'utf8'), await fs.readFile(path.join(root, 'skills/flawless-ui-ux/SKILL.md'), 'utf8'));
     await fs.unlink(path.join(root, 'skills/flawless-ui-ux/SKILL.md'));
     const missing = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'install', '--project', root, '--format', 'json'], { encoding: 'utf8' });

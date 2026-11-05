@@ -17,7 +17,7 @@ Create, redesign, refine, and review remain activities performed by the coding a
 
 Form: `flawless-ui-ux install [--codex | --opencode | --all-agents] [--global | --project <directory>] [--format text|json]`.
 
-The default installs for both agents globally. Agent selectors are mutually exclusive; use all-agents for both. Global and project scope are mutually exclusive. Project scope requires an existing directory; `--project .` selects the working directory. `install --help` shows usage without writing anything.
+The default installs for both agents in the working project. User-wide installation requires explicit `--global`. Agent selectors are mutually exclusive; use all-agents for both. Global and project scope are mutually exclusive. `--project <directory>` selects another existing project; `--project .` is equivalent to the default. `install --help` shows usage without writing anything. Global environment overrides do not change the scope of a bare install. Existing global installations are not moved or removed.
 
 | Agent | Global destination | Project destination |
 |---|---|---|
