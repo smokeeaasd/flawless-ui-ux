@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/npm/flawless-ui-ux@0.1.0/docs/assets/logo.svg" alt="flawless-ui-ux" width="334" height="80">
+  <img src="https://cdn.jsdelivr.net/npm/flawless-ui-ux@0.1.1/docs/assets/logo.svg" alt="flawless-ui-ux" width="334" height="80">
 </p>
 
 <p align="center">Design interfaces around the product. Refine them against the result.</p>
