@@ -29,14 +29,14 @@ export function parse(argv) {
     if (!options.baseline || options.baseline.startsWith('--')) throw new Error('verify requires a run.json path.');
   }
   const seen = new Set();
-  const allowed = operation === 'install' ? ['codex', 'opencode', 'all-agents', 'global', 'project', 'format'] : operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
+  const allowed = operation === 'install' ? ['codex', 'opencode', 'antigravity', 'all-agents', 'global', 'project', 'format'] : operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
   while (argv.length) {
     const flag = argv.shift();
     if (!flag.startsWith('--') || !allowed.includes(flag.slice(2))) throw new Error(`Unknown option: ${flag}`);
     const name = flag.slice(2);
     if (seen.has(name) && !['source', 'viewport'].includes(name)) throw new Error(`Repeated option: ${flag}`);
-    if (operation === 'install' && ['codex', 'opencode', 'all-agents'].includes(name)) {
-      if (['codex', 'opencode', 'all-agents'].some(agent => seen.has(agent))) throw new Error('Select one agent option, or use --all-agents for both.');
+    if (operation === 'install' && ['codex', 'opencode', 'antigravity', 'all-agents'].includes(name)) {
+      if (['codex', 'opencode', 'antigravity', 'all-agents'].some(agent => seen.has(agent))) throw new Error('Select one agent option, or use --all-agents for all supported agents.');
       options.agent = name === 'all-agents' ? 'all' : name;
       seen.add(name);
       continue;

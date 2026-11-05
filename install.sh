@@ -3,9 +3,9 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: ./install.sh [--codex | --opencode | --all-agents] [--project]
+Usage: ./install.sh [--codex | --opencode | --antigravity | --all-agents] [--project]
 
-Install the bundled skill for Codex, OpenCode, or both (the default).
+Install the bundled skill for Codex, OpenCode, Antigravity, or all (the default).
 Use --project to install into the current project's agent directories.
 Existing installations are never overwritten.
 Requires Bash. On Windows, run with Git Bash or WSL.
@@ -18,6 +18,7 @@ for argument in "$@"; do
   case "$argument" in
     --codex) agent=codex ;;
     --opencode) agent=opencode ;;
+    --antigravity) agent=antigravity ;;
     --all-agents) agent=all ;;
     --project) project=true ;;
     -h|--help) usage; exit 0 ;;
@@ -33,18 +34,32 @@ if [[ ! -f "$source_dir/SKILL.md" ]]; then
 fi
 
 destinations=()
+add_destination() {
+  local candidate="$1" existing
+  for existing in "${destinations[@]}"; do
+    [[ "$existing" == "$candidate" ]] && return 0
+  done
+  destinations+=("$candidate")
+}
 if [[ "$agent" == codex || "$agent" == all ]]; then
   if $project; then
-    destinations+=("$PWD/.agents/skills/flawless-ui-ux")
+    add_destination "$PWD/.agents/skills/flawless-ui-ux"
   else
-    destinations+=("${CODEX_HOME:-$HOME/.codex}/skills/flawless-ui-ux")
+    add_destination "${CODEX_HOME:-$HOME/.codex}/skills/flawless-ui-ux"
   fi
 fi
 if [[ "$agent" == opencode || "$agent" == all ]]; then
   if $project; then
-    destinations+=("$PWD/.opencode/skills/flawless-ui-ux")
+    add_destination "$PWD/.opencode/skills/flawless-ui-ux"
   else
-    destinations+=("${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skills/flawless-ui-ux")
+    add_destination "${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skills/flawless-ui-ux"
+  fi
+fi
+if [[ "$agent" == antigravity || "$agent" == all ]]; then
+  if $project; then
+    add_destination "$PWD/.agents/skills/flawless-ui-ux"
+  else
+    add_destination "$HOME/.gemini/config/skills/flawless-ui-ux"
   fi
 fi
 

@@ -1,8 +1,8 @@
 # Guided manual evaluations
 
-These materials evaluate skill behavior in Codex and OpenCode. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
+These materials evaluate skill behavior in Codex and OpenCode, with a focused Antigravity compatibility case. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
 
-The [toolkit delivery plan](../docs/implementation-plan.md#behavioral-gate) reuses these cases to evaluate the planned executable workflow. That runtime has not been implemented or evaluated. Preserve earlier skill-only evidence separately, and record future source, browser, and interaction coverage rather than treating a passing scan as complete design or accessibility validation.
+The [toolkit delivery plan](../docs/implementation-plan.md#behavioral-gate) reuses these cases to evaluate the implemented executable workflow. Matched host/model evaluations remain pending. Preserve earlier skill-only evidence separately, and record source, browser, and interaction coverage rather than treating a passing scan as complete design or accessibility validation.
 
 ## Current evidence
 
@@ -39,8 +39,9 @@ Use [11 Instruction efficiency](cases/11-instruction-efficiency.md) to compare t
 | [09 Refinement continuity](cases/09-refinement-continuity.md) | Preserved completed case-01 output | Optional independent visual-only and copy-only follow-ups; character and scope survive targeted improvement |
 | [10 Visual calibration](cases/10-visual-calibration.md) | Fresh brand-page and dashboard copies | Optional presence, competing emphasis, ambiguous refinement, and complementary scope controls |
 | [11 Instruction efficiency](cases/11-instruction-efficiency.md) | Independent copies of an identical clean React/Vite/TypeScript scaffold | Candidate versus previous revision and baseline: actual reading, elapsed time, scope, function, and design |
+| [12 Antigravity support](cases/12-antigravity-support.md) | Fresh dashboard copies | Focused discovery, explicit invocation, scope, and inspect/correct/verify compatibility |
 
-Run this matrix separately in each host:
+Run this core matrix separately in Codex and OpenCode. Case 12 defines the focused Antigravity round:
 
 | Runs | Skill availability | Invocation |
 |---|---|---|

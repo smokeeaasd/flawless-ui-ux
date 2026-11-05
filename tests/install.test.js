@@ -30,12 +30,14 @@ describe("Bash installer", () => {
       ...process.env,
       CODEX_HOME: join(root, "codex config with spaces").replaceAll("\\", "/"),
       XDG_CONFIG_HOME: join(root, "xdg config with spaces").replaceAll("\\", "/"),
+      HOME: join(root, "user home with spaces").replaceAll("\\", "/"),
     };
     return {
       cwd, env,
       destinations: {
         codex: project ? join(cwd, ".agents", "skills", skillName) : join(env.CODEX_HOME, "skills", skillName),
         opencode: project ? join(cwd, ".opencode", "skills", skillName) : join(env.XDG_CONFIG_HOME, "opencode", "skills", skillName),
+        antigravity: project ? join(cwd, ".agents", "skills", skillName) : join(env.HOME, ".gemini", "config", "skills", skillName),
       },
     };
   }
@@ -55,18 +57,19 @@ describe("Bash installer", () => {
   }, 30000);
 
   test("project and global modes respect all agent selections", () => {
-    const selections = [[[], ["codex", "opencode"]], [["--all-agents"], ["codex", "opencode"]], [["--codex"], ["codex"]], [["--opencode"], ["opencode"]]];
+    const selections = [[[], ["codex", "opencode", "antigravity"]], [["--all-agents"], ["codex", "opencode", "antigravity"]], [["--codex"], ["codex"]], [["--opencode"], ["opencode"]], [["--antigravity"], ["antigravity"]]];
     const expected = snapshot(source);
     for (const project of [false, true]) {
       for (const [index, [flags, selected]] of selections.entries()) {
         const target = paths(`matrix-${project}-${index}`, project);
         const result = install([...flags, ...(project ? ["--project"] : [])], target);
         assert.equal(result.status, 0, result.stderr);
-        for (const [agent, destination] of Object.entries(target.destinations)) {
-          if (selected.includes(agent)) assert.deepEqual(snapshot(destination), expected);
+        const selectedPaths = new Set(selected.map(agent => target.destinations[agent]));
+        for (const destination of Object.values(target.destinations)) {
+          if (selectedPaths.has(destination)) assert.deepEqual(snapshot(destination), expected);
           else assert.equal(existsSync(destination), false);
         }
-        for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode")]) {
+        for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME, target.env.HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode")]) {
           assert.equal(existsSync(forbidden), false, `Unexpected destination: ${forbidden}`);
         }
       }
@@ -125,19 +128,21 @@ describe("Bash installer", () => {
 
   test("all-agent preflight preserves files and directories before writing any target", () => {
     for (const project of [false, true]) {
-      for (const kind of ["file", "directory", "empty-directory"]) {
-        const target = paths(`existing-${project}-${kind}`, project);
-        const occupied = target.destinations.opencode;
-        mkdirSync(join(occupied, ".."), { recursive: true });
-        if (kind === "file") writeFileSync(occupied, "Existing file\n");
-        else {
-          mkdirSync(occupied);
-          if (kind === "directory") writeFileSync(join(occupied, "keep.txt"), "Existing installation\n");
+      for (const agent of project ? ["opencode"] : ["opencode", "antigravity"]) {
+        for (const kind of ["file", "directory", "empty-directory"]) {
+          const target = paths(`existing-${project}-${agent}-${kind}`, project);
+          const occupied = target.destinations[agent];
+          mkdirSync(join(occupied, ".."), { recursive: true });
+          if (kind === "file") writeFileSync(occupied, "Existing file\n");
+          else {
+            mkdirSync(occupied);
+            if (kind === "directory") writeFileSync(join(occupied, "keep.txt"), "Existing installation\n");
+          }
+          const before = snapshot(workspace.root);
+          assert.equal(install(project ? ["--project"] : [], target).status, 1);
+          assert.deepEqual(snapshot(workspace.root), before);
+          assert.equal(existsSync(target.destinations.codex), false);
         }
-        const before = snapshot(workspace.root);
-        assert.equal(install(project ? ["--project"] : [], target).status, 1);
-        assert.deepEqual(snapshot(workspace.root), before);
-        assert.equal(existsSync(target.destinations.codex), false);
       }
     }
   }, 30000);

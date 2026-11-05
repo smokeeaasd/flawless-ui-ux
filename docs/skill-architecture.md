@@ -14,7 +14,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 | Browser adapter | DOM/style observations, screenshots, named automated access checks, and runtime errors | Uses an explicit URL and isolated browser context; no application-changing actions in ordinary inspection |
 | Findings and comparison | Stable check identities, evidence, conditions, and differences between corresponding runs | An absent element is not automatically a corrected defect |
 | CLI | Input validation, text/JSON presentation, output artifacts, and exit status | Calls the shared core; no independent check logic |
-| Host integration | Invocation and capability adaptation for Codex/OpenCode | Shares the core and guidance; automatic hooks are a later delivery |
+| Host integration | Installation and invocation for Codex, OpenCode, and Antigravity | Shares the core and guidance; automatic hooks are a later delivery |
 
 ## Dependency direction
 
@@ -94,6 +94,8 @@ The agent owns the correction and final contextual review. The core never turns 
 ## Distribution and evolution
 
 The package declares a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside the skill, changelog, and logo in the npm artifact. Public publication follows the tested [release procedure](releasing.md). The CLI install operation copies the bundled skill natively with agent/scope selection and preservation checks. The Bash installer remains an alternative. Context, inspect, and verify do not install agent instructions.
+
+All supported agents receive the same skill, references, and assets. Codex and Antigravity share the project-local `.agents/skills` destination. The native installer canonicalizes all selected paths, checks every pair for distinct nested destinations, and copies each unique destination once. Reports describe selected agents even when they share a directory. Antigravity adds a discovery target, without host-specific design instructions or an additional runtime adapter.
 
 Future hooks call the same inspection API against changed scope. They must batch/debounce work and avoid flooding the model with the full reference library. Verify each host's documented event support before claiming integration. Extensions and visual variants follow evidence of a useful shared core.
 

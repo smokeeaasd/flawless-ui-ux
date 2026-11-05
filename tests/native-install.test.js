@@ -13,18 +13,19 @@ const localPaths = root => [path.join(root, '.agents/skills', skill), path.join(
 test('native installation copies the complete skill for every agent and scope selection', async () => {
   const workspace = temporaryWorkspace();
   try {
-    for (const scope of ['project', 'global']) for (const agent of ['codex', 'opencode', 'all']) {
+    for (const scope of ['project', 'global']) for (const agent of ['codex', 'opencode', 'antigravity', 'all']) {
       const root = path.join(workspace.root, `${scope}-${agent}`);
       await fs.mkdir(root);
       const report = await install({ agent, ...(scope === 'project' ? { project: root } : { global: true }) }, { home: root, env: {} });
       assert.equal(report.exitCode, 0);
-      assert.deepEqual(report.installations.map(i => i.agent), agent === 'all' ? ['codex', 'opencode'] : [agent]);
+      assert.deepEqual(report.installations.map(i => i.agent), agent === 'all' ? ['codex', 'opencode', 'antigravity'] : [agent]);
       for (const target of report.installations) {
         assert.equal(target.scope, scope);
-        const expected = scope === 'project' ? localPaths(root)[target.agent === 'codex' ? 0 : 1] : target.agent === 'codex' ? path.join(root, '.codex/skills', skill) : path.join(root, '.config/opencode/skills', skill);
+        const expected = scope === 'project' ? localPaths(root)[target.agent === 'opencode' ? 1 : 0] : target.agent === 'codex' ? path.join(root, '.codex/skills', skill) : target.agent === 'opencode' ? path.join(root, '.config/opencode/skills', skill) : path.join(root, '.gemini/config/skills', skill);
         assert.equal(await fs.realpath(target.path), await fs.realpath(expected));
         assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
       }
+      if (scope === 'project' && agent === 'all') assert.equal(new Set(report.installations.map(i => i.path)).size, 2);
     }
   } finally { workspace.cleanup(); }
 });
@@ -37,18 +38,23 @@ test('global CLI installation honors environment overrides under Node and Bun', 
       await fs.mkdir(root);
       const codex = path.join(root, 'codex config');
       const config = path.join(root, 'xdg config');
+      const home = path.join(root, 'user home');
+      const env = { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config, HOME: home, USERPROFILE: home, BUN_RUNTIME_TRANSPILER_CACHE_PATH: path.join(workspace.root, '.runtime-cache', runtime) };
+      const resolvedHome = spawnSync(runtime, ['-e', "console.log(require('node:os').homedir())"], { env, encoding: 'utf8' });
+      assert.equal(resolvedHome.status, 0, resolvedHome.stderr);
+      assert.equal(path.resolve(resolvedHome.stdout.trim()), home, 'Global tests must use an isolated home');
       const result = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
-        cwd: root, env: { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config }, encoding: 'utf8',
+        cwd: root, env, encoding: 'utf8',
       });
       assert.equal(result.status, 0, result.stderr);
       const report = JSON.parse(result.stdout);
       assert.equal(report.operation, 'install');
       // Windows can spell the same temp directory as RUNNER~1 or runneradmin.
-      assert.deepEqual(await Promise.all(report.installations.map(i => fs.realpath(i.path))), await Promise.all([path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill)].map(destination => fs.realpath(destination))));
+      assert.deepEqual(await Promise.all(report.installations.map(i => fs.realpath(i.path))), await Promise.all([path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill), path.join(home, '.gemini/config/skills', skill)].map(destination => fs.realpath(destination))));
       assert.deepEqual(snapshot(report.installations[0].path), snapshot(packageRoot));
       const before = snapshot(root);
       const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
-        cwd: root, env: { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config }, encoding: 'utf8',
+        cwd: root, env, encoding: 'utf8',
       });
       assert.equal(repeat.status, 2);
       assert.equal(JSON.parse(repeat.stdout).completion, 'partial');
@@ -67,24 +73,26 @@ test('bare install targets the working project and preserves global installation
       const profile = path.join(root, 'profile');
       const codex = path.join(profile, 'codex');
       const config = path.join(profile, 'config');
+      const env = { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config, HOME: profile, USERPROFILE: profile, BUN_RUNTIME_TRANSPILER_CACHE_PATH: path.join(workspace.root, '.runtime-cache', runtime) };
       await fs.mkdir(project, { recursive: true });
-      for (const destination of [path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill)]) {
+      for (const destination of [path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill), path.join(profile, '.gemini/config/skills', skill)]) {
         await fs.mkdir(destination, { recursive: true });
         await fs.writeFile(path.join(destination, 'SKILL.md'), 'Preserve global customization');
       }
       const profileBefore = snapshot(profile);
       const result = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--format', 'json'], {
-        cwd: project, env: { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config }, encoding: 'utf8',
+        cwd: project, env, encoding: 'utf8',
       });
       assert.equal(result.status, 0, result.stderr);
       const report = JSON.parse(result.stdout);
       assert.equal(report.project, await fs.realpath(project));
-      assert.deepEqual(report.installations.map(i => i.scope), ['project', 'project']);
+      assert.deepEqual(report.installations.map(i => i.scope), ['project', 'project', 'project']);
+      assert.equal(report.installations[0].path, report.installations[2].path);
       for (const destination of localPaths(project)) assert.deepEqual(snapshot(destination), snapshot(packageRoot));
       assert.deepEqual(snapshot(profile), profileBefore);
       const beforeRepeat = snapshot(root);
       const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--format', 'json'], {
-        cwd: project, env: { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config }, encoding: 'utf8',
+        cwd: project, env, encoding: 'utf8',
       });
       assert.equal(repeat.status, 2);
       assert.deepEqual(snapshot(root), beforeRepeat);
@@ -92,17 +100,17 @@ test('bare install targets the working project and preserves global installation
   } finally { workspace.cleanup(); }
 });
 
-test('all-agent preflight preserves files, directories and local edits before writing either target', async () => {
+test('all-agent preflight preserves existing destinations before writing any target', async () => {
   const workspace = temporaryWorkspace();
   try {
-    for (const kind of ['file', 'directory']) {
-      const root = path.join(workspace.root, kind);
-      const [, conflict] = localPaths(root);
+    for (const scope of ['project', 'global']) for (const kind of ['file', 'directory']) {
+      const root = path.join(workspace.root, `${scope}-${kind}`);
+      const conflict = scope === 'project' ? localPaths(root)[1] : path.join(root, '.gemini/config/skills', skill);
       await fs.mkdir(path.dirname(conflict), { recursive: true });
       if (kind === 'file') await fs.writeFile(conflict, 'Preserve this file');
       else { await fs.mkdir(conflict); await fs.writeFile(path.join(conflict, 'custom.md'), 'Preserve local changes'); }
       const before = snapshot(root);
-      await assert.rejects(install({ project: root }), /already exists/);
+      await assert.rejects(install(scope === 'project' ? { project: root } : { global: true }, { home: root, env: {} }), /already exists/);
       assert.deepEqual(snapshot(root), before);
     }
   } finally { workspace.cleanup(); }
@@ -159,20 +167,71 @@ test('concurrent installs preserve the winning complete installation', async () 
   } finally { workspace.cleanup(); }
 });
 
+test('Antigravity selection installs natively under Node and Bun without writing legacy directories', async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    for (const runtime of ['node', 'bun']) {
+      const root = path.join(workspace.root, runtime);
+      await fs.mkdir(root);
+      const result = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--antigravity', '--format', 'json'], { cwd: root, encoding: 'utf8' });
+      assert.equal(result.status, 0, result.stderr);
+      const report = JSON.parse(result.stdout);
+      assert.deepEqual(report.installations.map(i => i.agent), ['antigravity']);
+      assert.deepEqual(snapshot(localPaths(root)[0]), snapshot(packageRoot));
+      for (const unused of ['.agent', '.gemini', '.opencode']) await assert.rejects(fs.lstat(path.join(root, unused)), { code: 'ENOENT' });
+    }
+  } finally { workspace.cleanup(); }
+});
+
+test('canonical aliases share one copy while retaining each selected agent in the report', async () => {
+  const workspace = temporaryWorkspace();
+  const alias = path.join(workspace.root, 'codex-alias');
+  try {
+    const config = path.join(workspace.root, '.gemini/config');
+    await fs.mkdir(config, { recursive: true });
+    await fs.symlink(config, alias, process.platform === 'win32' ? 'junction' : 'dir');
+    const report = await install({ global: true }, { home: workspace.root, env: { CODEX_HOME: alias, XDG_CONFIG_HOME: path.join(workspace.root, 'xdg') } });
+    assert.equal(report.installations.length, 3);
+    assert.equal(report.installations[0].path, report.installations[2].path);
+    assert.equal(new Set(report.installations.map(i => i.path)).size, 2);
+    assert.deepEqual(snapshot(report.installations[2].path), snapshot(packageRoot));
+    const before = snapshot(workspace.root);
+    await assert.rejects(install({ agent: 'antigravity', global: true }, { home: workspace.root, env: {} }), /already exists/);
+    assert.deepEqual(snapshot(workspace.root), before);
+  } finally { await fs.unlink(alias).catch(() => {}); workspace.cleanup(); }
+});
+
+test('failure at the third global target rolls back the earlier copies', async () => {
+  const workspace = temporaryWorkspace();
+  const copy = fs.cp;
+  const failure = spyOn(fs, 'cp').mockImplementation(async (...args) => {
+    if (args[1].includes(`${path.sep}.gemini${path.sep}`)) throw new Error('Antigravity copy failure');
+    return copy(...args);
+  });
+  try {
+    await assert.rejects(install({ global: true }, { home: workspace.root, env: {} }), /Antigravity copy failure/);
+    for (const destination of ['.codex/skills', '.config/opencode/skills', '.gemini/config/skills']) await assert.rejects(fs.lstat(path.join(workspace.root, destination, skill)), { code: 'ENOENT' });
+  } finally { failure.mockRestore(); workspace.cleanup(); }
+});
+
 test('invalid selections, unavailable project roots, and overlapping global paths do not install', async () => {
   for (const args of [
     ['install', '--codex', '--opencode'], ['install', '--all-agents', '--codex'],
     ['install', '--global', '--project', '.'], ['install', '--project'],
     ['install', '--codex', '--codex'], ['install', '--url', 'http://localhost'],
+    ['install', '--antigravity', '--codex'], ['install', '--all-agents', '--antigravity'],
   ]) assert.throws(() => parse(args));
   assert.equal(parse(['install']).options.agent, 'all');
   assert.notEqual(parse(['install']).options.global, true);
   assert.equal(parse(['install', '--global']).options.global, true);
+  assert.equal(parse(['install', '--antigravity']).options.agent, 'antigravity');
   assert.equal(parse(['install', '--help']).operation, 'help');
   const workspace = temporaryWorkspace();
   try {
     await assert.rejects(install({ project: path.join(workspace.root, 'missing') }), { code: 'ENOENT' });
-    await assert.rejects(install({ global: true }, { env: { CODEX_HOME: path.join(workspace.root, 'opencode'), XDG_CONFIG_HOME: workspace.root }, home: workspace.root }), /overlap/);
+    const codexHome = path.join(workspace.root, 'codex');
+    await assert.rejects(install({ global: true }, { env: { CODEX_HOME: codexHome, XDG_CONFIG_HOME: path.join(codexHome, 'skills', skill) }, home: workspace.root }), /overlap/);
+    await assert.rejects(install({ global: true }, { env: { CODEX_HOME: codexHome, XDG_CONFIG_HOME: path.join(workspace.root, '.gemini/config/skills', skill) }, home: workspace.root }), /overlap/);
     assert.deepEqual(await fs.readdir(workspace.root), []);
   } finally { workspace.cleanup(); }
 });

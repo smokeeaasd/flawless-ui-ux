@@ -30,13 +30,15 @@ Bun runs the built-in test runner. The only development dependency is the strict
 |---|---|
 | `tests/package.test.js` | Valid YAML frontmatter, skill identity, Codex presentation metadata, normal automatic discovery policy, UTF-8 text, internal file and section references, and reference reachability from the entry point |
 | `tests/install.test.js` | Bash syntax, project/global destinations, individual/default/all-agent targets, complete copies including hidden and nested resources, paths with spaces, help and errors, missing source files, pre-existing destinations, links, and reinstalls |
+| `tests/native-install.test.js` | Node/Bun installation, isolated global homes, Codex/Antigravity shared destinations, canonical aliases, nested-path rejection, all-target preflight, rollback, and concurrent creation |
+| `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
 | `tests/conventions.test.js` | Valid conventional names and rejection of invalid branches, titles, commit subjects, and empty pull requests |
 
 The metadata checks reject duplicate YAML keys. Reference checks are scoped to the package's inline Markdown links and heading anchors; external links are not fetched. They check package integrity, not the wording of design instructions.
 
-Installation tests copy the actual installer and skill into disposable directories and execute Bash against that copy. Global installation modes use child-process `CODEX_HOME` and `XDG_CONFIG_HOME` paths under those directories. The user's actual home and existing agent installations are not used as destinations. The test checks complete file hashes rather than a fixed list of current filenames.
+Installation tests copy the actual installer and skill into disposable directories and execute Bash against that copy. Global installation modes use isolated child-process home directories and `CODEX_HOME`/`XDG_CONFIG_HOME` paths under those directories. Native tests set both `HOME` and `USERPROFILE`, check the resolved home before CLI global installation, and keep Bun's runtime cache outside the simulated profile. The user's actual home and existing agent installations are not used as destinations. The test checks complete file hashes rather than a fixed list of current filenames.
 
-Conflict tests verify that existing files, directories, local edits, and link targets survive. When the second agent's destination already exists, the all-agent preflight must fail before installing the first target. Link cases use directory junctions on Windows and directory symlinks on Linux, including missing targets.
+Conflict tests verify that existing files, directories, local edits, and link targets survive. A conflict at a later destination, including Antigravity's third global target, must fail before installing the first target. Link cases use directory junctions on Windows and directory symlinks on Linux, including missing targets. Shared destinations are copied once, while non-identical nested destinations are rejected; failure at the third copy rolls back the earlier newly allocated skill directories.
 
 ## Continuous integration
 
@@ -68,6 +70,18 @@ Local implementation validation on November 5, 2026 used Windows, Node 24.16.0, 
 Fixture tests establish the implemented runtime behaviors, not design quality or faster execution. Agent-driven manual evaluations stay outside routine CI and must record matching model/settings, active plugins, actual reads, evidence, and elapsed time.
 
 ## Behavioral evidence
+
+### Antigravity support
+
+The same portable skill installs to Antigravity's documented `.agents/skills` project directory or `~/.gemini/config/skills` global directory. No separate instructions, dependencies, hooks, or extension are introduced.
+
+The 0.4.0 candidate passed all 39 Bun tests locally on Windows with the configured Edge browser. Its 30-file npm archive installed successfully through npx, pnpm dlx, and bunx into separate disposable projects; each used the Antigravity selector and project-local scope.
+
+On November 5, 2026, Antigravity CLI 1.4.12 on Windows discovered a project-local installation in a disposable project. The local command `agy --print "/skills" --mode plan --output-format json --print-timeout 15s` returned success and listed `flawless-ui-ux` with the expected project `SKILL.md` path, `builtin: false`, and `model_invocable: true`. Its report recorded zero model turns and zero tokens. This establishes availability in that CLI version; it does not establish that a model loaded or followed the instructions.
+
+Use [12 Antigravity support](../evals/cases/12-antigravity-support.md) for explicit invocation, scoped refinement, and inspection/correction/verification. Those model-driven runs, global host discovery, and App/IDE validation remain pending. Filesystem tests and the shared documented paths do not replace those observations.
+
+### Earlier host feedback
 
 Earlier manual user testing confirmed identification in OpenCode and Codex and a satisfactory initial design result. These observations predate the expanded procedure package. They are separate from the automated checks above and do not establish the current workflows or every invocation method as tested.
 
