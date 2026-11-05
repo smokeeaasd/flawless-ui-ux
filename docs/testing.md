@@ -1,6 +1,6 @@
 # Package and installation tests
 
-These checks validate the skill's packaging and installer. They do not score interface design or replace evaluations in the host agents.
+These checks validate the skill package, installer, CLI, and inspection/verification runtime. They do not score interface design or replace evaluations in the host agents.
 
 ## Run locally
 
@@ -10,6 +10,15 @@ Use the Bun version recorded in `package.json`, plus Bash for installer checks. 
 bun install --frozen-lockfile
 bun test
 ```
+
+CLI tests also require Node 22.12+. To include browser fixtures, explicitly prepare a browser and enable them:
+
+```bash
+bunx playwright install chromium
+FLAWLESS_TEST_BROWSER=1 bun test
+```
+
+Alternatively set `FLAWLESS_BROWSER_EXECUTABLE` to an installed compatible Chromium executable. In PowerShell use `$env:FLAWLESS_TEST_BROWSER = '1'` before `bun test`. Browser tests are explicitly skipped when neither setting is supplied; source/context/CLI and installer tests still run. CI installs Chromium separately and requires browser tests on both operating systems.
 
 The same commands work on Windows with Git Bash installed. Tests locate Git Bash from the Git installation on Windows and use Bash from the command path elsewhere. Set `FLAWLESS_TEST_BASH` to select a compatible executable explicitly. WSL is a separate environment and is not established as tested by a Windows run.
 
@@ -42,17 +51,19 @@ Branch protection should require these checks after their first successful execu
 
 ## Future npm distribution
 
-`package.json` defines the package identity and an explicit distribution file list. It remains marked private while the executable installation entry point is pending. Current installation uses `install.sh` from a checkout.
+`package.json` defines an explicit distribution list, runtime dependencies, Node engine, and the `flawless-ui-ux` bin. It remains private and unpublished. Current skill installation uses `install.sh`; the CLI runs from a dependency-equipped checkout.
 
-A future CLI should expose a `bin` entry pointing to portable JavaScript with a Node-compatible entry point. That allows both `bunx` and `npx` to run it while Bun remains the development toolchain. Registry publication and CLI implementation are separate delivery steps.
+The portable JavaScript entry point is compatible with future `bunx`/`npx` distribution. Tests pack and unpack the actual archive and run its source-only CLI with Node. Registry publication remains a separate delivery step; tests do not publish or call a model service.
 
-## Planned toolkit gates
+## Runtime gates
 
-The revised [architecture](skill-architecture.md) and [CLI contract](cli-contract.md) define executable context, inspection, and verification. They are specifications; no runtime dependencies, commands, or browser tests are added by the architecture change.
+The [architecture](skill-architecture.md) and [CLI contract](cli-contract.md) define executable context, inspection, and verification. CLI tests exercise Node/Bun output, invalid input, source scope and external links, stale saved context, output preservation, source comparisons, and missing browsers. Browser fixtures exercise known contrast/name failures, corresponding corrections, regressions, removed targets, missing regions, and unexpected navigation.
 
 The [delivery plan](implementation-plan.md#verification-gates) requires Node/Bun execution, scoped/read-only behavior, structured output and exit status, browser fixtures with positive and negative cases, partial capability results, artifact preservation, and corresponding before/after verification. Windows and Ubuntu are the first runtime integration targets. Other platforms and automatic host hooks remain unverified.
 
-Add these tests with implemented behavior. Existing package/installer tests cannot establish inspection accuracy, browser support, correction safety, design quality, or faster execution. Agent-driven manual evaluations stay outside routine CI and must record matching model/settings, active plugins, actual reads, evidence, and elapsed time.
+Local implementation validation on November 5, 2026 used Windows, Node 24.16.0, Bun 1.4.4, and an explicitly configured installed Edge executable. The complete suite passed with browser fixtures enabled, including a report created by Node and verified by Bun. The CI jobs separately prepare Playwright Chromium and exercise Node 22 on Windows/Ubuntu. This records runtime evidence only; matched model/host design and latency runs remain pending.
+
+Fixture tests establish the implemented runtime behaviors, not design quality or faster execution. Agent-driven manual evaluations stay outside routine CI and must record matching model/settings, active plugins, actual reads, evidence, and elapsed time.
 
 ## Behavioral evidence
 

@@ -42,4 +42,6 @@ Before delivering a creation or redesign, read and perform the [final pattern pa
 
 Measure contrast against actual backgrounds. Run relevant project checks and meaningful tests; repeat affected checks after corrections. If rendering is unavailable, continue useful source work and state the limit. Static checks cannot establish visual quality.
 
+When the local CLI is available, use [executable inspection](references/inspection.md) for scoped evidence and corresponding verification. Read its coverage; contextual signals still require judgment.
+
 Finish when the requested result is complete and material issues within scope are resolved, or report the specific blocker. Preserve explicit choices and product facts; identify sample data and never invent credibility claims. Report the result, checks actually performed, and remaining limits concisely.

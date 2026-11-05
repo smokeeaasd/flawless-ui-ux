@@ -1,6 +1,6 @@
 # Workflow procedures
 
-The toolkit supports creation, redesign, refinement, review, and verification through one working cycle. This guide describes the target workflow; the local executable operations remain planned in the [delivery plan](implementation-plan.md). The current installed skill continues to use its available host tools.
+The toolkit supports creation, redesign, refinement, review, and verification through one working cycle. The local CLI supplies evidence and corresponding verification as described in the [delivery plan](implementation-plan.md). The skill can also use available host tools when the executable is unavailable.
 
 ## Intervention boundaries
 
@@ -21,7 +21,7 @@ Recover the actual project, target, content, assets, constraints, and required b
 
 Resolve information and visual relationships together, then implement in the existing stack. Carry typography, color, density, imagery, and finish through lower sections and states. A new interface needs coherent product-specific execution; a local correction does not reopen every visual decision.
 
-Inspect the implementation through source, rendering, and relevant interactions where available. The planned inspect operation supplies concrete observations and coverage. Confirm the actual URL/port and target; do not use another generated project as an unstated reference.
+Inspect the implementation through source, rendering, and relevant interactions where available. The inspect operation supplies concrete observations and coverage. Confirm the actual URL/port and target; do not use another generated project as an unstated reference.
 
 Before delivering creation or redesign, perform the short [final pattern pass](../skills/flawless-ui-ux/references/anti-slop.md#final-pass). Inspect arrows/icons and copy cumulatively; preserve useful affordances and deliberate expression. Refinement checks the affected scope.
 
@@ -35,7 +35,7 @@ A tool can report a small rendered label or repeated arrow occurrences. The agen
 
 ## Verification and completion
 
-Keep source, rendered, interaction, and project-check evidence distinct. Keyboard behavior and business calculations need actual relevant tests. With unavailable rendering, complete useful work and identify which visual observations remain unverified; the planned CLI must return incomplete requested coverage explicitly.
+Keep source, rendered, interaction, and project-check evidence distinct. Keyboard behavior and business calculations need actual relevant tests. With unavailable rendering, complete useful work and identify which visual observations remain unverified; the CLI returns incomplete requested coverage explicitly.
 
 Finish when material in-scope issues are resolved or a specific limit remains. Reports lead with the result and relevant evidence. Review-only work uses external artifact locations and avoids project-generated files. Planning does not claim implementation.
 

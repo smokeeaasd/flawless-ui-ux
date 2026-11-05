@@ -2,7 +2,7 @@
 
 A local design and UI/UX toolkit for coding agents, connecting product-specific decisions, implementation, inspection, and correction.
 
-**Current delivery:** the installable product is the portable skill described below. The local CLI, inspection core, and browser adapter are specified but not implemented. See the [delivery plan](docs/implementation-plan.md) for the first functional slice and acceptance gates.
+**Current delivery:** the portable skill and local CLI support project context, source/browser inspection, and corresponding verification. The executable uses Node-compatible JavaScript; Bun is the development toolchain. See the [delivery plan](docs/implementation-plan.md) for runtime evidence and the pending design/usefulness gate.
 
 The [design philosophy](docs/product-contract.md#design-philosophy) connects product intent to specific visual decisions, treats function and expression as quality, and develops identity through refinement and observed evidence.
 
@@ -21,7 +21,24 @@ The current skill supports creation, redesign, refinement, and review through a 
 - Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
 - Visual review using capabilities available in the host agent.
 
-The planned first functional delivery adds project context, source/browser inspection, and before/after verification through a Node-compatible CLI developed with Bun. The [CLI contract](docs/cli-contract.md) specifies context, inspect, and verify; these operations are not yet available. Automatic host integrations follow the validated core. Extension overlays, live editing, and native mobile are later candidates.
+The [CLI contract](docs/cli-contract.md) documents `context`, `inspect`, and `verify`. Automatic host integrations follow the validated core. Extension overlays, live editing, and native mobile are later candidates.
+
+## Local CLI
+
+Requires Node 22.12+ and the dependencies installed with `bun install --frozen-lockfile` in this checkout. No registry release is published yet. Use Node or Bun to run the same entry point:
+
+```bash
+node bin/flawless-ui-ux.js context --project /path/to/app
+node bin/flawless-ui-ux.js inspect --project /path/to/app --source src/App.tsx --format json
+node bin/flawless-ui-ux.js inspect --project /path/to/app --url http://localhost:5173 --output /existing/artifacts/new-run
+node bin/flawless-ui-ux.js verify /existing/artifacts/new-run/run.json
+```
+
+Prepare Playwright Chromium separately with `bunx playwright install chromium`, or explicitly select an existing compatible Chromium executable with `--browser-executable` or `FLAWLESS_BROWSER_EXECUTABLE`. Inspection never downloads a browser or starts the application. Keep the same browser selection for verification.
+
+Rendered checks include selected axe contrast/name rules, text-size observations, overflow, broken images, runtime errors, and copy/icon inventories for contextual review. Defaults sample desktop and mobile widths. They do not establish full WCAG conformance or judge design quality automatically. Exit codes: **0** completed without confirmed errors, **1** completed with confirmed errors, **2** invalid or incomplete coverage.
+
+Without `--output`, results go to stdout and no artifacts are saved. Output directories must be new; captures and `run.json` are preserved there. Use an artifact directory outside the project for review-only work. The [CLI guide](docs/cli-contract.md) covers options, saved context, comparison, and limitations. The Bash installer below installs the skill only.
 
 ## Installation
 
@@ -73,4 +90,4 @@ Later user feedback reported improved colors and hierarchy across multiple model
 
 The [guided manual evaluations](evals/README.md) provide seven core design scenarios, disposable fixtures, discovery and baseline controls, optional refinement follow-ups, and a shared report template. These include contextual prevention, intentional brand preservation, and copy contribution. The materials are ready; their preparation does not establish completed host runs.
 
-The simplified package reduces available Markdown from 18,551 to 4,553 words and removes overlapping routing layers. This is an authoring measurement, not a measured speed or design improvement. The [instruction-efficiency comparison](evals/cases/11-instruction-efficiency.md) is prepared and remains pending.
+The earlier instruction-only simplification reduced available Markdown from 18,551 to 4,553 words and removed overlapping routing layers. This is a historical authoring measurement, not a measured speed or design improvement. The executable guide adds conditional workflow detail. The [instruction-efficiency comparison](evals/cases/11-instruction-efficiency.md) is prepared and remains pending.

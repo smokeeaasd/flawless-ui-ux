@@ -1,6 +1,6 @@
 # Product architecture
 
-Status: target architecture for the next implementation. Only the skill, installer, package checks, and manual evaluation materials currently exist. This document supersedes the instruction-only architecture without claiming a runtime has shipped. See the [contract](product-contract.md) and [delivery plan](implementation-plan.md).
+Status: the skill and local executable core are implemented. Automatic host integrations and matched design/usefulness evaluations remain pending. See the [contract](product-contract.md) and [delivery plan](implementation-plan.md).
 
 ## Responsibilities
 
@@ -19,7 +19,7 @@ Status: target architecture for the next implementation. Only the skill, install
 
 The agent uses the skill and CLI. The CLI calls the coordinator, context reader, and comparison code. The coordinator invokes source/browser adapters; adapters return observations that the findings layer normalizes. The core does not import host integrations, presentation code, or model clients.
 
-The intended source layout is a small ESM codebase: src/cli, src/context, src/inspection, src/adapters, and src/reports. Add modules only as implemented responsibilities need them; no workspace or plugin framework is required.
+The ESM entry point is `bin/flawless-ui-ux.js`. Implemented modules in `src/` separate options, context, inspection coordination, source/browser adapters, verification, and shared paths/findings/report persistence. No workspace or plugin framework is required.
 
 The package retains skills/flawless-ui-ux and its existing invocation. Repository docs, evaluations, and research are not automatically loaded into agent tasks.
 
@@ -27,11 +27,11 @@ The package retains skills/flawless-ui-ux and its existing invocation. Repositor
 
 Use JavaScript ESM with Node-compatible APIs and Bun for development and tests, continuing the current repository conventions. No compilation or separate native runtime is needed for the first slice.
 
-Use [Playwright Library](https://playwright.dev/docs/library) behind the browser adapter. Use [@axe-core/playwright](https://playwright.dev/docs/accessibility-testing) for selected automated access checks rather than implementing a new accessibility engine. These are planned implementation dependencies; this documentation change adds none. Pin tested versions and supported Node versions when implementing.
+The browser adapter uses [Playwright Library](https://playwright.dev/docs/library) and [@axe-core/playwright](https://playwright.dev/docs/accessibility-testing) for selected automated access checks. Runtime dependencies are pinned in package metadata; Node 22.12+ is required. Browser setup remains separate and explicit.
 
 Browser discovery/selection must be explicit and testable. Use a compatible configured executable or a separately prepared browser. Do not silently download a browser, take over an existing personal session, or evade host permissions. The source/context path remains usable without a browser. An unavailable requested browser yields partial coverage, useful remaining results, and a non-success status.
 
-The first integration gate covers Windows and Ubuntu. Other platforms remain unverified until exercised. Existing Bun package/installer tests do not establish runtime portability or browser support.
+The first integration gate covers Windows and Ubuntu through CLI/runtime and browser fixtures as well as the existing installer checks. Other platforms remain unverified until exercised. Passing fixtures does not establish host/model design usefulness.
 
 ## Context
 
@@ -96,4 +96,4 @@ Plan a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside
 
 Future hooks call the same inspection API against changed scope. They must batch/debounce work and avoid flooding the model with the full reference library. Verify each host's documented event support before claiming integration. Extensions and visual variants follow evidence of a useful shared core.
 
-Current automated coverage and the planned browser/runtime gates are documented in [testing](testing.md). The CLI syntax and statuses are defined in one place: [CLI contract](cli-contract.md).
+Current automated coverage and remaining behavioral gates are documented in [testing](testing.md). The CLI syntax and statuses are defined in one place: [CLI contract](cli-contract.md).
