@@ -22,7 +22,7 @@ test('native installation copies the complete skill for every agent and scope se
       for (const target of report.installations) {
         assert.equal(target.scope, scope);
         const expected = scope === 'project' ? localPaths(root)[target.agent === 'codex' ? 0 : 1] : target.agent === 'codex' ? path.join(root, '.codex/skills', skill) : path.join(root, '.config/opencode/skills', skill);
-        assert.equal(target.path, expected);
+        assert.equal(await fs.realpath(target.path), await fs.realpath(expected));
         assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
       }
     }
@@ -43,7 +43,8 @@ test('global CLI installation honors environment overrides under Node and Bun', 
       assert.equal(result.status, 0, result.stderr);
       const report = JSON.parse(result.stdout);
       assert.equal(report.operation, 'install');
-      assert.deepEqual(report.installations.map(i => i.path), [path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill)]);
+      // Windows can spell the same temp directory as RUNNER~1 or runneradmin.
+      assert.deepEqual(await Promise.all(report.installations.map(i => fs.realpath(i.path))), await Promise.all([path.join(codex, 'skills', skill), path.join(config, 'opencode/skills', skill)].map(destination => fs.realpath(destination))));
       assert.deepEqual(snapshot(report.installations[0].path), snapshot(packageRoot));
       const before = snapshot(root);
       const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--format', 'json'], {
