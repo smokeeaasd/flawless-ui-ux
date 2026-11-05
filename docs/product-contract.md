@@ -1,6 +1,6 @@
 # Product contract
 
-Revised on November 5, 2026. The toolkit includes the portable skill and a local executable inspection core. The skill installer installs instructions; the CLI is available from a dependency-equipped checkout. Registry publication and automatic integration remain separate. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [project overview](../README.md#validation-status).
+Revised on November 5, 2026. The toolkit includes the portable skill and a local executable inspection core. The skill installer installs instructions; the CLI has a Node-compatible package entry point and public npm publishing configuration. Publication follows the [release procedure](releasing.md); automatic integration remains separate. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [testing guide](testing.md).
 
 ## Purpose
 

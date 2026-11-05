@@ -92,7 +92,7 @@ The agent owns the correction and final contextual review. The core never turns 
 
 ## Distribution and evolution
 
-Plan a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside the skill in the eventual npm artifact. Keep the package private until execution, installation, and distribution tests pass. The current Bash installer continues to install only the available skill.
+The package declares a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside the skill, changelog, and logo in the npm artifact. Public publication follows the tested [release procedure](releasing.md). The Bash installer continues to install only the skill; executing the CLI does not install agent instructions.
 
 Future hooks call the same inspection API against changed scope. They must batch/debounce work and avoid flooding the model with the full reference library. Verify each host's documented event support before claiming integration. Extensions and visual variants follow evidence of a useful shared core.
 

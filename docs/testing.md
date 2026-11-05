@@ -49,11 +49,11 @@ The platform checks are named:
 
 Branch protection should require these checks after their first successful execution. The ruleset configuration in `.github/rulesets/main.json` describes the desired settings; GitHub configuration must also be updated to enforce them.
 
-## Future npm distribution
+## npm distribution
 
-`package.json` defines an explicit distribution list, runtime dependencies, Node engine, and the `flawless-ui-ux` bin. It remains private and unpublished. Current skill installation uses `install.sh`; the CLI runs from a dependency-equipped checkout.
+`package.json` defines an explicit distribution list, runtime dependencies, Node engine, the `flawless-ui-ux` bin, and public npm publishing configuration. The archive includes the runtime, portable skill, README, changelog, license, installer, and logo; maintainer documents and evaluation fixtures remain excluded. Skill installation uses `install.sh` separately.
 
-The portable JavaScript entry point is compatible with future `bunx`/`npx` distribution. Tests pack and unpack the actual archive and run its source-only CLI with Node. Registry publication remains a separate delivery step; tests do not publish or call a model service.
+The portable JavaScript entry point supports `bunx`/`npx` distribution. Tests pack and unpack the actual archive and run its source-only CLI with Node. Registry publication follows [releasing](releasing.md); tests do not publish or call a model service.
 
 ## Runtime gates
 
