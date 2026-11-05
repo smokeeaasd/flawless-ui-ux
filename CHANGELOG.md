@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.3.0
+
+### Changed
+
+- Made CLI install project-local by default. A bare install copies the skill for both agents into the current project; user-wide installation now requires explicit --global.
+- Retained --project <directory> for another project, mutually exclusive with --global. Existing local and global installations are preserved.
+- Updated help, README setup, contract, and package-level tests for the new default. The legacy Bash alternative retains its own explicit --project option.
+
 ## 0.2.0
 
 ### Added

@@ -55,7 +55,7 @@ Branch protection should require these checks after their first successful execu
 
 The portable JavaScript entry point supports `bunx`/`npx` distribution. Tests pack and unpack the actual archive and run its source-only CLI with Node. Registry publication follows [releasing](releasing.md); tests do not publish or call a model service.
 
-Native installation tests copy only into temporary destinations, covering each agent/scope selection, complete package resources, environment overrides under Node/Bun, existing files/directories/links, escaped project parents, overlapping paths, copy-failure cleanup, and concurrent destination creation. The distribution test runs install from the unpacked archive in an unrelated project, without a checkout or Bash, and rejects a package missing SKILL.md. The Bash installer retains its separate preservation tests. CI runs on Windows/Ubuntu; these checks do not establish macOS behavior.
+Native installation tests copy only into temporary destinations, covering each agent/scope selection, complete package resources, environment overrides under Node/Bun, existing files/directories/links, escaped project parents, overlapping paths, copy-failure cleanup, and concurrent destination creation. A bare install is tested from a working project with existing global installations and environment overrides; the global copies remain unchanged. Explicit --global is tested without creating project-local destinations. The distribution test runs bare install from the unpacked archive in an unrelated project, without a checkout or Bash, and rejects a package missing SKILL.md. The Bash installer retains its separate preservation tests. CI runs on Windows/Ubuntu; these checks do not establish macOS behavior.
 
 ## Runtime gates
 
