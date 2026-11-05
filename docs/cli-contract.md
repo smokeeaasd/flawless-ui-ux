@@ -6,11 +6,29 @@ Status: implemented as Node-compatible ESM, developed and tested with Bun. The p
 
 | Operation | Responsibility | Writes |
 |---|---|---|
+| install | Copy the bundled skill for selected agents and scope | New skill directories only; existing installations are preserved |
 | context | Recover relevant context from a selected project and optional saved decisions | stdout only |
 | inspect | Collect requested source and rendered evidence and normalize findings | stdout; artifacts only with an explicit output directory |
 | verify | Repeat an existing run's checks on the current implementation and compare | stdout; a new artifact directory only when requested |
 
 Create, redesign, refine, and review remain activities performed by the coding agent through the skill. There is no standalone fix command that promises semantic changes without a model. A developer can use inspection directly and make corrections manually.
+
+## Install
+
+Form: `flawless-ui-ux install [--codex | --opencode | --all-agents] [--global | --project <directory>] [--format text|json]`.
+
+The default installs for both agents globally. Agent selectors are mutually exclusive; use all-agents for both. Global and project scope are mutually exclusive. Project scope requires an existing directory; `--project .` selects the working directory. `install --help` shows usage without writing anything.
+
+| Agent | Global destination | Project destination |
+|---|---|---|
+| Codex | `${CODEX_HOME:-~/.codex}/skills/flawless-ui-ux` | `.agents/skills/flawless-ui-ux` |
+| OpenCode | `${XDG_CONFIG_HOME:-~/.config}/opencode/skills/flawless-ui-ux` | `.opencode/skills/flawless-ui-ux` |
+
+These environment expressions describe the paths; no shell or Bash is invoked. Node resolves the home directory natively. The command copies the skill bundled with the running package, including its references, metadata, and assets; it does not fetch another repository, install project dependencies, or prepare a browser.
+
+All selected targets are preflighted before creating installation directories. Existing files, directories, and links, including broken links, are refused without overwrite. Project parent links resolving outside the project and overlapping global destinations are rejected. An exclusive destination creation also preserves a target that appears after preflight. On copy failure, cleanup removes only skill directories allocated by that invocation with unchanged identities; empty parent directories may remain. Any cleanup failure is reported with its path for manual resolution.
+
+Installation reports include schema/tool version, operation, completion, installation coverage, and each installed agent/scope/path. Exit 0 means all selected copies completed; invalid arguments, existing installations, or copy failures return 2. No force-overwrite or automatic upgrade is provided. Review and remove an old installation explicitly before reinstalling. Native tests exercise Node/Bun on Windows and Ubuntu; macOS remains unverified.
 
 ## Context
 

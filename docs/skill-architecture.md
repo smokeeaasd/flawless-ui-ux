@@ -7,6 +7,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 | Component | Owns | Boundary |
 |---|---|---|
 | Skill | Product interpretation, direction, creation/refinement/review, and semantic corrections | Loads relevant guidance; does not infer successful verification from its own intent |
+| Native installer | Bundled skill copies, selected agents/scope, destination preflight, and copy-failure cleanup | Never overwrites existing installations; no shell, checkout, or browser setup |
 | Context reader | Explicit project root, selected sources, existing records, and optional saved decisions | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
 | Inspection coordinator | Requested checks, target scope, evidence collection, and coverage | Runs a meaningful batch; does not start applications or change their dependencies |
 | Source adapter | File/line observations in selected source files | No claim of rendered failure when dynamic styles or framework behavior are unresolved |
@@ -92,7 +93,7 @@ The agent owns the correction and final contextual review. The core never turns 
 
 ## Distribution and evolution
 
-The package declares a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside the skill, changelog, and logo in the npm artifact. Public publication follows the tested [release procedure](releasing.md). The Bash installer continues to install only the skill; executing the CLI does not install agent instructions.
+The package declares a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside the skill, changelog, and logo in the npm artifact. Public publication follows the tested [release procedure](releasing.md). The CLI install operation copies the bundled skill natively with agent/scope selection and preservation checks. The Bash installer remains an alternative. Context, inspect, and verify do not install agent instructions.
 
 Future hooks call the same inspection API against changed scope. They must batch/debounce work and avoid flooding the model with the full reference library. Verify each host's documented event support before claiming integration. Extensions and visual variants follow evidence of a useful shared core.
 

@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.2.0
+
+### Added
+
+- Native CLI install command for the bundled skill, without a repository checkout or Bash.
+- Codex, OpenCode, and both-agent selection, global installation with CODEX_HOME/XDG_CONFIG_HOME support, and explicit project-local installation.
+- Preflight of all selected destinations, preservation of existing files/directories/links, project-boundary checks, and cleanup of newly created skill directories after copy failures.
+- Text/JSON installation reports and package-level installation tests under Node and Bun.
+
+### Changed
+
+- Made npm, pnpm, and Bun skill installation the primary README setup path; retained the Bash installer as an alternative.
+
 ## 0.1.1
 
 ### Fixed

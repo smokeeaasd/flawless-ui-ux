@@ -8,7 +8,7 @@ Deliver one complete path: an agent creates or improves a local web target, obta
 
 Include:
 
-- A Node-compatible ESM CLI exposing context, inspect, and verify, with Bun development/tests and no model-service dependency.
+- A Node-compatible ESM CLI exposing install, context, inspect, and verify, with Bun development/tests and no model-service dependency.
 - A project-scoped context reader with optional saved decisions, provenance, and stale-source reporting.
 - Source observations and a Playwright browser adapter using selected axe checks, rendered legibility/overflow/media observations, and runtime error evidence.
 - Compact text/JSON findings, explicit coverage, saved captures/manifests, and conservative before/after comparison.

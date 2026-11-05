@@ -8,32 +8,40 @@ flawless-ui-ux helps coding agents create, redesign, and refine web interfaces w
 
 ## Setup
 
-From your project directory, choose your package manager. The CLI requires **Node 22.12+**.
+Choose your package manager to install the skill for **Codex and OpenCode globally**. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
 
 ```bash
-npx flawless-ui-ux@latest --help
-pnpm dlx flawless-ui-ux@latest --help
-bunx flawless-ui-ux@latest --help
+npx flawless-ui-ux@latest install
+pnpm dlx flawless-ui-ux@latest install
+bunx flawless-ui-ux@latest install
 ```
 
-The examples below use `npx`. Replace it with `pnpm dlx` or `bunx` to use the same operations. These commands run the CLI; connect the skill separately to use design guidance in your agent.
+Run one of these commands. The examples below use `npx`; replace it with `pnpm dlx` or `bunx` to use the same operations.
 
-### Connect your coding agent
+### Choose an agent and scope
 
-From a checkout of this repository, install the skill for your agent:
+For a specific agent, or a project-local installation:
+
+```bash
+npx flawless-ui-ux install --codex
+npx flawless-ui-ux install --opencode --project .
+```
+
+The default is both agents globally. Use `--codex`, `--opencode`, or `--all-agents` to select targets. `--project <directory>` installs only in that project; `--global` makes the default scope explicit. Start a new agent session if needed for discovery.
+
+Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor `CODEX_HOME` and `XDG_CONFIG_HOME`; project paths are `.agents/skills/flawless-ui-ux` for Codex and `.opencode/skills/flawless-ui-ux` for OpenCode.
+
+<details>
+<summary>Alternative: install from a checkout with Bash</summary>
 
 ```bash
 bash ./install.sh --codex
 bash ./install.sh --opencode
 ```
 
-Use `--all-agents` for both. To install only in a project, run the following from that project's directory:
+Use `--all-agents` for both. For project-local installation, run `bash /path/to/flawless-ui-ux/install.sh --all-agents --project` from the target project's directory. On Windows, the Bash alternative requires Git Bash or WSL.
 
-```bash
-bash /path/to/flawless-ui-ux/install.sh --all-agents --project
-```
-
-Existing installations are preserved. On Windows, use Git Bash or WSL. Start a new agent session if needed for discovery.
+</details>
 
 ## Use the skill
 

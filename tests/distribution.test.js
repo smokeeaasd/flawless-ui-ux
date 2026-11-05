@@ -27,5 +27,17 @@ test('packed distribution contains the executable core and portable skill withou
     const result = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'inspect', '--project', root, '--source', 'README.md', '--format', 'json'], { encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
     assert.equal(JSON.parse(result.stdout).coverage.source, 'completed');
+    const project = path.join(workspace.root, 'consumer');
+    await fs.mkdir(project);
+    const installed = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'install', '--project', project, '--format', 'json'], { cwd: project, encoding: 'utf8' });
+    assert.equal(installed.status, 0, installed.stderr);
+    const report = JSON.parse(installed.stdout);
+    assert.equal(report.installations.length, 2);
+    for (const target of report.installations) assert.equal(await fs.readFile(path.join(target.path, 'SKILL.md'), 'utf8'), await fs.readFile(path.join(root, 'skills/flawless-ui-ux/SKILL.md'), 'utf8'));
+    await fs.unlink(path.join(root, 'skills/flawless-ui-ux/SKILL.md'));
+    const missing = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'install', '--project', root, '--format', 'json'], { encoding: 'utf8' });
+    assert.equal(missing.status, 2);
+    assert.equal(JSON.parse(missing.stdout).completion, 'partial');
+    await assert.rejects(fs.stat(path.join(root, '.agents')), { code: 'ENOENT' });
   } finally { workspace.cleanup(); }
 });
