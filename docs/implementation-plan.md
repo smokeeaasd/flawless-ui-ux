@@ -1,6 +1,6 @@
 # Toolkit delivery plan
 
-Status: contract and architecture defined; executable implementation has not started. The current package remains an installable skill. This plan implements the [product contract](product-contract.md), [architecture](skill-architecture.md), and [CLI contract](cli-contract.md).
+Status: the local CLI, source/browser inspection path, saved artifacts, and corresponding verification are implemented. Runtime fixture tests are separate from the pending matched host/design evaluation. This plan follows the [product contract](product-contract.md), [architecture](skill-architecture.md), and [CLI contract](cli-contract.md).
 
 ## First functional slice
 
@@ -31,7 +31,7 @@ Broader browser engines, authenticated contexts, additional hosts, extension ove
 
 ## Implementation boundaries
 
-Pin maintained runtime dependencies when implementing, with explicit browser setup and failure behavior. Current documentation adds no packages or bin entry and does not publish to npm.
+Runtime dependencies and supported Node versions are pinned in package metadata. Browser setup is explicit. The package declares a bin entry but remains private and unpublished.
 
 Start with browser evidence and limited source observations rather than a complete framework parser or a new accessibility engine. Validate contrast/name findings using upstream check evidence, and retain incomplete results. Keep text-size, overflow, arrow, and copy signals contextual.
 
@@ -61,4 +61,6 @@ Record concrete hierarchy, content, legibility, contrast, navigation, state corr
 
 ## Current delivery
 
-This change establishes the revised contract, component ownership, operations, and acceptance boundary. No CLI, detector, browser adapter, automatic integration, or performance improvement is claimed implemented. The next code task is milestone 1, with the scope above, followed by the behavioral gate.
+The implementation delivers context, inspect, and verify, with versioned text/JSON reports, conservative comparisons, explicit captures, and selected source/rendered checks. Automated fixtures exercise correction, regression, removed targets, missing capabilities, scope, and preservation. Node/Bun portability and browser tests run in Windows/Ubuntu CI. See [testing](testing.md).
+
+Milestone 1's executable path is delivered; its matched agent runs remain pending. Milestone 2 must establish useful design outcomes and actual cost before automatic integration. No design-quality or latency improvement is established by passing runtime tests.

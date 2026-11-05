@@ -1,6 +1,6 @@
 # Product contract
 
-Revised on November 4, 2026. This contract defines the toolkit being developed. The current installed product is still the instruction-only skill; the executable capabilities below are planned. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [project overview](../README.md#validation-status).
+Revised on November 5, 2026. The toolkit includes the portable skill and a local executable inspection core. The skill installer installs instructions; the CLI is available from a dependency-equipped checkout. Registry publication and automatic integration remain separate. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [project overview](../README.md#validation-status).
 
 ## Purpose
 
@@ -63,4 +63,4 @@ A delivery must demonstrate useful design choices, relevant content and working 
 
 Evaluate representative creation, data-interface work, and expressive refinement under matched conditions, including a no-tool baseline. Preserve prior failures and the first completed results. A smaller package, green infrastructure tests, or a single attractive output does not establish general improvement.
 
-The [architecture](skill-architecture.md), [CLI contract](cli-contract.md), and [workflow guide](workflow-procedures.md) define the first implementation boundary. Runtime and behavioral acceptance remain pending.
+The [architecture](skill-architecture.md), [CLI contract](cli-contract.md), and [workflow guide](workflow-procedures.md) define the implemented executable boundary. Runtime fixtures validate that boundary; matched host/model behavioral acceptance remains pending.

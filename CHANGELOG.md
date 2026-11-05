@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Local Node-compatible CLI with context, inspect, and verify; explicit project/file/URL scope, text/JSON reports, coverage-aware exit codes, and fresh output directories.
+- Playwright/axe browser adapter for selected accessibility rules, computed text size, overflow, image failures, runtime errors, and contextual copy/icon inventories; separate source-only observations and honest capability limits.
+- Versioned run manifests, optional screenshots, source hashes, saved context provenance, and conservative correction/regression comparison that does not treat missing targets as repairs.
+- Runtime/browser fixture tests and Windows/Ubuntu CI browser preparation, with conditional skill guidance for executable inspection. Matched host design and latency evaluation remains pending.
+
 - A planned CLI contract for project context, source/browser inspection, and corresponding verification, with explicit coverage, output, artifact preservation, and exit-status behavior.
 - A toolkit delivery plan defining one complete inspection/correction workflow, runtime verification gates, and matched design/usefulness evaluation before automatic host integrations.
 

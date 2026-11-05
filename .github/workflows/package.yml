@@ -13,7 +13,7 @@ jobs:
   package-and-installation:
     name: package-and-installation (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 5
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
@@ -23,7 +23,18 @@ jobs:
         with:
           persist-credentials: false
       - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install test dependencies
         run: bun install --frozen-lockfile
+      - name: Prepare test browser (Linux)
+        if: runner.os == 'Linux'
+        run: bunx playwright install --with-deps chromium
+      - name: Prepare test browser (Windows)
+        if: runner.os == 'Windows'
+        run: bunx playwright install chromium
       - name: Validate package and installation
         run: bun test
+        env:
+          FLAWLESS_TEST_BROWSER: '1'
