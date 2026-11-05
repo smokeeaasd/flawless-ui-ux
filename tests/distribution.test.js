@@ -16,10 +16,14 @@ test('packed distribution contains the executable core and portable skill withou
     assert.equal(extracted.status, 0, extracted.stderr);
     const root = path.join(workspace.root, 'package');
     const metadata = JSON.parse(await fs.readFile(path.join(root, 'package.json'), 'utf8'));
-    assert.equal(metadata.private, true);
+    assert.notEqual(metadata.private, true);
+    assert.equal(metadata.publishConfig.access, 'public');
+    assert.equal(metadata.publishConfig.registry, 'https://registry.npmjs.org/');
     assert.equal(metadata.bin['flawless-ui-ux'], 'bin/flawless-ui-ux.js');
-    for (const file of ['src/browser.js', 'skills/flawless-ui-ux/SKILL.md', 'skills/flawless-ui-ux/references/inspection.md', 'install.sh']) assert.ok((await fs.stat(path.join(root, file))).isFile());
-    for (const excluded of ['docs', 'evals', 'tests', 'node_modules']) await assert.rejects(fs.stat(path.join(root, excluded)), { code: 'ENOENT' });
+    for (const file of ['src/browser.js', 'skills/flawless-ui-ux/SKILL.md', 'skills/flawless-ui-ux/references/inspection.md', 'docs/assets/logo.svg', 'CHANGELOG.md', 'install.sh']) assert.ok((await fs.stat(path.join(root, file))).isFile());
+    assert.deepEqual(await fs.readdir(path.join(root, 'docs')), ['assets']);
+    assert.deepEqual(await fs.readdir(path.join(root, 'docs/assets')), ['logo.svg']);
+    for (const excluded of ['evals', 'tests', 'node_modules']) await assert.rejects(fs.stat(path.join(root, excluded)), { code: 'ENOENT' });
     const result = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'inspect', '--project', root, '--source', 'README.md', '--format', 'json'], { encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
     assert.equal(JSON.parse(result.stdout).coverage.source, 'completed');

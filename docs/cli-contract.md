@@ -1,6 +1,6 @@
 # CLI contract
 
-Status: implemented as local Node-compatible ESM, developed and tested with Bun. Registry publication and automatic host integrations remain separate. Run `node bin/flawless-ui-ux.js --help` from a checkout; the package declares the `flawless-ui-ux` bin for future distribution.
+Status: implemented as Node-compatible ESM, developed and tested with Bun. The package declares the `flawless-ui-ux` bin and public npm publishing configuration. Run `node bin/flawless-ui-ux.js --help` from a checkout, or `npx flawless-ui-ux --help` after publication. See [releasing](releasing.md) for publication; automatic host integrations remain separate.
 
 ## Public operations
 

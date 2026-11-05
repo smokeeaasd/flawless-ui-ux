@@ -31,7 +31,7 @@ Broader browser engines, authenticated contexts, additional hosts, extension ove
 
 ## Implementation boundaries
 
-Runtime dependencies and supported Node versions are pinned in package metadata. Browser setup is explicit. The package declares a bin entry but remains private and unpublished.
+Runtime dependencies and supported Node versions are pinned in package metadata. Browser setup is explicit. The package declares a bin entry and public npm publishing configuration. The release procedure is documented in [releasing](releasing.md); preparation does not establish a completed publication.
 
 Start with browser evidence and limited source observations rather than a complete framework parser or a new accessibility engine. Validate contrast/name findings using upstream check evidence, and retain incomplete results. Keep text-size, overflow, arrow, and copy signals contextual.
 

@@ -1,93 +1,148 @@
-# flawless-ui-ux
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/npm/flawless-ui-ux@0.1.0/docs/assets/logo.svg" alt="flawless-ui-ux" width="334" height="80">
+</p>
 
-A local design and UI/UX toolkit for coding agents, connecting product-specific decisions, implementation, inspection, and correction.
+<p align="center">Design interfaces around the product. Refine them against the result.</p>
 
-**Current delivery:** the portable skill and local CLI support project context, source/browser inspection, and corresponding verification. The executable uses Node-compatible JavaScript; Bun is the development toolchain. See the [delivery plan](docs/implementation-plan.md) for runtime evidence and the pending design/usefulness gate.
+flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Works with **Codex** and **OpenCode**.
 
-The [design philosophy](docs/product-contract.md#design-philosophy) connects product intent to specific visual decisions, treats function and expression as quality, and develops identity through refinement and observed evidence.
+## Setup
 
-The current skill supports creation, redesign, refinement, and review through a direct working path and focused references. The revised [product contract](docs/product-contract.md), [workflow guide](docs/workflow-procedures.md), and [architecture](docs/skill-architecture.md) define the transition to a shared executable core. Post-change design and performance benefits remain unverified.
-
-## Scope
-
-- Direct creation, redesign, refinement, and review with clear scope boundaries.
-- Decisions for records and actions, input and state transitions, and persuasion, reading, or exploration paths.
-- Typography, layout, color, UX writing, accessibility, responsive behavior, and edge cases.
-- Art direction grounded in the product, audience, and available assets.
-- Original visual studies for service offers, operational workspaces, editorial guides, and visual collections, with adaptation guidance and concrete design targets.
-- Product-fit decisions for composition, typography, density, and references, with scoped WCAG 2.2 accessibility acceptance and evidence-based review.
-- Refinement that preserves visual character, with an editorial pass for authorized copy changes and distinct checks for craft, scope, and informational repetition.
-- Conditional visual calibration for presence, competing emphasis, and finish, with proportional interventions and comparison against the existing intention.
-- Contextual AI slop prevention covering composition, visual language, typography, copy, imagery, interaction, motion, and resilient delivery.
-- Visual review using capabilities available in the host agent.
-
-The [CLI contract](docs/cli-contract.md) documents `context`, `inspect`, and `verify`. Automatic host integrations follow the validated core. Extension overlays, live editing, and native mobile are later candidates.
-
-## Local CLI
-
-Requires Node 22.12+ and the dependencies installed with `bun install --frozen-lockfile` in this checkout. No registry release is published yet. Use Node or Bun to run the same entry point:
+From your project directory, choose your package manager. The CLI requires **Node 22.12+**.
 
 ```bash
-node bin/flawless-ui-ux.js context --project /path/to/app
-node bin/flawless-ui-ux.js inspect --project /path/to/app --source src/App.tsx --format json
-node bin/flawless-ui-ux.js inspect --project /path/to/app --url http://localhost:5173 --output /existing/artifacts/new-run
-node bin/flawless-ui-ux.js verify /existing/artifacts/new-run/run.json
+npx flawless-ui-ux@latest --help
+pnpm dlx flawless-ui-ux@latest --help
+bunx flawless-ui-ux@latest --help
 ```
 
-Prepare Playwright Chromium separately with `bunx playwright install chromium`, or explicitly select an existing compatible Chromium executable with `--browser-executable` or `FLAWLESS_BROWSER_EXECUTABLE`. Inspection never downloads a browser or starts the application. Keep the same browser selection for verification.
+The examples below use `npx`. Replace it with `pnpm dlx` or `bunx` to use the same operations. These commands run the CLI; connect the skill separately to use design guidance in your agent.
 
-Rendered checks include selected axe contrast/name rules, text-size observations, overflow, broken images, runtime errors, and copy/icon inventories for contextual review. Defaults sample desktop and mobile widths. They do not establish full WCAG conformance or judge design quality automatically. Exit codes: **0** completed without confirmed errors, **1** completed with confirmed errors, **2** invalid or incomplete coverage.
+### Connect your coding agent
 
-Without `--output`, results go to stdout and no artifacts are saved. Output directories must be new; captures and `run.json` are preserved there. Use an artifact directory outside the project for review-only work. The [CLI guide](docs/cli-contract.md) covers options, saved context, comparison, and limitations. The Bash installer below installs the skill only.
-
-## Installation
-
-From a local checkout, run one of the following with Bash:
+From a checkout of this repository, install the skill for your agent:
 
 ```bash
 bash ./install.sh --codex
 bash ./install.sh --opencode
-bash ./install.sh --all-agents
 ```
 
-The default target is both agents. Existing installations are preserved; the installer refuses to overwrite them. On Windows, use Git Bash or WSL. The Windows installation tests use Git Bash; WSL remains a separate, unverified environment.
-
-For a project-local installation, run the script from the target project's directory:
+Use `--all-agents` for both. To install only in a project, run the following from that project's directory:
 
 ```bash
-bash /path/to/flawless-ui-ux/install.sh --codex --project
+bash /path/to/flawless-ui-ux/install.sh --all-agents --project
 ```
 
-Replace `--codex` with `--opencode` or `--all-agents` for the other targets. Start a new host session if needed for skill discovery.
+Existing installations are preserved. On Windows, use Git Bash or WSL. Start a new agent session if needed for discovery.
 
-## Usage
+## Use the skill
 
-Describe the outcome and relevant boundaries in ordinary language:
+In Codex, select `$flawless-ui-ux` and describe what you want to build:
 
-| Request | Relevant guidance |
+```text
+Use $flawless-ui-ux to build a financial dashboard for freelancers.
+```
+
+In OpenCode, request the installed skill by name. Continue in the same conversation to develop the result:
+
+| Goal | Example request |
 |---|---|
-| "Develop subscription management using this product's existing rules, components, and integrations." | Product structure and relevant interaction detail |
-| "Redesign the repair queue while preserving records, filters, and ready-for-pickup behavior." | Direction and record relationships |
-| "Build a searchable knowledge collection with article views and a useful return path." | Direction, discovery, and reading structure |
-| "Improve only the heading hierarchy; preserve colors, layout, wording, and behavior." | Focused typography detail if needed |
-| "Review the pricing page and prioritize the problems without editing files." | Review and relevant content questions |
+| Create | Build a landing page for a DevOps app that coordinates deployments and incident handoffs. |
+| Redesign | Redesign the mobile account screen using the supplied brand palette. Preserve its content and behavior. |
+| Refine | Strengthen the main action and improve hierarchy while preserving the page's visual character. |
+| Focus | Improve typography and spacing. Preserve wording, colors, and functionality. |
+| Review | Review this dashboard for readability, navigation, repeated slogans, and redundant icon cues. Report findings without editing files. |
 
-The skill selects guidance for the task and uses tools available in the host. It can also be explicitly selected through the host's skill interface; in Codex, use `$flawless-ui-ux`.
+The skill connects product intent to composition, typography, color, density, imagery, and interaction. It works with your project's stack and existing constraints, using focused references when they answer a design question. Refinement can add presence, redistribute emphasis, or improve finish; it does not prescribe a universal aesthetic.
 
-The entry point handles the intervention directly. For a new visual direction, start with Direction; use other reference sections for particular questions rather than reading the package in sequence. The [workflow guide](docs/workflow-procedures.md) documents scope and completion without separate procedure files.
+## Inspect and verify
 
-[Contextual prevention](skills/flawless-ui-ux/references/anti-slop.md#final-pass) includes a short final check of created or redesigned interfaces for cumulative arrow/icon use, repeated slogans, and unsuitable composition. Focused refinements check only the affected scope. Diagnosis preserves intentional brand choices and useful content; it does not assign authorship from appearance or require a particular visual style.
+Use the CLI directly or have your agent run it as part of the task. Design and corrections stay with you and your agent; the CLI supplies observations and comparisons.
 
-Use the relevant prevention sections for concrete concerns rather than an exhaustive style check. Clear conventional layouts and descriptive copy are valid outcomes; custom design does not require symbolic concepts or slogans throughout the page.
+### 1. Inspect the affected scope
 
-## Validation status
+Start with project context or selected source files:
 
-The automated [package and installation tests](docs/testing.md) use Bun to validate metadata, internal references, UTF-8 text, complete copies, isolated project/global destinations, and preservation of existing files and links. CI runs the suite on Ubuntu and Windows.
+```bash
+npx flawless-ui-ux context --project . --format json
+npx flawless-ui-ux inspect --project . --source src/App.tsx --format json
+```
 
-These checks establish package integrity. Earlier manual user testing confirmed identification in both initial hosts and a satisfactory initial result. Those observations predate the expanded procedures; systematic evaluation of their invocation, interface quality, and end-to-end behavior remains pending.
+For rendered checks, start your application and prepare a browser using one of these commands:
 
-Later user feedback reported improved colors and hierarchy across multiple models with minimal prompts, with limited personalization. The exact run conditions were not recorded. That feedback is separate from the unperformed systematic round and does not validate the new reference-guided studies.
+```bash
+# npm
+npx playwright@1.64.1 install chromium
 
-The [guided manual evaluations](evals/README.md) provide seven core design scenarios, disposable fixtures, discovery and baseline controls, optional refinement follow-ups, and a shared report template. These include contextual prevention, intentional brand preservation, and copy contribution. The materials are ready; their preparation does not establish completed host runs.
+# pnpm
+pnpm dlx playwright@1.64.1 install chromium
 
-The earlier instruction-only simplification reduced available Markdown from 18,551 to 4,553 words and removed overlapping routing layers. This is a historical authoring measurement, not a measured speed or design improvement. The executable guide adds conditional workflow detail. The [instruction-efficiency comparison](evals/cases/11-instruction-efficiency.md) is prepared and remains pending.
+# Bun
+bunx playwright@1.64.1 install chromium
+```
+
+The version matches the CLI's browser adapter. Alternatively, select an installed compatible Chromium executable with `--browser-executable` or `FLAWLESS_BROWSER_EXECUTABLE`.
+
+Inspect the actual development-server URL and save a baseline:
+
+```bash
+npx flawless-ui-ux inspect --project . --source src/App.tsx --url http://localhost:5173 --output ../bloom-before --format json
+```
+
+Repeat `--source` for additional files, use `--selector` for a specific region, or repeat `--viewport WIDTHxHEIGHT` to select widths. Default samples are **1440×900** and **390×844**.
+
+### 2. Correct and compare
+
+Review the findings, make the relevant corrections, then repeat the saved scope:
+
+```bash
+npx flawless-ui-ux verify ../bloom-before/run.json --output ../bloom-after --format json
+```
+
+Verification separates persistent, new, and no-longer-observed findings. A missing confirmed target or changed conditions remain unverified instead of being counted as a repair. Keep the same browser selection between runs.
+
+Without `--output`, results go to stdout. With it, a new directory receives `run.json` and any screenshots; the parent must already exist. Existing output directories are never overwritten. For review-only work, keep artifacts outside the project.
+
+## What gets checked
+
+| Area | Evidence |
+|---|---|
+| Accessibility | Selected axe contrast and accessible-name rules, with upstream evidence and incomplete results retained. |
+| Readability and layout | Computed text sizes and horizontal overflow at the requested widths. |
+| Assets and runtime | Visible broken images and uncaught JavaScript errors in the sampled state. |
+| Copy and icons | Exact repeated phrases and arrow cues for contextual review. |
+| Source | Literal pixel font sizes and arrow/icon cues in selected files. |
+
+Small text, overflow, and repetition require judgment. A small font size alone is not a WCAG failure, and an arrow count does not determine whether an interface is good. The skill's contextual review considers what each element contributes to the product.
+
+Inspection does not edit sources, start servers, download browsers, or submit forms. These initial-state samples do not establish full WCAG conformance, keyboard journeys, business-flow correctness, or visual quality.
+
+| Exit code | Meaning |
+|---|---|
+| `0` | Requested coverage completed without confirmed errors. |
+| `1` | Requested coverage completed with confirmed errors. |
+| `2` | Invalid input or incomplete requested coverage. |
+
+## Development
+
+Use the pinned Bun toolchain from a local checkout:
+
+```bash
+bun install --frozen-lockfile
+bun test
+```
+
+See the [testing guide](docs/testing.md) for browser fixtures, distribution checks, and Windows/Ubuntu CI. Automated tests validate runtime and packaging behavior; matched host/model evaluations of design quality and elapsed time remain pending in the [manual evaluation kit](evals/README.md).
+
+## Documentation
+
+- [CLI options, saved context, and comparison limits](docs/cli-contract.md)
+- [Design philosophy and product contract](docs/product-contract.md)
+- [Workflow guide](docs/workflow-procedures.md)
+- [Architecture](docs/skill-architecture.md)
+- [Delivery plan](docs/implementation-plan.md)
+- [Changelog](CHANGELOG.md)
+
+## License
+
+[MIT](LICENSE).
