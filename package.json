@@ -1,6 +1,6 @@
 {
   "name": "flawless-ui-ux",
-  "version": "0.1.0-dev.0",
+  "version": "0.1.0",
   "description": "A UI/UX skill for coding agents to build distinctive, usable interfaces.",
   "private": true,
   "type": "module",
