@@ -62,45 +62,19 @@ pnpm dlx flawless-ui-ux@latest install
 bunx flawless-ui-ux@latest install
 ```
 
-Requires **Node 22.12+**. The published installer defaults to the current project. Use an agent flag to choose a host, or add `--global` to install across projects:
-
-```bash
-npx flawless-ui-ux install --codex
-npx flawless-ui-ux install --opencode --global
-npx flawless-ui-ux install --project ./app
-```
-
-> **1.0.0 preview:** the twelve-agent support and interactive installer are available on `main`, awaiting publication. npm currently ships **0.3.0**, with Codex and OpenCode support. See below to try the preview locally.
-
-<details>
-<summary>Try the 1.0.0 installer preview</summary>
-
-From a checkout of `main`, create a local archive:
-
-```bash
-npm pack --pack-destination ..
-```
-
-Then run it from your target project, replacing the archive path:
-
-```bash
-bunx --package /absolute/path/flawless-ui-ux-1.0.0.tgz flawless-ui-ux install
-```
-
-In a terminal, the menu lets you choose **project or global scope**, select **one or more agents**, and **confirm the destinations** before copying. Use Space to select and Enter to continue.
+Requires **Node 22.12+**. In a terminal, choose **project or global scope**, select **one or more agents**, and **confirm the destinations** before copying. Use Space to select and Enter to continue. Ctrl+C cancels before installation files are written.
 
 Explicit flags run directly:
 
 ```bash
-bunx --package /absolute/path/flawless-ui-ux-1.0.0.tgz flawless-ui-ux install --codex --devin
-bunx --package /absolute/path/flawless-ui-ux-1.0.0.tgz flawless-ui-ux install --claude-code --global
+npx flawless-ui-ux install --codex
+npx flawless-ui-ux install --codex --devin
+npx flawless-ui-ux install --claude-code --global
+npx flawless-ui-ux install --project ./app
+npx flawless-ui-ux install --yes
 ```
 
-`--yes` skips the menu and uses the defaults when no other flags are supplied. JSON output, CI, and non-terminal execution also remain noninteractive.
-
-Give successive archives of the same version a new filename to avoid reusing a stale package-manager cache entry.
-
-</details>
+`--yes` skips the menu and uses the defaults when no other flags are supplied: all supported agents in the current project. JSON output, CI, and non-terminal execution remain noninteractive. Use `--format json` for machine-readable output.
 
 <details>
 <summary>Install the skill through skills.sh</summary>
@@ -205,7 +179,7 @@ The comparison separates **persistent**, **new**, and **no-longer-observed** fin
 
 These samples do not establish full WCAG conformance, complete keyboard journeys, business-flow correctness, or visual quality. Small text and repetition require context. Inspection does not edit files, start servers, download browsers, or submit forms.
 
-CLI exit codes: `0` for completed coverage without confirmed errors, `1` for completed coverage with confirmed errors, and `2` for invalid input or incomplete requested coverage. The preview installer also returns `0` when confirmation is declined and `130` when a prompt is interrupted.
+CLI exit codes: `0` for completed coverage without confirmed errors, `1` for completed coverage with confirmed errors, and `2` for invalid input or incomplete requested coverage. The installer also returns `0` when confirmation is declined and `130` when a prompt is interrupted.
 
 </details>
 
@@ -213,7 +187,7 @@ CLI exit codes: `0` for completed coverage without confirmed errors, `1` for com
 
 Existing files, local changes, and links are preserved. Review or remove an old installation before reinstalling. Host rules, plugins, permissions, and trust settings stay under your control.
 
-In 1.0.0, the twelve supported agents use **five project copies** of the same skill. Hosts that discover `.agents/skills` share one copy; others use their native directories.
+The twelve supported agents use **five project copies** of the same skill. Hosts that discover `.agents/skills` share one copy; others use their native directories.
 
 <details>
 <summary>Host-specific details</summary>
