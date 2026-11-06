@@ -6,7 +6,8 @@ usage() {
 Usage: ./install.sh [AGENT] [--project]
 
 Agent selectors: --codex, --opencode, --antigravity, --kiro, --cursor,
-                --kilo, --copilot, --claude-code, --pi, --all-agents.
+                --kilo, --copilot, --claude-code, --pi, --grok-build,
+                --devin, --deepseek-harness, --all-agents.
 Install for all supported agents by default.
 Use --project to install into the current project's agent directories.
 Existing installations are never overwritten.
@@ -27,6 +28,9 @@ for argument in "$@"; do
     --copilot) agent=copilot ;;
     --claude-code) agent=claude-code ;;
     --pi) agent=pi ;;
+    --grok-build) agent=grok-build ;;
+    --devin) agent=devin ;;
+    --deepseek-harness) agent=deepseek-harness ;;
     --all-agents) agent=all ;;
     --project) project=true ;;
     -h|--help) usage; exit 0 ;;
@@ -52,7 +56,8 @@ add_destination() {
 configured_root() {
   local directory="$1"
   case "$directory" in
-    '~'|'~/'*) directory="$HOME${directory:1}" ;;
+    '~') directory="$HOME" ;;
+    '~/'*|'~\'*) directory="$HOME/${directory:2}" ;;
   esac
   printf '%s' "$directory"
 }
@@ -105,6 +110,36 @@ if [[ "$agent" == pi || "$agent" == all ]]; then
     add_destination "$PWD/.agents/skills/flawless-ui-ux"
   else
     add_destination "$(configured_root "${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}")/skills/flawless-ui-ux"
+  fi
+fi
+if [[ "$agent" == grok-build || "$agent" == all ]]; then
+  if $project; then
+    add_destination "$PWD/.grok/skills/flawless-ui-ux"
+  else
+    add_destination "${GROK_HOME:-$HOME/.grok}/skills/flawless-ui-ux"
+  fi
+fi
+if [[ "$agent" == devin || "$agent" == all ]]; then
+  if $project; then
+    add_destination "$PWD/.agents/skills/flawless-ui-ux"
+  else
+    case "$OSTYPE" in
+      msys*|cygwin*|win32*)
+        devin_config="${APPDATA:-$HOME/AppData/Roaming}"
+        devin_config="${devin_config//\\//}"
+        ;;
+      *) devin_config="${XDG_CONFIG_HOME:-$HOME/.config}" ;;
+    esac
+    add_destination "$devin_config/devin/skills/flawless-ui-ux"
+  fi
+fi
+if [[ "$agent" == deepseek-harness || "$agent" == all ]]; then
+  if $project; then
+    add_destination "$PWD/.agents/skills/flawless-ui-ux"
+  else
+    dsh_config="${DSH_HOME:-}"
+    if [[ -z "${dsh_config//[[:space:]]/}" ]]; then dsh_config="$HOME/.dsh"; fi
+    add_destination "$(configured_root "$dsh_config")/skills/flawless-ui-ux"
   fi
 fi
 

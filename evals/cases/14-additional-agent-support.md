@@ -22,7 +22,7 @@ Check global, inherited, and plugin instructions before claiming isolation. For 
 
 ## Shared copies and duplicate names
 
-In another fresh project, install with `--all-agents`. Expect nine logical agent records and four unique project directories, with one shared `.agents/skills` copy. Compare each copy's complete resources to the same candidate.
+In another fresh project, install with `--all-agents`. Expect twelve logical agent records and five unique project directories, with one shared `.agents/skills` copy. Compare each copy's complete resources to the same candidate. The earlier nine-agent candidate is recorded separately in [testing](../../docs/testing.md#additional-agent-support).
 
 Repeat host discovery and record the number of matching skill names and their resolved paths. Some hosts also read compatibility directories, including `.claude/skills`; path precedence or duplicate warnings belong to host discovery, not the installer's physical-copy count. Do not claim a single model load merely because the installer deduplicated its destinations.
 

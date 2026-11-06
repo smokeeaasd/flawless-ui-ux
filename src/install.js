@@ -60,10 +60,16 @@ export async function install(options, runtime = {}) {
   const home = runtime.home || os.homedir();
   const project = options.global ? null : await projectRoot(options.project || '.');
   const agent = options.agent || 'all';
-  if (!['all', 'codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi'].includes(agent)) throw new Error('Unknown installation agent.');
+  if (!['all', 'codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'grok-build', 'devin', 'deepseek-harness'].includes(agent)) throw new Error('Unknown installation agent.');
   if (!(await fs.stat(path.join(bundledSkill, 'SKILL.md'))).isFile()) throw new Error('The package does not contain an installable skill.');
   const entries = await fs.readdir(bundledSkill);
-  const configuredRoot = (value, fallback) => path.resolve((value || fallback).replace(/^~(?=$|[\\/])/, () => home));
+  const configuredRoot = (value, fallback) => {
+    const directory = value || fallback;
+    return path.resolve(directory === '~' ? home : /^~[\\/]/.test(directory) ? path.join(home, directory.slice(2)) : directory);
+  };
+  const devinConfig = (runtime.platform || process.platform) === 'win32'
+    ? path.resolve(env.APPDATA || path.join(home, 'AppData', 'Roaming'), 'devin')
+    : path.resolve(env.XDG_CONFIG_HOME || path.join(home, '.config'), 'devin');
   const candidates = [
     { agent: 'codex', path: project ? path.join(project, '.agents', 'skills', skillName) : path.resolve(env.CODEX_HOME || path.join(home, '.codex'), 'skills', skillName) },
     { agent: 'opencode', path: project ? path.join(project, '.opencode', 'skills', skillName) : path.resolve(env.XDG_CONFIG_HOME || path.join(home, '.config'), 'opencode', 'skills', skillName) },
@@ -74,6 +80,9 @@ export async function install(options, runtime = {}) {
     { agent: 'copilot', path: path.join(project || home, project ? '.agents' : '.copilot', 'skills', skillName) },
     { agent: 'claude-code', path: path.join(project ? path.join(project, '.claude') : configuredRoot(env.CLAUDE_CONFIG_DIR, path.join(home, '.claude')), 'skills', skillName) },
     { agent: 'pi', path: project ? path.join(project, '.agents', 'skills', skillName) : path.join(configuredRoot(env.PI_CODING_AGENT_DIR, path.join(home, '.pi', 'agent')), 'skills', skillName) },
+    { agent: 'grok-build', path: path.join(project ? path.join(project, '.grok') : path.resolve(env.GROK_HOME || path.join(home, '.grok')), 'skills', skillName) },
+    { agent: 'devin', path: path.join(project ? path.join(project, '.agents') : devinConfig, 'skills', skillName) },
+    { agent: 'deepseek-harness', path: project ? path.join(project, '.agents', 'skills', skillName) : path.join(configuredRoot(env.DSH_HOME?.trim() ? env.DSH_HOME : undefined, path.join(home, '.dsh')), 'skills', skillName) },
   ].filter(target => agent === 'all' || target.agent === agent);
   // Preflight every target before creating any installation directories.
   const targets = [];

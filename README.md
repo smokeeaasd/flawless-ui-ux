@@ -4,7 +4,7 @@
 
 <p align="center">Design interfaces around the product. Refine them against the result.</p>
 
-flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Supports **Codex, OpenCode, Antigravity, Kiro, Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi**.
+flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Supports **Codex, OpenCode, Antigravity, Kiro, Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, Pi, Grok Build, Devin CLI, and DeepSeek Harness**.
 
 ## Setup
 
@@ -41,12 +41,17 @@ The default is all supported agents in the current project, also selected with `
 | [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) | `--copilot` |
 | [Claude Code](https://code.claude.com/docs/en/skills) | `--claude-code` |
 | [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md) | `--pi` |
+| [Grok Build](https://docs.x.ai/build/features/skills-plugins-marketplaces) | `--grok-build` |
+| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | `--devin` |
+| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/skills.md) | `--deepseek-harness` |
 
 `--global` explicitly installs in your user profile; `--project <directory>` selects another project. Start a new agent session if needed for discovery.
 
-Codex, Antigravity, Cursor, Kilo, Copilot, and Pi share `.agents/skills/flawless-ui-ux` in a project; the installer copies it once. An existing copy there is already available to those agents. OpenCode uses `.opencode/skills`, Kiro uses `.kiro/skills`, and Claude Code uses `.claude/skills`, each containing the same `flawless-ui-ux` bundle.
+Codex, Antigravity, Cursor, Kilo, Copilot, Pi, Devin, and DeepSeek Harness share `.agents/skills/flawless-ui-ux` in a project; the installer copies it once. An existing copy there is already available to those agents. OpenCode uses `.opencode/skills`, Kiro uses `.kiro/skills`, Claude Code uses `.claude/skills`, and Grok Build uses `.grok/skills`, each containing the same `flawless-ui-ux` bundle.
 
-Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor `CODEX_HOME`, `XDG_CONFIG_HOME`, `CLAUDE_CONFIG_DIR`, and `PI_CODING_AGENT_DIR` for their respective agents. The [CLI contract](docs/cli-contract.md#install) lists all destinations.
+Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor the host's configuration directory, including `GROK_HOME`, `DSH_HOME`, and Devin's `%APPDATA%` on Windows or `XDG_CONFIG_HOME` elsewhere. The [CLI contract](docs/cli-contract.md#install) lists all destinations and overrides.
+
+Grok Build requires project-folder trust before it exposes project skills. DeepSeek Harness resolves project skills from the nearest Git root; install from that root, or from the working directory for a project without Git. Installation does not change host trust, permissions, or custom discovery settings.
 
 <details>
 <summary>Alternative: install from a checkout with Bash</summary>
@@ -74,11 +79,11 @@ Use the host's invocation method with your task:
 | Agent | Invocation |
 |---|---|
 | Codex | `$flawless-ui-ux` |
-| OpenCode | Request the `flawless-ui-ux` skill by name |
-| Antigravity, Kiro, Cursor, Kilo, Copilot CLI, Claude Code | `/flawless-ui-ux` followed by the task, or request the skill by name |
+| OpenCode, DeepSeek Harness | Request the `flawless-ui-ux` skill by name |
+| Antigravity, Kiro, Cursor, Kilo, Copilot CLI, Claude Code, Grok Build, Devin CLI | `/flawless-ui-ux` followed by the task, or request the skill by name |
 | Pi | `/skill:flawless-ui-ux` followed by the task |
 
-Custom Kiro agents can include skills through `skill://` entries in their `resources`. Installation preserves host rules, custom agents, plugins, and permissions. Host versions can differ in command discovery and name-collision handling; see the linked host documentation and the [recorded compatibility evidence](docs/testing.md#additional-agent-support).
+Custom Kiro agents can include skills through `skill://` entries in their `resources`. Installation preserves host rules, custom agents, plugins, and permissions. Host versions can differ in command discovery and name-collision handling; see the linked host documentation and the recorded compatibility evidence for [Cursor through Pi](docs/testing.md#additional-agent-support) and [Grok, Devin, and DeepSeek](docs/testing.md#grok-build-devin-cli-and-deepseek-harness).
 
 Continue in the same conversation to develop the result:
 

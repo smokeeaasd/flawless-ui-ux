@@ -8,14 +8,15 @@ import { parse } from '../src/options.js';
 import { temporaryWorkspace, repository, packageRoot, snapshot } from './helpers.js';
 
 const skill = 'flawless-ui-ux';
-const agents = ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi'];
+const agents = ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'grok-build', 'devin', 'deepseek-harness'];
 const projectDirectories = {
   codex: '.agents/skills', opencode: '.opencode/skills', antigravity: '.agents/skills', kiro: '.kiro/skills',
   cursor: '.agents/skills', kilo: '.agents/skills', copilot: '.agents/skills', 'claude-code': '.claude/skills', pi: '.agents/skills',
+  'grok-build': '.grok/skills', devin: '.agents/skills', 'deepseek-harness': '.agents/skills',
 };
 const localDestinations = root => Object.fromEntries(Object.entries(projectDirectories).map(([agent, directory]) => [agent, path.join(root, directory, skill)]));
 const localPaths = root => [...new Set(Object.values(localDestinations(root)))];
-const globalPaths = root => ['.codex/skills', '.config/opencode/skills', '.gemini/config/skills', '.kiro/skills', '.cursor/skills', '.kilo/skills', '.copilot/skills', '.claude/skills', '.pi/agent/skills'].map(directory => path.join(root, directory, skill));
+const globalPaths = root => ['.codex/skills', '.config/opencode/skills', '.gemini/config/skills', '.kiro/skills', '.cursor/skills', '.kilo/skills', '.copilot/skills', '.claude/skills', '.pi/agent/skills', '.grok/skills', process.platform === 'win32' ? 'AppData/Roaming/devin/skills' : '.config/devin/skills', '.dsh/skills'].map(directory => path.join(root, directory, skill));
 
 test('native installation copies the complete skill for every agent and scope selection', async () => {
   const workspace = temporaryWorkspace();
@@ -32,48 +33,100 @@ test('native installation copies the complete skill for every agent and scope se
         assert.equal(await fs.realpath(target.path), await fs.realpath(expectedPaths[target.agent]));
         assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
       }
-      if (scope === 'project' && agent === 'all') assert.equal(new Set(report.installations.map(i => i.path)).size, 4);
+      if (scope === 'project' && agent === 'all') assert.equal(new Set(report.installations.map(i => i.path)).size, 5);
     }
   } finally { workspace.cleanup(); }
 }, 20000);
 
-test('global CLI installation honors environment overrides under Node and Bun', async () => {
+for (const runtime of ['node', 'bun']) test(`global CLI installation honors environment overrides under ${runtime}`, async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    const root = path.join(workspace.root, runtime);
+    await fs.mkdir(root);
+    const codex = path.join(root, 'codex config');
+    const config = path.join(root, 'xdg config');
+    const home = path.join(root, 'user home');
+    const claude = path.join(root, 'claude config');
+    const pi = path.join(root, 'pi config');
+    const grok = path.join(root, 'grok config');
+    const dsh = path.join(root, 'dsh config');
+    const appdata = path.join(root, 'application data');
+    const env = { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config, CLAUDE_CONFIG_DIR: claude, PI_CODING_AGENT_DIR: pi, GROK_HOME: grok, DSH_HOME: dsh, APPDATA: appdata, HOME: home, USERPROFILE: home, BUN_RUNTIME_TRANSPILER_CACHE_PATH: path.join(workspace.root, '.runtime-cache', runtime) };
+    const resolvedHome = spawnSync(runtime, ['-e', "console.log(require('node:os').homedir())"], { env, encoding: 'utf8' });
+    assert.equal(resolvedHome.status, 0, resolvedHome.stderr);
+    assert.equal(path.resolve(resolvedHome.stdout.trim()), home, 'Global tests must use an isolated home');
+    const result = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
+      cwd: root, env, encoding: 'utf8',
+    });
+    assert.equal(result.status, 0, result.stderr);
+    const report = JSON.parse(result.stdout);
+    assert.equal(report.operation, 'install');
+    // Windows can spell the same temp directory as RUNNER~1 or runneradmin.
+    const expected = globalPaths(home);
+    expected[0] = path.join(codex, 'skills', skill);
+    expected[1] = path.join(config, 'opencode/skills', skill);
+    expected[agents.indexOf('claude-code')] = path.join(claude, 'skills', skill);
+    expected[agents.indexOf('pi')] = path.join(pi, 'skills', skill);
+    expected[agents.indexOf('grok-build')] = path.join(grok, 'skills', skill);
+    expected[agents.indexOf('devin')] = path.join(process.platform === 'win32' ? appdata : config, 'devin/skills', skill);
+    expected[agents.indexOf('deepseek-harness')] = path.join(dsh, 'skills', skill);
+    assert.deepEqual(await Promise.all(report.installations.map(i => fs.realpath(i.path))), await Promise.all(expected.map(destination => fs.realpath(destination))));
+    for (const target of report.installations) assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
+    const before = snapshot(root);
+    const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
+      cwd: root, env, encoding: 'utf8',
+    });
+    assert.equal(repeat.status, 2);
+    assert.equal(JSON.parse(repeat.stdout).completion, 'partial');
+    assert.deepEqual(snapshot(root), before);
+    for (const destination of localPaths(root)) await assert.rejects(fs.stat(destination), { code: 'ENOENT' });
+  } finally { workspace.cleanup(); }
+});
+
+test('Devin global installation follows APPDATA on Windows and XDG paths elsewhere', async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    for (const platform of ['win32', 'linux']) for (const overridden of [false, true]) {
+      const root = path.join(workspace.root, `${platform}-${overridden}`);
+      await fs.mkdir(root);
+      const env = overridden ? { APPDATA: path.join(root, 'roaming config'), XDG_CONFIG_HOME: path.join(root, 'xdg config') } : {};
+      const base = platform === 'win32' ? env.APPDATA || path.join(root, 'AppData/Roaming') : env.XDG_CONFIG_HOME || path.join(root, '.config');
+      const expected = path.join(base, 'devin/skills', skill);
+      const report = await install({ agent: 'devin', global: true }, { home: root, env, platform });
+      assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [['devin', 'global']]);
+      assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(expected));
+      assert.deepEqual(snapshot(expected), snapshot(packageRoot));
+      const other = platform === 'win32' ? env.XDG_CONFIG_HOME || path.join(root, '.config') : env.APPDATA || path.join(root, 'AppData/Roaming');
+      await assert.rejects(fs.lstat(path.join(other, 'devin/skills', skill)), { code: 'ENOENT' });
+    }
+  } finally { workspace.cleanup(); }
+});
+
+test('Grok global overrides preserve literal path prefixes under Node and Bun', async () => {
   const workspace = temporaryWorkspace();
   try {
     for (const runtime of ['node', 'bun']) {
       const root = path.join(workspace.root, runtime);
-      await fs.mkdir(root);
-      const codex = path.join(root, 'codex config');
-      const config = path.join(root, 'xdg config');
-      const home = path.join(root, 'user home');
-      const claude = path.join(root, 'claude config');
-      const pi = path.join(root, 'pi config');
-      const env = { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config, CLAUDE_CONFIG_DIR: claude, PI_CODING_AGENT_DIR: pi, HOME: home, USERPROFILE: home, BUN_RUNTIME_TRANSPILER_CACHE_PATH: path.join(workspace.root, '.runtime-cache', runtime) };
+      const home = path.join(root, 'profile');
+      await fs.mkdir(home, { recursive: true });
+      const env = {
+        ...process.env, HOME: home, USERPROFILE: home, APPDATA: path.join(home, 'AppData/Roaming'),
+        CODEX_HOME: path.join(home, '.codex'), XDG_CONFIG_HOME: path.join(home, '.config'),
+        CLAUDE_CONFIG_DIR: path.join(home, '.claude'), PI_CODING_AGENT_DIR: path.join(home, '.pi/agent'),
+        DSH_HOME: path.join(home, '.dsh'), GROK_HOME: '~/literal config',
+        BUN_RUNTIME_TRANSPILER_CACHE_PATH: path.join(workspace.root, '.runtime-cache', runtime),
+      };
       const resolvedHome = spawnSync(runtime, ['-e', "console.log(require('node:os').homedir())"], { env, encoding: 'utf8' });
       assert.equal(resolvedHome.status, 0, resolvedHome.stderr);
       assert.equal(path.resolve(resolvedHome.stdout.trim()), home, 'Global tests must use an isolated home');
-      const result = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
-        cwd: root, env, encoding: 'utf8',
-      });
+      const result = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--grok-build', '--global', '--format', 'json'], { cwd: root, env, encoding: 'utf8' });
       assert.equal(result.status, 0, result.stderr);
       const report = JSON.parse(result.stdout);
-      assert.equal(report.operation, 'install');
-      // Windows can spell the same temp directory as RUNNER~1 or runneradmin.
-      const expected = globalPaths(home);
-      expected[0] = path.join(codex, 'skills', skill);
-      expected[1] = path.join(config, 'opencode/skills', skill);
-      expected[agents.indexOf('claude-code')] = path.join(claude, 'skills', skill);
-      expected[agents.indexOf('pi')] = path.join(pi, 'skills', skill);
-      assert.deepEqual(await Promise.all(report.installations.map(i => fs.realpath(i.path))), await Promise.all(expected.map(destination => fs.realpath(destination))));
-      for (const target of report.installations) assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
-      const before = snapshot(root);
-      const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
-        cwd: root, env, encoding: 'utf8',
-      });
-      assert.equal(repeat.status, 2);
-      assert.equal(JSON.parse(repeat.stdout).completion, 'partial');
-      assert.deepEqual(snapshot(root), before);
-      for (const destination of localPaths(root)) await assert.rejects(fs.stat(destination), { code: 'ENOENT' });
+      const expected = path.join(root, '~', 'literal config/skills', skill);
+      assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [['grok-build', 'global']]);
+      assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(expected));
+      assert.deepEqual(snapshot(expected), snapshot(packageRoot));
+      await assert.rejects(fs.lstat(path.join(home, '.grok')), { code: 'ENOENT' });
     }
   } finally { workspace.cleanup(); }
 });
@@ -87,11 +140,12 @@ test('bare install targets the working project and preserves global installation
       const profile = path.join(root, 'profile');
       const codex = path.join(profile, 'codex');
       const config = path.join(profile, 'config');
-      const env = { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config, CLAUDE_CONFIG_DIR: path.join(profile, '.claude'), PI_CODING_AGENT_DIR: path.join(profile, '.pi/agent'), HOME: profile, USERPROFILE: profile, BUN_RUNTIME_TRANSPILER_CACHE_PATH: path.join(workspace.root, '.runtime-cache', runtime) };
+      const env = { ...process.env, CODEX_HOME: codex, XDG_CONFIG_HOME: config, CLAUDE_CONFIG_DIR: path.join(profile, '.claude'), PI_CODING_AGENT_DIR: path.join(profile, '.pi/agent'), GROK_HOME: path.join(profile, '.grok'), DSH_HOME: path.join(profile, '.dsh'), APPDATA: path.join(profile, 'AppData/Roaming'), HOME: profile, USERPROFILE: profile, BUN_RUNTIME_TRANSPILER_CACHE_PATH: path.join(workspace.root, '.runtime-cache', runtime) };
       await fs.mkdir(project, { recursive: true });
       const globalDestinations = globalPaths(profile);
       globalDestinations[0] = path.join(codex, 'skills', skill);
       globalDestinations[1] = path.join(config, 'opencode/skills', skill);
+      globalDestinations[agents.indexOf('devin')] = path.join(process.platform === 'win32' ? env.APPDATA : config, 'devin/skills', skill);
       for (const destination of globalDestinations) {
         await fs.mkdir(destination, { recursive: true });
         await fs.writeFile(path.join(destination, 'SKILL.md'), 'Preserve global customization');
@@ -239,9 +293,9 @@ test('canonical aliases share one copy while retaining each selected agent in th
     await fs.mkdir(config, { recursive: true });
     await fs.symlink(config, alias, process.platform === 'win32' ? 'junction' : 'dir');
     const report = await install({ global: true }, { home: workspace.root, env: { CODEX_HOME: alias, XDG_CONFIG_HOME: path.join(workspace.root, 'xdg') } });
-    assert.equal(report.installations.length, 9);
+    assert.equal(report.installations.length, 12);
     assert.equal(report.installations[0].path, report.installations[2].path);
-    assert.equal(new Set(report.installations.map(i => i.path)).size, 8);
+    assert.equal(new Set(report.installations.map(i => i.path)).size, 11);
     assert.deepEqual(snapshot(report.installations[2].path), snapshot(packageRoot));
     const before = snapshot(workspace.root);
     await assert.rejects(install({ agent: 'antigravity', global: true }, { home: workspace.root, env: {} }), /already exists/);
@@ -252,7 +306,7 @@ test('canonical aliases share one copy while retaining each selected agent in th
 test('new agent selections preserve host configuration and install only the requested target under Node and Bun', async () => {
   const workspace = temporaryWorkspace();
   try {
-    for (const runtime of ['node', 'bun']) for (const agent of ['cursor', 'kilo', 'copilot', 'claude-code', 'pi']) {
+    for (const runtime of ['node', 'bun']) for (const agent of ['cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'grok-build', 'devin', 'deepseek-harness']) {
       const root = path.join(workspace.root, runtime, agent);
       const configuration = {
         '.cursor/rules/product.mdc': '# Product\nPreserve the current brand.\n',
@@ -260,6 +314,9 @@ test('new agent selections preserve host configuration and install only the requ
         '.github/copilot-instructions.md': 'Preserve the existing product behavior.\n',
         '.claude/settings.json': '{"permissions":{"deny":["Bash(deploy:*)"]}}\n',
         '.pi/settings.json': '{"enableSkillCommands":true}\n',
+        '.grok/config.toml': '[skills]\ndisabled = []\n',
+        '.devin/config.json': '{"permissions":{"ask":["Exec(deploy)"]}}\n',
+        '.dsh/skills/team-review/SKILL.md': '---\nname: team-review\ndescription: Preserve the team review workflow.\n---\nReview local changes.\n',
       };
       for (const [file, content] of Object.entries(configuration)) {
         await fs.mkdir(path.dirname(path.join(root, file)), { recursive: true });
@@ -278,14 +335,14 @@ test('new agent selections preserve host configuration and install only the requ
   } finally { workspace.cleanup(); }
 }, 20000);
 
-test('Claude Code and Pi global configuration overrides expand the isolated home', async () => {
+test('agent configuration overrides expand the isolated home', async () => {
   const workspace = temporaryWorkspace();
   try {
-    for (const [agent, variable] of [['claude-code', 'CLAUDE_CONFIG_DIR'], ['pi', 'PI_CODING_AGENT_DIR']]) for (const mode of ['absolute', 'home', 'nested-home']) {
+    for (const [agent, variable] of [['claude-code', 'CLAUDE_CONFIG_DIR'], ['pi', 'PI_CODING_AGENT_DIR'], ['deepseek-harness', 'DSH_HOME']]) for (const mode of agent === 'deepseek-harness' ? ['absolute', 'home', 'nested-home', 'backslash-home', 'blank'] : ['absolute', 'home', 'nested-home']) {
       const root = path.join(workspace.root, `${agent}-${mode}`);
       await fs.mkdir(root);
-      const configured = mode === 'absolute' ? path.join(root, 'custom config') : mode === 'home' ? '~' : '~/custom config';
-      const expected = path.join(root, ...(mode === 'home' ? [] : ['custom config']), 'skills', skill);
+      const configured = mode === 'absolute' ? path.join(root, 'custom config') : mode === 'home' ? '~' : mode === 'blank' ? ' \t ' : mode === 'backslash-home' ? '~\\custom config' : '~/custom config';
+      const expected = path.join(root, ...(mode === 'home' ? [] : [mode === 'blank' ? '.dsh' : 'custom config']), 'skills', skill);
       const report = await install({ agent, global: true }, { home: root, env: { [variable]: configured } });
       assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [[agent, 'global']]);
       assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(expected));
@@ -299,7 +356,7 @@ test('failure at a later global target rolls back the earlier copies', async () 
   const workspace = temporaryWorkspace();
   const copy = fs.cp;
   try {
-    for (const agent of ['antigravity', 'kiro', 'pi']) {
+    for (const agent of ['antigravity', 'kiro', 'deepseek-harness']) {
       const root = path.join(workspace.root, agent);
       await fs.mkdir(root);
       const homeAlias = path.join(workspace.root, `${agent}-home`);
