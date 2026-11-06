@@ -93,7 +93,7 @@ No Kiro executable was found on the command path or in the checked standard Wind
 
 ### Additional agent support
 
-Version 1.0.0 adds Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi to the same skill installers. Cursor, Kilo, Copilot, and Pi use the shared project `.agents/skills` copy; Claude Code uses `.claude/skills`. All-agent reports retain nine logical targets with four unique project copies. Global destinations and configuration overrides are listed in the [CLI contract](cli-contract.md#install).
+The nine-agent candidate in PR #27 added Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi to the same skill installers. Cursor, Kilo, Copilot, and Pi use the shared project `.agents/skills` copy; Claude Code uses `.claude/skills`. That candidate reported nine logical targets with four unique project copies. The current targets, counts, global destinations, and overrides are defined in the [CLI contract](cli-contract.md#install).
 
 All 43 Bun tests passed locally on Windows with Node 24.16.0, Bun 1.4.4, and an explicitly configured Edge browser. The 30-file archive installed through npx (Cursor), pnpm dlx (Claude Code), and bunx (all agents) in independent disposable projects. Full installed resources are checked against the shared source bundle.
 
@@ -111,6 +111,26 @@ Kilo's inventory used a disposable home/configuration profile with external plug
 Both Kilo and Copilot also listed exactly one `flawless-ui-ux` record from `.agents/skills` in separate projects installed with `--all-agents`, including the additional Claude Code copy. This establishes the observed inventory resolution in those versions; it does not establish duplicate handling in Cursor or Pi, or a single model load in any host.
 
 Global host discovery, model-driven workflows, and separate editor/cloud surfaces remain pending. Use [14 Additional agent support](../evals/cases/14-additional-agent-support.md) to evaluate them and record duplicate-name precedence independently from installation completeness.
+
+### Grok Build, Devin CLI, and DeepSeek Harness
+
+The next 1.0.0 candidate adds `--grok-build`, `--devin`, and `--deepseek-harness` to the native and Bash installers. Grok uses `.grok/skills` locally; Devin and DeepSeek Harness share `.agents/skills`. All-agent project installation reports twelve targets and creates five unique copies of the same bundle. Existing host configuration, trust decisions, custom skill roots, and other skills are preserved.
+
+Automated installer coverage includes each new selector and scope, default/all-agent selection, Node/Bun environment overrides, shared copies, destination conflicts and links, rollback, and complete resources. Devin path tests cover Windows `APPDATA` and Unix `XDG_CONFIG_HOME` independently. Regression cases distinguish literal `GROK_HOME` from home-expanded `DSH_HOME` and check the latter's blank-value fallback. The Bash matrix exercises the current platform; it runs on Windows and Ubuntu in CI.
+
+All 48 Bun tests passed locally on Windows with Node 24.16.0, Bun 1.4.4, and an explicitly configured Edge browser. The 30-file archive installed through npx (Grok Build), pnpm dlx (Devin), and bunx (DeepSeek Harness) in independent disposable projects. All fifteen installed skill files matched the shared source bundle by SHA-256. Markdown local links and anchors were checked separately.
+
+Local host observations on Windows, November 5, 2026:
+
+| Host | Observed evidence | Limit |
+|---|---|---|
+| Grok Build 1.0.77 (`50ca579fa996`) | `grok inspect --json` listed one user-invocable `flawless-ui-ux` from `.grok/skills/flawless-ui-ux/SKILL.md` in both single-agent and all-agent projects | Local project inventory, not model activation |
+| Devin CLI | No executable available on the checked command path or standard Windows application location | Host discovery and invocation pending |
+| DeepSeek Harness | No executable available on the checked command path or standard Windows application location | Host discovery and invocation pending |
+
+Grok's inventory initially returned `projectTrusted: false` and no skills in each fresh disposable Git project. After recording trust for those exact test roots through the normal `trusted_folders.toml` format in an isolated Grok profile, both inventories returned `projectTrusted: true` and exactly one matching skill. The real user profile and folder trust were not changed. This confirms the observed trust gate and path resolution; the installer itself never grants trust. No generation prompt was submitted.
+
+Global host discovery, model-driven scope/refinement/runtime checks, and separate cloud/editor surfaces remain pending. The [focused evaluation](../evals/cases/15-grok-devin-deepseek-support.md) covers those checks, shared-name resolution, and DeepSeek's Git-root discovery. Installer test success does not establish host loading, design quality, or generation time.
 
 ### Earlier host feedback
 

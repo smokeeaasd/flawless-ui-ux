@@ -1,6 +1,6 @@
 import path from 'node:path';
 
-const agentOptions = ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'all-agents'];
+const agentOptions = ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'grok-build', 'devin', 'deepseek-harness', 'all-agents'];
 
 export function validateInspection(options) {
   options.sources = [...new Set(options.sources.map(source => source.replaceAll('\\', '/')))];

@@ -20,7 +20,8 @@ try {
   verify RUN_JSON [--output NEW_DIR] [--browser-executable FILE] [--format text|json]
 
 Agent selectors (choose one): --codex, --opencode, --antigravity, --kiro,
-  --cursor, --kilo, --copilot, --claude-code, --pi, --all-agents.
+  --cursor, --kilo, --copilot, --claude-code, --pi, --grok-build, --devin,
+  --deepseek-harness, --all-agents.
 install defaults to all supported agents in the current project.
 Use --global for user-wide installation. Shared destinations are copied once.
 Existing installations are preserved.

@@ -32,6 +32,9 @@ describe("Bash installer", () => {
       XDG_CONFIG_HOME: join(root, "xdg config with spaces").replaceAll("\\", "/"),
       CLAUDE_CONFIG_DIR: join(root, "claude config with spaces").replaceAll("\\", "/"),
       PI_CODING_AGENT_DIR: join(root, "pi config with spaces").replaceAll("\\", "/"),
+      GROK_HOME: join(root, "grok config with spaces").replaceAll("\\", "/"),
+      DSH_HOME: join(root, "dsh config with spaces").replaceAll("\\", "/"),
+      APPDATA: join(root, "application data with spaces"),
       HOME: join(root, "user home with spaces").replaceAll("\\", "/"),
     };
     return {
@@ -46,6 +49,9 @@ describe("Bash installer", () => {
         copilot: project ? join(cwd, ".agents", "skills", skillName) : join(env.HOME, ".copilot", "skills", skillName),
         "claude-code": project ? join(cwd, ".claude", "skills", skillName) : join(env.CLAUDE_CONFIG_DIR, "skills", skillName),
         pi: project ? join(cwd, ".agents", "skills", skillName) : join(env.PI_CODING_AGENT_DIR, "skills", skillName),
+        "grok-build": project ? join(cwd, ".grok", "skills", skillName) : join(env.GROK_HOME, "skills", skillName),
+        devin: project ? join(cwd, ".agents", "skills", skillName) : join(process.platform === "win32" ? env.APPDATA : env.XDG_CONFIG_HOME, "devin", "skills", skillName),
+        "deepseek-harness": project ? join(cwd, ".agents", "skills", skillName) : join(env.DSH_HOME, "skills", skillName),
       },
     };
   }
@@ -64,23 +70,21 @@ describe("Bash installer", () => {
     assert.equal(result.status, 0, result.stderr);
   }, 30000);
 
-  test("project and global modes respect all agent selections", () => {
-    const agents = ["codex", "opencode", "antigravity", "kiro", "cursor", "kilo", "copilot", "claude-code", "pi"];
+  for (const project of [false, true]) test(`${project ? "project" : "global"} mode respects all agent selections`, () => {
+    const agents = ["codex", "opencode", "antigravity", "kiro", "cursor", "kilo", "copilot", "claude-code", "pi", "grok-build", "devin", "deepseek-harness"];
     const selections = [[[], agents], [["--all-agents"], agents], ...agents.map(agent => [[`--${agent}`], [agent]])];
     const expected = snapshot(source);
-    for (const project of [false, true]) {
-      for (const [index, [flags, selected]] of selections.entries()) {
-        const target = paths(`matrix-${project}-${index}`, project);
-        const result = install([...flags, ...(project ? ["--project"] : [])], target);
-        assert.equal(result.status, 0, result.stderr);
-        const selectedPaths = new Set(selected.map(agent => target.destinations[agent]));
-        for (const destination of Object.values(target.destinations)) {
-          if (selectedPaths.has(destination)) assert.deepEqual(snapshot(destination), expected);
-          else assert.equal(existsSync(destination), false);
-        }
-        for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME, target.env.CLAUDE_CONFIG_DIR, target.env.PI_CODING_AGENT_DIR, target.env.HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode"), join(target.cwd, ".kiro"), join(target.cwd, ".claude")]) {
-          assert.equal(existsSync(forbidden), false, `Unexpected destination: ${forbidden}`);
-        }
+    for (const [index, [flags, selected]] of selections.entries()) {
+      const target = paths(`matrix-${project}-${index}`, project);
+      const result = install([...flags, ...(project ? ["--project"] : [])], target);
+      assert.equal(result.status, 0, result.stderr);
+      const selectedPaths = new Set(selected.map(agent => target.destinations[agent]));
+      for (const destination of Object.values(target.destinations)) {
+        if (selectedPaths.has(destination)) assert.deepEqual(snapshot(destination), expected);
+        else assert.equal(existsSync(destination), false);
+      }
+      for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME, target.env.CLAUDE_CONFIG_DIR, target.env.PI_CODING_AGENT_DIR, target.env.GROK_HOME, target.env.DSH_HOME, target.env.APPDATA, target.env.HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode"), join(target.cwd, ".kiro"), join(target.cwd, ".claude"), join(target.cwd, ".grok")]) {
+        assert.equal(existsSync(forbidden), false, `Unexpected destination: ${forbidden}`);
       }
     }
   }, 30000);
@@ -95,8 +99,8 @@ describe("Bash installer", () => {
     for (const destination of Object.values(target.destinations)) assert.deepEqual(snapshot(destination), snapshot(source));
   }, 30000);
 
-  test("Claude Code and Pi global overrides expand the isolated home", () => {
-    for (const [agent, variable] of [["claude-code", "CLAUDE_CONFIG_DIR"], ["pi", "PI_CODING_AGENT_DIR"]]) {
+  test("agent configuration overrides expand the isolated home", () => {
+    for (const [agent, variable] of [["claude-code", "CLAUDE_CONFIG_DIR"], ["pi", "PI_CODING_AGENT_DIR"], ["deepseek-harness", "DSH_HOME"]]) {
       for (const nested of [false, true]) {
         const target = paths(`home-override-${agent}-${nested}`);
         target.env[variable] = nested ? "~/custom config" : "~";
@@ -107,6 +111,18 @@ describe("Bash installer", () => {
         assert.deepEqual(snapshot(destination), snapshot(source));
         assert.deepEqual(snapshot(target.cwd), before);
       }
+    }
+  }, 30000);
+
+  test("Grok preserves literal overrides and DeepSeek ignores blank overrides", () => {
+    for (const agent of ["grok-build", "deepseek-harness"]) {
+      const target = paths(`literal-override-${agent}`);
+      if (agent === "grok-build") target.env.GROK_HOME = "~/literal config";
+      else target.env.DSH_HOME = " \t ";
+      const result = install([`--${agent}`], target);
+      assert.equal(result.status, 0, result.stderr);
+      const destination = agent === "grok-build" ? join(target.cwd, "~", "literal config", "skills", skillName) : join(target.env.HOME, ".dsh", "skills", skillName);
+      assert.deepEqual(snapshot(destination), snapshot(source));
     }
   }, 30000);
 
@@ -152,7 +168,7 @@ describe("Bash installer", () => {
 
   test("all-agent preflight preserves files and directories before writing any target", () => {
     for (const project of [false, true]) {
-      for (const agent of project ? ["opencode", "kiro", "claude-code"] : ["opencode", "antigravity", "kiro", "cursor", "kilo", "copilot", "claude-code", "pi"]) {
+      for (const agent of project ? ["opencode", "kiro", "claude-code", "grok-build"] : ["opencode", "antigravity", "kiro", "cursor", "kilo", "copilot", "claude-code", "pi", "grok-build", "devin", "deepseek-harness"]) {
         for (const kind of ["file", "directory", "empty-directory"]) {
           const target = paths(`existing-${project}-${agent}-${kind}`, project);
           const occupied = target.destinations[agent];

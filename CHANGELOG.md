@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Grok Build, Devin CLI, and DeepSeek Harness installation through `--grok-build`, `--devin`, and `--deepseek-harness`, also available in the Bash alternative.
+- Grok Build and DeepSeek Harness global configuration overrides, platform-specific Devin global paths, and a focused compatibility evaluation covering discovery, trust, scope, and verification.
 - Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi installation through explicit agent selectors and the Bash alternative, using the shared project skill directory where supported.
 - Claude Code and Pi global configuration overrides, including home expansion, plus a focused multi-host compatibility evaluation.
 - Kiro installation through `install --kiro` and the Bash alternative, using `.kiro/skills/flawless-ui-ux` locally and `~/.kiro/skills/flawless-ui-ux` globally.
@@ -17,7 +19,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Default and all-agent installation now cover nine agents with four unique project-local copies; reports retain each selected agent.
+- Default and all-agent installation now cover twelve agents with five unique project-local copies; reports retain each selected agent.
 - Canonical destinations are copied once, distinct nested destinations are rejected across all targets, and copy failures roll back newly allocated directories.
 - Extended isolated installation, alias, preflight, link-preservation, rollback, and distribution coverage, including host configuration preservation, without adding dependencies or changing the shared design guidance.
 
