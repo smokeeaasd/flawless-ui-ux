@@ -36,7 +36,8 @@ test('confirmation previews canonical destinations without writes, then installs
     assert.deepEqual(snapshot(workspace.root), before);
     const summary = ui.events.find(([method]) => method === 'note')[1];
     assert.match(summary, /Agents: 3 \| Skill copies: 1/);
-    assert.ok(summary.includes(path.join(workspace.root, '.agents', 'skills', 'flawless-ui-ux')));
+    const canonicalRoot = await fs.realpath(workspace.root);
+    assert.ok(summary.includes(path.join(canonicalRoot, '.agents', 'skills', 'flawless-ui-ux')));
     assert.equal(ui.events.find(([method]) => method === 'multiselect')[1].required, true);
     const report = await install(configured);
     assert.deepEqual(report.installations.map(target => target.agent), ['codex', 'antigravity', 'devin']);
