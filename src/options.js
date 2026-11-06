@@ -1,5 +1,7 @@
 import path from 'node:path';
 
+const agentOptions = ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'all-agents'];
+
 export function validateInspection(options) {
   options.sources = [...new Set(options.sources.map(source => source.replaceAll('\\', '/')))];
   if (!options.sources.length && !options.url) throw new Error('Provide at least one --source or --url.');
@@ -29,14 +31,14 @@ export function parse(argv) {
     if (!options.baseline || options.baseline.startsWith('--')) throw new Error('verify requires a run.json path.');
   }
   const seen = new Set();
-  const allowed = operation === 'install' ? ['codex', 'opencode', 'antigravity', 'kiro', 'all-agents', 'global', 'project', 'format'] : operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
+  const allowed = operation === 'install' ? [...agentOptions, 'global', 'project', 'format'] : operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
   while (argv.length) {
     const flag = argv.shift();
     if (!flag.startsWith('--') || !allowed.includes(flag.slice(2))) throw new Error(`Unknown option: ${flag}`);
     const name = flag.slice(2);
     if (seen.has(name) && !['source', 'viewport'].includes(name)) throw new Error(`Repeated option: ${flag}`);
-    if (operation === 'install' && ['codex', 'opencode', 'antigravity', 'kiro', 'all-agents'].includes(name)) {
-      if (['codex', 'opencode', 'antigravity', 'kiro', 'all-agents'].some(agent => seen.has(agent))) throw new Error('Select one agent option, or use --all-agents for all supported agents.');
+    if (operation === 'install' && agentOptions.includes(name)) {
+      if (agentOptions.some(agent => seen.has(agent))) throw new Error('Select one agent option, or use --all-agents for all supported agents.');
       options.agent = name === 'all-agents' ? 'all' : name;
       seen.add(name);
       continue;

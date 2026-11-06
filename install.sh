@@ -3,9 +3,11 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: ./install.sh [--codex | --opencode | --antigravity | --kiro | --all-agents] [--project]
+Usage: ./install.sh [AGENT] [--project]
 
-Install the bundled skill for Codex, OpenCode, Antigravity, Kiro, or all (the default).
+Agent selectors: --codex, --opencode, --antigravity, --kiro, --cursor,
+                --kilo, --copilot, --claude-code, --pi, --all-agents.
+Install for all supported agents by default.
 Use --project to install into the current project's agent directories.
 Existing installations are never overwritten.
 Requires Bash. On Windows, run with Git Bash or WSL.
@@ -20,6 +22,11 @@ for argument in "$@"; do
     --opencode) agent=opencode ;;
     --antigravity) agent=antigravity ;;
     --kiro) agent=kiro ;;
+    --cursor) agent=cursor ;;
+    --kilo) agent=kilo ;;
+    --copilot) agent=copilot ;;
+    --claude-code) agent=claude-code ;;
+    --pi) agent=pi ;;
     --all-agents) agent=all ;;
     --project) project=true ;;
     -h|--help) usage; exit 0 ;;
@@ -41,6 +48,13 @@ add_destination() {
     [[ "$existing" == "$candidate" ]] && return 0
   done
   destinations+=("$candidate")
+}
+configured_root() {
+  local directory="$1"
+  case "$directory" in
+    '~'|'~/'*) directory="$HOME${directory:1}" ;;
+  esac
+  printf '%s' "$directory"
 }
 if [[ "$agent" == codex || "$agent" == all ]]; then
   if $project; then
@@ -68,6 +82,29 @@ if [[ "$agent" == kiro || "$agent" == all ]]; then
     add_destination "$PWD/.kiro/skills/flawless-ui-ux"
   else
     add_destination "$HOME/.kiro/skills/flawless-ui-ux"
+  fi
+fi
+for shared_agent in cursor kilo copilot; do
+  if [[ "$agent" == "$shared_agent" || "$agent" == all ]]; then
+    if $project; then
+      add_destination "$PWD/.agents/skills/flawless-ui-ux"
+    else
+      add_destination "$HOME/.$shared_agent/skills/flawless-ui-ux"
+    fi
+  fi
+done
+if [[ "$agent" == claude-code || "$agent" == all ]]; then
+  if $project; then
+    add_destination "$PWD/.claude/skills/flawless-ui-ux"
+  else
+    add_destination "$(configured_root "${CLAUDE_CONFIG_DIR:-$HOME/.claude}")/skills/flawless-ui-ux"
+  fi
+fi
+if [[ "$agent" == pi || "$agent" == all ]]; then
+  if $project; then
+    add_destination "$PWD/.agents/skills/flawless-ui-ux"
+  else
+    add_destination "$(configured_root "${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}")/skills/flawless-ui-ux"
   fi
 fi
 

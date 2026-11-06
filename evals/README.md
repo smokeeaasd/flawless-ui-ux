@@ -1,6 +1,6 @@
 # Guided manual evaluations
 
-These materials evaluate skill behavior in Codex and OpenCode, with focused Antigravity and Kiro compatibility cases. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
+These materials evaluate skill behavior in Codex and OpenCode, with focused compatibility cases for the other supported agents. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
 
 The [toolkit delivery plan](../docs/implementation-plan.md#behavioral-gate) reuses these cases to evaluate the implemented executable workflow. Matched host/model evaluations remain pending. Preserve earlier skill-only evidence separately, and record source, browser, and interaction coverage rather than treating a passing scan as complete design or accessibility validation.
 
@@ -41,8 +41,9 @@ Use [11 Instruction efficiency](cases/11-instruction-efficiency.md) to compare t
 | [11 Instruction efficiency](cases/11-instruction-efficiency.md) | Independent copies of an identical clean React/Vite/TypeScript scaffold | Candidate versus previous revision and baseline: actual reading, elapsed time, scope, function, and design |
 | [12 Antigravity support](cases/12-antigravity-support.md) | Fresh dashboard copies | Focused discovery, explicit invocation, scope, and inspect/correct/verify compatibility |
 | [13 Kiro support](cases/13-kiro-support.md) | Fresh dashboard copies | Project/global discovery, custom-agent resources, explicit invocation, and preserved scope |
+| [14 Additional agent support](cases/14-additional-agent-support.md) | Fresh dashboard copies per host | Cursor, Kilo, Copilot CLI, Claude Code, and Pi: discovery, shared copies, scope, and host-specific invocation |
 
-Run this core matrix separately in Codex and OpenCode. Cases 12 and 13 define the focused Antigravity and Kiro rounds:
+Run this core matrix separately in Codex and OpenCode. Cases 12–14 define focused compatibility rounds for the other supported hosts:
 
 | Runs | Skill availability | Invocation |
 |---|---|---|

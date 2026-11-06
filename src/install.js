@@ -60,14 +60,20 @@ export async function install(options, runtime = {}) {
   const home = runtime.home || os.homedir();
   const project = options.global ? null : await projectRoot(options.project || '.');
   const agent = options.agent || 'all';
-  if (!['all', 'codex', 'opencode', 'antigravity', 'kiro'].includes(agent)) throw new Error('Unknown installation agent.');
+  if (!['all', 'codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi'].includes(agent)) throw new Error('Unknown installation agent.');
   if (!(await fs.stat(path.join(bundledSkill, 'SKILL.md'))).isFile()) throw new Error('The package does not contain an installable skill.');
   const entries = await fs.readdir(bundledSkill);
+  const configuredRoot = (value, fallback) => path.resolve((value || fallback).replace(/^~(?=$|[\\/])/, () => home));
   const candidates = [
     { agent: 'codex', path: project ? path.join(project, '.agents', 'skills', skillName) : path.resolve(env.CODEX_HOME || path.join(home, '.codex'), 'skills', skillName) },
     { agent: 'opencode', path: project ? path.join(project, '.opencode', 'skills', skillName) : path.resolve(env.XDG_CONFIG_HOME || path.join(home, '.config'), 'opencode', 'skills', skillName) },
     { agent: 'antigravity', path: project ? path.join(project, '.agents', 'skills', skillName) : path.join(home, '.gemini', 'config', 'skills', skillName) },
     { agent: 'kiro', path: path.join(project || home, '.kiro', 'skills', skillName) },
+    { agent: 'cursor', path: path.join(project || home, project ? '.agents' : '.cursor', 'skills', skillName) },
+    { agent: 'kilo', path: path.join(project || home, project ? '.agents' : '.kilo', 'skills', skillName) },
+    { agent: 'copilot', path: path.join(project || home, project ? '.agents' : '.copilot', 'skills', skillName) },
+    { agent: 'claude-code', path: path.join(project ? path.join(project, '.claude') : configuredRoot(env.CLAUDE_CONFIG_DIR, path.join(home, '.claude')), 'skills', skillName) },
+    { agent: 'pi', path: project ? path.join(project, '.agents', 'skills', skillName) : path.join(configuredRoot(env.PI_CODING_AGENT_DIR, path.join(home, '.pi', 'agent')), 'skills', skillName) },
   ].filter(target => agent === 'all' || target.agent === agent);
   // Preflight every target before creating any installation directories.
   const targets = [];
