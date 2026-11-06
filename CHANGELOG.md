@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file.
 
 - Default and all-agent installation now cover twelve agents with five unique project-local copies; reports retain each selected agent.
 - Canonical destinations are copied once, distinct nested destinations are rejected across all targets, and copy failures roll back newly allocated directories.
-- Extended isolated installation, alias, preflight, link-preservation, rollback, and distribution coverage, including host configuration preservation, without adding dependencies or changing the shared design guidance.
+- Extended isolated installation, alias, preflight, link-preservation, rollback, and distribution coverage, including host configuration preservation, while preserving the shared design guidance.
 
 ## 0.3.0
 
