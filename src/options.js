@@ -1,6 +1,7 @@
 import path from 'node:path';
+import { agents } from './agents.js';
 
-const agentOptions = ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'grok-build', 'devin', 'deepseek-harness', 'all-agents'];
+const agentOptions = [...agents.map(agent => agent.id), 'all-agents'];
 
 export function validateInspection(options) {
   options.sources = [...new Set(options.sources.map(source => source.replaceAll('\\', '/')))];
@@ -31,20 +32,22 @@ export function parse(argv) {
     if (!options.baseline || options.baseline.startsWith('--')) throw new Error('verify requires a run.json path.');
   }
   const seen = new Set();
-  const allowed = operation === 'install' ? [...agentOptions, 'global', 'project', 'format'] : operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
+  const selectedAgents = [];
+  const allowed = operation === 'install' ? [...agentOptions, 'global', 'project', 'format', 'yes'] : operation === 'context' ? ['project', 'format'] : operation === 'verify' ? ['output', 'format', 'browser-executable'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable'];
   while (argv.length) {
     const flag = argv.shift();
     if (!flag.startsWith('--') || !allowed.includes(flag.slice(2))) throw new Error(`Unknown option: ${flag}`);
     const name = flag.slice(2);
     if (seen.has(name) && !['source', 'viewport'].includes(name)) throw new Error(`Repeated option: ${flag}`);
     if (operation === 'install' && agentOptions.includes(name)) {
-      if (agentOptions.some(agent => seen.has(agent))) throw new Error('Select one agent option, or use --all-agents for all supported agents.');
-      options.agent = name === 'all-agents' ? 'all' : name;
+      if (seen.has('all-agents') || (name === 'all-agents' && selectedAgents.length)) throw new Error('Choose individual agents or --all-agents, not both.');
+      if (name !== 'all-agents') selectedAgents.push(name);
       seen.add(name);
       continue;
     }
     seen.add(name);
     if (operation === 'install' && name === 'global') { options.global = true; continue; }
+    if (operation === 'install' && name === 'yes') { options.yes = true; continue; }
     const value = argv.shift();
     if (!value || value.startsWith('--')) throw new Error(`Missing value for ${flag}`);
     if (name === 'source') options.sources.push(value);
@@ -55,6 +58,8 @@ export function parse(argv) {
     } else options[{ 'browser-executable': 'browserExecutable' }[name] || name] = name === 'timeout' ? Number(value) : value;
   }
   if (!['text', 'json'].includes(options.format)) throw new Error('Format must be text or json.');
+  if (selectedAgents.length === 1) options.agent = selectedAgents[0];
+  else if (selectedAgents.length > 1) { delete options.agent; options.agents = selectedAgents; }
   if (operation === 'install' && seen.has('global') && seen.has('project')) throw new Error('Choose --global or --project, not both.');
   if (operation === 'inspect' && options.url) options.browserExecutable ||= process.env.FLAWLESS_BROWSER_EXECUTABLE;
   if (operation === 'inspect') validateInspection(options);

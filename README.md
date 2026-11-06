@@ -8,7 +8,7 @@ flawless-ui-ux helps coding agents create, redesign, and refine web interfaces w
 
 ## Setup
 
-From your project directory, choose your package manager to install the skill for **all supported agents in that project**. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
+From your project directory, choose your package manager to open the installation menu. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
 
 ```bash
 npx flawless-ui-ux@latest install
@@ -16,7 +16,7 @@ pnpm dlx flawless-ui-ux@latest install
 bunx flawless-ui-ux@latest install
 ```
 
-Run one of these commands. The examples below use `npx`; replace it with `pnpm dlx` or `bunx` to use the same operations.
+Run one of these commands. Choose **this project or global installation**, select **one or more agents** with Space, then confirm the destination summary. Enter continues; Ctrl+C cancels before any installation files are written. The examples below use `npx`; replace it with `pnpm dlx` or `bunx` to use the same operations.
 
 ### Choose an agent and scope
 
@@ -24,11 +24,15 @@ For a specific agent, or an installation across projects:
 
 ```bash
 npx flawless-ui-ux install --codex
+npx flawless-ui-ux install --codex --devin
 npx flawless-ui-ux install --claude-code
 npx flawless-ui-ux install --pi --global
+npx flawless-ui-ux install --yes
 ```
 
-The default is all supported agents in the current project, also selected with `--all-agents`. Choose one agent with its flag:
+Explicit flags skip the menu. Combine individual agent flags to choose several, or use `--all-agents` for all supported agents. `--yes` directly installs for all supported agents in the current project when no other selection is supplied. Without a terminal, or in CI, bare install retains that same all-agent project default. `--format json` always remains noninteractive.
+
+Choose agents with their flags:
 
 | Agent | Flag |
 |---|---|

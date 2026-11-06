@@ -31,6 +31,7 @@ Bun runs the built-in test runner. The only development dependency is the strict
 | `tests/package.test.js` | Valid YAML frontmatter, skill identity, Codex presentation metadata, normal automatic discovery policy, UTF-8 text, internal file and section references, and reference reachability from the entry point |
 | `tests/install.test.js` | Bash syntax, project/global destinations, individual/default/all-agent targets, complete copies including hidden and nested resources, paths with spaces, help and errors, missing source files, pre-existing destinations, links, and reinstalls |
 | `tests/native-install.test.js` | Node/Bun installation for all supported agents, isolated global homes, shared destinations, configuration overrides and home expansion, canonical aliases, nested-path rejection, all-target preflight, rollback, host configuration preservation, and concurrent creation |
+| `tests/install-prompts.test.js` | Terminal/flag/CI routing, scope and multi-agent configuration, read-only destination summaries, decline/cancellation preservation, preflight rechecks, combined flags with JSON, and real prompt-library keyboard input under Node/Bun |
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
 | `tests/conventions.test.js` | Valid conventional names and rejection of invalid branches, titles, commit subjects, and empty pull requests |
 
@@ -52,6 +53,14 @@ The platform checks are named:
 Branch protection should require these checks after their first successful execution. The ruleset configuration in `.github/rulesets/main.json` describes the desired settings; GitHub configuration must also be updated to enforce them.
 
 ## npm distribution
+
+### Interactive installation
+
+Bare installation uses the wizard only when both input and output are terminals and `CI` is unset. Explicit flags, including JSON output and `--yes`, retain the direct path. The prompt tests exercise the real library through controlled terminal-like subprocess streams under Node and Bun: local/global scope, multi-selection, required nonempty selection, confirmation, refusal, and interruption. They also test shared-path preview without writes, conflicts before confirmation, and a concurrent destination appearing after it. This stream-based coverage does not replace native terminal observations on every OS.
+
+Local Windows validation for this change passed all 55 tests with Bun 1.4.4, Node 24.16.0, and an explicitly configured Edge browser. A real Windows terminal run through Node selected Codex and Antigravity, previewed one shared copy, confirmed, installed, and exited successfully. A local 32-file archive run through `bunx` also completed the wizard for Devin in a separate disposable project. These runs did not install globally or submit model prompts. macOS terminal behavior remains unverified.
+
+### Archive contents
 
 `package.json` defines an explicit distribution list, runtime dependencies, Node engine, the `flawless-ui-ux` bin, and public npm publishing configuration. The archive includes the runtime, portable skill, README, changelog, license, installer, and logo; maintainer documents and evaluation fixtures remain excluded. The install command copies the bundled skill natively; `install.sh` remains an alternative.
 
