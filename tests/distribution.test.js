@@ -22,7 +22,7 @@ test('packed distribution contains the executable core and portable skill withou
     assert.equal(metadata.bin['flawless-ui-ux'], 'bin/flawless-ui-ux.js');
     for (const file of ['src/browser.js', 'skills/flawless-ui-ux/SKILL.md', 'skills/flawless-ui-ux/references/inspection.md', 'docs/assets/logo.svg', 'CHANGELOG.md', 'install.sh']) assert.ok((await fs.stat(path.join(root, file))).isFile());
     assert.deepEqual(await fs.readdir(path.join(root, 'docs')), ['assets']);
-    assert.deepEqual(await fs.readdir(path.join(root, 'docs/assets')), ['logo.svg']);
+    assert.deepEqual((await fs.readdir(path.join(root, 'docs/assets'))).sort(), ['banner.svg', 'logo.svg']);
     for (const excluded of ['evals', 'tests', 'node_modules']) await assert.rejects(fs.stat(path.join(root, excluded)), { code: 'ENOENT' });
     const result = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'inspect', '--project', root, '--source', 'README.md', '--format', 'json'], { encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
