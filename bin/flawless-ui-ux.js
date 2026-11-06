@@ -11,7 +11,7 @@ try {
   const { operation, options } = parse([...args]);
   if (operation === 'version') console.log(VERSION);
   else if (operation === 'help') console.log(`flawless-ui-ux ${VERSION}
-  install [--codex | --opencode | --antigravity | --kiro | --all-agents] [--global | --project DIR]
+  install [AGENT] [--global | --project DIR]
           [--format text|json]
   context [--project DIR] [--format text|json]
   inspect [--project DIR] --source FILE [--source FILE ...] [--url URL]
@@ -19,7 +19,9 @@ try {
           [--timeout MS] [--browser-executable FILE] [--format text|json]
   verify RUN_JSON [--output NEW_DIR] [--browser-executable FILE] [--format text|json]
 
-install defaults to Codex, OpenCode, Antigravity, and Kiro in the current project.
+Agent selectors (choose one): --codex, --opencode, --antigravity, --kiro,
+  --cursor, --kilo, --copilot, --claude-code, --pi, --all-agents.
+install defaults to all supported agents in the current project.
 Use --global for user-wide installation. Shared destinations are copied once.
 Existing installations are preserved.
 inspect requires a source or URL. Defaults: 1440x900 and 390x844, 15000 ms.

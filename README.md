@@ -4,7 +4,7 @@
 
 <p align="center">Design interfaces around the product. Refine them against the result.</p>
 
-flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Works with **Codex**, **OpenCode**, **Antigravity**, and **Kiro**.
+flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Supports **Codex, OpenCode, Antigravity, Kiro, Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi**.
 
 ## Setup
 
@@ -24,26 +24,37 @@ For a specific agent, or an installation across projects:
 
 ```bash
 npx flawless-ui-ux install --codex
-npx flawless-ui-ux install --antigravity
-npx flawless-ui-ux install --kiro
-npx flawless-ui-ux install --kiro --global
-npx flawless-ui-ux install --opencode --global
+npx flawless-ui-ux install --claude-code
+npx flawless-ui-ux install --pi --global
 ```
 
-The default is all supported agents in the current project. Use `--codex`, `--opencode`, `--antigravity`, `--kiro`, or `--all-agents` to select targets. `--global` explicitly installs in your user profile; `--project <directory>` selects another project. Start a new agent session if needed for discovery.
+The default is all supported agents in the current project, also selected with `--all-agents`. Choose one agent with its flag:
 
-Codex and Antigravity share `.agents/skills/flawless-ui-ux` in a project; the installer copies it once. An existing project installation for either agent is already available to the other. OpenCode uses `.opencode/skills/flawless-ui-ux`; Kiro uses `.kiro/skills/flawless-ui-ux`.
+| Agent | Flag |
+|---|---|
+| Codex | `--codex` |
+| OpenCode | `--opencode` |
+| Antigravity | `--antigravity` |
+| Kiro | `--kiro` |
+| [Cursor](https://cursor.com/help/customization/skills) | `--cursor` |
+| [Kilo Code](https://kilo.ai/docs/customize/skills) | `--kilo` |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) | `--copilot` |
+| [Claude Code](https://code.claude.com/docs/en/skills) | `--claude-code` |
+| [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md) | `--pi` |
 
-Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor `CODEX_HOME` and `XDG_CONFIG_HOME` for Codex and OpenCode; Antigravity uses `~/.gemini/config/skills/flawless-ui-ux` and Kiro uses `~/.kiro/skills/flawless-ui-ux`. The [CLI contract](docs/cli-contract.md#install) lists all destinations.
+`--global` explicitly installs in your user profile; `--project <directory>` selects another project. Start a new agent session if needed for discovery.
+
+Codex, Antigravity, Cursor, Kilo, Copilot, and Pi share `.agents/skills/flawless-ui-ux` in a project; the installer copies it once. An existing copy there is already available to those agents. OpenCode uses `.opencode/skills`, Kiro uses `.kiro/skills`, and Claude Code uses `.claude/skills`, each containing the same `flawless-ui-ux` bundle.
+
+Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor `CODEX_HOME`, `XDG_CONFIG_HOME`, `CLAUDE_CONFIG_DIR`, and `PI_CODING_AGENT_DIR` for their respective agents. The [CLI contract](docs/cli-contract.md#install) lists all destinations.
 
 <details>
 <summary>Alternative: install from a checkout with Bash</summary>
 
 ```bash
 bash ./install.sh --codex --project
-bash ./install.sh --opencode --project
-bash ./install.sh --antigravity --project
-bash ./install.sh --kiro --project
+bash ./install.sh --claude-code --project
+bash ./install.sh --pi --project
 ```
 
 Run these from the target project's directory, using the script's absolute path when the checkout is elsewhere. Use `--all-agents` for all supported agents. The legacy Bash script requires `--project` for local installation and otherwise installs globally. On Windows, this alternative requires Git Bash or WSL.
@@ -58,7 +69,16 @@ In Codex, select `$flawless-ui-ux` and describe what you want to build:
 Use $flawless-ui-ux to build a financial dashboard for freelancers.
 ```
 
-In OpenCode, request the installed skill by name. In Antigravity and Kiro, invoke `/flawless-ui-ux` with your task, or request the skill by name. See the [Antigravity](https://antigravity.google/docs/skills) and [Kiro](https://kiro.dev/docs/skills/) documentation for discovery and invocation. Custom Kiro agents can include skills through `skill://` entries in their `resources`; installation preserves existing agent and steering configuration.
+Use the host's invocation method with your task:
+
+| Agent | Invocation |
+|---|---|
+| Codex | `$flawless-ui-ux` |
+| OpenCode | Request the `flawless-ui-ux` skill by name |
+| Antigravity, Kiro, Cursor, Kilo, Copilot CLI, Claude Code | `/flawless-ui-ux` followed by the task, or request the skill by name |
+| Pi | `/skill:flawless-ui-ux` followed by the task |
+
+Custom Kiro agents can include skills through `skill://` entries in their `resources`. Installation preserves host rules, custom agents, plugins, and permissions. Host versions can differ in command discovery and name-collision handling; see the linked host documentation and the [recorded compatibility evidence](docs/testing.md#additional-agent-support).
 
 Continue in the same conversation to develop the result:
 

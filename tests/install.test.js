@@ -30,6 +30,8 @@ describe("Bash installer", () => {
       ...process.env,
       CODEX_HOME: join(root, "codex config with spaces").replaceAll("\\", "/"),
       XDG_CONFIG_HOME: join(root, "xdg config with spaces").replaceAll("\\", "/"),
+      CLAUDE_CONFIG_DIR: join(root, "claude config with spaces").replaceAll("\\", "/"),
+      PI_CODING_AGENT_DIR: join(root, "pi config with spaces").replaceAll("\\", "/"),
       HOME: join(root, "user home with spaces").replaceAll("\\", "/"),
     };
     return {
@@ -39,6 +41,11 @@ describe("Bash installer", () => {
         opencode: project ? join(cwd, ".opencode", "skills", skillName) : join(env.XDG_CONFIG_HOME, "opencode", "skills", skillName),
         antigravity: project ? join(cwd, ".agents", "skills", skillName) : join(env.HOME, ".gemini", "config", "skills", skillName),
         kiro: project ? join(cwd, ".kiro", "skills", skillName) : join(env.HOME, ".kiro", "skills", skillName),
+        cursor: project ? join(cwd, ".agents", "skills", skillName) : join(env.HOME, ".cursor", "skills", skillName),
+        kilo: project ? join(cwd, ".agents", "skills", skillName) : join(env.HOME, ".kilo", "skills", skillName),
+        copilot: project ? join(cwd, ".agents", "skills", skillName) : join(env.HOME, ".copilot", "skills", skillName),
+        "claude-code": project ? join(cwd, ".claude", "skills", skillName) : join(env.CLAUDE_CONFIG_DIR, "skills", skillName),
+        pi: project ? join(cwd, ".agents", "skills", skillName) : join(env.PI_CODING_AGENT_DIR, "skills", skillName),
       },
     };
   }
@@ -58,7 +65,7 @@ describe("Bash installer", () => {
   }, 30000);
 
   test("project and global modes respect all agent selections", () => {
-    const agents = ["codex", "opencode", "antigravity", "kiro"];
+    const agents = ["codex", "opencode", "antigravity", "kiro", "cursor", "kilo", "copilot", "claude-code", "pi"];
     const selections = [[[], agents], [["--all-agents"], agents], ...agents.map(agent => [[`--${agent}`], [agent]])];
     const expected = snapshot(source);
     for (const project of [false, true]) {
@@ -71,7 +78,7 @@ describe("Bash installer", () => {
           if (selectedPaths.has(destination)) assert.deepEqual(snapshot(destination), expected);
           else assert.equal(existsSync(destination), false);
         }
-        for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME, target.env.HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode"), join(target.cwd, ".kiro")]) {
+        for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME, target.env.CLAUDE_CONFIG_DIR, target.env.PI_CODING_AGENT_DIR, target.env.HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode"), join(target.cwd, ".kiro"), join(target.cwd, ".claude")]) {
           assert.equal(existsSync(forbidden), false, `Unexpected destination: ${forbidden}`);
         }
       }
@@ -86,6 +93,21 @@ describe("Bash installer", () => {
     const result = install(["--project"], target);
     assert.equal(result.status, 0, result.stderr);
     for (const destination of Object.values(target.destinations)) assert.deepEqual(snapshot(destination), snapshot(source));
+  }, 30000);
+
+  test("Claude Code and Pi global overrides expand the isolated home", () => {
+    for (const [agent, variable] of [["claude-code", "CLAUDE_CONFIG_DIR"], ["pi", "PI_CODING_AGENT_DIR"]]) {
+      for (const nested of [false, true]) {
+        const target = paths(`home-override-${agent}-${nested}`);
+        target.env[variable] = nested ? "~/custom config" : "~";
+        const before = snapshot(target.cwd);
+        const result = install([`--${agent}`], target);
+        assert.equal(result.status, 0, result.stderr);
+        const destination = join(target.env.HOME, ...(nested ? ["custom config"] : []), "skills", skillName);
+        assert.deepEqual(snapshot(destination), snapshot(source));
+        assert.deepEqual(snapshot(target.cwd), before);
+      }
+    }
   }, 30000);
 
   test("help and invalid options do not write files or directories", () => {
@@ -130,7 +152,7 @@ describe("Bash installer", () => {
 
   test("all-agent preflight preserves files and directories before writing any target", () => {
     for (const project of [false, true]) {
-      for (const agent of project ? ["opencode", "kiro"] : ["opencode", "antigravity", "kiro"]) {
+      for (const agent of project ? ["opencode", "kiro", "claude-code"] : ["opencode", "antigravity", "kiro", "cursor", "kilo", "copilot", "claude-code", "pi"]) {
         for (const kind of ["file", "directory", "empty-directory"]) {
           const target = paths(`existing-${project}-${agent}-${kind}`, project);
           const occupied = target.destinations[agent];

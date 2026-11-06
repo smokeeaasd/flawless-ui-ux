@@ -30,15 +30,15 @@ Bun runs the built-in test runner. The only development dependency is the strict
 |---|---|
 | `tests/package.test.js` | Valid YAML frontmatter, skill identity, Codex presentation metadata, normal automatic discovery policy, UTF-8 text, internal file and section references, and reference reachability from the entry point |
 | `tests/install.test.js` | Bash syntax, project/global destinations, individual/default/all-agent targets, complete copies including hidden and nested resources, paths with spaces, help and errors, missing source files, pre-existing destinations, links, and reinstalls |
-| `tests/native-install.test.js` | Node/Bun installation for all supported agents, isolated global homes, Codex/Antigravity shared destinations, canonical aliases, nested-path rejection, all-target preflight, rollback, custom Kiro configuration preservation, and concurrent creation |
+| `tests/native-install.test.js` | Node/Bun installation for all supported agents, isolated global homes, shared destinations, configuration overrides and home expansion, canonical aliases, nested-path rejection, all-target preflight, rollback, host configuration preservation, and concurrent creation |
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
 | `tests/conventions.test.js` | Valid conventional names and rejection of invalid branches, titles, commit subjects, and empty pull requests |
 
 The metadata checks reject duplicate YAML keys. Reference checks are scoped to the package's inline Markdown links and heading anchors; external links are not fetched. They check package integrity, not the wording of design instructions.
 
-Installation tests copy the actual installer and skill into disposable directories and execute Bash against that copy. Global installation modes use isolated child-process home directories and `CODEX_HOME`/`XDG_CONFIG_HOME` paths under those directories. Native tests set both `HOME` and `USERPROFILE`, check the resolved home before CLI global installation, and keep Bun's runtime cache outside the simulated profile. The user's actual home and existing agent installations are not used as destinations. The test checks complete file hashes rather than a fixed list of current filenames.
+Installation tests copy the actual installer and skill into disposable directories and execute Bash against that copy. Global installation modes use isolated child-process home directories and `CODEX_HOME`/`XDG_CONFIG_HOME`/`CLAUDE_CONFIG_DIR`/`PI_CODING_AGENT_DIR` paths under those directories. Native tests set both `HOME` and `USERPROFILE`, check the resolved home before CLI global installation, and keep Bun's runtime cache outside the simulated profile. The user's actual home and existing agent installations are not used as destinations. The test checks complete file hashes rather than a fixed list of current filenames.
 
-Conflict tests verify that existing files, directories, local edits, and link targets survive. A conflict at a later destination, including Kiro's fourth global target, must fail before installing the first target. Link cases use directory junctions on Windows and directory symlinks on Linux, including missing targets and Kiro parent paths escaping the project. Shared destinations are copied once, while non-identical nested destinations are rejected; failure at the third or fourth copy rolls back the earlier newly allocated skill directories.
+Conflict tests verify that existing files, directories, local edits, and link targets survive. A conflict at any selected destination must fail before installing the first target. Link cases use directory junctions on Windows and directory symlinks on Linux, including missing targets and parent paths escaping the project for every agent selector. Shared destinations are copied once, while non-identical nested destinations are rejected; failure at the third, fourth, or final global copy rolls back earlier newly allocated skill directories. The fault simulation resolves home aliases and Windows short paths before matching a copy.
 
 ## Continuous integration
 
@@ -83,13 +83,34 @@ Use [12 Antigravity support](../evals/cases/12-antigravity-support.md) for expli
 
 ### Kiro support
 
-Kiro receives the same portable skill at `.kiro/skills/flawless-ui-ux` in a project or `~/.kiro/skills/flawless-ui-ux` globally, following the [official skill documentation](https://kiro.dev/docs/skills/). Default/all-agent installation reports four agents and creates three unique project copies, since Codex and Antigravity share their directory. Existing Kiro custom-agent and steering files are preserved; the installer does not add `skill://` resource entries to custom agents.
+Kiro receives the same portable skill at `.kiro/skills/flawless-ui-ux` in a project or `~/.kiro/skills/flawless-ui-ux` globally, following the [official skill documentation](https://kiro.dev/docs/skills/). Current agent counts and shared destinations are defined in the [CLI contract](cli-contract.md#install). Existing Kiro custom-agent and steering files are preserved; the installer does not add `skill://` resource entries to custom agents.
 
 Automated tests cover the new paths, individual/default/all-agent selections, isolated global homes, pre-existing targets, target and parent links, nested destinations, rollback on Kiro copy failure, and configuration preservation under Node/Bun. These are installation checks, not discovery or model behavior evidence.
 
 On November 5, 2026, the 0.5.0 candidate passed all 40 Bun tests on Windows with Node 24.16.0, Bun 1.4.4, and an explicitly configured Edge browser. Its 30-file npm archive installed through npx, pnpm dlx, and bunx into independent disposable projects using `--kiro`. Each installed skill matched the complete shared source bundle, and no other agent destination was created.
 
 No Kiro executable was found on the command path or in the checked standard Windows installation locations during this implementation. Kiro discovery, explicit invocation, and model-driven inspection/correction/verification remain pending. Use [13 Kiro support](../evals/cases/13-kiro-support.md) to record those observations separately for the CLI and IDE; cloud surfaces are outside this local-installation task.
+
+### Additional agent support
+
+Version 1.0.0 adds Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi to the same skill installers. Cursor, Kilo, Copilot, and Pi use the shared project `.agents/skills` copy; Claude Code uses `.claude/skills`. All-agent reports retain nine logical targets with four unique project copies. Global destinations and configuration overrides are listed in the [CLI contract](cli-contract.md#install).
+
+All 43 Bun tests passed locally on Windows with Node 24.16.0, Bun 1.4.4, and an explicitly configured Edge browser. The 30-file archive installed through npx (Cursor), pnpm dlx (Claude Code), and bunx (all agents) in independent disposable projects. Full installed resources are checked against the shared source bundle.
+
+Project-local discovery was observed on Windows on November 5, 2026:
+
+| Host | Observed evidence | Limit |
+|---|---|---|
+| Kilo CLI 7.8.27 | `kilo --pure debug skill` listed `flawless-ui-ux` at the expected project `SKILL.md` path | Local inventory, not model activation |
+| Copilot CLI 1.0.105 | `skill list --json` listed the shared project skill with `source: project` and `enabled: true` | Local inventory, not model activation |
+| Claude Code 2.1.318 | Installed version checked | Skill discovery and invocation pending |
+| Cursor and Pi | No executable found in the checked command path or Cursor installation locations | Host discovery and invocation pending |
+
+Kilo's inventory used a disposable home/configuration profile with external plugins disabled. Copilot's VS Code launcher could not locate its installed package under an isolated home, so its existing JavaScript entry point was run with Node and the isolated profile to perform the inventory. No host was installed or upgraded, and no generation prompt was submitted. Inventory confirms availability only; it does not demonstrate instruction following or visual quality.
+
+Both Kilo and Copilot also listed exactly one `flawless-ui-ux` record from `.agents/skills` in separate projects installed with `--all-agents`, including the additional Claude Code copy. This establishes the observed inventory resolution in those versions; it does not establish duplicate handling in Cursor or Pi, or a single model load in any host.
+
+Global host discovery, model-driven workflows, and separate editor/cloud surfaces remain pending. Use [14 Additional agent support](../evals/cases/14-additional-agent-support.md) to evaluate them and record duplicate-name precedence independently from installation completeness.
 
 ### Earlier host feedback
 

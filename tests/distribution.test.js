@@ -32,8 +32,8 @@ test('packed distribution contains the executable core and portable skill withou
     const installed = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'install', '--format', 'json'], { cwd: project, encoding: 'utf8' });
     assert.equal(installed.status, 0, installed.stderr);
     const report = JSON.parse(installed.stdout);
-    assert.deepEqual(report.installations.map(target => target.agent), ['codex', 'opencode', 'antigravity', 'kiro']);
-    assert.equal(new Set(report.installations.map(target => target.path)).size, 3);
+    assert.deepEqual(report.installations.map(target => target.agent), ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi']);
+    assert.equal(new Set(report.installations.map(target => target.path)).size, 4);
     assert.ok(report.installations.every(target => target.scope === 'project'));
     for (const target of report.installations) assert.equal(await fs.readFile(path.join(target.path, 'SKILL.md'), 'utf8'), await fs.readFile(path.join(root, 'skills/flawless-ui-ux/SKILL.md'), 'utf8'));
     await fs.unlink(path.join(root, 'skills/flawless-ui-ux/SKILL.md'));

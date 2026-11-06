@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi installation through explicit agent selectors and the Bash alternative, using the shared project skill directory where supported.
+- Claude Code and Pi global configuration overrides, including home expansion, plus a focused multi-host compatibility evaluation.
 - Kiro installation through `install --kiro` and the Bash alternative, using `.kiro/skills/flawless-ui-ux` locally and `~/.kiro/skills/flawless-ui-ux` globally.
 - A focused Kiro discovery and invocation evaluation, including custom-agent resource configuration and scoped refinement; host observations remain pending.
 - Antigravity installation through `install --antigravity` and the Bash alternative, using the documented project and global skill locations.
@@ -15,9 +17,9 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Default and all-agent installation now include Codex, OpenCode, Antigravity, and Kiro. Codex and Antigravity share one project-local copy; reports retain the selected agents.
+- Default and all-agent installation now cover nine agents with four unique project-local copies; reports retain each selected agent.
 - Canonical destinations are copied once, distinct nested destinations are rejected across all targets, and copy failures roll back newly allocated directories.
-- Extended isolated installation, alias, preflight, link-preservation, rollback, and distribution coverage, including preservation of Kiro custom-agent and steering files, without adding dependencies or changing the shared design guidance.
+- Extended isolated installation, alias, preflight, link-preservation, rollback, and distribution coverage, including host configuration preservation, without adding dependencies or changing the shared design guidance.
 
 ## 0.3.0
 

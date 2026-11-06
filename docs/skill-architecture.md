@@ -14,7 +14,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 | Browser adapter | DOM/style observations, screenshots, named automated access checks, and runtime errors | Uses an explicit URL and isolated browser context; no application-changing actions in ordinary inspection |
 | Findings and comparison | Stable check identities, evidence, conditions, and differences between corresponding runs | An absent element is not automatically a corrected defect |
 | CLI | Input validation, text/JSON presentation, output artifacts, and exit status | Calls the shared core; no independent check logic |
-| Host integration | Installation and invocation for Codex, OpenCode, Antigravity, and Kiro | Shares the core and guidance; automatic hooks are a later delivery |
+| Host integration | Installation and invocation for the agents listed in the [CLI contract](cli-contract.md#install) | Shares the core and guidance; automatic hooks are a later delivery |
 
 ## Dependency direction
 
@@ -95,7 +95,7 @@ The agent owns the correction and final contextual review. The core never turns 
 
 The package declares a bin entry named flawless-ui-ux pointing to portable JavaScript, alongside the skill, changelog, and logo in the npm artifact. Public publication follows the tested [release procedure](releasing.md). The CLI install operation copies the bundled skill natively with agent/scope selection and preservation checks. The Bash installer remains an alternative. Context, inspect, and verify do not install agent instructions.
 
-All supported agents receive the same skill, references, and assets. Codex and Antigravity share the project-local `.agents/skills` destination; Kiro uses `.kiro/skills`. The native installer canonicalizes all selected paths, checks every pair for distinct nested destinations, and copies each unique destination once. Reports describe selected agents even when they share a directory. Host support adds discovery targets without host-specific design instructions or additional runtime adapters. Kiro custom-agent resources remain under the user's control.
+All supported agents receive the same skill, references, and assets. Codex, Antigravity, Cursor, Kilo, Copilot, and Pi share the project-local `.agents/skills` destination. OpenCode, Kiro, and Claude Code use their documented directories. The native installer canonicalizes all selected paths, checks every pair for distinct nested destinations, and copies each unique destination once. Reports describe selected agents even when they share a directory. Host support adds discovery targets without host-specific design instructions or additional runtime adapters. Host configuration, including Kiro custom-agent resources, remains under the user's control.
 
 Future hooks call the same inspection API against changed scope. They must batch/debounce work and avoid flooding the model with the full reference library. Verify each host's documented event support before claiming integration. Extensions and visual variants follow evidence of a useful shared core.
 

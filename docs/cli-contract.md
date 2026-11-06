@@ -15,9 +15,9 @@ Create, redesign, refine, and review remain activities performed by the coding a
 
 ## Install
 
-Form: `flawless-ui-ux install [--codex | --opencode | --antigravity | --kiro | --all-agents] [--global | --project <directory>] [--format text|json]`.
+Form: `flawless-ui-ux install [AGENT] [--global | --project <directory>] [--format text|json]`.
 
-The default installs for Codex, OpenCode, Antigravity, and Kiro in the working project. User-wide installation requires explicit `--global`. Agent selectors are mutually exclusive; use all-agents for all supported agents. Global and project scope are mutually exclusive. `--project <directory>` selects another existing project; `--project .` is equivalent to the default. `install --help` shows usage without writing anything. Global environment overrides do not change the scope of a bare install. Existing global installations are not moved or removed.
+Agent selectors are `--codex`, `--opencode`, `--antigravity`, `--kiro`, `--cursor`, `--kilo`, `--copilot`, `--claude-code`, `--pi`, and `--all-agents`. They are mutually exclusive. The default installs for all nine agents in the working project. User-wide installation requires explicit `--global`. Global and project scope are mutually exclusive. `--project <directory>` selects another existing project; `--project .` is equivalent to the default. `install --help` shows usage without writing anything. Global environment overrides do not change the scope of a bare install. Existing global installations are not moved or removed.
 
 | Agent | Global destination | Project destination |
 |---|---|---|
@@ -25,10 +25,17 @@ The default installs for Codex, OpenCode, Antigravity, and Kiro in the working p
 | OpenCode | `${XDG_CONFIG_HOME:-~/.config}/opencode/skills/flawless-ui-ux` | `.opencode/skills/flawless-ui-ux` |
 | Antigravity | `~/.gemini/config/skills/flawless-ui-ux` | `.agents/skills/flawless-ui-ux` |
 | Kiro | `~/.kiro/skills/flawless-ui-ux` | `.kiro/skills/flawless-ui-ux` |
+| Cursor | `~/.cursor/skills/flawless-ui-ux` | `.agents/skills/flawless-ui-ux` |
+| Kilo Code | `~/.kilo/skills/flawless-ui-ux` | `.agents/skills/flawless-ui-ux` |
+| GitHub Copilot CLI | `~/.copilot/skills/flawless-ui-ux` | `.agents/skills/flawless-ui-ux` |
+| Claude Code | `${CLAUDE_CONFIG_DIR:-~/.claude}/skills/flawless-ui-ux` | `.claude/skills/flawless-ui-ux` |
+| Pi | `${PI_CODING_AGENT_DIR:-~/.pi/agent}/skills/flawless-ui-ux` | `.agents/skills/flawless-ui-ux` |
 
-These environment expressions describe the paths; no shell or Bash is invoked. Node resolves the home directory natively. The command copies the skill bundled with the running package, including its references, metadata, and assets; it does not fetch another repository, install project dependencies, or prepare a browser.
+These environment expressions describe the paths; no shell or Bash is invoked. Node resolves the home directory natively. Claude Code and Pi configuration overrides accept an absolute/relative path or a leading `~`/`~/` for that home directory. The command copies the skill bundled with the running package, including its references, metadata, and assets; it does not fetch another repository, install project dependencies, or prepare a browser.
 
-Codex and Antigravity share the project destination. Identical canonical destinations are copied once, including global aliases; installation reports retain one entry per selected agent. A project installation made for either Codex or Antigravity is already discoverable by the other. Reinstalling still refuses the existing directory. Antigravity paths follow its [official skill documentation](https://antigravity.google/docs/skills); legacy paths are not populated.
+Codex, Antigravity, Cursor, Kilo, Copilot, and Pi share the project destination. Identical canonical destinations are copied once, including global aliases; installation reports retain one entry per selected agent. All-agent project installation therefore reports nine agents and creates four unique copies. A shared installation is already available to the other hosts that discover that directory. Reinstalling still refuses it. Antigravity paths follow its [official skill documentation](https://antigravity.google/docs/skills); legacy paths are not populated.
+
+Shared project discovery is documented by [Cursor](https://cursor.com/help/customization/skills), [Kilo](https://kilo.ai/docs/customize/skills), [Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills), and [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md). [Claude Code](https://code.claude.com/docs/en/skills) uses its own directory. Other compatibility directories are not populated as additional copies. Hosts may independently discover other copies under their own compatibility rules; inspect the resolved path when evaluating loading.
 
 Kiro paths follow its [official skill documentation](https://kiro.dev/docs/skills/). Installation copies the portable skill only; existing custom agents, steering, and permissions remain unchanged. Custom agents may need `skill://` resources configured by their owner. Local/global IDE and CLI discovery are evaluated separately from copying; installation does not upload skills to cloud configuration.
 
