@@ -53,7 +53,7 @@ Keep product claims accurate, identify sample data, and preserve functioning pat
 
 The first functional delivery includes a small local CLI, a shared inspection core, source observations, and a replaceable browser adapter. Bun remains the development toolchain; executable JavaScript must support Node for future npx/bunx distribution. Browser availability and setup are explicit capabilities.
 
-Codex, OpenCode, and Antigravity share the same design guidance and core. Claim discovery, execution, browser coverage, and automatic integration separately and only after testing. Antigravity CLI discovery is recorded in the [testing guide](testing.md#antigravity-support); App/IDE behavior and model-driven workflows remain separate validation gates.
+Codex, OpenCode, Antigravity, and Kiro share the same design guidance and core. Claim installation, discovery, execution, browser coverage, and automatic integration separately and only after testing. Antigravity CLI discovery is recorded in the [testing guide](testing.md#antigravity-support); Kiro's [host validation](testing.md#kiro-support) remains pending. Interface behavior and model-driven workflows are separate validation gates.
 
 Host-triggered checks follow a useful, verified core. Extension overlays, live variants, native mobile targets, cloud services, and image-generation infrastructure are later candidates. Suitable existing host tools can still support a task.
 
