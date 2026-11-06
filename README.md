@@ -1,133 +1,177 @@
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/npm/flawless-ui-ux@0.1.1/docs/assets/logo.svg" alt="flawless-ui-ux" width="334" height="80">
+  <img src="docs/assets/banner.svg" alt="flawless-ui-ux — UI/UX design guidance for coding agents." width="100%">
 </p>
 
-<p align="center">Design interfaces around the product. Refine them against the result.</p>
+<p align="center">
+  Build and refine interfaces around your product's audience, content, and identity.
+</p>
 
-flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Supports **Codex, OpenCode, Antigravity, Kiro, Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, Pi, Grok Build, Devin CLI, and DeepSeek Harness**.
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/codex.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/codex.png" width="28" height="28" alt="Codex" title="Codex"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/opencode.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/opencode.png" width="28" height="28" alt="OpenCode" title="OpenCode"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/antigravity-color.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/antigravity-color.png" width="28" height="28" alt="Antigravity" title="Antigravity"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/kiro-color.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/kiro-color.png" width="28" height="28" alt="Kiro" title="Kiro"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/cursor.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/cursor.png" width="28" height="28" alt="Cursor" title="Cursor"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/kilocode.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/kilocode.png" width="28" height="28" alt="Kilo Code" title="Kilo Code"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/githubcopilot.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/githubcopilot.png" width="28" height="28" alt="GitHub Copilot CLI" title="GitHub Copilot CLI"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/claudecode-color.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/claudecode-color.png" width="28" height="28" alt="Claude Code" title="Claude Code"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/pi.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/pi.png" width="28" height="28" alt="Pi" title="Pi"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/grok.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/grok.png" width="28" height="28" alt="Grok Build" title="Grok Build"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/devin-color.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/devin-color.png" width="28" height="28" alt="Devin CLI" title="Devin CLI"></picture>
+  &nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/dark/deepseek-color.png"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/ea434b96e75813517b377825e01c0df61dee8836/packages/static-png/light/deepseek-color.png" width="28" height="28" alt="DeepSeek Harness" title="DeepSeek Harness"></picture>
+</p>
 
-## Setup
+<p align="center">
+  <a href="https://skills.sh/smokeeaasd/flawless-ui-ux/flawless-ui-ux"><img src="https://img.shields.io/badge/skills.sh-install-0ce491?style=flat&amp;labelColor=171717" alt="Find flawless-ui-ux on skills.sh"></a>
+  <a href="https://www.npmjs.com/package/flawless-ui-ux"><img src="https://img.shields.io/npm/v/flawless-ui-ux?style=flat&amp;color=0ce491&amp;labelColor=171717" alt="Latest published npm version"></a>
+  <a href="https://www.npmjs.com/package/flawless-ui-ux"><img src="https://img.shields.io/npm/dm/flawless-ui-ux?style=flat&amp;label=CLI%20downloads%2Fmonth&amp;color=0ce491&amp;labelColor=171717" alt="CLI downloads per month on npm"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0ce491?style=flat&amp;labelColor=171717" alt="MIT license"></a>
+</p>
 
-From your project directory, choose your package manager to open the installation menu. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#use-the-skill">Use the skill</a> ·
+  <a href="#how-it-works">How it works</a> ·
+  <a href="#inspect-and-verify">Inspect and verify</a> ·
+  <a href="#documentation">Docs</a>
+</p>
+
+## Install
+
+From your project directory, run one command with your preferred package manager:
 
 ```bash
+# npm
 npx flawless-ui-ux@latest install
+
+# pnpm
 pnpm dlx flawless-ui-ux@latest install
+
+# Bun
 bunx flawless-ui-ux@latest install
 ```
 
-Run one of these commands. Choose **this project or global installation**, select **one or more agents** with Space, then confirm the destination summary. Enter continues; Ctrl+C cancels before any installation files are written. The examples below use `npx`; replace it with `pnpm dlx` or `bunx` to use the same operations.
-
-### Choose an agent and scope
-
-For a specific agent, or an installation across projects:
+Requires **Node 22.12+**. The published installer defaults to the current project. Use an agent flag to choose a host, or add `--global` to install across projects:
 
 ```bash
 npx flawless-ui-ux install --codex
-npx flawless-ui-ux install --codex --devin
-npx flawless-ui-ux install --claude-code
-npx flawless-ui-ux install --pi --global
-npx flawless-ui-ux install --yes
+npx flawless-ui-ux install --opencode --global
+npx flawless-ui-ux install --project ./app
 ```
 
-Explicit flags skip the menu. Combine individual agent flags to choose several, or use `--all-agents` for all supported agents. `--yes` directly installs for all supported agents in the current project when no other selection is supplied. Without a terminal, or in CI, bare install retains that same all-agent project default. `--format json` always remains noninteractive.
-
-Choose agents with their flags:
-
-| Agent | Flag |
-|---|---|
-| Codex | `--codex` |
-| OpenCode | `--opencode` |
-| Antigravity | `--antigravity` |
-| Kiro | `--kiro` |
-| [Cursor](https://cursor.com/help/customization/skills) | `--cursor` |
-| [Kilo Code](https://kilo.ai/docs/customize/skills) | `--kilo` |
-| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) | `--copilot` |
-| [Claude Code](https://code.claude.com/docs/en/skills) | `--claude-code` |
-| [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md) | `--pi` |
-| [Grok Build](https://docs.x.ai/build/features/skills-plugins-marketplaces) | `--grok-build` |
-| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | `--devin` |
-| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/skills.md) | `--deepseek-harness` |
-
-`--global` explicitly installs in your user profile; `--project <directory>` selects another project. Start a new agent session if needed for discovery.
-
-Codex, Antigravity, Cursor, Kilo, Copilot, Pi, Devin, and DeepSeek Harness share `.agents/skills/flawless-ui-ux` in a project; the installer copies it once. An existing copy there is already available to those agents. OpenCode uses `.opencode/skills`, Kiro uses `.kiro/skills`, Claude Code uses `.claude/skills`, and Grok Build uses `.grok/skills`, each containing the same `flawless-ui-ux` bundle.
-
-Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor the host's configuration directory, including `GROK_HOME`, `DSH_HOME`, and Devin's `%APPDATA%` on Windows or `XDG_CONFIG_HOME` elsewhere. The [CLI contract](docs/cli-contract.md#install) lists all destinations and overrides.
-
-Grok Build requires project-folder trust before it exposes project skills. DeepSeek Harness resolves project skills from the nearest Git root; install from that root, or from the working directory for a project without Git. Installation does not change host trust, permissions, or custom discovery settings.
+> **1.0.0 preview:** the twelve-agent support and interactive installer are available on `main`, awaiting publication. npm currently ships **0.3.0**, with Codex and OpenCode support. See below to try the preview locally.
 
 <details>
-<summary>Alternative: install from a checkout with Bash</summary>
+<summary>Try the 1.0.0 installer preview</summary>
+
+From a checkout of `main`, create a local archive:
 
 ```bash
-bash ./install.sh --codex --project
-bash ./install.sh --claude-code --project
-bash ./install.sh --pi --project
+npm pack --pack-destination ..
 ```
 
-Run these from the target project's directory, using the script's absolute path when the checkout is elsewhere. Use `--all-agents` for all supported agents. The legacy Bash script requires `--project` for local installation and otherwise installs globally. On Windows, this alternative requires Git Bash or WSL.
+Then run it from your target project, replacing the archive path:
+
+```bash
+bunx --package /absolute/path/flawless-ui-ux-1.0.0.tgz flawless-ui-ux install
+```
+
+In a terminal, the menu lets you choose **project or global scope**, select **one or more agents**, and **confirm the destinations** before copying. Use Space to select and Enter to continue.
+
+Explicit flags run directly:
+
+```bash
+bunx --package /absolute/path/flawless-ui-ux-1.0.0.tgz flawless-ui-ux install --codex --devin
+bunx --package /absolute/path/flawless-ui-ux-1.0.0.tgz flawless-ui-ux install --claude-code --global
+```
+
+`--yes` skips the menu and uses the defaults when no other flags are supplied. JSON output, CI, and non-terminal execution also remain noninteractive.
+
+Give successive archives of the same version a new filename to avoid reusing a stale package-manager cache entry.
+
+</details>
+
+<details>
+<summary>Install the skill through skills.sh</summary>
+
+```bash
+npx skills add smokeeaasd/flawless-ui-ux --skill flawless-ui-ux
+```
+
+This installs the skill through the [Skills CLI](https://github.com/vercel-labs/skills). Its runtime requirements and agent selection follow that installer. The inspection CLI is available separately through the npm commands in this guide.
+
+</details>
+
+<details>
+<summary>Install from a checkout with Bash</summary>
+
+```bash
+bash /absolute/path/flawless-ui-ux/install.sh --codex --project
+```
+
+The Bash alternative requires `--project` for local installation; its default is global. Windows users need Git Bash or WSL.
 
 </details>
 
 ## Use the skill
 
-In Codex, select `$flawless-ui-ux` and describe what you want to build:
+Describe the interface you need and name the skill:
 
 ```text
-Use $flawless-ui-ux to build a financial dashboard for freelancers.
+Use the flawless-ui-ux skill to build a financial dashboard for freelancers.
 ```
 
-Use the host's invocation method with your task:
+In Codex, invoke `$flawless-ui-ux`. Hosts with slash commands use `/flawless-ui-ux`; Pi uses `/skill:flawless-ui-ux`. You can also request the skill by name through your host's skill mechanism. Start a new session after installation if discovery needs to refresh.
 
-| Agent | Invocation |
+Continue in the same conversation as the interface develops:
+
+| Task | Example request |
 |---|---|
-| Codex | `$flawless-ui-ux` |
-| OpenCode, DeepSeek Harness | Request the `flawless-ui-ux` skill by name |
-| Antigravity, Kiro, Cursor, Kilo, Copilot CLI, Claude Code, Grok Build, Devin CLI | `/flawless-ui-ux` followed by the task, or request the skill by name |
-| Pi | `/skill:flawless-ui-ux` followed by the task |
-
-Custom Kiro agents can include skills through `skill://` entries in their `resources`. Installation preserves host rules, custom agents, plugins, and permissions. Host versions can differ in command discovery and name-collision handling; see the linked host documentation and the recorded compatibility evidence for [Cursor through Pi](docs/testing.md#additional-agent-support) and [Grok, Devin, and DeepSeek](docs/testing.md#grok-build-devin-cli-and-deepseek-harness).
-
-Continue in the same conversation to develop the result:
-
-| Goal | Example request |
-|---|---|
-| Create | Build a landing page for a DevOps app that coordinates deployments and incident handoffs. |
-| Redesign | Redesign the mobile account screen using the supplied brand palette. Preserve its content and behavior. |
-| Refine | Strengthen the main action and improve hierarchy while preserving the page's visual character. |
+| Create | Build a landing page for an app that coordinates deployments and incident handoffs. |
+| Redesign | Redesign this account screen for mobile using the supplied brand palette. Preserve its content and behavior. |
+| Refine | Give the main action more presence while preserving the page's visual character. |
 | Focus | Improve typography and spacing. Preserve wording, colors, and functionality. |
-| Review | Review this dashboard for readability, navigation, repeated slogans, and redundant icon cues. Report findings without editing files. |
+| Review | Review this dashboard for readability, navigation, accessibility, and repeated generic patterns. Report findings without editing files. |
 
-The skill connects product intent to composition, typography, color, density, imagery, and interaction. It works with your project's stack and existing constraints, using focused references when they answer a design question. Refinement can add presence, redistribute emphasis, or improve finish; it does not prescribe a universal aesthetic.
+## How it works
+
+**The skill guides design and implementation.** It connects product context to composition, typography, color, density, imagery, and interaction. Focused references support creation, redesign, refinement, and review in your existing stack.
+
+**Refinement develops the intended character.** An interface may need more presence, less competing emphasis, or a more consistent finish. The right intervention depends on the content and task. Generic copy, repetitive decoration, and familiar patterns are reviewed in context, alongside usability and accessibility.
+
+**The CLI checks the implementation.** Collect project context, inspect selected source files or a running interface, and compare the result after corrections. Your agent makes the changes; the CLI provides observations and records what was actually checked.
 
 ## Inspect and verify
 
-Use the CLI directly or have your agent run it as part of the task. Design and corrections stay with you and your agent; the CLI supplies observations and comparisons.
+Use the CLI directly, or ask your agent to include these checks in its work. Replace `npx` with `pnpm dlx` or `bunx` throughout.
 
-### 1. Inspect the affected scope
-
-Start with project context or selected source files:
+### Start with context and source
 
 ```bash
 npx flawless-ui-ux context --project . --format json
 npx flawless-ui-ux inspect --project . --source src/App.tsx --format json
 ```
 
-For rendered checks, start your application and prepare a browser using one of these commands:
+### Check the running interface
+
+Start your app and prepare the browser once:
 
 ```bash
-# npm
 npx playwright@1.64.1 install chromium
-
-# pnpm
-pnpm dlx playwright@1.64.1 install chromium
-
-# Bun
-bunx playwright@1.64.1 install chromium
+# or: pnpm dlx playwright@1.64.1 install chromium
+# or: bunx playwright@1.64.1 install chromium
 ```
-
-The version matches the CLI's browser adapter. Alternatively, select an installed compatible Chromium executable with `--browser-executable` or `FLAWLESS_BROWSER_EXECUTABLE`.
 
 Inspect the actual development-server URL and save a baseline:
 
@@ -135,60 +179,74 @@ Inspect the actual development-server URL and save a baseline:
 npx flawless-ui-ux inspect --project . --source src/App.tsx --url http://localhost:5173 --output ../app-before --format json
 ```
 
-Repeat `--source` for additional files, use `--selector` for a specific region, or repeat `--viewport WIDTHxHEIGHT` to select widths. Default samples are **1440×900** and **390×844**.
-
-### 2. Correct and compare
-
-Review the findings, make the relevant corrections, then repeat the saved scope:
+After corrections, repeat the saved scope:
 
 ```bash
 npx flawless-ui-ux verify ../app-before/run.json --output ../app-after --format json
 ```
 
-Verification separates persistent, new, and no-longer-observed findings. A missing confirmed target or changed conditions remain unverified instead of being counted as a repair. Keep the same browser selection between runs.
+The comparison separates **persistent**, **new**, and **no-longer-observed** findings. Missing confirmed targets and changed conditions remain unverified.
 
-Without `--output`, results go to stdout. With it, a new directory receives `run.json` and any screenshots; the parent must already exist. Existing output directories are never overwritten. For review-only work, keep artifacts outside the project.
-
-## What gets checked
-
-| Area | Evidence |
+| Area | Evidence collected |
 |---|---|
-| Accessibility | Selected axe contrast and accessible-name rules, with upstream evidence and incomplete results retained. |
-| Readability and layout | Computed text sizes and horizontal overflow at the requested widths. |
-| Assets and runtime | Visible broken images and uncaught JavaScript errors in the sampled state. |
-| Copy and icons | Exact repeated phrases and arrow cues for contextual review. |
-| Source | Literal pixel font sizes and arrow/icon cues in selected files. |
+| Accessibility | Selected axe contrast and accessible-name rules, including incomplete results for review |
+| Text and layout | Computed font sizes and horizontal overflow at the sampled widths |
+| Assets and runtime | Visible broken images and uncaught JavaScript errors |
+| Copy and icons | Exact repeated phrases and arrow cues for contextual review |
+| Source | Literal pixel font sizes and arrow/icon cues in selected files |
 
-Small text, overflow, and repetition require judgment. A small font size alone is not a WCAG failure, and an arrow count does not determine whether an interface is good. The skill's contextual review considers what each element contributes to the product.
+<details>
+<summary>Scope, artifacts, and verification limits</summary>
 
-Inspection does not edit sources, start servers, download browsers, or submit forms. These initial-state samples do not establish full WCAG conformance, keyboard journeys, business-flow correctness, or visual quality.
+- Default viewport samples are **1440 × 900** and **390 × 844**. Repeat `--viewport WIDTHxHEIGHT` to choose others.
+- Repeat `--source` for additional files, or use `--selector` to inspect a region.
+- Use `--browser-executable` or `FLAWLESS_BROWSER_EXECUTABLE` to select an installed compatible Chromium. Keep browser conditions consistent between runs.
+- With `--output`, a new directory receives `run.json` and available screenshots; its parent must exist. Existing output directories are preserved. Without it, results go to stdout.
 
-| Exit code | Meaning |
-|---|---|
-| `0` | Requested coverage completed without confirmed errors. |
-| `1` | Requested coverage completed with confirmed errors. |
-| `2` | Invalid input or incomplete requested coverage. |
+These samples do not establish full WCAG conformance, complete keyboard journeys, business-flow correctness, or visual quality. Small text and repetition require context. Inspection does not edit files, start servers, download browsers, or submit forms.
+
+CLI exit codes: `0` for completed coverage without confirmed errors, `1` for completed coverage with confirmed errors, and `2` for invalid input or incomplete requested coverage. The preview installer also returns `0` when confirmation is declined and `130` when a prompt is interrupted.
+
+</details>
+
+## Installation notes
+
+Existing files, local changes, and links are preserved. Review or remove an old installation before reinstalling. Host rules, plugins, permissions, and trust settings stay under your control.
+
+In 1.0.0, the twelve supported agents use **five project copies** of the same skill. Hosts that discover `.agents/skills` share one copy; others use their native directories.
+
+<details>
+<summary>Host-specific details</summary>
+
+- **Grok Build:** project skills become available after folder trust.
+- **DeepSeek Harness:** install from the nearest Git root, or the working directory without Git. Custom provider roots may change discovery.
+- **Kiro:** custom agents can reference skills through `skill://` resources.
+- **Global paths:** honor each host's configuration directory and overrides. Devin uses `APPDATA` on Windows and `XDG_CONFIG_HOME` elsewhere.
+
+See the [installation contract](docs/cli-contract.md#install) for exact paths and the [testing guide](docs/testing.md) for recorded compatibility evidence and pending checks.
+
+</details>
 
 ## Development
-
-Use the pinned Bun toolchain from a local checkout:
 
 ```bash
 bun install --frozen-lockfile
 bun test
 ```
 
-See the [testing guide](docs/testing.md) for browser fixtures, distribution checks, and Windows/Ubuntu CI. Automated tests validate runtime and packaging behavior; matched host/model evaluations of design quality and elapsed time remain pending in the [manual evaluation kit](evals/README.md).
+Bun is the development toolchain; the published CLI runs on Node. See [testing](docs/testing.md) for browser fixtures, packaging checks, and Windows/Ubuntu CI.
 
 ## Documentation
 
-- [CLI options, saved context, and comparison limits](docs/cli-contract.md)
-- [Design philosophy and product contract](docs/product-contract.md)
-- [Workflow guide](docs/workflow-procedures.md)
-- [Architecture](docs/skill-architecture.md)
-- [Delivery plan](docs/implementation-plan.md)
+- [Workflow guide](docs/workflow-procedures.md) — creation, redesign, refinement, and review
+- [CLI contract](docs/cli-contract.md) — installation paths, options, context, and comparison limits
+- [Product contract](docs/product-contract.md) — philosophy and scope
+- [Architecture](docs/skill-architecture.md) — skill, project context, and inspection core
+- [Manual evaluations](evals/README.md) — reproducible tasks and evidence criteria
 - [Changelog](CHANGELOG.md)
 
 ## License
 
 [MIT](LICENSE).
+
+Agent icons are provided by [Lobe Icons](https://github.com/lobehub/lobe-icons), using theme-aware images pinned to a specific revision. Product names and marks belong to their respective owners. Badges use [Shields.io](https://shields.io). Monthly downloads refer to the npm CLI package.
