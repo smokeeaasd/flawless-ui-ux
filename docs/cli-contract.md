@@ -15,9 +15,13 @@ Create, redesign, refine, and review remain activities performed by the coding a
 
 ## Install
 
-Form: `flawless-ui-ux install [AGENT] [--global | --project <directory>] [--format text|json]`.
+Form: `flawless-ui-ux install [AGENT ...] [--global | --project <directory>] [--yes] [--format text|json]`.
 
-Agent selectors are `--codex`, `--opencode`, `--antigravity`, `--kiro`, `--cursor`, `--kilo`, `--copilot`, `--claude-code`, `--pi`, `--grok-build`, `--devin`, `--deepseek-harness`, and `--all-agents`. They are mutually exclusive. The default installs for all twelve agents in the working project. User-wide installation requires explicit `--global`. Global and project scope are mutually exclusive. `--project <directory>` selects another existing project; `--project .` is equivalent to the default. `install --help` shows usage without writing anything. Global environment overrides do not change the scope of a bare install. Existing global installations are not moved or removed.
+Bare `install` opens a three-step wizard when stdin and stdout are terminals and `CI` is unset: choose this project or global scope, select one or more agents, then confirm the destination summary. Project scope is initially highlighted; no agents are initially selected. Space toggles agents and Enter continues. The summary groups shared paths, identifies each selected agent, and shows the scope, resolved destinations, and physical-copy count. Read-only preflight runs before confirmation; all targets are checked again immediately before installation. Declining returns 0, while cancelling a prompt returns 130; neither writes installation directories. No host trust or settings are changed.
+
+Any explicit installation flag skips the wizard and runs directly. Agent selectors are `--codex`, `--opencode`, `--antigravity`, `--kiro`, `--cursor`, `--kilo`, `--copilot`, `--claude-code`, `--pi`, `--grok-build`, `--devin`, and `--deepseek-harness`. Combine different individual selectors, such as `--codex --devin`; duplicate selectors are invalid. `--all-agents` cannot be combined with individual selectors. Without an agent selection, direct installation targets all twelve agents. `--yes` explicitly chooses direct mode, including the all-agent project default without any other flags. It does not bypass conflicts or preservation checks.
+
+Without a terminal, or with a nonempty `CI` environment variable, bare install retains the all-agent project default. `--format json` always stays noninteractive and keeps stdout machine-readable. `--global` selects user-wide installation in direct mode; global and project scope are mutually exclusive. `--project <directory>` selects another existing project. `install --help` shows usage without writing anything. Global environment overrides do not change a project install's scope. Existing global installations are not moved or removed. The legacy Bash alternative retains its existing flags and defaults; it does not open a wizard.
 
 | Agent | Global destination | Project destination |
 |---|---|---|
@@ -46,7 +50,7 @@ Kiro paths follow its [official skill documentation](https://kiro.dev/docs/skill
 
 All selected targets are preflighted before creating installation directories. Existing files, directories, and links, including broken links, are refused without overwrite. Project parent links resolving outside the project and distinct nested global destinations are rejected. An exclusive destination creation also preserves a target that appears after preflight. On copy failure, cleanup removes only skill directories allocated by that invocation with unchanged identities; empty parent directories may remain. Any cleanup failure is reported with its path for manual resolution.
 
-Installation reports include schema/tool version, operation, completion, installation coverage, and each installed agent/scope/path. Exit 0 means all selected copies completed; invalid arguments, existing installations, or copy failures return 2. No force-overwrite or automatic upgrade is provided. Review and remove an old installation explicitly before reinstalling. Native tests exercise Node/Bun on Windows and Ubuntu; macOS remains unverified.
+Installation reports include schema/tool version, operation, completion, installation coverage, and each installed agent/scope/path, in the supported-agent order. Exit 0 means all selected copies completed, or the user declined confirmation; interrupted prompts return 130. Invalid arguments, existing installations, or copy failures return 2. No force-overwrite or automatic upgrade is provided. Review and remove an old installation explicitly before reinstalling. Native tests exercise Node/Bun on Windows and Ubuntu; macOS remains unverified.
 
 ## Context
 

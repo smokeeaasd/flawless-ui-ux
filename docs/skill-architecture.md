@@ -8,6 +8,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 |---|---|---|
 | Skill | Product interpretation, direction, creation/refinement/review, and semantic corrections | Loads relevant guidance; does not infer successful verification from its own intent |
 | Native installer | Bundled skill copies, selected agents/scope, destination preflight, and copy-failure cleanup | Never overwrites existing installations; no shell, checkout, or browser setup |
+| Installation prompts | Terminal-only scope and multi-agent selection, read-only destination preview, and confirmation | Explicit flags, JSON, CI, and non-terminal use stay direct; the installer rechecks destinations after confirmation |
 | Context reader | Explicit project root, selected sources, existing records, and optional saved decisions | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
 | Inspection coordinator | Requested checks, target scope, evidence collection, and coverage | Runs a meaningful batch; does not start applications or change their dependencies |
 | Source adapter | File/line observations in selected source files | No claim of rendered failure when dynamic styles or framework behavior are unresolved |

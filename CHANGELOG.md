@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Interactive CLI installation with project/global scope, multi-agent selection, a destination preview, and explicit confirmation. Cancelled or declined prompts do not install anything.
+- Combined individual agent flags and `--yes` for direct installation. Explicit flags, JSON output, CI, and non-terminal use do not open prompts.
 - Grok Build, Devin CLI, and DeepSeek Harness installation through `--grok-build`, `--devin`, and `--deepseek-harness`, also available in the Bash alternative.
 - Grok Build and DeepSeek Harness global configuration overrides, platform-specific Devin global paths, and a focused compatibility evaluation covering discovery, trust, scope, and verification.
 - Cursor, Kilo Code, GitHub Copilot CLI, Claude Code, and Pi installation through explicit agent selectors and the Bash alternative, using the shared project skill directory where supported.

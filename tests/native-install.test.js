@@ -378,12 +378,11 @@ test('failure at a later global target rolls back the earlier copies', async () 
 
 test('invalid selections, unavailable project roots, and overlapping global paths do not install', async () => {
   for (const args of [
-    ['install', '--codex', '--opencode'], ['install', '--all-agents', '--codex'],
+    ['install', '--all-agents', '--codex'],
     ['install', '--global', '--project', '.'], ['install', '--project'],
     ['install', '--codex', '--codex'], ['install', '--url', 'http://localhost'],
-    ['install', '--antigravity', '--codex'], ['install', '--all-agents', '--antigravity'],
-    ['install', '--kiro', '--codex'], ['install', '--kiro', '--opencode'],
-    ['install', '--kiro', '--antigravity'], ['install', '--all-agents', '--kiro'], ['install', '--kiro', '--kiro'],
+    ['install', '--all-agents', '--antigravity'],
+    ['install', '--all-agents', '--kiro'], ['install', '--kiro', '--kiro'],
   ]) assert.throws(() => parse(args));
   assert.equal(parse(['install']).options.agent, 'all');
   assert.notEqual(parse(['install']).options.global, true);
@@ -393,7 +392,10 @@ test('invalid selections, unavailable project roots, and overlapping global path
   for (const agent of agents) {
     assert.equal(parse(['install', `--${agent}`]).options.agent, agent);
     assert.throws(() => parse(['install', `--${agent}`, '--all-agents']));
-    for (const other of agents) assert.throws(() => parse(['install', `--${agent}`, `--${other}`]));
+    for (const other of agents) {
+      if (other === agent) assert.throws(() => parse(['install', `--${agent}`, `--${other}`]));
+      else assert.deepEqual(parse(['install', `--${agent}`, `--${other}`]).options.agents, [agent, other]);
+    }
   }
   assert.equal(parse(['install', '--help']).operation, 'help');
   const workspace = temporaryWorkspace();

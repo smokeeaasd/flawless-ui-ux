@@ -5,30 +5,35 @@ import { inspect } from '../src/inspect.js';
 import { verify } from '../src/verify.js';
 import { install } from '../src/install.js';
 import { VERSION } from '../src/shared.js';
+import { configureInstall, shouldPromptInstall, InstallationCancelled } from '../src/install-prompts.js';
 
 const args = process.argv.slice(2);
 try {
-  const { operation, options } = parse([...args]);
+  const { operation, options: parsed } = parse([...args]);
+  const options = operation === 'install' && shouldPromptInstall(args) ? await configureInstall(parsed) : parsed;
   if (operation === 'version') console.log(VERSION);
   else if (operation === 'help') console.log(`flawless-ui-ux ${VERSION}
-  install [AGENT] [--global | --project DIR]
-          [--format text|json]
+  install [AGENT ...] [--global | --project DIR]
+          [--yes] [--format text|json]
   context [--project DIR] [--format text|json]
   inspect [--project DIR] --source FILE [--source FILE ...] [--url URL]
           [--selector CSS] [--viewport WIDTHxHEIGHT ...] [--output NEW_DIR]
           [--timeout MS] [--browser-executable FILE] [--format text|json]
   verify RUN_JSON [--output NEW_DIR] [--browser-executable FILE] [--format text|json]
 
-Agent selectors (choose one): --codex, --opencode, --antigravity, --kiro,
+Agent selectors (combine individual flags): --codex, --opencode, --antigravity, --kiro,
   --cursor, --kilo, --copilot, --claude-code, --pi, --grok-build, --devin,
   --deepseek-harness, --all-agents.
-install defaults to all supported agents in the current project.
+Bare install opens scope, agent selection, and confirmation in a terminal.
+Explicit flags skip prompts. Use --yes for the default all-agent project install.
+Without a terminal, or in CI, bare install keeps the all-agent project default.
 Use --global for user-wide installation. Shared destinations are copied once.
 Existing installations are preserved.
 inspect requires a source or URL. Defaults: 1440x900 and 390x844, 15000 ms.
 Inspection does not start servers, download browsers, edit sources, or submit forms.
 FLAWLESS_BROWSER_EXECUTABLE explicitly selects an installed Chromium executable.
-Exit codes: 0 completed; 1 confirmed errors; 2 invalid/incomplete.`);
+Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
+  130 interrupted installation.`);
   else {
     const report = await ({ install, context, inspect, verify }[operation])(options);
     if (options.format === 'json') console.log(JSON.stringify(report, null, 2));
@@ -45,7 +50,11 @@ Exit codes: 0 completed; 1 confirmed errors; 2 invalid/incomplete.`);
     process.exitCode = report.exitCode;
   }
 } catch (error) {
-  console.error(error.message);
-  if (args.includes('json')) console.log(JSON.stringify({ schemaVersion: 1, operation: args[0] || null, completion: 'partial', coverage: {}, findings: [], limits: [error.message], exitCode: 2 }));
-  process.exitCode = 2;
+  if (error instanceof InstallationCancelled) {
+    process.exitCode = error.exitCode;
+  } else {
+    console.error(error.message);
+    if (args.includes('json')) console.log(JSON.stringify({ schemaVersion: 1, operation: args[0] || null, completion: 'partial', coverage: {}, findings: [], limits: [error.message], exitCode: 2 }));
+    process.exitCode = 2;
+  }
 }
