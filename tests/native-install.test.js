@@ -242,15 +242,19 @@ test('failure at a later global target rolls back the earlier copies', async () 
     for (const agent of ['antigravity', 'kiro']) {
       const root = path.join(workspace.root, agent);
       await fs.mkdir(root);
-      const failedDestination = globalPaths(root)[agents.indexOf(agent)];
+      const homeAlias = path.join(workspace.root, `${agent}-home`);
+      await fs.symlink(root, homeAlias, process.platform === 'win32' ? 'junction' : 'dir');
+      // Resolve the home alias and Windows short paths before matching a copy.
+      const failedDestination = globalPaths(await fs.realpath(homeAlias))[agents.indexOf(agent)];
       const failure = spyOn(fs, 'cp').mockImplementation(async (...args) => {
-        if (args[1].startsWith(`${failedDestination}${path.sep}`)) throw new Error('Simulated later-target copy failure');
+        const destination = await fs.realpath(path.dirname(args[1]));
+        if (path.relative(failedDestination, destination) === '') throw new Error('Simulated later-target copy failure');
         return copy(...args);
       });
       try {
-        await assert.rejects(install({ global: true }, { home: root, env: {} }), /Simulated later-target copy failure/);
+        await assert.rejects(install({ global: true }, { home: homeAlias, env: {} }), /Simulated later-target copy failure/);
         for (const destination of globalPaths(root)) await assert.rejects(fs.lstat(destination), { code: 'ENOENT' });
-      } finally { failure.mockRestore(); }
+      } finally { failure.mockRestore(); await fs.unlink(homeAlias); }
     }
   } finally { workspace.cleanup(); }
 });
