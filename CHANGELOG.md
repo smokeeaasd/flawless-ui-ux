@@ -4,30 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-## 0.5.0
+## 1.0.0
 
 ### Added
 
 - Kiro installation through `install --kiro` and the Bash alternative, using `.kiro/skills/flawless-ui-ux` locally and `~/.kiro/skills/flawless-ui-ux` globally.
 - A focused Kiro discovery and invocation evaluation, including custom-agent resource configuration and scoped refinement; host observations remain pending.
-
-### Changed
-
-- Default and all-agent installation now include Kiro alongside Codex, OpenCode, and Antigravity, preserving the shared Codex/Antigravity project copy.
-- Extended isolated installation, preflight, link-preservation, rollback, and package tests to cover Kiro while preserving existing custom-agent and steering files.
-
-## 0.4.0
-
-### Added
-
 - Antigravity installation through `install --antigravity` and the Bash alternative, using the documented project and global skill locations.
 - Antigravity discovery and workflow evaluation procedure, with CLI discovery evidence recorded separately from pending model-driven and App/IDE checks.
 
 ### Changed
 
-- Default and all-agent installation now include Codex, OpenCode, and Antigravity. Codex and Antigravity share one project-local copy; reports retain the selected agents.
+- Default and all-agent installation now include Codex, OpenCode, Antigravity, and Kiro. Codex and Antigravity share one project-local copy; reports retain the selected agents.
 - Canonical destinations are copied once, distinct nested destinations are rejected across all targets, and copy failures roll back newly allocated directories.
-- Extended installation, alias, rollback, and distribution coverage without adding dependencies or changing the shared design guidance.
+- Extended isolated installation, alias, preflight, link-preservation, rollback, and distribution coverage, including preservation of Kiro custom-agent and steering files, without adding dependencies or changing the shared design guidance.
 
 ## 0.3.0
 
