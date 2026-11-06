@@ -88,7 +88,7 @@ test('combined flags remain direct and produce clean JSON under Node and Bun', a
       assert.deepEqual(report.installations.map(target => target.agent), ['codex', 'opencode', 'devin']);
       assert.equal(new Set(report.installations.map(target => target.path)).size, 2);
       for (const target of report.installations) assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
-      assert.deepEqual(await fs.readdir(root), ['.agents', '.opencode']);
+      assert.deepEqual((await fs.readdir(root)).sort(), ['.agents', '.opencode']);
     }
   } finally { workspace.cleanup(); }
 });
