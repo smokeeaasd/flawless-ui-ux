@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.5.0
+
+### Added
+
+- Kiro installation through `install --kiro` and the Bash alternative, using `.kiro/skills/flawless-ui-ux` locally and `~/.kiro/skills/flawless-ui-ux` globally.
+- A focused Kiro discovery and invocation evaluation, including custom-agent resource configuration and scoped refinement; host observations remain pending.
+
+### Changed
+
+- Default and all-agent installation now include Kiro alongside Codex, OpenCode, and Antigravity, preserving the shared Codex/Antigravity project copy.
+- Extended isolated installation, preflight, link-preservation, rollback, and package tests to cover Kiro while preserving existing custom-agent and steering files.
+
 ## 0.4.0
 
 ### Added

@@ -3,9 +3,9 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: ./install.sh [--codex | --opencode | --antigravity | --all-agents] [--project]
+Usage: ./install.sh [--codex | --opencode | --antigravity | --kiro | --all-agents] [--project]
 
-Install the bundled skill for Codex, OpenCode, Antigravity, or all (the default).
+Install the bundled skill for Codex, OpenCode, Antigravity, Kiro, or all (the default).
 Use --project to install into the current project's agent directories.
 Existing installations are never overwritten.
 Requires Bash. On Windows, run with Git Bash or WSL.
@@ -19,6 +19,7 @@ for argument in "$@"; do
     --codex) agent=codex ;;
     --opencode) agent=opencode ;;
     --antigravity) agent=antigravity ;;
+    --kiro) agent=kiro ;;
     --all-agents) agent=all ;;
     --project) project=true ;;
     -h|--help) usage; exit 0 ;;
@@ -60,6 +61,13 @@ if [[ "$agent" == antigravity || "$agent" == all ]]; then
     add_destination "$PWD/.agents/skills/flawless-ui-ux"
   else
     add_destination "$HOME/.gemini/config/skills/flawless-ui-ux"
+  fi
+fi
+if [[ "$agent" == kiro || "$agent" == all ]]; then
+  if $project; then
+    add_destination "$PWD/.kiro/skills/flawless-ui-ux"
+  else
+    add_destination "$HOME/.kiro/skills/flawless-ui-ux"
   fi
 fi
 

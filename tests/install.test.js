@@ -38,6 +38,7 @@ describe("Bash installer", () => {
         codex: project ? join(cwd, ".agents", "skills", skillName) : join(env.CODEX_HOME, "skills", skillName),
         opencode: project ? join(cwd, ".opencode", "skills", skillName) : join(env.XDG_CONFIG_HOME, "opencode", "skills", skillName),
         antigravity: project ? join(cwd, ".agents", "skills", skillName) : join(env.HOME, ".gemini", "config", "skills", skillName),
+        kiro: project ? join(cwd, ".kiro", "skills", skillName) : join(env.HOME, ".kiro", "skills", skillName),
       },
     };
   }
@@ -57,7 +58,8 @@ describe("Bash installer", () => {
   }, 30000);
 
   test("project and global modes respect all agent selections", () => {
-    const selections = [[[], ["codex", "opencode", "antigravity"]], [["--all-agents"], ["codex", "opencode", "antigravity"]], [["--codex"], ["codex"]], [["--opencode"], ["opencode"]], [["--antigravity"], ["antigravity"]]];
+    const agents = ["codex", "opencode", "antigravity", "kiro"];
+    const selections = [[[], agents], [["--all-agents"], agents], ...agents.map(agent => [[`--${agent}`], [agent]])];
     const expected = snapshot(source);
     for (const project of [false, true]) {
       for (const [index, [flags, selected]] of selections.entries()) {
@@ -69,7 +71,7 @@ describe("Bash installer", () => {
           if (selectedPaths.has(destination)) assert.deepEqual(snapshot(destination), expected);
           else assert.equal(existsSync(destination), false);
         }
-        for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME, target.env.HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode")]) {
+        for (const forbidden of project ? [target.env.CODEX_HOME, target.env.XDG_CONFIG_HOME, target.env.HOME] : [join(target.cwd, ".agents"), join(target.cwd, ".opencode"), join(target.cwd, ".kiro")]) {
           assert.equal(existsSync(forbidden), false, `Unexpected destination: ${forbidden}`);
         }
       }
@@ -128,7 +130,7 @@ describe("Bash installer", () => {
 
   test("all-agent preflight preserves files and directories before writing any target", () => {
     for (const project of [false, true]) {
-      for (const agent of project ? ["opencode"] : ["opencode", "antigravity"]) {
+      for (const agent of project ? ["opencode", "kiro"] : ["opencode", "antigravity", "kiro"]) {
         for (const kind of ["file", "directory", "empty-directory"]) {
           const target = paths(`existing-${project}-${agent}-${kind}`, project);
           const occupied = target.destinations[agent];

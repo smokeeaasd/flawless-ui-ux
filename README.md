@@ -4,11 +4,11 @@
 
 <p align="center">Design interfaces around the product. Refine them against the result.</p>
 
-flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Works with **Codex**, **OpenCode**, and **Antigravity**.
+flawless-ui-ux helps coding agents create, redesign, and refine web interfaces with a visual identity suited to the product. A skill guides design and implementation; a local CLI collects evidence and checks what changed after corrections. Works with **Codex**, **OpenCode**, **Antigravity**, and **Kiro**.
 
 ## Setup
 
-From your project directory, choose your package manager to install the skill for **Codex, OpenCode, and Antigravity in that project**. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
+From your project directory, choose your package manager to install the skill for **all supported agents in that project**. The CLI requires **Node 22.12+**; no checkout or Bash is needed.
 
 ```bash
 npx flawless-ui-ux@latest install
@@ -25,14 +25,16 @@ For a specific agent, or an installation across projects:
 ```bash
 npx flawless-ui-ux install --codex
 npx flawless-ui-ux install --antigravity
+npx flawless-ui-ux install --kiro
+npx flawless-ui-ux install --kiro --global
 npx flawless-ui-ux install --opencode --global
 ```
 
-The default is all three agents in the current project. Use `--codex`, `--opencode`, `--antigravity`, or `--all-agents` to select targets. `--global` explicitly installs in your user profile; `--project <directory>` selects another project. Start a new agent session if needed for discovery.
+The default is all supported agents in the current project. Use `--codex`, `--opencode`, `--antigravity`, `--kiro`, or `--all-agents` to select targets. `--global` explicitly installs in your user profile; `--project <directory>` selects another project. Start a new agent session if needed for discovery.
 
-Codex and Antigravity share `.agents/skills/flawless-ui-ux` in a project; the installer copies it once. An existing project installation for either agent is already available to the other. OpenCode uses `.opencode/skills/flawless-ui-ux`.
+Codex and Antigravity share `.agents/skills/flawless-ui-ux` in a project; the installer copies it once. An existing project installation for either agent is already available to the other. OpenCode uses `.opencode/skills/flawless-ui-ux`; Kiro uses `.kiro/skills/flawless-ui-ux`.
 
-Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor `CODEX_HOME` and `XDG_CONFIG_HOME` for Codex and OpenCode; Antigravity uses `~/.gemini/config/skills/flawless-ui-ux`. The [CLI contract](docs/cli-contract.md#install) lists all destinations.
+Existing installations are never overwritten, including links and local changes. All selected destinations are checked before copying. Review or remove an existing installation yourself before reinstalling. Global paths honor `CODEX_HOME` and `XDG_CONFIG_HOME` for Codex and OpenCode; Antigravity uses `~/.gemini/config/skills/flawless-ui-ux` and Kiro uses `~/.kiro/skills/flawless-ui-ux`. The [CLI contract](docs/cli-contract.md#install) lists all destinations.
 
 <details>
 <summary>Alternative: install from a checkout with Bash</summary>
@@ -41,9 +43,10 @@ Existing installations are never overwritten, including links and local changes.
 bash ./install.sh --codex --project
 bash ./install.sh --opencode --project
 bash ./install.sh --antigravity --project
+bash ./install.sh --kiro --project
 ```
 
-Run these from the target project's directory, using the script's absolute path when the checkout is elsewhere. Use `--all-agents` for all three. The legacy Bash script requires `--project` for local installation and otherwise installs globally. On Windows, this alternative requires Git Bash or WSL.
+Run these from the target project's directory, using the script's absolute path when the checkout is elsewhere. Use `--all-agents` for all supported agents. The legacy Bash script requires `--project` for local installation and otherwise installs globally. On Windows, this alternative requires Git Bash or WSL.
 
 </details>
 
@@ -55,7 +58,9 @@ In Codex, select `$flawless-ui-ux` and describe what you want to build:
 Use $flawless-ui-ux to build a financial dashboard for freelancers.
 ```
 
-In OpenCode, request the installed skill by name. In Antigravity, invoke `/flawless-ui-ux` with your task, or request the skill by name. See [Antigravity's skill documentation](https://antigravity.google/docs/skills) for discovery and invocation across its surfaces. Continue in the same conversation to develop the result:
+In OpenCode, request the installed skill by name. In Antigravity and Kiro, invoke `/flawless-ui-ux` with your task, or request the skill by name. See the [Antigravity](https://antigravity.google/docs/skills) and [Kiro](https://kiro.dev/docs/skills/) documentation for discovery and invocation. Custom Kiro agents can include skills through `skill://` entries in their `resources`; installation preserves existing agent and steering configuration.
+
+Continue in the same conversation to develop the result:
 
 | Goal | Example request |
 |---|---|

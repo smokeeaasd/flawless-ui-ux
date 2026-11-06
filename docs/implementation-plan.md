@@ -27,7 +27,7 @@ Use three bounded milestones, with a demonstrable outcome at each.
 | 2. Demonstrated design usefulness | Calibrated findings, task-specific guidance, evaluated states and host workflows | Matched creation and refinement runs show useful improvements without loss of identity/function; cost and false positives are recorded |
 | 3. Automatic integration | Supported host-triggered checks consuming the same core | Changed-scope checks work in the tested host without duplicate logic or repeated broad context loading |
 
-Antigravity joins Codex and OpenCode through the same portable skill and installer, with discovery evidence and remaining host checks recorded in [testing](testing.md#antigravity-support). Broader browser engines, authenticated contexts, further hosts, extension overlays, live variants, native mobile, and image tooling follow demonstrated needs. Their absence does not prevent acceptance of the first slice.
+Antigravity and Kiro join Codex and OpenCode through the same portable skill and installer, with evidence and remaining host checks recorded in [testing](testing.md#behavioral-evidence). Broader browser engines, authenticated contexts, further hosts, extension overlays, live variants, native mobile, and image tooling follow demonstrated needs. Their absence does not prevent acceptance of the first slice.
 
 ## Implementation boundaries
 

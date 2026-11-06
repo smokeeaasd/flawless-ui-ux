@@ -1,6 +1,6 @@
 # Guided manual evaluations
 
-These materials evaluate skill behavior in Codex and OpenCode, with a focused Antigravity compatibility case. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
+These materials evaluate skill behavior in Codex and OpenCode, with focused Antigravity and Kiro compatibility cases. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
 
 The [toolkit delivery plan](../docs/implementation-plan.md#behavioral-gate) reuses these cases to evaluate the implemented executable workflow. Matched host/model evaluations remain pending. Preserve earlier skill-only evidence separately, and record source, browser, and interaction coverage rather than treating a passing scan as complete design or accessibility validation.
 
@@ -40,8 +40,9 @@ Use [11 Instruction efficiency](cases/11-instruction-efficiency.md) to compare t
 | [10 Visual calibration](cases/10-visual-calibration.md) | Fresh brand-page and dashboard copies | Optional presence, competing emphasis, ambiguous refinement, and complementary scope controls |
 | [11 Instruction efficiency](cases/11-instruction-efficiency.md) | Independent copies of an identical clean React/Vite/TypeScript scaffold | Candidate versus previous revision and baseline: actual reading, elapsed time, scope, function, and design |
 | [12 Antigravity support](cases/12-antigravity-support.md) | Fresh dashboard copies | Focused discovery, explicit invocation, scope, and inspect/correct/verify compatibility |
+| [13 Kiro support](cases/13-kiro-support.md) | Fresh dashboard copies | Project/global discovery, custom-agent resources, explicit invocation, and preserved scope |
 
-Run this core matrix separately in Codex and OpenCode. Case 12 defines the focused Antigravity round:
+Run this core matrix separately in Codex and OpenCode. Cases 12 and 13 define the focused Antigravity and Kiro rounds:
 
 | Runs | Skill availability | Invocation |
 |---|---|---|

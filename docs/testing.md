@@ -30,7 +30,7 @@ Bun runs the built-in test runner. The only development dependency is the strict
 |---|---|
 | `tests/package.test.js` | Valid YAML frontmatter, skill identity, Codex presentation metadata, normal automatic discovery policy, UTF-8 text, internal file and section references, and reference reachability from the entry point |
 | `tests/install.test.js` | Bash syntax, project/global destinations, individual/default/all-agent targets, complete copies including hidden and nested resources, paths with spaces, help and errors, missing source files, pre-existing destinations, links, and reinstalls |
-| `tests/native-install.test.js` | Node/Bun installation, isolated global homes, Codex/Antigravity shared destinations, canonical aliases, nested-path rejection, all-target preflight, rollback, and concurrent creation |
+| `tests/native-install.test.js` | Node/Bun installation for all supported agents, isolated global homes, Codex/Antigravity shared destinations, canonical aliases, nested-path rejection, all-target preflight, rollback, custom Kiro configuration preservation, and concurrent creation |
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
 | `tests/conventions.test.js` | Valid conventional names and rejection of invalid branches, titles, commit subjects, and empty pull requests |
 
@@ -38,7 +38,7 @@ The metadata checks reject duplicate YAML keys. Reference checks are scoped to t
 
 Installation tests copy the actual installer and skill into disposable directories and execute Bash against that copy. Global installation modes use isolated child-process home directories and `CODEX_HOME`/`XDG_CONFIG_HOME` paths under those directories. Native tests set both `HOME` and `USERPROFILE`, check the resolved home before CLI global installation, and keep Bun's runtime cache outside the simulated profile. The user's actual home and existing agent installations are not used as destinations. The test checks complete file hashes rather than a fixed list of current filenames.
 
-Conflict tests verify that existing files, directories, local edits, and link targets survive. A conflict at a later destination, including Antigravity's third global target, must fail before installing the first target. Link cases use directory junctions on Windows and directory symlinks on Linux, including missing targets. Shared destinations are copied once, while non-identical nested destinations are rejected; failure at the third copy rolls back the earlier newly allocated skill directories.
+Conflict tests verify that existing files, directories, local edits, and link targets survive. A conflict at a later destination, including Kiro's fourth global target, must fail before installing the first target. Link cases use directory junctions on Windows and directory symlinks on Linux, including missing targets and Kiro parent paths escaping the project. Shared destinations are copied once, while non-identical nested destinations are rejected; failure at the third or fourth copy rolls back the earlier newly allocated skill directories.
 
 ## Continuous integration
 
@@ -80,6 +80,16 @@ The 0.4.0 candidate passed all 39 Bun tests locally on Windows with the configur
 On November 5, 2026, Antigravity CLI 1.4.12 on Windows discovered a project-local installation in a disposable project. The local command `agy --print "/skills" --mode plan --output-format json --print-timeout 15s` returned success and listed `flawless-ui-ux` with the expected project `SKILL.md` path, `builtin: false`, and `model_invocable: true`. Its report recorded zero model turns and zero tokens. This establishes availability in that CLI version; it does not establish that a model loaded or followed the instructions.
 
 Use [12 Antigravity support](../evals/cases/12-antigravity-support.md) for explicit invocation, scoped refinement, and inspection/correction/verification. Those model-driven runs, global host discovery, and App/IDE validation remain pending. Filesystem tests and the shared documented paths do not replace those observations.
+
+### Kiro support
+
+Kiro receives the same portable skill at `.kiro/skills/flawless-ui-ux` in a project or `~/.kiro/skills/flawless-ui-ux` globally, following the [official skill documentation](https://kiro.dev/docs/skills/). Default/all-agent installation reports four agents and creates three unique project copies, since Codex and Antigravity share their directory. Existing Kiro custom-agent and steering files are preserved; the installer does not add `skill://` resource entries to custom agents.
+
+Automated tests cover the new paths, individual/default/all-agent selections, isolated global homes, pre-existing targets, target and parent links, nested destinations, rollback on Kiro copy failure, and configuration preservation under Node/Bun. These are installation checks, not discovery or model behavior evidence.
+
+On November 5, 2026, the 0.5.0 candidate passed all 40 Bun tests on Windows with Node 24.16.0, Bun 1.4.4, and an explicitly configured Edge browser. Its 30-file npm archive installed through npx, pnpm dlx, and bunx into independent disposable projects using `--kiro`. Each installed skill matched the complete shared source bundle, and no other agent destination was created.
+
+No Kiro executable was found on the command path or in the checked standard Windows installation locations during this implementation. Kiro discovery, explicit invocation, and model-driven inspection/correction/verification remain pending. Use [13 Kiro support](../evals/cases/13-kiro-support.md) to record those observations separately for the CLI and IDE; cloud surfaces are outside this local-installation task.
 
 ### Earlier host feedback
 
