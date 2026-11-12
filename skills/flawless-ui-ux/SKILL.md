@@ -1,11 +1,13 @@
 ---
 name: flawless-ui-ux
-description: Create, redesign, refine, or review web interfaces with product-specific visual design and usable interactions.
+description: Create, redesign, refine, or review web, native mobile, and desktop interfaces with product-specific visual design and usable interactions.
 ---
 
 # Flawless UI/UX
 
 Translate product intent into specific visual decisions. Quality combines functioning behavior, accessibility, identity, and finish. Build richness through hierarchy, proportions, rhythm, imagery, and detail suited to the product.
+
+Use the requested platform and stack, preserving appropriate navigation, input, and accessibility conventions. Examples do not prescribe a sector, device, or aesthetic.
 
 ## Work directly
 
@@ -22,7 +24,7 @@ Use the project's stack and implement the requested behavior. Add interface elem
 
 ## Use references for a decision
 
-For a new visual direction, start with [Direction](references/direction.md). For existing work, the entry point and project context may suffice. Otherwise read the relevant section below when it answers a concrete question; this table is not a reading sequence. Reuse material already read.
+For new interfaces and broad redesigns, read [Direction](references/direction.md) and apply its essential composition exploration before implementation. Use it for other new visual-direction decisions as needed. For focused existing work, the entry point and project context may suffice. Otherwise read the relevant section below when it answers a concrete question; this table is not a reading sequence. Reuse material already read.
 
 | Question | Reference |
 |---|---|
@@ -36,12 +38,12 @@ For a new visual direction, start with [Direction](references/direction.md). For
 
 ## Check the result
 
-Observe the primary task, affected states, and wide/narrow layouts with available tools. Check hierarchy, readable content, navigation, and overflow as well as calculations and controls.
+Observe the primary task, affected states, and relevant device/window sizes and input methods with available tools. Check hierarchy, readable content, navigation, and clipping as well as calculations and controls.
 
 Before delivering a creation or redesign, read and perform the [final pattern pass](references/anti-slop.md#final-pass) on the completed target. For refinement, apply its affected checks within the authorized scope. Inspect actual copy and icons in source even when rendering is unavailable; correct observed repetition rather than merely claiming a review.
 
 Measure contrast against actual backgrounds. Run relevant project checks and meaningful tests; repeat affected checks after corrections. If rendering is unavailable, continue useful source work and state the limit. Static checks cannot establish visual quality.
 
-When the local CLI is available, use [executable inspection](references/inspection.md) for scoped evidence and corresponding verification. Read its coverage; contextual signals still require judgment.
+When the local CLI covers the target sources or browser-rendered interface, use [executable inspection](references/inspection.md) for scoped evidence and verification. Native widgets need suitable platform/project tools; an empty web scan does not verify native behavior. Read actual coverage; contextual signals still require judgment.
 
 Finish when the requested result is complete and material issues within scope are resolved, or report the specific blocker. Preserve explicit choices and product facts; identify sample data and never invent credibility claims. Report the result, checks actually performed, and remaining limits concisely.

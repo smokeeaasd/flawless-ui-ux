@@ -40,12 +40,35 @@
 </p>
 
 <p align="center">
+  <a href="#what-is-flawless-ui-ux">About</a> ·
+  <a href="#without-skill-vs-with-skill">Comparison</a> ·
   <a href="#install">Install</a> ·
   <a href="#use-the-skill">Use the skill</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#inspect-and-verify">Inspect and verify</a> ·
   <a href="#documentation">Docs</a>
 </p>
+
+## What is flawless-ui-ux?
+
+flawless-ui-ux is a UI/UX design skill and a local inspection CLI for coding agents. It helps agents create, redesign, refine, and review interfaces around a product's audience, content, and identity.
+
+The skill guides layout, typography, color, and interaction decisions for web, native mobile, and desktop interfaces. The CLI inspects selected source files and browser interfaces, providing observations the agent can use to find issues and verify corrections. You describe the task; your coding agent applies the guidance in your existing project.
+
+## Without skill vs. with skill
+
+<table>
+  <tr>
+    <th width="50%">Without skill</th>
+    <th width="50%">With skill</th>
+  </tr>
+  <tr>
+    <td><img src="docs/assets/fintech-without-skill.png" alt="Initial fintech dashboard created without the skill"></td>
+    <td><img src="docs/assets/fintech-with-skill.png" alt="The same fintech dashboard refined with flawless-ui-ux"></td>
+  </tr>
+</table>
+
+Created in Codex with GPT 6.1 Sol (low), then refined with flawless-ui-ux using the same model and reasoning setting.
 
 ## Install
 
@@ -121,6 +144,10 @@ Continue in the same conversation as the interface develops:
 ## How it works
 
 **The skill guides design and implementation.** It connects product context to composition, typography, color, density, imagery, and interaction. Focused references support creation, redesign, refinement, and review in your existing stack.
+
+For new interfaces and broad redesigns, the agent considers at least three meaningfully different compositions internally before implementation, then chooses an approach for the product and task. Focused refinements preserve the authorized scope and established decisions.
+
+The design guidance applies to web, native mobile, and desktop interfaces. The CLI's rendered checks cover browser interfaces; native verification uses appropriate platform and project tools.
 
 **Refinement develops the intended character.** An interface may need more presence, less competing emphasis, or a more consistent finish. The right intervention depends on the content and task. Generic copy, repetitive decoration, and familiar patterns are reviewed in context, alongside usability and accessibility.
 

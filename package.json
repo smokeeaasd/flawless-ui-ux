@@ -1,9 +1,15 @@
 {
   "name": "flawless-ui-ux",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A UI/UX skill and local inspection CLI for coding agents to build and refine product-specific interfaces.",
   "type": "module",
   "license": "MIT",
+  "author": "smokeeaasd",
+  "homepage": "https://github.com/smokeeaasd/flawless-ui-ux#readme",
+  "bugs": {
+    "url": "https://github.com/smokeeaasd/flawless-ui-ux/issues"
+  },
+  "keywords": ["agent-skill", "coding-agents", "ui", "ux", "design", "cli", "accessibility"],
   "packageManager": "bun@1.4.4",
   "repository": {
     "type": "git",
@@ -15,6 +21,8 @@
     "skills/flawless-ui-ux/",
     "docs/assets/logo.svg",
     "docs/assets/banner.svg",
+    "docs/assets/fintech-without-skill.png",
+    "docs/assets/fintech-with-skill.png",
     "install.sh",
     "LICENSE",
     "README.md",
@@ -22,6 +30,7 @@
   ],
   "scripts": {
     "test": "bun test",
+    "test:package": "bun test tests/package.test.js tests/distribution.test.js",
     "check:conventions": "bun scripts/check-conventions.js"
   },
   "devDependencies": {

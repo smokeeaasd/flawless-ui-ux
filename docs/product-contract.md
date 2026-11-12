@@ -1,10 +1,10 @@
 # Product contract
 
-Revised on November 5, 2026. The toolkit includes the portable skill and a local executable inspection core. The skill installer installs instructions; the CLI has a Node-compatible package entry point and public npm publishing configuration. Publication follows the [release procedure](releasing.md); automatic integration remains separate. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [testing guide](testing.md).
+Revised on November 12, 2026. The toolkit includes the portable skill and a local executable inspection core. The skill installer installs instructions; the CLI has a Node-compatible package entry point and public npm publishing configuration. Publication follows the [release procedure](releasing.md); automatic integration remains separate. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [testing guide](testing.md).
 
 ## Purpose
 
-flawless-ui-ux helps coding agents conceive, build, inspect, and evolve web interfaces through product-specific design decisions and evidence from the implementation. It combines a skill, compact project context, and a local inspection core.
+flawless-ui-ux helps coding agents conceive, build, review, and evolve web, native mobile, and desktop interfaces through product-specific design decisions. It combines a skill, compact project context, and a local inspection core whose rendered adapter covers browser interfaces; native verification uses appropriate host/project tools.
 
 The product must improve both the design and the work needed to deliver it. More instructions, findings, or reports do not establish usefulness.
 
@@ -19,6 +19,8 @@ The product must improve both the design and the work needed to deliver it. More
 5. **Decisions must hold up under observation.** Tools supply repeatable evidence; the agent interprets context and applies authorized corrections. Keep measurements, hypotheses, and unobserved behavior distinct.
 
 Implement original procedures, examples, interfaces, and checks. No universal palette, font list, composition, metaphor, or style is imposed.
+
+For new interfaces and broad redesigns, [Direction](../skills/flawless-ui-ux/references/direction.md#essential-explore-composition-before-implementation) requires internal consideration of at least three meaningfully different compositions before implementation. Choose for the context; preserve explicit constraints and the scope of focused refinements.
 
 ## Capabilities
 
@@ -39,7 +41,7 @@ The skill and agent resolve product meaning, visual direction, information struc
 
 A reviewed finding can justify retaining an intentional choice. Repeated arrows and promises require examination across the target, not a zero-pattern quota. Familiar styling alone is not proof of a defect or AI authorship.
 
-Relevant WCAG 2.2 A/AA requirements guide implementation. Automated checks cover only named criteria under observed conditions; no scan establishes full conformance. Typography heuristics must not be presented as WCAG minimum pixel sizes.
+Relevant WCAG 2.2 A/AA requirements guide web implementation. Native interfaces use platform accessibility semantics, units, text scaling, input conventions, and tools. Automated checks cover only named criteria under observed conditions; no scan establishes full conformance. Typography heuristics must not be presented as WCAG minimum pixel sizes.
 
 ## Working cycle
 
@@ -55,7 +57,7 @@ The first functional delivery includes a small local CLI, a shared inspection co
 
 The supported hosts listed in the [CLI contract](cli-contract.md#install) share the same design guidance and core. Claim installation, discovery, execution, browser coverage, and automatic integration separately and only after testing. The [testing guide](testing.md#behavioral-evidence) records observations and pending checks by host. Interface behavior and model-driven workflows are separate validation gates.
 
-Host-triggered checks follow a useful, verified core. Extension overlays, live variants, native mobile targets, cloud services, and image-generation infrastructure are later candidates. Suitable existing host tools can still support a task.
+Host-triggered checks follow a useful, verified core. Extension overlays, live variants, native inspection adapters, cloud services, and image-generation infrastructure are later candidates. Suitable existing host tools can still support a task.
 
 ## Acceptance
 

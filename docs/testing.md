@@ -11,6 +11,8 @@ bun install --frozen-lockfile
 bun test
 ```
 
+Use `bun run test:package` for the focused metadata, reference, and packed-distribution checks. Release validation still requires the full suite with browser fixtures enabled.
+
 CLI tests also require Node 22.12+. To include browser fixtures, explicitly prepare a browser and enable them:
 
 ```bash
@@ -33,6 +35,8 @@ Bun runs the built-in test runner. The only development dependency is the strict
 | `tests/native-install.test.js` | Node/Bun installation for all supported agents, isolated global homes, shared destinations, configuration overrides and home expansion, canonical aliases, nested-path rejection, all-target preflight, rollback, host configuration preservation, and concurrent creation |
 | `tests/install-prompts.test.js` | Terminal/flag/CI routing, scope and multi-agent configuration, read-only destination summaries, decline/cancellation preservation, preflight rechecks, combined flags with JSON, and real prompt-library keyboard input under Node/Bun |
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
+| `tests/cli.test.js` | Node/Bun command output, context provenance and stale sources, scoped source inspection, saved runs and comparisons, invalid inputs, and unavailable browser coverage |
+| `tests/browser.test.js` | Known contrast/name failures and corrections, rendered text/overflow/media/runtime observations, regressions, removed targets, missing regions, and unexpected navigation |
 | `tests/conventions.test.js` | Valid conventional names and rejection of invalid branches, titles, commit subjects, and empty pull requests |
 
 The metadata checks reject duplicate YAML keys. Reference checks are scoped to the package's inline Markdown links and heading anchors; external links are not fetched. They check package integrity, not the wording of design instructions.
@@ -54,6 +58,10 @@ Branch protection should require these checks after their first successful execu
 
 ## npm distribution
 
+### 1.1.0 release preparation
+
+On November 12, 2026, the 1.1.0 candidate passed all 55 Bun tests on Windows with Bun 1.4.4, Node 24.16.0, and the explicitly configured Edge browser. The frozen lockfile installed without changes. `npm pack --dry-run --json` listed 35 files, including both README comparison images; 155 local links across 39 Markdown documents resolved. This records local release checks, not publication or a controlled model-quality evaluation. Windows/Ubuntu PR checks are recorded separately by CI.
+
 ### Interactive installation
 
 Bare installation uses the wizard only when both input and output are terminals and `CI` is unset. Explicit flags, including JSON output and `--yes`, retain the direct path. The prompt tests exercise the real library through controlled terminal-like subprocess streams under Node and Bun: local/global scope, multi-selection, required nonempty selection, confirmation, refusal, and interruption. They also test shared-path preview without writes, conflicts before confirmation, and a concurrent destination appearing after it. This stream-based coverage does not replace native terminal observations on every OS.
@@ -62,7 +70,7 @@ Local Windows validation for this change passed all 55 tests with Bun 1.4.4, Nod
 
 ### Archive contents
 
-`package.json` defines an explicit distribution list, runtime dependencies, Node engine, the `flawless-ui-ux` bin, and public npm publishing configuration. The archive includes the runtime, portable skill, README, changelog, license, installer, and logo; maintainer documents and evaluation fixtures remain excluded. The install command copies the bundled skill natively; `install.sh` remains an alternative.
+`package.json` defines an explicit distribution list, runtime dependencies, Node engine, the `flawless-ui-ux` bin, and public npm publishing configuration. The archive includes the runtime, portable skill, README, changelog, license, installer, logo, banner, and README comparison images; maintainer documents and evaluation fixtures remain excluded. The install command copies the bundled skill natively; `install.sh` remains an alternative.
 
 The portable JavaScript entry point supports `bunx`/`npx` distribution. Tests pack and unpack the actual archive and run its source-only CLI with Node. Registry publication follows [releasing](releasing.md); tests do not publish or call a model service.
 
@@ -123,7 +131,7 @@ Global host discovery, model-driven workflows, and separate editor/cloud surface
 
 ### Grok Build, Devin CLI, and DeepSeek Harness
 
-The next 1.0.0 candidate adds `--grok-build`, `--devin`, and `--deepseek-harness` to the native and Bash installers. Grok uses `.grok/skills` locally; Devin and DeepSeek Harness share `.agents/skills`. All-agent project installation reports twelve targets and creates five unique copies of the same bundle. Existing host configuration, trust decisions, custom skill roots, and other skills are preserved.
+The candidate for 1.0.0 added `--grok-build`, `--devin`, and `--deepseek-harness` to the native and Bash installers. Grok uses `.grok/skills` locally; Devin and DeepSeek Harness share `.agents/skills`. All-agent project installation reports twelve targets and creates five unique copies of the same bundle. Existing host configuration, trust decisions, custom skill roots, and other skills are preserved.
 
 Automated installer coverage includes each new selector and scope, default/all-agent selection, Node/Bun environment overrides, shared copies, destination conflicts and links, rollback, and complete resources. Devin path tests cover Windows `APPDATA` and Unix `XDG_CONFIG_HOME` independently. Regression cases distinguish literal `GROK_HOME` from home-expanded `DSH_HOME` and check the latter's blank-value fallback. The Bash matrix exercises the current platform; it runs on Windows and Ubuntu in CI.
 
