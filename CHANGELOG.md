@@ -9,6 +9,11 @@ All notable changes to this project will be documented in this file.
 - Project-local `init` creates missing product/design Markdown templates, reuses supported existing documents, and reports created or reused paths without overwriting content.
 - Shared template assets and skill guidance separate deterministic initialization from the agent's product interpretation and writing.
 
+### Changed
+
+- Strengthened contextual readability guidance during creation, including supporting text, user text scaling, and the distinction between suggested sizing and WCAG requirements.
+- Clarified authored focus contrast and browser compatibility when choosing native web capabilities, preserving platform-specific guidance and scoped work.
+
 ## 2.0.0
 
 ### Breaking

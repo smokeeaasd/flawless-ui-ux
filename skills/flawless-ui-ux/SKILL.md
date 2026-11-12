@@ -20,7 +20,7 @@ Reuse relevant product and design documentation before reopening decisions. For 
 - **Refine:** develop the existing intention; preserve everything outside the requested intervention. Keep wording fixed in visual-only work and presentation fixed in copy-only work.
 - **Review:** report prioritized findings without changing project files. Planning delivers a proposal rather than an implementation.
 
-Make a coherent composition from the actual material: choose what leads, how supporting information relates, and how the main action works. Select typography, color, density, imagery, and detail together. Carry that treatment through the whole target. A short brief still permits confident design choices; routine work can proceed without a written brief, concept presentation, or separate planning artifact.
+Make a coherent composition from the actual material: choose what leads, how supporting information relates, and how the main action works. Select typography, color, density, imagery, and detail together, considering readability at the intended viewing scale from the start. Carry that treatment through the whole target. A short brief still permits confident design choices; routine work can proceed without a written brief, concept presentation, or separate planning artifact.
 
 Use the project's stack and implement the requested behavior. Add interface elements because the task needs them, rather than creating extra product features to fill a conventional layout.
 
