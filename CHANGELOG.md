@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 1.1.0
+
+### Added
+
+- A README introduction and side-by-side fintech example documenting an initial no-skill generation followed by skill-assisted refinement in Codex with GPT 6.1 Sol at low reasoning.
+- npm metadata for discovery, authorship, and issue reporting, plus a focused `test:package` script.
+- Bundled comparison images so the README's local image references resolve in the published archive.
+
+### Changed
+
+- Essential internal exploration of at least three meaningfully different compositions before implementing new interfaces or broad redesigns, while preserving explicit constraints and focused scope.
+- Clarified shared web/native mobile/desktop design guidance and the narrower coverage of browser inspection and CSS accessibility criteria.
+- Updated the logo and README banner to an all-white pencil and wordmark, with smaller Manrope Semibold lettering.
+- Aligned workflow, architecture, accessibility scope, test coverage, and release documentation with the implemented toolkit.
+
 ## 1.0.0
 
 ### Added

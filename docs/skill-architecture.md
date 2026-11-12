@@ -9,7 +9,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 | Skill | Product interpretation, direction, creation/refinement/review, and semantic corrections | Loads relevant guidance; does not infer successful verification from its own intent |
 | Native installer | Bundled skill copies, selected agents/scope, destination preflight, and copy-failure cleanup | Never overwrites existing installations; no shell, checkout, or browser setup |
 | Installation prompts | Terminal-only scope and multi-agent selection, read-only destination preview, and confirmation | Explicit flags, JSON, CI, and non-terminal use stay direct; the installer rechecks destinations after confirmation |
-| Context reader | Explicit project root, selected sources, existing records, and optional saved decisions | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
+| Context reader | Explicit project root, known metadata files, and optional saved decisions with source provenance | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
 | Inspection coordinator | Requested checks, target scope, evidence collection, and coverage | Runs a meaningful batch; does not start applications or change their dependencies |
 | Source adapter | File/line observations in selected source files | No claim of rendered failure when dynamic styles or framework behavior are unresolved |
 | Browser adapter | DOM/style observations, screenshots, named automated access checks, and runtime errors | Uses an explicit URL and isolated browser context; no application-changing actions in ordinary inspection |
@@ -25,6 +25,14 @@ The ESM entry point is `bin/flawless-ui-ux.js`. Implemented modules in `src/` se
 
 The package retains skills/flawless-ui-ux and its existing invocation. Repository docs, evaluations, and research are not automatically loaded into agent tasks.
 
+## Design guidance
+
+The shared skill applies to web, native mobile, and desktop interfaces. Platform conventions, explicit constraints, and the authorized intervention determine its execution; browser tooling does not define the skill's design scope.
+
+New interfaces and broad redesigns load [Direction](../skills/flawless-ui-ux/references/direction.md), including its essential internal exploration of at least three meaningfully different compositions before implementation. The agent chooses an approach for the context rather than presenting a mandatory concept round. Focused refinements and constrained systems preserve their scope. Relevant references are loaded for concrete decisions, not as a fixed reading sequence.
+
+The CLI's rendered adapter covers browser interfaces. Native behavior, text scaling, semantics, and input require appropriate platform/project tools; an empty web scan does not verify a native interface.
+
 ## Runtime choices
 
 Use JavaScript ESM with Node-compatible APIs and Bun for development and tests, continuing the current repository conventions. No compilation or separate native runtime is needed for the first slice.
@@ -37,7 +45,7 @@ The first integration gate covers Windows and Ubuntu through CLI/runtime and bro
 
 ## Context
 
-The project root is explicit or the current working directory. Recover relevant package/route/component facts, existing product/design records, and available assets without executing project scripts.
+The project root is explicit or the current working directory. The context command reads package metadata and excerpts of README, index.html, and Vite configuration when present, plus the optional saved record below. It does not recursively discover arbitrary product/design documents, routes, components, or assets. The agent can inspect other relevant project material within the task's scope; the reader does not execute project scripts.
 
 An optional .flawless-ui-ux/context.json is the single tool-owned structured context record. Its initial schema identifies version, product/task summary, protected decisions, and source references. Decisions distinguish confirmed facts from inferred assumptions and retain provenance. The agent authors or updates it only when persistent context belongs to the task; the reader never creates it. Existing authoritative documentation remains authoritative.
 

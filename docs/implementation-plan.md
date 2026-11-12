@@ -6,6 +6,8 @@ Status: the local CLI, source/browser inspection path, saved artifacts, and corr
 
 Deliver one complete path: an agent creates or improves a local web target, obtains actual inspection evidence, corrects authorized issues, and checks the affected result.
 
+This executable slice describes browser inspection. The shared skill also guides native mobile and desktop work, with verification through suitable platform/project tools. Its [essential composition exploration](../skills/flawless-ui-ux/references/direction.md#essential-explore-composition-before-implementation) applies to new interfaces and broad redesigns across those platforms.
+
 Include:
 
 - A Node-compatible ESM CLI exposing install, context, inspect, and verify, with Bun development/tests and no model-service dependency.
@@ -27,7 +29,7 @@ Use three bounded milestones, with a demonstrable outcome at each.
 | 2. Demonstrated design usefulness | Calibrated findings, task-specific guidance, evaluated states and host workflows | Matched creation and refinement runs show useful improvements without loss of identity/function; cost and false positives are recorded |
 | 3. Automatic integration | Supported host-triggered checks consuming the same core | Changed-scope checks work in the tested host without duplicate logic or repeated broad context loading |
 
-All supported hosts use the same portable skill and installer, with the target list defined in the [CLI contract](cli-contract.md#install) and evidence recorded in [testing](testing.md#behavioral-evidence). Broader browser engines, authenticated contexts, further hosts, extension overlays, live variants, native mobile, and image tooling follow demonstrated needs. Their absence does not prevent acceptance of the first slice.
+All supported hosts use the same portable skill and installer, with the target list defined in the [CLI contract](cli-contract.md#install) and evidence recorded in [testing](testing.md#behavioral-evidence). Broader browser engines, authenticated contexts, further hosts, extension overlays, live variants, native inspection adapters, and image tooling follow demonstrated needs. Their absence does not prevent acceptance of the first slice.
 
 ## Implementation boundaries
 

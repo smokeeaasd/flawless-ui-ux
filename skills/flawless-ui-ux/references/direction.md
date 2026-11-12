@@ -1,6 +1,24 @@
 # Direction
 
-Use for a new visual system or an authorized replacement. Start from the task and available material, then make choices visible in the implementation.
+Use for new interfaces, a new visual system, or an authorized replacement. Start from the task and available material, then make choices visible in the implementation.
+
+## Essential: explore composition before implementation
+
+For new interfaces and broad redesigns, consider at least three meaningfully different ways to organize the primary content before committing to a layout. Work within the requested platform, explicit constraints, and authorized scope.
+
+Vary the underlying composition, not merely the styling:
+
+- What leads the initial view or main working area?
+- How do typography, imagery, controls, and information share space?
+- What creates rhythm across regions, screens, or states?
+- How does the composition express the product's identity?
+- How easily can users complete their primary task with the intended input methods?
+
+Choose the strongest approach for the actual context.
+
+Do not default to a familiar hero, card grid, sidebar, or screen structure simply because it is reliable or easy to implement. Conventional patterns remain valid when they are the best solution.
+
+Keep this exploration internal unless the user requests concepts. For small refinements, a fully specified composition, or constrained existing systems, preserve the authorized scope instead of forcing structural changes.
 
 ## Compose around the product
 

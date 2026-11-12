@@ -20,7 +20,7 @@ Decorative icons should not create repetitive accessible names. Meaningful image
 
 ## Accessibility acceptance
 
-Apply relevant WCAG 2.2 A/AA requirements within the intervention. Verify actual states rather than inferring compliance from attributes or CSS intentions.
+For web content, apply relevant WCAG 2.2 A/AA requirements within the intervention. The CSS measurements below describe web criteria. For native interfaces, use the platform's accessibility semantics, units, text scaling, input conventions, and tools instead of treating CSS thresholds as native specifications. Verify actual states rather than inferring compliance from source intentions.
 
 - **Contrast:** measure actual foreground/background pairs using Craft. Meaningful authored control/state/graphic information generally needs 3:1 against adjacent colors, subject to [non-text contrast exceptions](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html). Decorative borders do not all carry this requirement.
 - **Focus:** operate the affected path and ensure sticky regions or overlays do not entirely obscure focus. See [focus not obscured](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html).

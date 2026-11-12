@@ -2,6 +2,8 @@
 
 The toolkit supports creation, redesign, refinement, review, and verification through one working cycle. The local CLI supplies evidence and corresponding verification as described in the [delivery plan](implementation-plan.md). The skill can also use available host tools when the executable is unavailable.
 
+The design guidance applies to web, native mobile, and desktop interfaces, using the requested platform's navigation, input, and accessibility conventions. The CLI's rendered adapter covers browser interfaces; native widgets require suitable platform/project tools.
+
 ## Intervention boundaries
 
 | Request | Work to deliver | Preserve |
@@ -17,7 +19,9 @@ Mixed requests follow their local boundaries. Review with fixes authorizes the s
 
 ## Working path
 
-Recover the actual project, target, content, assets, constraints, and required behavior. Use current records rather than generating a new brief for every edit. Planned context output supplies facts and provenance; it does not choose the design.
+Recover the actual project, target, content, assets, constraints, and required behavior. Use current records rather than generating a new brief for every edit. The context command supplies facts and provenance from its documented sources; it does not choose the design.
+
+For new interfaces and broad redesigns, follow the [essential composition exploration](../skills/flawless-ui-ux/references/direction.md#essential-explore-composition-before-implementation): consider at least three meaningfully different organizations of the primary content, then choose for the actual context. Keep this internal unless concepts are requested. Small refinements, fully specified compositions, and constrained existing systems retain their authorized boundaries.
 
 Resolve information and visual relationships together, then implement in the existing stack. Carry typography, color, density, imagery, and finish through lower sections and states. A new interface needs coherent product-specific execution; a local correction does not reopen every visual decision.
 
@@ -25,7 +29,7 @@ Inspect the implementation through source, rendering, and relevant interactions 
 
 Before delivering creation or redesign, perform the short [final pattern pass](../skills/flawless-ui-ux/references/anti-slop.md#final-pass). Inspect arrows/icons and copy cumulatively; preserve useful affordances and deliberate expression. Refinement checks the affected scope.
 
-Correct material authorized issues and repeat affected observations. Planned verify output compares corresponding runs, while the agent checks preserved behavior, identity, and semantic consequences. Neither a lower finding count nor a passing build establishes a better design.
+Correct material authorized issues and repeat affected observations. The verify command compares corresponding runs, while the agent checks preserved behavior, identity, and semantic consequences. Neither a lower finding count nor a passing build establishes a better design.
 
 ## Guidance and tools
 
