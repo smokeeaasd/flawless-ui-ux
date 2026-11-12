@@ -37,7 +37,7 @@ export function parse(argv) {
   const options = { project: '.', sources: [], viewports: [], timeout: 15000, format: 'text' };
   if (['--help', '-h', undefined].includes(operation)) return { operation: 'help', options };
   if (operation === '--version') return { operation: 'version', options };
-  if (!['install', 'context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
+  if (!['install', 'init', 'context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
   if (argv.length === 1 && ['--help', '-h'].includes(argv[0])) return { operation: 'help', options };
   if (operation === 'install') { options.project = undefined; options.agent = 'all'; }
   if (operation === 'verify') {
@@ -46,7 +46,7 @@ export function parse(argv) {
   }
   const seen = new Set();
   const selectedAgents = [];
-  const allowed = operation === 'install' ? [...agentOptions, 'global', 'project', 'format', 'yes'] : operation === 'context' ? ['project', 'format', 'source'] : operation === 'verify' ? ['output', 'format', 'browser-executable', 'flow'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable', 'flow', 'consistency'];
+  const allowed = operation === 'install' ? [...agentOptions, 'global', 'project', 'format', 'yes'] : operation === 'init' ? ['project', 'format'] : operation === 'context' ? ['project', 'format', 'source'] : operation === 'verify' ? ['output', 'format', 'browser-executable', 'flow'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable', 'flow', 'consistency'];
   while (argv.length) {
     const flag = argv.shift();
     if (!flag.startsWith('--') || !allowed.includes(flag.slice(2))) throw new Error(`Unknown option: ${flag}`);

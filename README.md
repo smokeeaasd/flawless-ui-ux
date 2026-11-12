@@ -157,6 +157,14 @@ The design guidance applies to web, native mobile, and desktop interfaces. The C
 
 Keep product facts and design decisions in your existing Markdown documents. The agent reuses them across tasks; context files are optional. Use `context --source docs/brief.md` to select a document outside the conventional locations.
 
+To prepare missing records, run:
+
+```
+npx flawless-ui-ux init
+```
+
+The CLI creates product/design Markdown templates or reuses supported existing documents, preserving their content. Your agent fills the records from the project and your decisions. Read them later with `context`; initialization does not generate a brief or choose a visual style.
+
 Inspect related screens with repeated `--url` inputs and `--consistency` for a contextual style inventory. Add `--flow flows/edit-member.json` to exercise explicitly defined UI actions, expectations, and named states in a permitted test environment. Verification requires the unchanged flow file to be selected again. See [workflow examples and limits](docs/product-aware-workflows.md).
 
 ## Inspect and verify

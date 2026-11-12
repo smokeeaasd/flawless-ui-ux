@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+
+- Project-local `init` creates missing product/design Markdown templates, reuses supported existing documents, and reports created or reused paths without overwriting content.
+- Shared template assets and skill guidance separate deterministic initialization from the agent's product interpretation and writing.
+
 ## 2.0.0
 
 ### Breaking

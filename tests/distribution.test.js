@@ -36,6 +36,16 @@ test('packed distribution contains the executable core and portable skill withou
     assert.equal(new Set(report.installations.map(target => target.path)).size, 5);
     assert.ok(report.installations.every(target => target.scope === 'project'));
     for (const target of report.installations) assert.equal(await fs.readFile(path.join(target.path, 'SKILL.md'), 'utf8'), await fs.readFile(path.join(root, 'skills/flawless-ui-ux/SKILL.md'), 'utf8'));
+    const initialized = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'init', '--project', project, '--format', 'json'], { encoding: 'utf8' });
+    assert.equal(initialized.status, 0, initialized.stderr);
+    assert.equal(JSON.parse(initialized.stdout).documents.length, 2);
+    for (const kind of ['product', 'design']) assert.equal(await fs.readFile(path.join(project, `.flawless-ui-ux/${kind}.md`), 'utf8'), await fs.readFile(path.join(root, `skills/flawless-ui-ux/assets/context/${kind}.md`), 'utf8'));
+    const incompleteProject = path.join(workspace.root, 'incomplete-context');
+    await fs.mkdir(incompleteProject);
+    await fs.unlink(path.join(root, 'skills/flawless-ui-ux/assets/context/design.md'));
+    const incomplete = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'init', '--project', incompleteProject, '--format', 'json'], { encoding: 'utf8' });
+    assert.equal(incomplete.status, 2);
+    assert.deepEqual(await fs.readdir(incompleteProject), []);
     await fs.unlink(path.join(root, 'skills/flawless-ui-ux/SKILL.md'));
     const missing = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'install', '--project', root, '--format', 'json'], { encoding: 'utf8' });
     assert.equal(missing.status, 2);

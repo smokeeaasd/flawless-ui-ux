@@ -10,7 +10,7 @@ This executable slice describes browser inspection. The shared skill also guides
 
 Include:
 
-- A Node-compatible ESM CLI exposing install, context, inspect, and verify, with Bun development/tests and no model-service dependency.
+- A Node-compatible ESM CLI exposing install, init, context, inspect, and verify, with Bun development/tests and no model-service dependency. Init creates missing Markdown structure; the agent supplies product/design content.
 - A project-scoped context reader with optional saved decisions, provenance, and stale-source reporting.
 - Source observations and a Playwright browser adapter using selected axe checks, rendered legibility/overflow/media observations, and runtime error evidence.
 - Compact text/JSON findings, explicit coverage, saved captures/manifests, and conservative before/after comparison.

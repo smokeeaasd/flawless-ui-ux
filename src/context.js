@@ -2,6 +2,11 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { projectRoot, readSource, VERSION, REPORT_VERSION } from './shared.js';
 
+export const contextLocations = {
+  product: ['PRODUCT.md', 'docs/product.md', '.flawless-ui-ux/product.md'],
+  design: ['DESIGN.md', 'docs/design.md', '.flawless-ui-ux/design.md'],
+};
+
 async function markdown(root, source) {
   const { text, ...metadata } = source;
   const references = [];
@@ -41,7 +46,7 @@ export async function context(options) {
   }
   const requested = options.sources || [];
   if (requested.length > 8 || requested.some(file => !/\.md$/i.test(file))) throw new Error('Context accepts at most eight Markdown --source files.');
-  const candidates = [...new Set(['PRODUCT.md', 'DESIGN.md', 'docs/product.md', 'docs/design.md', '.flawless-ui-ux/product.md', '.flawless-ui-ux/design.md', ...requested])];
+  const candidates = [...new Set([...Object.values(contextLocations).flat(), ...requested])];
   for (const file of candidates) {
     try {
       const document = await markdown(root, await readSource(root, file));

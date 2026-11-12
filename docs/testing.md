@@ -36,6 +36,7 @@ Bun runs the built-in test runner. The only development dependency is the strict
 | `tests/install-prompts.test.js` | Terminal/flag/CI routing, scope and multi-agent configuration, read-only destination summaries, decline/cancellation preservation, preflight rechecks, combined flags with JSON, and real prompt-library keyboard input under Node/Bun |
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
 | `tests/context-markdown.test.js` | Markdown reuse, explicit source bounds, reference freshness, read-only behavior, v1 report migration, and surface-specific fingerprints |
+| `tests/init.test.js` | Canonical template creation, per-kind reuse, preservation of edits, preflight conflicts/links, concurrent creation, Node/Bun output, and discovery by context |
 | `tests/workflows.test.js` | Flow validation, state capture, keyboard expectations, explicit replay and changed-flow rejection, blocked writes, corresponding-screen inventories, and unverified missing targets |
 | `tests/cli.test.js` | Node/Bun command output, context provenance and stale sources, scoped source inspection, saved runs and comparisons, invalid inputs, and unavailable browser coverage |
 | `tests/browser.test.js` | Known contrast/name failures and corrections, rendered text/overflow/media/runtime observations, regressions, removed targets, missing regions, and unexpected navigation |
@@ -59,6 +60,10 @@ The platform checks are named:
 Branch protection should require these checks after their first successful execution. The ruleset configuration in `.github/rulesets/main.json` describes the desired settings; GitHub configuration must also be updated to enforce them.
 
 ## npm distribution
+
+### Context initialization
+
+The init addition passed 26 targeted tests across init, Markdown context, CLI, package/distribution, and installation prompts on Windows under Node 24.16.0 and Bun 1.4.4. Coverage includes preserved edits, conventional reuse, missing-kind creation, directory/file/link preflight, concurrent exclusive writes, and an unpacked package missing a template. The local archive also ran init twice through bunx in an independent project: the first run created both records and the second reused them. These checks establish structure and preservation; the agent's interpretation and filled content still require review.
 
 ### 2.0.0 candidate validation
 

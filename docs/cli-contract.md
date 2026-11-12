@@ -7,6 +7,7 @@ Status: implemented as Node-compatible ESM, developed and tested with Bun. The p
 | Operation | Responsibility | Writes |
 |---|---|---|
 | install | Copy the bundled skill for selected agents and scope | New skill directories only; existing installations are preserved |
+| init | Reuse supported product/design documents or create missing Markdown templates | Missing project-local product/design documents only; no overwrite |
 | context | Recover relevant context from a selected project and optional saved decisions | stdout only |
 | inspect | Collect requested source and rendered evidence and normalize findings | stdout; artifacts only with an explicit output directory |
 | verify | Repeat an existing run's checks on the current implementation and compare | stdout; a new artifact directory only when requested |
@@ -52,6 +53,16 @@ All selected targets are preflighted before creating installation directories. E
 
 Installation reports include schema/tool version, operation, completion, installation coverage, and each installed agent/scope/path, in the supported-agent order. Exit 0 means all selected copies completed, or the user declined confirmation; interrupted prompts return 130. Invalid arguments, existing installations, or copy failures return 2. No force-overwrite or automatic upgrade is provided. Review and remove an old installation explicitly before reinstalling. Native tests exercise Node/Bun on Windows and Ubuntu; macOS remains unverified.
 
+## Init
+
+Form: `flawless-ui-ux init [--project <directory>] [--format text|json]`.
+
+The project defaults to the working directory. For each kind, reuse all existing readable documents at the conventional paths: PRODUCT.md, docs/product.md, .flawless-ui-ux/product.md; and DESIGN.md, docs/design.md, .flawless-ui-ux/design.md. If none exists for a kind, create its bundled template in `.flawless-ui-ux/`. Custom locations remain authoritative when the agent selects them; init does not infer a document's subject from arbitrary prose or search the whole repository.
+
+Preflight both kinds and load needed templates before creating anything. Existing files, edits, directories, and links are preserved; invalid candidates and linked fallback directories are rejected. File creation is exclusive; concurrent creation reuses the existing document instead of overwriting it. A later operational failure reports partial coverage and created/blocked/not-created paths so a repeat can finish missing work. No recursive rollback or deletion is performed.
+
+The schema-2 report has initialization coverage and a documents list with kind, relative path, and created/reused status, or blocked/not-created on partial writes. The command has no global, force, reset, or content-generation mode. It does not install the skill, alter agent configuration, collect answers, or invent product/design decisions. The agent fills the Markdown based on the project and relevant user input. Repeating init never resets an edited record.
+
 ## Context
 
 Form: `flawless-ui-ux context --project <directory> [--source <document.md>] --format text|json`.
@@ -80,7 +91,7 @@ Do not accept a different project, missing region, or reduced coverage as a succ
 
 ## Output and status
 
-Human output leads with target and coverage, then actionable findings and unresolved limits. Context/inspect/verify JSON and their errors use schemaVersion 2; installation remains schema 1. See [migration](migration-2.md). JSON has a schema version, operation, completion status, coverage, findings, and optional artifact/comparison references. Diagnostics go to stderr; structured output remains valid JSON.
+Human output leads with target and coverage, then actionable findings and unresolved limits. Init/context/inspect/verify JSON and their errors use schemaVersion 2; installation remains schema 1. See [migration](migration-2.md). JSON has a schema version, operation, completion status, coverage, findings, and optional artifact/comparison references. Diagnostics go to stderr; structured output remains valid JSON.
 
 | Exit code | Meaning |
 |---|---|

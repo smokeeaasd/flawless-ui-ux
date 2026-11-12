@@ -21,6 +21,8 @@ Mixed requests follow their local boundaries. Review with fixes authorizes the s
 
 Recover the actual project, target, content, assets, constraints, and required behavior. Use current records rather than generating a new brief for every edit. Reuse authoritative product/design Markdown and update affected decisions when persistence is useful. The context command supplies excerpts, hashes, and reference freshness from its documented sources; it does not choose the design.
 
+When new product/design records belong to the task, use init to create their canonical templates or identify supported existing documents. Read its returned paths and fill the relevant sections from evidence. The CLI determines structure; the agent interprets the product and resolves important unknowns. A successful init does not mean the documents are filled or the design is validated.
+
 For new interfaces and broad redesigns, follow the [essential composition exploration](../skills/flawless-ui-ux/references/direction.md#essential-explore-composition-before-implementation): consider at least three meaningfully different organizations of the primary content, then choose for the actual context. Keep this internal unless concepts are requested. Small refinements, fully specified compositions, and constrained existing systems retain their authorized boundaries.
 
 Resolve information and visual relationships together, then implement in the existing stack. Carry typography, color, density, imagery, and finish through lower sections and states. A new interface needs coherent product-specific execution; a local correction does not reopen every visual decision.

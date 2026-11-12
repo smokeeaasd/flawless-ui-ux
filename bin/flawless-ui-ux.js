@@ -4,6 +4,7 @@ import { context } from '../src/context.js';
 import { inspect } from '../src/inspect.js';
 import { verify } from '../src/verify.js';
 import { install } from '../src/install.js';
+import { init } from '../src/init.js';
 import { VERSION } from '../src/shared.js';
 import { configureInstall, shouldPromptInstall, InstallationCancelled } from '../src/install-prompts.js';
 
@@ -15,6 +16,7 @@ try {
   else if (operation === 'help') console.log(`flawless-ui-ux ${VERSION}
   install [AGENT ...] [--global | --project DIR]
           [--yes] [--format text|json]
+  init [--project DIR] [--format text|json]
   context [--project DIR] [--source DOCUMENT.md ...] [--format text|json]
   inspect [--project DIR] [--source FILE ...] [--url URL ...]
           [--flow FILE] [--consistency]
@@ -30,6 +32,7 @@ Explicit flags skip prompts. Use --yes for the default all-agent project install
 Without a terminal, or in CI, bare install keeps the all-agent project default.
 Use --global for user-wide installation. Shared destinations are copied once.
 Existing installations are preserved.
+init creates missing product/design Markdown templates or reuses supported existing documents; it never overwrites them.
 inspect requires a source or URL. Defaults: 1440x900 and 390x844, 15000 ms.
 Ordinary inspection is observational. --flow explicitly runs selected UI actions; non-read-only network requests are blocked.
 Inspection does not start servers, download browsers, or edit sources.
@@ -37,7 +40,7 @@ FLAWLESS_BROWSER_EXECUTABLE explicitly selects an installed Chromium executable.
 Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
   130 interrupted installation.`);
   else {
-    const report = await ({ install, context, inspect, verify }[operation])(options);
+    const report = await ({ install, init, context, inspect, verify }[operation])(options);
     if (options.format === 'json') console.log(JSON.stringify(report, null, 2));
     else {
       if (operation === 'install') {
@@ -45,6 +48,7 @@ Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
       } else console.log(`${operation}: ${report.project}\nCoverage: ${JSON.stringify(report.coverage)} (${report.completion})`);
       for (const f of report.findings) console.log(`[${f.status}/${f.severity}] ${f.checkId} ${f.target}: ${f.observation}\n  ${f.recommendation}`);
       if (report.operation === 'context') console.log(JSON.stringify({ sources: report.sources, missing: report.missing, documents: report.documents, saved: report.saved, decisions: report.decisions }, null, 2));
+      if (report.operation === 'init') for (const document of report.documents) console.log(`${document.status}: ${document.path} (${document.kind})`);
       if (report.flow) console.log(`Flow: ${JSON.stringify(report.flow)}`);
       if (report.consistency) console.log(`Consistency: ${JSON.stringify(report.consistency)}`);
       if (report.comparison) console.log(`Comparison: ${JSON.stringify(report.comparison)}`);
