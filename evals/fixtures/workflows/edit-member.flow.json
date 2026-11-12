@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "name": "Edit member",
+  "steps": [
+    { "id": "open", "action": "click", "selector": "#edit-member" },
+    { "id": "name-focused", "action": "expect", "selector": "#member-name", "state": "focused" },
+    { "id": "enter-name", "action": "fill", "selector": "#member-name", "value": "Avery" },
+    { "id": "editing", "action": "observe" },
+    { "id": "close", "action": "press", "key": "Escape" },
+    { "id": "closed", "action": "expect", "selector": "#member-editor", "state": "hidden" },
+    { "id": "focus-returned", "action": "expect", "selector": "#edit-member", "state": "focused" },
+    { "id": "returned", "action": "observe" }
+  ]
+}

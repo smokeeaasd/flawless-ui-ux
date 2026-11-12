@@ -26,10 +26,11 @@ For new interfaces and broad redesigns, [Direction](../skills/flawless-ui-ux/ref
 
 | Capability | Required outcome |
 |---|---|
-| Context | Recover useful project facts and decisions, preserve provenance, and reuse current information without repeatedly rediscovering it |
+| Context | Reuse product/design Markdown, surface sources and freshness, and preserve useful decisions across tasks without mandatory records |
 | Design and construction | Implement the requested content, visual treatment, interactions, and relevant states in the existing stack |
 | Review and refinement | Diagnose concrete problems and select proportional improvements within scope |
-| Inspection | Produce localized source and rendered findings with conditions, evidence, and explicit coverage |
+| Inspection | Produce localized findings across selected sources, screens, and explicit flow states, with conditions and coverage |
+| Consistency | Supply corresponding role/style observations across selected screens for contextual review |
 | Correction and verification | Let the agent fix authorized problems, then repeat affected observations and report regressions or unresolved limits |
 | Contextual prevention | Review cumulative copy, icon use, composition, and treatment while preserving intentional expression and useful affordances |
 
@@ -47,13 +48,13 @@ Relevant WCAG 2.2 A/AA requirements guide web implementation. Native interfaces 
 
 Recover relevant context, resolve design decisions, implement, inspect, correct, and recheck. Existing-interface work can enter at diagnosis.
 
-Creation and redesign include a final contextual pattern review. Focused refinements inspect the affected scope. Review-only work preserves project files and live state; planning produces a proposal. A CLI inspection does not authorize arbitrary application actions.
+Creation and redesign include a final contextual pattern review. Focused refinements inspect the affected scope. Review-only work preserves project files and live state; planning produces a proposal. Ordinary CLI inspection is observational. Explicitly selected flows authorize only their defined test actions; verification requires the same flow to be selected again.
 
 Keep product claims accurate, identify sample data, and preserve functioning paths. Never invent customer proof or present local-demo feedback as a real integration result. Report only checks actually performed.
 
 ## Technical boundary
 
-The first functional delivery includes a small local CLI, a shared inspection core, source observations, and a replaceable browser adapter. Bun remains the development toolchain; executable JavaScript must support Node for future npx/bunx distribution. Browser availability and setup are explicit capabilities.
+The toolkit includes a small local CLI, a shared inspection core, source observations, and a replaceable browser adapter. Bun remains the development toolchain; executable JavaScript must support Node for future npx/bunx distribution. Browser availability and setup are explicit capabilities.
 
 The supported hosts listed in the [CLI contract](cli-contract.md#install) share the same design guidance and core. Claim installation, discovery, execution, browser coverage, and automatic integration separately and only after testing. The [testing guide](testing.md#behavioral-evidence) records observations and pending checks by host. Interface behavior and model-driven workflows are separate validation gates.
 

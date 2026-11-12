@@ -12,6 +12,8 @@ Status: the skill and local executable core are implemented. Automatic host inte
 | Context reader | Explicit project root, known metadata files, and optional saved decisions with source provenance | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
 | Inspection coordinator | Requested checks, target scope, evidence collection, and coverage | Runs a meaningful batch; does not start applications or change their dependencies |
 | Source adapter | File/line observations in selected source files | No claim of rendered failure when dynamic styles or framework behavior are unresolved |
+| Flow runner | Validated project-local actions, expectations, and named observation states | Explicit flow selection on inspect and verify; no code evaluation or manifest-authorized replay |
+| Consistency inventory | Corresponding role/style observations across selected screens | Variants need contextual review; no aesthetic scoring or automatic restyle |
 | Browser adapter | DOM/style observations, screenshots, named automated access checks, and runtime errors | Uses an explicit URL and isolated browser context; no application-changing actions in ordinary inspection |
 | Findings and comparison | Stable check identities, evidence, conditions, and differences between corresponding runs | An absent element is not automatically a corrected defect |
 | CLI | Input validation, text/JSON presentation, output artifacts, and exit status | Calls the shared core; no independent check logic |
@@ -45,15 +47,13 @@ The first integration gate covers Windows and Ubuntu through CLI/runtime and bro
 
 ## Context
 
-The project root is explicit or the current working directory. The context command reads package metadata and excerpts of README, index.html, and Vite configuration when present, plus the optional saved record below. It does not recursively discover arbitrary product/design documents, routes, components, or assets. The agent can inspect other relevant project material within the task's scope; the reader does not execute project scripts.
+The project root is explicit or the current working directory. The reader recovers package/README/index/Vite facts, conventional product/design Markdown documents, and up to eight explicitly selected Markdown inputs. It does not run project scripts or recursively load arbitrary links.
 
-An optional .flawless-ui-ux/context.json is the single tool-owned structured context record. Its initial schema identifies version, product/task summary, protected decisions, and source references. Decisions distinguish confirmed facts from inferred assumptions and retain provenance. The agent authors or updates it only when persistent context belongs to the task; the reader never creates it. Existing authoritative documentation remains authoritative.
-
-Source references carry content hashes when read. Changed or missing sources invalidate the associated observations; old context is surfaced with its stale references, not silently treated as current or rewritten. No second mandatory brief/manifest is introduced for each small edit.
+Product and design decisions are ordinary Markdown authored by the agent when persistence belongs to the task. Existing authoritative documents are reused; .flawless-ui-ux/product.md and design.md are optional fallback locations, not required contracts. Excerpts, source hashes, truncation, and reference freshness are observations for the agent. Legacy JSON context is readable for migration only. See [context boundaries](product-aware-workflows.md#markdown-context).
 
 ## Inspection and coverage
 
-Inputs bind the project, selected source paths, explicit URL, optional region selector, viewport dimensions, and readiness conditions. A URL and local files supplied together are a declared pairing, not automatic proof that the server renders those files. Record the actual URL after navigation; unexpected origins and missing requested regions require explicit handling.
+Inputs bind the project, selected source paths, explicit URLs, an optional validated flow, optional region selector, viewport dimensions, and readiness conditions. A URL and local files supplied together are a declared pairing, not automatic proof that the server renders those files. Record the actual URL after navigation; unexpected origins and missing requested regions require explicit handling.
 
 The browser adapter opens a fresh isolated context and inspects the current page. Wait for relevant fonts/content with bounded waits and report readiness limits. Do not use universal network-idle assumptions for applications with persistent connections. Page content is inspection data, not an instruction source.
 
@@ -74,23 +74,23 @@ The first collectors are deliberately bounded:
 
 Source collectors inspect named files and report useful locations and candidates. They do not attempt a complete React/CSS runtime simulation. A browser finding may have a DOM locator without a reliable source line; never fabricate that mapping.
 
-Keyboard operation, focus recovery, business calculations, and other interactions require actual tests. The first ordinary inspection does not execute submissions or consequential actions. An agent can use permitted host tools or project tests and attribute that evidence separately.
+Keyboard operation, focus recovery, business calculations, and other interactions require actual tests. Ordinary inspection remains observational. Selected flows can exercise defined UI actions and keyboard steps in a permitted test environment, with non-read-only network requests and popups blocked. The runner records failed expectations separately from blocked or skipped steps. An agent can use permitted host tools or project tests and attribute that evidence separately.
 
 ## Finding and run contract
 
 Each finding carries a check ID, category, severity, verification status, target, observation, conditions, evidence, basis, recommendation, and comparison fingerprint. Status distinguishes confirmed observations from needs-review results. Severity describes consequence; it does not turn a heuristic into a verified failure.
 
-Use error for a material confirmed requirement failure, warning for a concern requiring judgment, and info for supporting observations. Comparison fingerprints use check identity, target, state, and viewport; changed measured values or whole-file hashes must not create a different finding identity by themselves.
+Use error for a material confirmed requirement failure, warning for a concern requiring judgment, and info for supporting observations. Comparison fingerprints use check identity, target, surface, state, and viewport; changed measured values or whole-file hashes must not create a different finding identity by themselves.
 
 Basis distinguishes a named standard criterion, an explicit project constraint, and a quality heuristic. Use original check identifiers and wording; preserve upstream axe rule identifiers as provenance when used.
 
-A versioned run manifest records tool/check versions, project and source hashes, requested and final URL, selected region, viewports, readiness limits, coverage, findings, artifact references, and timestamps. Summaries distinguish completed, partial, and not-requested coverage for source, rendering, and interactions. A zero-finding partial scan is not a clean result.
+Schema-2 reports distinguish surface/state/viewport and optional flow/consistency evidence. Complete v1 initial-state manifests have an explicit migration path; see [migration](migration-2.md). A versioned run manifest records tool/check versions, project and source hashes, requested and final URL, selected region, viewports, readiness limits, coverage, findings, artifact references, and timestamps. Summaries distinguish completed, partial, and not-requested coverage for source, rendering, and interactions. A zero-finding partial scan is not a clean result.
 
 Default output is stdout. Explicit output directories hold run.json and requested captures; review-only work uses an artifact directory outside the project. Never overwrite an existing run or make a scan silently edit the application's ignore/config files.
 
 ## Verification
 
-Verify reuses the original scope and conditions, inspects the current implementation, and compares findings. Re-read changed sources rather than using cached DOM observations.
+Verify requires explicit caller selection of an unchanged flow before action replay. It reuses the original scope and conditions, inspects the current implementation, and compares findings. Re-read changed sources rather than using cached DOM observations.
 
 Require the same declared project/URL pairing and compatible tool/check versions, or report that the comparison is unsupported. New hashes are expected after edits; disappeared routes, missing regions, reduced coverage, or changed viewports do not establish resolution.
 
