@@ -15,6 +15,8 @@ These support different claims. A passing build cannot establish visual quality;
 
 ## Follow the task
 
+For consistency across screens, select corresponding roles and states rather than treating every visual difference as a defect. Review type roles, controls, terminology, spacing, and navigation against the shared product/design decisions. Preserve intentional variants. When the CLI is available, repeated `--url` inputs with `--consistency` provide computed-style inventories for contextual review; their variation count is not a quality score.
+
 Check whether the visitor can understand the relevant information and complete the requested action. Inspect preserved facts, data meaning, behavior, scope, and identity.
 
 Review the whole target, including lower sections and working states. Check the primary focal point, supporting hierarchy, proportions, type roles, imagery, and continuity. During refinement, compare both the intended improvement and character retained.

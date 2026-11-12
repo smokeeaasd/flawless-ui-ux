@@ -15,11 +15,12 @@ try {
   else if (operation === 'help') console.log(`flawless-ui-ux ${VERSION}
   install [AGENT ...] [--global | --project DIR]
           [--yes] [--format text|json]
-  context [--project DIR] [--format text|json]
-  inspect [--project DIR] --source FILE [--source FILE ...] [--url URL]
+  context [--project DIR] [--source DOCUMENT.md ...] [--format text|json]
+  inspect [--project DIR] [--source FILE ...] [--url URL ...]
+          [--flow FILE] [--consistency]
           [--selector CSS] [--viewport WIDTHxHEIGHT ...] [--output NEW_DIR]
           [--timeout MS] [--browser-executable FILE] [--format text|json]
-  verify RUN_JSON [--output NEW_DIR] [--browser-executable FILE] [--format text|json]
+  verify RUN_JSON [--flow FILE] [--output NEW_DIR] [--browser-executable FILE] [--format text|json]
 
 Agent selectors (combine individual flags): --codex, --opencode, --antigravity, --kiro,
   --cursor, --kilo, --copilot, --claude-code, --pi, --grok-build, --devin,
@@ -30,7 +31,8 @@ Without a terminal, or in CI, bare install keeps the all-agent project default.
 Use --global for user-wide installation. Shared destinations are copied once.
 Existing installations are preserved.
 inspect requires a source or URL. Defaults: 1440x900 and 390x844, 15000 ms.
-Inspection does not start servers, download browsers, edit sources, or submit forms.
+Ordinary inspection is observational. --flow explicitly runs selected UI actions; non-read-only network requests are blocked.
+Inspection does not start servers, download browsers, or edit sources.
 FLAWLESS_BROWSER_EXECUTABLE explicitly selects an installed Chromium executable.
 Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
   130 interrupted installation.`);
@@ -42,7 +44,9 @@ Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
         for (const target of report.installations) console.log(`Installed flawless-ui-ux for ${target.agent} (${target.scope}): ${target.path}`);
       } else console.log(`${operation}: ${report.project}\nCoverage: ${JSON.stringify(report.coverage)} (${report.completion})`);
       for (const f of report.findings) console.log(`[${f.status}/${f.severity}] ${f.checkId} ${f.target}: ${f.observation}\n  ${f.recommendation}`);
-      if (report.operation === 'context') console.log(JSON.stringify({ sources: report.sources, missing: report.missing, saved: report.saved, decisions: report.decisions }, null, 2));
+      if (report.operation === 'context') console.log(JSON.stringify({ sources: report.sources, missing: report.missing, documents: report.documents, saved: report.saved, decisions: report.decisions }, null, 2));
+      if (report.flow) console.log(`Flow: ${JSON.stringify(report.flow)}`);
+      if (report.consistency) console.log(`Consistency: ${JSON.stringify(report.consistency)}`);
       if (report.comparison) console.log(`Comparison: ${JSON.stringify(report.comparison)}`);
       for (const limit of [...report.limits, ...(report.claims || [])]) console.log(`Limit: ${limit}`);
       if (report.artifacts?.manifest) console.log(`Manifest: ${report.artifacts.manifest}`);
@@ -54,7 +58,7 @@ Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
     process.exitCode = error.exitCode;
   } else {
     console.error(error.message);
-    if (args.includes('json')) console.log(JSON.stringify({ schemaVersion: 1, operation: args[0] || null, completion: 'partial', coverage: {}, findings: [], limits: [error.message], exitCode: 2 }));
+    if (args.includes('json')) console.log(JSON.stringify({ schemaVersion: args[0] === 'install' ? 1 : 2, operation: args[0] || null, completion: 'partial', coverage: {}, findings: [], limits: [error.message], exitCode: 2 }));
     process.exitCode = 2;
   }
 }

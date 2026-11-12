@@ -44,6 +44,8 @@ Use [11 Instruction efficiency](cases/11-instruction-efficiency.md) to compare t
 | [14 Additional agent support](cases/14-additional-agent-support.md) | Fresh dashboard copies per host | Cursor, Kilo, Copilot CLI, Claude Code, and Pi: discovery, shared copies, scope, and host-specific invocation |
 | [15 Grok, Devin, and DeepSeek support](cases/15-grok-devin-deepseek-support.md) | Fresh dashboard copies per host | Discovery, Grok folder trust, platform-specific global roots, scope, and inspect/correct/verify |
 
+Case [16 Product-aware workflows](cases/16-product-aware-workflows.md) adds an optional focused round for context continuity, matched refinement, explicit state verification, and cross-screen consistency. Its agent/model runs remain pending.
+
 Run this core matrix separately in Codex and OpenCode. Cases 12–15 define focused compatibility rounds for the other supported hosts:
 
 | Runs | Skill availability | Invocation |

@@ -40,7 +40,7 @@ test('input validation rejects unsupported targets and ambiguous options', () =>
   for (const args of [
     ['inspect'], ['inspect', '--url', 'file:///tmp/test'], ['inspect', '--url', 'http://user:pass@localhost'],
     ['inspect', '--source', 'a.css', '--viewport', '390x844'], ['inspect', '--url', 'http://localhost', '--viewport', 'small'],
-    ['inspect', '--url', 'http://localhost', '--timeout', 'Infinity'], ['inspect', '--url', 'http://localhost', '--url', 'http://other'],
+    ['inspect', '--url', 'http://localhost', '--timeout', 'Infinity'], ['inspect', '--source', 'a.css', '--flow', 'flow.json'],
     ['context', '--source', 'a.css'], ['verify'], ['verify', 'a.json', '--project', 'other'],
   ]) assert.throws(() => parse([...args]), args.join(' '));
 });

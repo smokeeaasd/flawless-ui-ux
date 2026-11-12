@@ -13,6 +13,8 @@ Use the requested platform and stack, preserving appropriate navigation, input, 
 
 Inspect the requested target, surrounding components, content, and available assets. Establish what the user needs to understand or do, what may change, and which facts and behaviors must remain. Ask only when an unresolved fact materially changes the scope, identity, or outcome.
 
+Reuse relevant product and design documentation before reopening decisions. For continuity across tasks, consult [project context](references/project-context.md); keep useful decisions in Markdown using the project's existing documents. Small interventions do not require new records.
+
 - **Create:** build the requested surface and interactions; inherit the surrounding system when one exists.
 - **Redesign:** replace authorized visual decisions while preserving required content and behavior.
 - **Refine:** develop the existing intention; preserve everything outside the requested intervention. Keep wording fixed in visual-only work and presentation fixed in copy-only work.

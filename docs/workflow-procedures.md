@@ -19,13 +19,13 @@ Mixed requests follow their local boundaries. Review with fixes authorizes the s
 
 ## Working path
 
-Recover the actual project, target, content, assets, constraints, and required behavior. Use current records rather than generating a new brief for every edit. The context command supplies facts and provenance from its documented sources; it does not choose the design.
+Recover the actual project, target, content, assets, constraints, and required behavior. Use current records rather than generating a new brief for every edit. Reuse authoritative product/design Markdown and update affected decisions when persistence is useful. The context command supplies excerpts, hashes, and reference freshness from its documented sources; it does not choose the design.
 
 For new interfaces and broad redesigns, follow the [essential composition exploration](../skills/flawless-ui-ux/references/direction.md#essential-explore-composition-before-implementation): consider at least three meaningfully different organizations of the primary content, then choose for the actual context. Keep this internal unless concepts are requested. Small refinements, fully specified compositions, and constrained existing systems retain their authorized boundaries.
 
 Resolve information and visual relationships together, then implement in the existing stack. Carry typography, color, density, imagery, and finish through lower sections and states. A new interface needs coherent product-specific execution; a local correction does not reopen every visual decision.
 
-Inspect the implementation through source, rendering, and relevant interactions where available. The inspect operation supplies concrete observations and coverage. Confirm the actual URL/port and target; do not use another generated project as an unstated reference.
+Inspect the implementation through source, rendering, and relevant interactions where available. The inspect operation supplies concrete observations and coverage. Select related screens explicitly for consistency review; interpret differences against product/design decisions. Use a project-owned flow for authorized state and keyboard checks, and select the unchanged flow again during verification. See [product-aware workflows](product-aware-workflows.md). Confirm the actual URL/port and target; do not use another generated project as an unstated reference.
 
 Before delivering creation or redesign, perform the short [final pattern pass](../skills/flawless-ui-ux/references/anti-slop.md#final-pass). Inspect arrows/icons and copy cumulatively; preserve useful affordances and deliberate expression. Refinement checks the affected scope.
 

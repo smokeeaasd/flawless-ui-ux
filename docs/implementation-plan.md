@@ -61,6 +61,10 @@ Compare the first completed candidate and no-tool result under matching tools, i
 
 Record concrete hierarchy, content, legibility, contrast, navigation, state correctness, scope, and identity. Judge the usefulness of findings and corrections alongside elapsed time and actual instruction reads. More findings, a different style, or green infrastructure checks do not establish improvement. Report confounds and repeated variation instead of declaring a universal win.
 
+## Product-aware workflows
+
+Version 2 adds Markdown product/design context, selected browser flows and states, cross-screen style inventories, and schema-2 reports with v1 migration. The [workflow contract](product-aware-workflows.md) defines implementation limits; [migration](migration-2.md) defines the breaking JSON changes. Focused [evaluation case 16](../evals/cases/16-product-aware-workflows.md) is prepared; agent/model outcomes remain pending. Automatic hooks, native inspection adapters, and aesthetic scoring are outside this delivery.
+
 ## Current delivery
 
 The implementation delivers context, inspect, and verify, with versioned text/JSON reports, conservative comparisons, explicit captures, and selected source/rendered checks. Automated fixtures exercise correction, regression, removed targets, missing capabilities, scope, and preservation. Node/Bun portability and browser tests run in Windows/Ubuntu CI. See [testing](testing.md).

@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 2.0.0
+
+### Breaking
+
+- Context, inspect, verify, and their JSON error envelopes now use report schema 2. Browser findings and comparisons distinguish surface, state, and viewport; inspection scope uses a URL list. Installation reports retain schema 1. Complete supported v1 runs have an explicit initial-state migration path.
+
+### Added
+
+- Optional product/design context from existing Markdown documents, conventional locations, and explicit project-local sources, with bounded excerpts, hashes, and reference freshness. Legacy JSON context remains readable for migration.
+- Explicit project-owned browser flows for UI actions, keyboard navigation, expectations, and named rendered states. Verify requires the unchanged flow file to be selected again; blocked steps remain incomplete.
+- Selected multi-screen inspection and computed-style inventories for contextual consistency review, with no automatic defect classification or aesthetic score.
+- Runtime tests, a local member-editor fixture, migration documentation, and a focused manual evaluation round. Agent/model design and latency outcomes remain pending.
+
+### Changed
+
+- Preserved the four public commands and basic installation/inspection usage. Flow runs block non-read-only network requests and popups and keep screenshots and reports opt-in.
+
 ## 1.1.0
 
 ### Added

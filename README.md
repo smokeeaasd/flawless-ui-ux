@@ -153,6 +153,12 @@ The design guidance applies to web, native mobile, and desktop interfaces. The C
 
 **The CLI checks the implementation.** Collect project context, inspect selected source files or a running interface, and compare the result after corrections. Your agent makes the changes; the CLI provides observations and records what was actually checked.
 
+## Product context and workflows
+
+Keep product facts and design decisions in your existing Markdown documents. The agent reuses them across tasks; context files are optional. Use `context --source docs/brief.md` to select a document outside the conventional locations.
+
+Inspect related screens with repeated `--url` inputs and `--consistency` for a contextual style inventory. Add `--flow flows/edit-member.json` to exercise explicitly defined UI actions, expectations, and named states in a permitted test environment. Verification requires the unchanged flow file to be selected again. See [workflow examples and limits](docs/product-aware-workflows.md).
+
 ## Inspect and verify
 
 Use the CLI directly, or ask your agent to include these checks in its work. Replace `npx` with `pnpm dlx` or `bunx` throughout.
@@ -204,7 +210,7 @@ The comparison separates **persistent**, **new**, and **no-longer-observed** fin
 - Use `--browser-executable` or `FLAWLESS_BROWSER_EXECUTABLE` to select an installed compatible Chromium. Keep browser conditions consistent between runs.
 - With `--output`, a new directory receives `run.json` and available screenshots; its parent must exist. Existing output directories are preserved. Without it, results go to stdout.
 
-These samples do not establish full WCAG conformance, complete keyboard journeys, business-flow correctness, or visual quality. Small text and repetition require context. Inspection does not edit files, start servers, download browsers, or submit forms.
+These samples do not establish full WCAG conformance, complete keyboard journeys, business-flow correctness, or visual quality. Explicit flows cover only their selected actions and expectations. Small text and repetition require context. Ordinary inspection does not perform UI actions or submit forms. Explicit flows run selected actions with network-write and popup blocking. Inspection does not edit files, start servers, or download browsers.
 
 CLI exit codes: `0` for completed coverage without confirmed errors, `1` for completed coverage with confirmed errors, and `2` for invalid input or incomplete requested coverage. The installer also returns `0` when confirmation is declined and `130` when a prompt is interrupted.
 
@@ -239,6 +245,8 @@ Bun is the development toolchain; the published CLI runs on Node. See [testing](
 
 ## Documentation
 
+- [2.0 migration](docs/migration-2.md) — report schema changes and compatibility
+- [Product-aware workflows](docs/product-aware-workflows.md) — Markdown context, selected flows, and cross-screen evidence
 - [Workflow guide](docs/workflow-procedures.md) — creation, redesign, refinement, and review
 - [CLI contract](docs/cli-contract.md) — installation paths, options, context, and comparison limits
 - [Product contract](docs/product-contract.md) — philosophy and scope

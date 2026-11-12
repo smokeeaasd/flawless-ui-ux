@@ -35,6 +35,8 @@ Bun runs the built-in test runner. The only development dependency is the strict
 | `tests/native-install.test.js` | Node/Bun installation for all supported agents, isolated global homes, shared destinations, configuration overrides and home expansion, canonical aliases, nested-path rejection, all-target preflight, rollback, host configuration preservation, and concurrent creation |
 | `tests/install-prompts.test.js` | Terminal/flag/CI routing, scope and multi-agent configuration, read-only destination summaries, decline/cancellation preservation, preflight rechecks, combined flags with JSON, and real prompt-library keyboard input under Node/Bun |
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
+| `tests/context-markdown.test.js` | Markdown reuse, explicit source bounds, reference freshness, read-only behavior, v1 report migration, and surface-specific fingerprints |
+| `tests/workflows.test.js` | Flow validation, state capture, keyboard expectations, explicit replay and changed-flow rejection, blocked writes, corresponding-screen inventories, and unverified missing targets |
 | `tests/cli.test.js` | Node/Bun command output, context provenance and stale sources, scoped source inspection, saved runs and comparisons, invalid inputs, and unavailable browser coverage |
 | `tests/browser.test.js` | Known contrast/name failures and corrections, rendered text/overflow/media/runtime observations, regressions, removed targets, missing regions, and unexpected navigation |
 | `tests/conventions.test.js` | Valid conventional names and rejection of invalid branches, titles, commit subjects, and empty pull requests |
@@ -57,6 +59,12 @@ The platform checks are named:
 Branch protection should require these checks after their first successful execution. The ruleset configuration in `.github/rulesets/main.json` describes the desired settings; GitHub configuration must also be updated to enforce them.
 
 ## npm distribution
+
+### 2.0.0 candidate validation
+
+On November 12, 2026, the 2.0.0 candidate passed all 62 tests across ten Bun test files on Windows with Bun 1.4.4, Node 24.16.0, and the explicitly configured Edge browser. The new cases cover Markdown context and reference freshness, source/report preservation, v1 source/browser migration, state-aware verification, keyboard and focus expectations, changed-flow rejection, blocked HTTP writes and WebSocket connections, cross-screen inventories, and engine-mismatch limits. The documented member-editor fixture was exercised through the Node CLI.
+
+Frozen-lockfile installation required no dependency changes. The npm pack dry run included 38 files, with the new runtime modules and portable context reference, while excluding maintainer docs and fixtures. Local checks resolved 172 links across 43 Markdown documents, and the skill validator passed. This is implementation/package evidence; the agent/model runs in case 16 remain pending. CI records Windows/Ubuntu PR validation separately.
 
 ### 1.1.0 release preparation
 

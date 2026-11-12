@@ -4,7 +4,8 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 export const VERSION = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
-export const CHECK_VERSION = 1;
+export const CHECK_VERSION = 2;
+export const REPORT_VERSION = 2;
 export const hash = value => createHash('sha256').update(value).digest('hex');
 export const excluded = /(^|[/\\])(node_modules|\.git|dist|build|coverage|\.next|\.aws|\.ssh|\.codex|\.agents|\.npmrc|\.env[^/\\]*|[^/\\]*\.(pem|key)|(?:credentials|secrets)[^/\\]*)([/\\]|$)/i;
 export function within(root, target) {
@@ -40,7 +41,7 @@ export function finding(checkId, target, observation, options = {}) {
     basis: options.basis || { type: 'heuristic', reference: 'Contextual review; not a conformance failure.' },
     recommendation: options.recommendation || 'Review in the product context before changing the interface.',
     evidence: options.evidence || {},
-    fingerprint: hash(JSON.stringify([checkId, target, conditions.state || 'initial', conditions.viewport || null])),
+    fingerprint: hash(JSON.stringify([checkId, target, conditions.state || 'initial', conditions.viewport || null, ...(conditions.surface ? [conditions.surface] : [])])),
   };
 }
 export function finish(report) {
