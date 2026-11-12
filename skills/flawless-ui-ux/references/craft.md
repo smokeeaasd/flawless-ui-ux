@@ -14,7 +14,9 @@ Judge empty space by its effect. It can frame an image or create rhythm; it can 
 
 Choose a family for actual content and character, with appropriate language coverage, weights, licensing, and availability. Verify the intended font loads; distinguish its role from the fallback. Familiar fonts are valid when they fit. Replacing a family without improving its relationship to the content is not personalization.
 
-Test real headings, long labels, paragraphs, and numbers. Adjust measure, size, weight, and leading together. Use tabular figures where they aid comparison. Keep important labels readable at their rendered size; avoid shrinking the interface to fit a miniature preview.
+Establish a comfortable reading scale for the audience and viewing conditions. For ordinary web body text, the inherited browser size (often 16 CSS px) is a useful starting point, not a WCAG minimum or a universal type scale. Judge the chosen family's rendered size, weight, and leading; supporting text and control labels still need to be comfortably readable.
+
+Test real headings, long labels, paragraphs, and numbers. Adjust measure, size, weight, and leading together. Use tabular figures where they aid comparison. Check at actual viewing size; a passing contrast ratio or an empty automated report does not establish legibility. Avoid shrinking the interface to fit a miniature preview.
 
 Resolve awkward wrapping through permitted changes to measure, typography, or wording. Forced line breaks need checks at affected widths. Preserve protected copy and outer layout during typography-only work.
 
@@ -37,3 +39,5 @@ Give important imagery sufficient scale. Match crop and placement to nearby text
 Reconsider arrangement as available space changes. Stack, reorder, simplify presentation, or disclose secondary detail while retaining essential content and actions. Keep genuinely two-dimensional tables in a local scroll region; do not shrink the entire screen to avoid overflow.
 
 Inspect long content, intermediate widths, navigation height, and bottom sections. Check zoom and reflow where relevant. Fixed, sticky, and overflow rules must work together; a hidden or clipped control is not a finished responsive solution.
+
+For web typography, relative units and unitless leading help preserve user text preferences. Viewport-only font sizing can counteract enlargement; include a font-relative component when using fluid type and verify actual resizing. Let text containers grow or wrap as needed rather than clipping enlarged content.
