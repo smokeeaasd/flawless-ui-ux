@@ -1,6 +1,6 @@
 # Product-aware workflows
 
-Version 2 combines optional Markdown context, selected browser flows, and cross-screen evidence. The four public commands remain install, context, inspect, and verify. See [migration](migration-2.md) for the JSON report change.
+Version 2 combines optional Markdown context, selected browser flows, and cross-screen evidence. The CLI exposes install, init, context, inspect, and verify. See [migration](migration-2.md) for the JSON report change.
 
 ## Markdown context
 
@@ -11,6 +11,14 @@ The context reader looks for `PRODUCT.md`, `DESIGN.md`, `docs/product.md`, `docs
 ```
 flawless-ui-ux context --project . --source docs/brief.md --format json
 ```
+
+When missing records are useful, initialize their structure explicitly:
+
+```
+flawless-ui-ux init --project . --format json
+```
+
+Init reuses supported existing documents per kind and creates only missing templates at `.flawless-ui-ux/product.md` and `.flawless-ui-ux/design.md`. It reports all reused/created paths and preserves edits on repeats. Product sections cover the summary, audience, tasks, facts/constraints, and sources/open questions. Design sections cover identity, platform conventions, information/visual roles, protected decisions, and references/open choices. The templates prescribe no palette, font, layout, or fictional fact. The agent analyzes and fills the content; no questionnaire is built into the command. Documents elsewhere remain authoritative and can be selected with context --source rather than duplicated.
 
 Up to eight explicit Markdown inputs are accepted, in addition to the conventional candidates. Sources stay inside the selected project, follow the shared text/size/exclusion rules, and are read without running project code. Each context document includes its hash, an excerpt of at most 8,000 characters, and a truncation flag. The agent reads further only when needed.
 

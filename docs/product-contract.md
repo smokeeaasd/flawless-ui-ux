@@ -27,6 +27,7 @@ For new interfaces and broad redesigns, [Direction](../skills/flawless-ui-ux/ref
 | Capability | Required outcome |
 |---|---|
 | Context | Reuse product/design Markdown, surface sources and freshness, and preserve useful decisions across tasks without mandatory records |
+| Initialization | Create missing canonical product/design Markdown templates or reuse supported records, preserving content; the agent interprets and fills the documents |
 | Design and construction | Implement the requested content, visual treatment, interactions, and relevant states in the existing stack |
 | Review and refinement | Diagnose concrete problems and select proportional improvements within scope |
 | Inspection | Produce localized findings across selected sources, screens, and explicit flow states, with conditions and coverage |

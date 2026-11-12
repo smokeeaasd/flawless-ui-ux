@@ -10,6 +10,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 | Native installer | Bundled skill copies, selected agents/scope, destination preflight, and copy-failure cleanup | Never overwrites existing installations; no shell, checkout, or browser setup |
 | Installation prompts | Terminal-only scope and multi-agent selection, read-only destination preview, and confirmation | Explicit flags, JSON, CI, and non-terminal use stay direct; the installer rechecks destinations after confirmation |
 | Context reader | Explicit project root, known metadata files, and optional saved decisions with source provenance | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
+| Context initializer | Canonical product/design templates and supported existing document discovery | Explicit project-local writes only for missing records; content interpretation belongs to the agent |
 | Inspection coordinator | Requested checks, target scope, evidence collection, and coverage | Runs a meaningful batch; does not start applications or change their dependencies |
 | Source adapter | File/line observations in selected source files | No claim of rendered failure when dynamic styles or framework behavior are unresolved |
 | Flow runner | Validated project-local actions, expectations, and named observation states | Explicit flow selection on inspect and verify; no code evaluation or manifest-authorized replay |
@@ -50,6 +51,8 @@ The first integration gate covers Windows and Ubuntu through CLI/runtime and bro
 The project root is explicit or the current working directory. The reader recovers package/README/index/Vite facts, conventional product/design Markdown documents, and up to eight explicitly selected Markdown inputs. It does not run project scripts or recursively load arbitrary links.
 
 Product and design decisions are ordinary Markdown authored by the agent when persistence belongs to the task. Existing authoritative documents are reused; .flawless-ui-ux/product.md and design.md are optional fallback locations, not required contracts. Excerpts, source hashes, truncation, and reference freshness are observations for the agent. Legacy JSON context is readable for migration only. See [context boundaries](product-aware-workflows.md#markdown-context).
+
+The init operation shares the reader's conventional locations, reuses existing records, and copies bundled templates only for missing kinds. The templates ship with both the CLI and portable skill. Exclusive file creation and all-kind preflight preserve existing content; the command does not generate facts or update filled records. Context remains read-only.
 
 ## Inspection and coverage
 
