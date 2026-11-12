@@ -61,6 +61,12 @@ Branch protection should require these checks after their first successful execu
 
 ## npm distribution
 
+### 2.0.0 release validation
+
+On November 12, 2026, the release candidate including context initialization and readability guidance passed all 66 tests across eleven Bun test files on Windows with Bun 1.4.4, Node 24.16.0, and the explicitly configured Edge browser. Frozen-lockfile installation required no dependency changes, and the skill validator passed.
+
+The npm pack dry run included 41 files: the runtime, portable skill and context templates, installer, README, changelog, license, and README assets. Maintainer documentation and evaluation fixtures remain excluded. These are runtime and package checks; matched agent/model design and latency evaluations remain pending. Windows/Ubuntu PR checks and registry publication are separate verification steps.
+
 ### Context initialization
 
 The init addition passed 26 targeted tests across init, Markdown context, CLI, package/distribution, and installation prompts on Windows under Node 24.16.0 and Bun 1.4.4. Coverage includes preserved edits, conventional reuse, missing-kind creation, directory/file/link preflight, concurrent exclusive writes, and an unpacked package missing a template. The local archive also ran init twice through bunx in an independent project: the first run created both records and the second reused them. These checks establish structure and preservation; the agent's interpretation and filled content still require review.
