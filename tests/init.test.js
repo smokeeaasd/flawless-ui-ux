@@ -18,7 +18,7 @@ test('init creates only the two canonical templates, context discovers them, and
     assert.deepEqual(report.documents.map(doc => [doc.kind, doc.path, doc.status]), [
       ['product', '.flawless-ui-ux/product.md', 'created'], ['design', '.flawless-ui-ux/design.md', 'created'],
     ]);
-    assert.deepEqual(await fs.readdir(path.join(workspace.root, '.flawless-ui-ux')), ['design.md', 'product.md']);
+    assert.deepEqual((await fs.readdir(path.join(workspace.root, '.flawless-ui-ux'))).sort(), ['design.md', 'product.md']);
     for (const kind of ['product', 'design']) assert.equal(await fs.readFile(path.join(workspace.root, `.flawless-ui-ux/${kind}.md`), 'utf8'), await fs.readFile(path.join(repository, `skills/flawless-ui-ux/assets/context/${kind}.md`), 'utf8'));
     await fs.writeFile(path.join(workspace.root, '.flawless-ui-ux/product.md'), '# Product\nConfirmed user decisions');
     const before = snapshot(workspace.root);
@@ -87,7 +87,7 @@ test('Node and Bun expose init with scoped JSON/text output, direct flags and id
     const project = path.join(workspace.root, 'concurrent'); await fs.mkdir(project);
     const reports = await Promise.all([init({ project }), init({ project })]);
     assert.ok(reports.every(report => report.exitCode === 0));
-    assert.deepEqual(await fs.readdir(path.join(project, '.flawless-ui-ux')), ['design.md', 'product.md']);
+    assert.deepEqual((await fs.readdir(path.join(project, '.flawless-ui-ux'))).sort(), ['design.md', 'product.md']);
     assert.ok(reports.flatMap(report => report.documents).every(doc => ['created', 'reused'].includes(doc.status)));
     assert.throws(() => parse(['init', '--global']));
     assert.throws(() => parse(['init', '--source', 'brief.md']));

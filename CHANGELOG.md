@@ -4,16 +4,6 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-### Added
-
-- Project-local `init` creates missing product/design Markdown templates, reuses supported existing documents, and reports created or reused paths without overwriting content.
-- Shared template assets and skill guidance separate deterministic initialization from the agent's product interpretation and writing.
-
-### Changed
-
-- Strengthened contextual readability guidance during creation, including supporting text, user text scaling, and the distinction between suggested sizing and WCAG requirements.
-- Clarified authored focus contrast and browser compatibility when choosing native web capabilities, preserving platform-specific guidance and scoped work.
-
 ## 2.0.0
 
 ### Breaking
@@ -22,6 +12,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Project-local `init` creates missing product/design Markdown templates, reuses supported existing documents, and reports created or reused paths without overwriting content.
+- Shared template assets and skill guidance separate deterministic initialization from the agent's product interpretation and writing.
 - Optional product/design context from existing Markdown documents, conventional locations, and explicit project-local sources, with bounded excerpts, hashes, and reference freshness. Legacy JSON context remains readable for migration.
 - Explicit project-owned browser flows for UI actions, keyboard navigation, expectations, and named rendered states. Verify requires the unchanged flow file to be selected again; blocked steps remain incomplete.
 - Selected multi-screen inspection and computed-style inventories for contextual consistency review, with no automatic defect classification or aesthetic score.
@@ -29,7 +21,9 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Preserved the four public commands and basic installation/inspection usage. Flow runs block non-read-only network requests and popups and keep screenshots and reports opt-in.
+- Retained existing installation, context, inspection, and verification usage, alongside the new `init` command. Flow runs block non-read-only network requests and popups and keep screenshots and reports opt-in.
+- Strengthened contextual readability guidance during creation, including supporting text, user text scaling, and the distinction between suggested sizing and WCAG requirements.
+- Clarified authored focus contrast and browser compatibility when choosing native web capabilities, preserving platform-specific guidance and scoped work.
 
 ## 1.1.0
 
