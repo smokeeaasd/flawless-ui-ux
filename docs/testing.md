@@ -10,6 +10,8 @@ The [focused comparison](../evals/cases/17-maintenance-and-usefulness.md) and [r
 
 Local validation on November 14, 2026: 79 tests passed across 13 files on Windows with Bun 1.4.4, Node 24.16.0, and an explicitly selected installed Edge executable. No browser tests were skipped. The final HTML presentation adjustment was followed by its three passing focused tests, including offline screenshot loading and narrow/wide layout. The distribution test unpacked the archive and exercised install/update through Node. All 33 maintainer Markdown documents had resolvable local file links; the 18 legacy file hashes matched the published v2.0.0 Git tag. Linux behavior remains subject to CI validation for this increment.
 
+The first CI run passed on Ubuntu but exposed an overly strict path-spelling comparison in Windows doctor inventory. Maintenance now uses canonical physical paths, groups safe parent aliases once, and still blocks root/internal links and paths escaping the project. All 11 focused maintenance tests passed locally after the correction, including alias preview/update/diagnostics. The divergence assertion now includes installation statuses for actionable failure output.
+
 These checks validate the skill package, installer, CLI, and inspection/verification runtime. They do not score interface design or replace evaluations in the host agents.
 
 ## Run locally

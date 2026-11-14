@@ -23,9 +23,15 @@ async function inventory(options, runtime) {
     const copy = { path: target.path, agents: [target.agent], scope: plan.project ? 'project' : 'global', status: 'missing' };
     copies.push(copy);
     try {
-      await fs.lstat(target.path);
+      const identity = await fs.lstat(target.path);
+      if (identity.isSymbolicLink()) throw new Error('Installation root is a link.');
       const real = await fs.realpath(target.path);
-      if ((plan.project && !within(plan.project, real)) || path.relative(real, target.path) !== '') throw new Error('Installation path follows a link or leaves the project.');
+      if (plan.project && !within(plan.project, real)) throw new Error('Installation path leaves the project.');
+      // Real paths can differ in spelling (including Windows short names) without
+      // being links. Use the same physical destination as the installer.
+      const duplicate = copies.find(other => other !== copy && path.relative(other.path, real) === '');
+      if (duplicate) { duplicate.agents.push(...copy.agents); copies.pop(); continue; }
+      copy.path = real;
       const installed = await readInstallation(real, current, legacy);
       Object.assign(copy, installed, { status: !installed.managed ? 'unmanaged' : installed.modified.length ? 'modified' : newerVersion(installed.version) ? 'newer' : differences(installed.files, current.files).length ? 'different' : 'current', changes: differences(installed.files, current.files) });
     } catch (error) {

@@ -147,11 +147,39 @@ test('doctor inventories local/global divergence without writes or a required br
     const before = snapshot(workspace.root);
     const result = await doctor({ project, agent: 'codex', browserExecutable: path.join(workspace.root, 'absent-browser') }, runtime);
     assert.equal(result.installations.length, 2);
+    assert.deepEqual(result.installations.map(copy => copy.status), ['current', 'modified'], JSON.stringify(result.installations));
     assert.equal(result.divergent, true);
     assert.equal(result.browser.status, 'unavailable');
     assert.equal(result.exitCode, 2);
     assert.ok(result.runtime.dependencies.playwright);
     assert.deepEqual(snapshot(workspace.root), before);
+  } finally { workspace.cleanup(); }
+});
+
+test('maintenance resolves parent aliases and groups the physical installation once', async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    const config = path.join(workspace.root, '.gemini/config');
+    await fs.mkdir(config, { recursive: true });
+    const alias = path.join(workspace.root, 'config-alias');
+    await fs.symlink(config, alias, process.platform === 'win32' ? 'junction' : 'dir');
+    const runtime = { home: workspace.root, env: { CODEX_HOME: alias } };
+    const options = { global: true, agents: ['codex', 'antigravity'] };
+    const installed = await install(options, runtime);
+    const before = snapshot(workspace.root);
+    const preview = await update({ ...options, dryRun: true }, runtime);
+    assert.equal(preview.exitCode, 0);
+    assert.equal(preview.installations.length, 1);
+    assert.equal(preview.installations[0].path, installed.installations[0].path);
+    assert.deepEqual(preview.installations[0].agents, ['codex', 'antigravity']);
+    assert.deepEqual(snapshot(workspace.root), before);
+    const updated = await update(options, runtime);
+    assert.equal(updated.exitCode, 0);
+    assert.equal(updated.installations.length, 1);
+    const diagnostics = await doctor({ ...options, browserExecutable: path.join(workspace.root, 'absent-browser') }, runtime);
+    assert.equal(diagnostics.exitCode, 0);
+    assert.equal(diagnostics.installations.length, 1);
+    assert.equal(diagnostics.installations[0].status, 'current');
   } finally { workspace.cleanup(); }
 });
 
