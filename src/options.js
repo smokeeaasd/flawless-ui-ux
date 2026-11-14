@@ -37,31 +37,34 @@ export function parse(argv) {
   const options = { project: '.', sources: [], viewports: [], timeout: 15000, format: 'text' };
   if (['--help', '-h', undefined].includes(operation)) return { operation: 'help', options };
   if (operation === '--version') return { operation: 'version', options };
-  if (!['install', 'init', 'context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
+  if (!['install', 'update', 'doctor', 'init', 'context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
   if (argv.length === 1 && ['--help', '-h'].includes(argv[0])) return { operation: 'help', options };
-  if (operation === 'install') { options.project = undefined; options.agent = 'all'; }
+  const installation = ['install', 'update', 'doctor'].includes(operation);
+  if (installation) { options.project = undefined; options.agent = 'all'; }
   if (operation === 'verify') {
     options.baseline = argv.shift();
     if (!options.baseline || options.baseline.startsWith('--')) throw new Error('verify requires a run.json path.');
   }
   const seen = new Set();
   const selectedAgents = [];
-  const allowed = operation === 'install' ? [...agentOptions, 'global', 'project', 'format', 'yes'] : operation === 'init' ? ['project', 'format'] : operation === 'context' ? ['project', 'format', 'source'] : operation === 'verify' ? ['output', 'format', 'browser-executable', 'flow'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable', 'flow', 'consistency'];
+  const allowed = installation ? [...agentOptions, 'global', 'project', 'format', ...(operation === 'install' ? ['yes'] : operation === 'update' ? ['dry-run'] : ['browser-executable'])] : operation === 'init' ? ['project', 'format'] : operation === 'context' ? ['project', 'format', 'source'] : operation === 'verify' ? ['output', 'format', 'browser-executable', 'flow', 'html'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable', 'flow', 'consistency', 'html'];
   while (argv.length) {
     const flag = argv.shift();
     if (!flag.startsWith('--') || !allowed.includes(flag.slice(2))) throw new Error(`Unknown option: ${flag}`);
     const name = flag.slice(2);
     if (seen.has(name) && !['source', 'viewport', 'url'].includes(name)) throw new Error(`Repeated option: ${flag}`);
-    if (operation === 'install' && agentOptions.includes(name)) {
+    if (installation && agentOptions.includes(name)) {
       if (seen.has('all-agents') || (name === 'all-agents' && selectedAgents.length)) throw new Error('Choose individual agents or --all-agents, not both.');
       if (name !== 'all-agents') selectedAgents.push(name);
       seen.add(name);
       continue;
     }
     seen.add(name);
-    if (operation === 'install' && name === 'global') { options.global = true; continue; }
+    if (installation && name === 'global') { options.global = true; continue; }
     if (operation === 'install' && name === 'yes') { options.yes = true; continue; }
     if (name === 'consistency') { options.consistency = true; continue; }
+    if (name === 'dry-run') { options.dryRun = true; continue; }
+    if (name === 'html') { options.html = true; continue; }
     const value = argv.shift();
     if (!value || value.startsWith('--')) throw new Error(`Missing value for ${flag}`);
     if (name === 'source') options.sources.push(value);
@@ -75,7 +78,8 @@ export function parse(argv) {
   if (!['text', 'json'].includes(options.format)) throw new Error('Format must be text or json.');
   if (selectedAgents.length === 1) options.agent = selectedAgents[0];
   else if (selectedAgents.length > 1) { delete options.agent; options.agents = selectedAgents; }
-  if (operation === 'install' && seen.has('global') && seen.has('project')) throw new Error('Choose --global or --project, not both.');
+  if (installation && seen.has('global') && seen.has('project')) throw new Error('Choose --global or --project, not both.');
+  if (options.html && !options.output) throw new Error('--html requires --output NEW_DIR.');
   if (operation === 'context' && (options.sources.length > 8 || options.sources.some(source => !/\.md$/i.test(source)))) throw new Error('Context accepts at most eight Markdown --source files.');
   if (operation === 'inspect' && (options.url || options.urls?.length)) options.browserExecutable ||= process.env.FLAWLESS_BROWSER_EXECUTABLE;
   if (operation === 'inspect') validateInspection(options);

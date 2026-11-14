@@ -56,8 +56,12 @@ export async function reserveOutput(output) {
   await fs.mkdir(directory);
   return directory;
 }
-export async function saveReport(report, output) {
+export async function saveReport(report, output, options = {}) {
   if (output) {
+    if (options.html) {
+      const { writeHtmlReport } = await import('./html-report.js');
+      report.artifacts.html = await writeHtmlReport(report, output);
+    }
     report.artifacts.manifest = path.join(output, 'run.json');
     await fs.writeFile(report.artifacts.manifest, `${JSON.stringify(report, null, 2)}\n`, { flag: 'wx' });
   }

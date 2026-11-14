@@ -8,6 +8,8 @@ Status: the skill and local executable core are implemented. Automatic host inte
 |---|---|---|
 | Skill | Product interpretation, direction, creation/refinement/review, and semantic corrections | Loads relevant guidance; does not infer successful verification from its own intent |
 | Native installer | Bundled skill copies, selected agents/scope, destination preflight, and copy-failure cleanup | Never overwrites existing installations; no shell, checkout, or browser setup |
+| Installation maintenance | Shared destination resolution, content/version records, safe updates, and diagnostics | Blocks modified/unrecognized copies; no registry fetch, host configuration changes, or loading claims |
+| Offline report renderer | Optional HTML view of inspection/verification evidence and adjacent captures | Escapes content; no scripts, remote resources, new findings, or aesthetic scores |
 | Installation prompts | Terminal-only scope and multi-agent selection, read-only destination preview, and confirmation | Explicit flags, JSON, CI, and non-terminal use stay direct; the installer rechecks destinations after confirmation |
 | Context reader | Explicit project root, known metadata files, and optional saved decisions with source provenance | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
 | Context initializer | Canonical product/design templates and supported existing document discovery | Explicit project-local writes only for missing records; content interpretation belongs to the agent |
@@ -24,7 +26,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 
 The agent uses the skill and CLI. The CLI calls the coordinator, context reader, and comparison code. The coordinator invokes source/browser adapters; adapters return observations that the findings layer normalizes. The core does not import host integrations, presentation code, or model clients.
 
-The ESM entry point is `bin/flawless-ui-ux.js`. Implemented modules in `src/` separate options, context, inspection coordination, source/browser adapters, verification, and shared paths/findings/report persistence. No workspace or plugin framework is required.
+The ESM entry point is `bin/flawless-ui-ux.js`. Implemented modules in `src/` separate options, context, inspection coordination, source/browser adapters, verification, maintenance, and shared paths/findings/report persistence. Report persistence loads the HTML renderer only when requested. No workspace or plugin framework is required.
 
 The package retains skills/flawless-ui-ux and its existing invocation. Repository docs, evaluations, and research are not automatically loaded into agent tasks.
 

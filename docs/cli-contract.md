@@ -7,12 +7,43 @@ Status: implemented as Node-compatible ESM, developed and tested with Bun. The p
 | Operation | Responsibility | Writes |
 |---|---|---|
 | install | Copy the bundled skill for selected agents and scope | New skill directories only; existing installations are preserved |
+| update | Compare and replace clean installed copies with the running package's skill | Selected existing skill directories and installation records; no writes with `--dry-run` |
+| doctor | Diagnose installation copies, dependencies, and browser launch | stdout only; browser uses an isolated temporary profile |
 | init | Reuse supported product/design documents or create missing Markdown templates | Missing project-local product/design documents only; no overwrite |
 | context | Recover relevant context from a selected project and optional saved decisions | stdout only |
 | inspect | Collect requested source and rendered evidence and normalize findings | stdout; artifacts only with an explicit output directory |
 | verify | Repeat an existing run's checks on the current implementation and compare | stdout; a new artifact directory only when requested |
 
 Create, redesign, refine, and review remain activities performed by the coding agent through the skill. There is no standalone fix command that promises semantic changes without a model. A developer can use inspection directly and make corrections manually.
+
+## Update and doctor
+
+Forms:
+
+```
+flawless-ui-ux update [AGENT ...] [--global | --project DIR] [--dry-run] [--format text|json]
+flawless-ui-ux doctor [AGENT ...] [--global | --project DIR] [--browser-executable FILE] [--format text|json]
+```
+
+Agent flags and destination resolution follow install. Update defaults to all supported agents in the current project; global updates require `--global`. There are no prompts and no registry requests. Use a current package via npx/bunx/pnpm dlx to supply the desired bundled revision. Missing copies are reported and skipped, not installed. Shared destinations are processed once. Existing install behavior remains exclusive and does not become an update implicitly.
+
+New native installations include `.flawless-install.json` with schema 1, the package version, and SHA-256 hashes of installed regular files. The portable skill and its product/design Markdown do not change. These records identify installation state, not publisher authenticity. Exact 2.0.0 files are recognized using a bundled baseline when no record exists; exact current bundled files are also recognized. Unrecognized unmanaged copies are not overwritten. Versions from legacy records are inferred by content, not proof of which installer was used.
+
+Update reports each copy's agents, path, scope, recorded/inferred version, status, changed paths, and local modifications when known. Statuses are `missing`, `current`, `different` (clean content differs from this bundle), `modified`, `unmanaged`, `blocked`, `newer`, and `updated`. `--dry-run` inventories and previews changes without writes. Any modified, unreadable, linked, unrecognized, or newer selected copy returns 2 before all replacements. No force flag or automatic merge is provided. Empty user-created directories are not tracked; user files are tracked. Internal links and links in destination paths are conservatively blocked, even for some aliases accepted by install.
+
+All selected replacements are staged before swapping. Identity and content are rechecked before each swap; caught failures restore earlier replacements. Cleanup removes only allocated canonical update workspaces. If recovery cannot finish, the error identifies retained backup paths for manual recovery. This is process-error recovery, not a crash-safe transaction across filesystems. Do not edit installations while updating. Update skips missing installations and returns 0 for a completed no-op. Successful updates may leave a backup with a cleanup warning if removal fails.
+
+Doctor checks project and global copies by default. `--global` checks global copies only; `--project` changes the inspected project but still includes global copies. It reports divergent contents instead of choosing host precedence. Missing copies are informational. Modified, unreadable, or unrecognized copies yield 2. A missing/unlaunchable browser is advisory, reported separately in `browser`; native/source-only use remains possible. Browser selection uses explicit `--browser-executable`, then `FLAWLESS_BROWSER_EXECUTABLE`, otherwise Playwright's prepared Chromium executable. No browser downloads, agent loading assertions, settings edits, or session inspection occur.
+
+Maintenance operation envelopes use schema 2 with `installations`, findings, limits, coverage, and exitCode. Existing install envelopes remain schema 1. JSON stays noninteractive and stdout contains one report; errors remain on stderr with a schema-2 error envelope when JSON is selected.
+
+## Optional HTML artifacts
+
+Inspect and verify accept `--html` only with `--output NEW_DIR`. The output directory must not exist, including an empty directory. It contains the unchanged `run.json` evidence and local screenshots, plus `report.html`; `artifacts.html` is added only on request. The HTML renderer does not change findings, their status, comparison, or exit code. It escapes inspected content, uses no JavaScript or remote resources, and only embeds regular PNG files directly inside the allocated output directory. Screenshot captions identify the surface, state, and viewport. Move/share the directory as a unit.
+
+The report exposes scope/limits before findings, includes current captures and textual verification differences, and keeps heuristic review separate from confirmed errors. It does not copy baseline screenshots, generate aesthetic scores, or establish WCAG conformance. Source-only and partial runs explicitly retain their limitations. Artifact files may contain sensitive interface content and local paths.
+
+Complete schema-2 reports from 2.0.x and 2.1.x remain valid verify inputs with matching check versions and existing project/scope/flow/browser validation. Unsupported versions and incomplete runs remain rejected. The existing explicit v1 migration path is retained.
 
 ## Install
 

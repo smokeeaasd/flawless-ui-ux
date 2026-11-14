@@ -7,6 +7,7 @@ import { projectRoot, VERSION, CHECK_VERSION, REPORT_VERSION, finish, reserveOut
 import fs from 'node:fs/promises';
 
 export async function inspect(options, reservedOutput, persist = true) {
+  if (options.html && !options.output && !reservedOutput) throw new Error('--html requires --output NEW_DIR.');
   options = validateInspection({ ...options, sources: [...(options.sources || [])], viewports: [...(options.viewports || [])] });
   const root = await projectRoot(options.project);
   const flow = options.flow ? await readFlow(root, options.flow) : null;
@@ -49,5 +50,5 @@ export async function inspect(options, reservedOutput, persist = true) {
   }
   report.claims = ['Evidence covers selected surfaces, viewports, and explicit flow states only; no full WCAG conformance or business-flow verification.', 'Copy, icon, and style variations require contextual review; they do not identify AI authorship or establish design quality.'];
   finish(report);
-  return persist ? saveReport(report, output) : report;
+  return persist ? saveReport(report, output, options) : report;
 }

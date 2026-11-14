@@ -1,0 +1,26 @@
+[
+  {
+    "schemaVersion": 1,
+    "toolVersion": "2.0.0",
+    "files": {
+      "agents/openai.yaml": "ef5ba4542c1a432a16c8b83b188ae1a25657c836b9ef930c209ba90764671420",
+      "assets/context/design.md": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1",
+      "assets/context/product.md": "59d8bdc45a8ed969d683b888dcb81843d2d94ba8348e399f4879250aac2afe25",
+      "assets/design-studies/collection.png": "f4f213527740b4209e5d479e994916505914d17f9efbc58d5dad4b600927b197",
+      "assets/design-studies/reading.png": "33c12214b26494678483a33bd28b761020e3bc682fc43de047e01e02990a8e8c",
+      "assets/design-studies/service.png": "8a1ef809e0aab52135aafa2ca50a7bdf53f70ea1c7848279bd78fcec7964a9a3",
+      "assets/design-studies/workspace.png": "582ff7086fdb8c9b23a6673a7271b1e5379a11e9328b19353b576dcf4f211f7d",
+      "references/anti-slop.md": "ac794e4b80deaf72b10fc698394a268d5193f0ab7aaa21ffb5aacd6ff72ba4e2",
+      "references/calibration.md": "eacc033c51fc6598a663842e61b44687b6f811d77063099a559d9db0101a95b2",
+      "references/craft.md": "5fbba75c69f098abe5e70abafdd5690f93e0e7b61542ce00e6a151e96379f2ed",
+      "references/design-studies.md": "cba9929378dc74aee12ec847e107faec02f43f1890df2b6ac200a24164db5da2",
+      "references/direction.md": "a0fa5bff8f9f427c713bc54242748640100e900fce758a58797349a167dcc672",
+      "references/inspection.md": "df3f84bd64ef13a353c32abcf0e682927e734cf6964170d608198af4cfcbd426",
+      "references/interaction.md": "19b751383b44df1e4c6a11440945c53ed01d2858c5596c02ea080295b635e49d",
+      "references/project-context.md": "487154d34a0e9190f7e7761e49edf511d59e781102c07ef6080369979a620dfb",
+      "references/review.md": "033bcbb3de0bde11553504c3afec7d9dfc7fcfab830b0262623458a2213f3b27",
+      "references/structure.md": "10a5b7e314b47dccd4ab471915913f2ee84de4fb2b46c6328543ad15c8c79bd4",
+      "SKILL.md": "b21a3b5c6fae633e24c9fc86afc13c6bf749e9ebde1e2273c5dcc9d5e74d1921"
+    }
+  }
+]

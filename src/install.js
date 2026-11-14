@@ -4,6 +4,7 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { projectRoot, within, VERSION } from './shared.js';
 import { agents } from './agents.js';
+import { installationRecord, writeInstallationRecord } from './installation-record.js';
 
 const skillName = 'flawless-ui-ux';
 const bundledSkill = fileURLToPath(new URL('../skills/flawless-ui-ux/', import.meta.url));
@@ -56,14 +57,13 @@ async function rollback(created) {
   return errors;
 }
 
-export async function planInstallation(options, runtime = {}) {
+export async function installationTargets(options, runtime = {}) {
   const env = runtime.env || process.env;
   const home = runtime.home || os.homedir();
   const project = options.global ? null : await projectRoot(options.project || '.');
   const selected = options.agents ?? (!options.agent || options.agent === 'all' ? agents.map(agent => agent.id) : [options.agent]);
   if (!Array.isArray(selected) || !selected.length || selected.some(id => !agents.some(agent => agent.id === id))) throw new Error('Select at least one supported installation agent.');
   if (!(await fs.stat(path.join(bundledSkill, 'SKILL.md'))).isFile()) throw new Error('The package does not contain an installable skill.');
-  const entries = await fs.readdir(bundledSkill);
   const configuredRoot = (value, fallback) => {
     const directory = value || fallback;
     return path.resolve(directory === '~' ? home : /^~[\\/]/.test(directory) ? path.join(home, directory.slice(2)) : directory);
@@ -85,6 +85,12 @@ export async function planInstallation(options, runtime = {}) {
     { agent: 'devin', path: path.join(project ? path.join(project, '.agents') : devinConfig, 'skills', skillName) },
     { agent: 'deepseek-harness', path: project ? path.join(project, '.agents', 'skills', skillName) : path.join(configuredRoot(env.DSH_HOME?.trim() ? env.DSH_HOME : undefined, path.join(home, '.dsh')), 'skills', skillName) },
   ].filter(target => selected.includes(target.agent));
+  return { project, targets: candidates };
+}
+
+export async function planInstallation(options, runtime = {}) {
+  const { project, targets: candidates } = await installationTargets(options, runtime);
+  const entries = await fs.readdir(bundledSkill);
   // Preflight every target before creating any installation directories.
   const targets = [];
   for (const candidate of candidates) targets.push({ ...candidate, path: await destinationPath(candidate.path, project) });
@@ -101,6 +107,7 @@ export async function install(options, runtime = {}) {
   // Recheck destinations even when an interactive preview has already run.
   const { project, targets, uniqueTargets, entries } = await planInstallation(options, runtime);
   const created = [];
+  const record = await installationRecord(bundledSkill, VERSION);
   try {
     for (const target of uniqueTargets) {
       await fs.mkdir(path.dirname(target.path), { recursive: true });
@@ -109,6 +116,7 @@ export async function install(options, runtime = {}) {
       const identity = await fs.lstat(target.path);
       created.push({ path: target.path, device: identity.dev, inode: identity.ino });
       for (const entry of entries) await fs.cp(path.join(bundledSkill, entry), path.join(target.path, entry), { recursive: true, force: false, errorOnExist: true, verbatimSymlinks: true });
+      await writeInstallationRecord(target.path, record);
     }
   } catch (error) {
     const cleanup = await rollback(created);

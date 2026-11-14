@@ -1,5 +1,9 @@
 # Toolkit delivery plan
 
+## 2.1.0 increment
+
+Deliver `update` with preservation checks and rollback, read-only `doctor`, and optional HTML reports, retaining existing behavior and schema compatibility. Installation metadata does not replace product/design Markdown. The [focused evaluation](../evals/cases/17-maintenance-and-usefulness.md) is prepared separately; model outcomes remain pending in its result index. No extra skill-reading requirements, hooks, dependencies, or automated model runs are introduced.
+
 Status: the local CLI, source/browser inspection path, saved artifacts, and corresponding verification are implemented. Runtime fixture tests are separate from the pending matched host/design evaluation. This plan follows the [product contract](product-contract.md), [architecture](skill-architecture.md), and [CLI contract](cli-contract.md).
 
 ## First functional slice

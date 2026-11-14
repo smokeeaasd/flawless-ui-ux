@@ -6,6 +6,10 @@ import { spawnSync } from 'node:child_process';
 import { install } from '../src/install.js';
 import { parse } from '../src/options.js';
 import { temporaryWorkspace, repository, packageRoot, snapshot } from './helpers.js';
+import { installationRecord, recordName } from '../src/installation-record.js';
+import { hash, VERSION } from '../src/shared.js';
+
+const installedSnapshot = { ...snapshot(packageRoot), [recordName]: hash(`${JSON.stringify(await installationRecord(packageRoot, VERSION), null, 2)}\n`) };
 
 const skill = 'flawless-ui-ux';
 const agents = ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'grok-build', 'devin', 'deepseek-harness'];
@@ -31,7 +35,7 @@ test('native installation copies the complete skill for every agent and scope se
       for (const target of report.installations) {
         assert.equal(target.scope, scope);
         assert.equal(await fs.realpath(target.path), await fs.realpath(expectedPaths[target.agent]));
-        assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
+        assert.deepEqual(snapshot(target.path), installedSnapshot);
       }
       if (scope === 'project' && agent === 'all') assert.equal(new Set(report.installations.map(i => i.path)).size, 5);
     }
@@ -71,7 +75,7 @@ for (const runtime of ['node', 'bun']) test(`global CLI installation honors envi
     expected[agents.indexOf('devin')] = path.join(process.platform === 'win32' ? appdata : config, 'devin/skills', skill);
     expected[agents.indexOf('deepseek-harness')] = path.join(dsh, 'skills', skill);
     assert.deepEqual(await Promise.all(report.installations.map(i => fs.realpath(i.path))), await Promise.all(expected.map(destination => fs.realpath(destination))));
-    for (const target of report.installations) assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
+    for (const target of report.installations) assert.deepEqual(snapshot(target.path), installedSnapshot);
     const before = snapshot(root);
     const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--global', '--format', 'json'], {
       cwd: root, env, encoding: 'utf8',
@@ -95,7 +99,7 @@ test('Devin global installation follows APPDATA on Windows and XDG paths elsewhe
       const report = await install({ agent: 'devin', global: true }, { home: root, env, platform });
       assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [['devin', 'global']]);
       assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(expected));
-      assert.deepEqual(snapshot(expected), snapshot(packageRoot));
+      assert.deepEqual(snapshot(expected), installedSnapshot);
       const other = platform === 'win32' ? env.XDG_CONFIG_HOME || path.join(root, '.config') : env.APPDATA || path.join(root, 'AppData/Roaming');
       await assert.rejects(fs.lstat(path.join(other, 'devin/skills', skill)), { code: 'ENOENT' });
     }
@@ -125,7 +129,7 @@ test('Grok global overrides preserve literal path prefixes under Node and Bun', 
       const expected = path.join(root, '~', 'literal config/skills', skill);
       assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [['grok-build', 'global']]);
       assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(expected));
-      assert.deepEqual(snapshot(expected), snapshot(packageRoot));
+      assert.deepEqual(snapshot(expected), installedSnapshot);
       await assert.rejects(fs.lstat(path.join(home, '.grok')), { code: 'ENOENT' });
     }
   } finally { workspace.cleanup(); }
@@ -160,7 +164,7 @@ test('bare install targets the working project and preserves global installation
       assert.deepEqual(report.installations.map(i => i.agent), agents);
       assert.ok(report.installations.every(i => i.scope === 'project'));
       assert.equal(report.installations[0].path, report.installations[2].path);
-      for (const destination of localPaths(project)) assert.deepEqual(snapshot(destination), snapshot(packageRoot));
+      for (const destination of localPaths(project)) assert.deepEqual(snapshot(destination), installedSnapshot);
       assert.deepEqual(snapshot(profile), profileBefore);
       const beforeRepeat = snapshot(root);
       const repeat = spawnSync(runtime, [path.join(repository, 'bin/flawless-ui-ux.js'), 'install', '--format', 'json'], {
@@ -235,7 +239,7 @@ test('concurrent installs preserve the winning complete installation', async () 
     const results = await Promise.allSettled([install({ project: workspace.root, agent: 'codex' }), install({ project: workspace.root, agent: 'codex' })]);
     assert.equal(results.filter(r => r.status === 'fulfilled').length, 1);
     assert.equal(results.filter(r => r.status === 'rejected').length, 1);
-    assert.deepEqual(snapshot(localPaths(workspace.root)[0]), snapshot(packageRoot));
+    assert.deepEqual(snapshot(localPaths(workspace.root)[0]), installedSnapshot);
   } finally { workspace.cleanup(); }
 });
 
@@ -249,7 +253,7 @@ test('Antigravity selection installs natively under Node and Bun without writing
       assert.equal(result.status, 0, result.stderr);
       const report = JSON.parse(result.stdout);
       assert.deepEqual(report.installations.map(i => i.agent), ['antigravity']);
-      assert.deepEqual(snapshot(localPaths(root)[0]), snapshot(packageRoot));
+      assert.deepEqual(snapshot(localPaths(root)[0]), installedSnapshot);
       for (const unused of ['.agent', '.gemini', '.opencode', '.kiro', '.claude']) await assert.rejects(fs.lstat(path.join(root, unused)), { code: 'ENOENT' });
     }
   } finally { workspace.cleanup(); }
@@ -274,7 +278,7 @@ test('Kiro CLI selection preserves custom agents and steering under Node and Bun
       const report = JSON.parse(result.stdout);
       assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [['kiro', 'project']]);
       assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(localPaths(root)[2]));
-      assert.deepEqual(snapshot(report.installations[0].path), snapshot(packageRoot));
+      assert.deepEqual(snapshot(report.installations[0].path), installedSnapshot);
       for (const [file, content] of Object.entries(configuration)) assert.equal(await fs.readFile(path.join(root, '.kiro', file), 'utf8'), content);
       for (const unused of ['.agents', '.opencode', '.gemini']) await assert.rejects(fs.lstat(path.join(root, unused)), { code: 'ENOENT' });
       const before = snapshot(root);
@@ -296,7 +300,7 @@ test('canonical aliases share one copy while retaining each selected agent in th
     assert.equal(report.installations.length, 12);
     assert.equal(report.installations[0].path, report.installations[2].path);
     assert.equal(new Set(report.installations.map(i => i.path)).size, 11);
-    assert.deepEqual(snapshot(report.installations[2].path), snapshot(packageRoot));
+    assert.deepEqual(snapshot(report.installations[2].path), installedSnapshot);
     const before = snapshot(workspace.root);
     await assert.rejects(install({ agent: 'antigravity', global: true }, { home: workspace.root, env: {} }), /already exists/);
     assert.deepEqual(snapshot(workspace.root), before);
@@ -328,7 +332,7 @@ test('new agent selections preserve host configuration and install only the requ
       assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [[agent, 'project']]);
       const expected = localDestinations(root)[agent];
       assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(expected));
-      assert.deepEqual(snapshot(expected), snapshot(packageRoot));
+      assert.deepEqual(snapshot(expected), installedSnapshot);
       for (const [file, content] of Object.entries(configuration)) assert.equal(await fs.readFile(path.join(root, file), 'utf8'), content);
       for (const destination of localPaths(root).filter(destination => destination !== expected)) await assert.rejects(fs.lstat(destination), { code: 'ENOENT' });
     }
@@ -346,7 +350,7 @@ test('agent configuration overrides expand the isolated home', async () => {
       const report = await install({ agent, global: true }, { home: root, env: { [variable]: configured } });
       assert.deepEqual(report.installations.map(i => [i.agent, i.scope]), [[agent, 'global']]);
       assert.equal(await fs.realpath(report.installations[0].path), await fs.realpath(expected));
-      assert.deepEqual(snapshot(expected), snapshot(packageRoot));
+      assert.deepEqual(snapshot(expected), installedSnapshot);
       for (const destination of localPaths(root).filter(destination => destination !== expected)) await assert.rejects(fs.stat(destination), { code: 'ENOENT' });
     }
   } finally { workspace.cleanup(); }
