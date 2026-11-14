@@ -1,6 +1,8 @@
 # Product contract
 
-Revised on November 12, 2026. The toolkit includes the portable skill and a local executable inspection core. The skill installer installs instructions; the CLI has a Node-compatible package entry point and public npm publishing configuration. Publication follows the [release procedure](releasing.md); automatic integration remains separate. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [testing guide](testing.md).
+The 2.1 maintenance increment adds explicit installation updates, read-only diagnostics, and an opt-in offline report. Existing invocation, scope controls, product/design Markdown, findings, and default output behavior remain supported. See the [CLI contract](cli-contract.md#update-and-doctor) for exact update and preservation boundaries. Design effectiveness is evaluated separately in the [focused comparison round](../evals/cases/17-maintenance-and-usefulness.md); prepared runs are not evidence of improvement.
+
+Revised on November 14, 2026. The toolkit includes the portable skill and a local executable inspection core. The skill installer installs instructions; the CLI has a Node-compatible package entry point and public npm publishing configuration. Publication follows the [release procedure](releasing.md); automatic integration remains separate. Implementation and evidence are tracked in the [delivery plan](implementation-plan.md) and [testing guide](testing.md).
 
 ## Purpose
 

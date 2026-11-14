@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 2.1.0
+
+### Added
+
+- `update` refreshes selected project/global skill copies from the running package, with a read-only file-change preview, shared-destination deduplication, local-edit preservation, and recovery after a failed replacement. Missing copies are skipped; modified, linked, unrecognized, or newer copies block all selected updates.
+- Installation records store bundled versions and file hashes without changing product/design Markdown. Exact unmodified 2.0.0 copies can be adopted without a prior record.
+- Read-only `doctor` reports project/global installation paths, recorded versions, divergence, runtime dependencies, and a browser launch probe. It does not establish agent loading or configure/download browsers.
+- Opt-in `--html` for inspect/verify output directories creates an offline report with local screenshots, findings, evidence, coverage, limits, flow observations, and verification differences. Default artifacts and JSON report schema remain unchanged.
+- A small creation/refinement evaluation protocol with separate baseline and assisted arms, frozen-input instructions, timing, and pending result records. No model-outcome claims are added by automated runtime tests.
+
+### Compatibility
+
+- Preserve existing commands, install report schema 1, inspection report schema 2, and exit semantics. Verification accepts complete compatible 2.0.x and 2.1.x reports with matching check versions, retaining the explicit v1 migration path.
+- No new dependencies, host hooks, automatic corrections, or additional agent instructions.
+
 ## 2.0.0
 
 ### Breaking

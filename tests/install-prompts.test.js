@@ -1,4 +1,6 @@
 import { test } from 'bun:test';
+import { installationRecord, recordName } from '../src/installation-record.js';
+import { hash, VERSION } from '../src/shared.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -42,7 +44,7 @@ test('confirmation previews canonical destinations without writes, then installs
     const report = await install(configured);
     assert.deepEqual(report.installations.map(target => target.agent), ['codex', 'antigravity', 'devin']);
     assert.equal(new Set(report.installations.map(target => target.path)).size, 1);
-    assert.deepEqual(snapshot(report.installations[0].path), snapshot(packageRoot));
+    assert.deepEqual(snapshot(report.installations[0].path), { ...snapshot(packageRoot), [recordName]: hash(`${JSON.stringify(await installationRecord(packageRoot, VERSION), null, 2)}\n`) });
     assert.deepEqual(await fs.readdir(workspace.root), ['.agents']);
   } finally { workspace.cleanup(); }
 });
@@ -88,7 +90,7 @@ test('combined flags remain direct and produce clean JSON under Node and Bun', a
       const report = JSON.parse(result.stdout);
       assert.deepEqual(report.installations.map(target => target.agent), ['codex', 'opencode', 'devin']);
       assert.equal(new Set(report.installations.map(target => target.path)).size, 2);
-      for (const target of report.installations) assert.deepEqual(snapshot(target.path), snapshot(packageRoot));
+      for (const target of report.installations) assert.deepEqual(snapshot(target.path), { ...snapshot(packageRoot), [recordName]: hash(`${JSON.stringify(await installationRecord(packageRoot, VERSION), null, 2)}\n`) });
       assert.deepEqual((await fs.readdir(root)).sort(), ['.agents', '.opencode']);
     }
   } finally { workspace.cleanup(); }
@@ -137,7 +139,7 @@ for (const runtime of ['node', 'bun']) test(`real CLI prompts accept keyboard se
         assert.deepEqual(await fs.readdir(home), []);
       } else {
         const targets = scenario === 'global' ? [path.join(home, '.codex/skills/flawless-ui-ux'), path.join(home, '.config/opencode/skills/flawless-ui-ux')] : [path.join(project, '.agents/skills/flawless-ui-ux'), path.join(project, '.opencode/skills/flawless-ui-ux')];
-        for (const target of targets) assert.deepEqual(snapshot(target), snapshot(packageRoot));
+        for (const target of targets) assert.deepEqual(snapshot(target), { ...snapshot(packageRoot), [recordName]: hash(`${JSON.stringify(await installationRecord(packageRoot, VERSION), null, 2)}\n`) });
         assert.deepEqual(await fs.readdir(scenario === 'global' ? project : home), []);
         assert.ok(result.output.includes('Installation summary'));
       }

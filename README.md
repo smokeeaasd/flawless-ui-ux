@@ -121,6 +121,27 @@ The Bash alternative requires `--project` for local installation; its default is
 
 </details>
 
+## Update and diagnose installations
+
+Updating the npm package does not replace skill copies already installed for your agents. Preview changes, then update those copies from the running package:
+
+```
+npx flawless-ui-ux@latest update --codex --dry-run
+npx flawless-ui-ux@latest update --codex
+npx flawless-ui-ux@latest update --global --claude-code
+```
+
+Without agent flags, `update` checks all supported destinations in the selected scope. Missing copies are skipped. Modified, unrecognized, linked, or newer copies stop the entire selected update before any installation changes. Keep local edits and reconcile them manually; there is no force overwrite. Clean 2.0.0 copies are recognized by their file hashes. New installs and updates record the package version and file hashes in `.flawless-install.json` inside the skill directory, separate from your product/design Markdown.
+
+Check local and global copies and browser availability:
+
+```
+npx flawless-ui-ux@latest doctor --codex
+npx flawless-ui-ux@latest doctor --global --format json
+```
+
+`doctor` reports paths, recorded versions, modifications, divergent copies, runtime dependencies, and a browser launch probe. A missing browser is advisory for source-only work. It does not download a browser, change agent settings, or establish that a skill is loaded in an active session. Both commands support the install agent flags and `--project`; only `--global` selects global updates. See the [maintenance contract](docs/cli-contract.md#update-and-doctor).
+
 ## Use the skill
 
 Describe the interface you need and name the skill:
@@ -170,6 +191,17 @@ Inspect related screens with repeated `--url` inputs and `--consistency` for a c
 ## Inspect and verify
 
 Use the CLI directly, or ask your agent to include these checks in its work. Replace `npx` with `pnpm dlx` or `bunx` throughout.
+
+### Optional visual report
+
+Add `--html` with a new output directory to inspect or verify:
+
+```
+npx flawless-ui-ux inspect --url http://localhost:5173 --output ./inspection-before --html
+npx flawless-ui-ux verify ./inspection-before/run.json --output ./inspection-after --html
+```
+
+Open `report.html` from the output directory. It shows findings, evidence, coverage, captured screens, and verification differences without a server or external services. Screenshots remain adjacent files; keep the output directory together when sharing it. Reports can contain your interface content and project paths. The HTML is an additional view of the same observations, not a design score or full accessibility certification. Omit `--html` to retain the existing JSON artifact behavior.
 
 ### Start with context and source
 

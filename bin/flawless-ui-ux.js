@@ -5,6 +5,7 @@ import { inspect } from '../src/inspect.js';
 import { verify } from '../src/verify.js';
 import { install } from '../src/install.js';
 import { init } from '../src/init.js';
+import { update, doctor } from '../src/maintenance.js';
 import { VERSION } from '../src/shared.js';
 import { configureInstall, shouldPromptInstall, InstallationCancelled } from '../src/install-prompts.js';
 
@@ -16,13 +17,16 @@ try {
   else if (operation === 'help') console.log(`flawless-ui-ux ${VERSION}
   install [AGENT ...] [--global | --project DIR]
           [--yes] [--format text|json]
+  update [AGENT ...] [--global | --project DIR] [--dry-run] [--format text|json]
+  doctor [AGENT ...] [--global | --project DIR] [--browser-executable FILE]
+         [--format text|json]
   init [--project DIR] [--format text|json]
   context [--project DIR] [--source DOCUMENT.md ...] [--format text|json]
   inspect [--project DIR] [--source FILE ...] [--url URL ...]
           [--flow FILE] [--consistency]
           [--selector CSS] [--viewport WIDTHxHEIGHT ...] [--output NEW_DIR]
-          [--timeout MS] [--browser-executable FILE] [--format text|json]
-  verify RUN_JSON [--flow FILE] [--output NEW_DIR] [--browser-executable FILE] [--format text|json]
+          [--timeout MS] [--browser-executable FILE] [--html] [--format text|json]
+  verify RUN_JSON [--flow FILE] [--output NEW_DIR] [--browser-executable FILE] [--html] [--format text|json]
 
 Agent selectors (combine individual flags): --codex, --opencode, --antigravity, --kiro,
   --cursor, --kilo, --copilot, --claude-code, --pi, --grok-build, --devin,
@@ -32,6 +36,11 @@ Explicit flags skip prompts. Use --yes for the default all-agent project install
 Without a terminal, or in CI, bare install keeps the all-agent project default.
 Use --global for user-wide installation. Shared destinations are copied once.
 Existing installations are preserved.
+update uses the running package's bundled skill; modified or unknown copies block all selected updates.
+update skips missing copies; --dry-run previews file changes. It does not download packages.
+doctor checks project and global copies (only global with --global), plus browser launch.
+doctor does not confirm agent loading or change settings. Missing browsers are advisory.
+--html writes report.html beside run.json and screenshots; it requires --output NEW_DIR.
 init creates missing product/design Markdown templates or reuses supported existing documents; it never overwrites them.
 inspect requires a source or URL. Defaults: 1440x900 and 390x844, 15000 ms.
 Ordinary inspection is observational. --flow explicitly runs selected UI actions; non-read-only network requests are blocked.
@@ -40,12 +49,22 @@ FLAWLESS_BROWSER_EXECUTABLE explicitly selects an installed Chromium executable.
 Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
   130 interrupted installation.`);
   else {
-    const report = await ({ install, init, context, inspect, verify }[operation])(options);
+    const report = await ({ install, update, doctor, init, context, inspect, verify }[operation])(options);
     if (options.format === 'json') console.log(JSON.stringify(report, null, 2));
     else {
       if (operation === 'install') {
         for (const target of report.installations) console.log(`Installed flawless-ui-ux for ${target.agent} (${target.scope}): ${target.path}`);
       } else console.log(`${operation}: ${report.project}\nCoverage: ${JSON.stringify(report.coverage)} (${report.completion})`);
+      if (['update', 'doctor'].includes(operation)) {
+        for (const copy of report.installations) {
+          console.log(`${copy.status}: ${copy.path} (${copy.scope}; ${copy.agents.join(', ')}; version ${copy.version || 'unknown'})`);
+          for (const change of copy.modified || []) console.log(`  Local ${change.change}: ${change.path}`);
+          for (const change of copy.changes || []) console.log(`  Bundle ${change.change}: ${change.path}`);
+          if (copy.reason) console.log(`  ${copy.reason}`);
+        }
+        if (report.runtime) console.log(`Runtime: ${JSON.stringify(report.runtime)}`);
+        if (report.browser) console.log(`Browser: ${JSON.stringify(report.browser)}`);
+      }
       for (const f of report.findings) console.log(`[${f.status}/${f.severity}] ${f.checkId} ${f.target}: ${f.observation}\n  ${f.recommendation}`);
       if (report.operation === 'context') console.log(JSON.stringify({ sources: report.sources, missing: report.missing, documents: report.documents, saved: report.saved, decisions: report.decisions }, null, 2));
       if (report.operation === 'init') for (const document of report.documents) console.log(`${document.status}: ${document.path} (${document.kind})`);
@@ -54,6 +73,7 @@ Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
       if (report.comparison) console.log(`Comparison: ${JSON.stringify(report.comparison)}`);
       for (const limit of [...report.limits, ...(report.claims || [])]) console.log(`Limit: ${limit}`);
       if (report.artifacts?.manifest) console.log(`Manifest: ${report.artifacts.manifest}`);
+      if (report.artifacts?.html) console.log(`HTML: ${report.artifacts.html}`);
     }
     process.exitCode = report.exitCode;
   }

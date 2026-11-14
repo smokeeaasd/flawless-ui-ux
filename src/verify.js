@@ -6,11 +6,13 @@ import { validateInspection } from './options.js';
 import { projectRoot, VERSION, CHECK_VERSION, finish, reserveOutput, saveReport, finding } from './shared.js';
 
 export async function verify(options) {
+  if (options.html && !options.output) throw new Error('--html requires --output NEW_DIR.');
   const stat = await fs.stat(options.baseline);
   if (stat.size > 20 * 1024 * 1024) throw new Error('Baseline exceeds 20 MiB.');
   let baseline = JSON.parse(await fs.readFile(options.baseline, 'utf8'));
   const legacy = baseline.schemaVersion === 1 && baseline.checkVersion === 1 && /^1\./.test(baseline.toolVersion);
-  if ((!legacy && (baseline.schemaVersion !== 2 || baseline.toolVersion !== VERSION || baseline.checkVersion !== CHECK_VERSION)) || !['inspect', 'verify'].includes(baseline.operation) || baseline.completion !== 'complete') throw new Error('Baseline is incomplete or incompatible. Use a complete supported run.');
+  const supportedVersion = baseline.toolVersion === VERSION || /^2\.(?:0|1)\.\d+$/.test(baseline.toolVersion);
+  if ((!legacy && (baseline.schemaVersion !== 2 || !supportedVersion || baseline.checkVersion !== CHECK_VERSION)) || !['inspect', 'verify'].includes(baseline.operation) || baseline.completion !== 'complete') throw new Error('Baseline is incomplete or incompatible. Use a complete supported run.');
   if (typeof baseline.project !== 'string' || await projectRoot(baseline.project) !== baseline.project) throw new Error('Baseline project identity changed.');
   const identity = await fs.stat(baseline.project);
   if (JSON.stringify(baseline.projectIdentity) !== JSON.stringify({ device: identity.dev, inode: identity.ino, created: identity.birthtimeMs })) throw new Error('Baseline project directory identity changed.');
@@ -80,5 +82,5 @@ export async function verify(options) {
   }
   if (report.comparison.unverified.length) report.limits.push('Some previous findings could not be re-observed; absence alone is not a repair.');
   finish(report);
-  return saveReport(report, output);
+  return saveReport(report, output, options);
 }

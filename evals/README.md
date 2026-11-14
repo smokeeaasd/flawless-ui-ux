@@ -1,5 +1,7 @@
 # Guided manual evaluations
 
+The [2.1.0 focused round](cases/17-maintenance-and-usefulness.md) prepares three matched creation/refinement tasks and installation/report acceptance checks. Its [model result matrix](results/2.1.0/README.md) is pending; existing sequential showcase examples remain separate evidence.
+
 These materials evaluate skill behavior in Codex and OpenCode, with focused compatibility cases for the other supported agents. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.
 
 The [toolkit delivery plan](../docs/implementation-plan.md#behavioral-gate) reuses these cases to evaluate the implemented executable workflow. Matched host/model evaluations remain pending. Preserve earlier skill-only evidence separately, and record source, browser, and interaction coverage rather than treating a passing scan as complete design or accessibility validation.

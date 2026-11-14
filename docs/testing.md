@@ -1,5 +1,17 @@
 # Package and installation tests
 
+## 2.1.0 maintenance and reporting
+
+`tests/maintenance.test.js` covers legacy adoption, read-only previews, clean replacement, local edits/additions/deletions blocking every selected update, rollback, missing/unrecognized copies, links, invalid metadata, scope divergence, and Node/Bun output. Browser availability is separate from agent activation.
+
+`tests/html-report.test.js` covers optional HTML, unchanged default artifacts/exit semantics, complete 2.0.0 baseline verification, content escaping, offline captures, and narrow/wide layout. Browser cases use the existing `FLAWLESS_TEST_BROWSER=1` or explicit `FLAWLESS_BROWSER_EXECUTABLE` setup. Native install/prompt tests include the deterministic record while preserving full content checks.
+
+The [focused comparison](../evals/cases/17-maintenance-and-usefulness.md) and [result matrix](../evals/results/2.1.0/README.md) are prepared and pending. Runtime passes must not be reported as design/latency evaluations.
+
+Local validation on November 14, 2026: 79 tests passed across 13 files on Windows with Bun 1.4.4, Node 24.16.0, and an explicitly selected installed Edge executable. No browser tests were skipped. The final HTML presentation adjustment was followed by its three passing focused tests, including offline screenshot loading and narrow/wide layout. The distribution test unpacked the archive and exercised install/update through Node. All 33 maintainer Markdown documents had resolvable local file links; the 18 legacy file hashes matched the published v2.0.0 Git tag. Linux behavior remains subject to CI validation for this increment.
+
+The first CI run passed on Ubuntu but exposed an overly strict path-spelling comparison in Windows doctor inventory. Maintenance now uses canonical physical paths, groups safe parent aliases once, and still blocks root/internal links and paths escaping the project. All 11 focused maintenance tests passed locally after the correction, including alias preview/update/diagnostics. The divergence assertion now includes installation statuses for actionable failure output.
+
 These checks validate the skill package, installer, CLI, and inspection/verification runtime. They do not score interface design or replace evaluations in the host agents.
 
 ## Run locally

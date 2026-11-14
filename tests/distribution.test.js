@@ -20,7 +20,7 @@ test('packed distribution contains the executable core and portable skill withou
     assert.equal(metadata.publishConfig.access, 'public');
     assert.equal(metadata.publishConfig.registry, 'https://registry.npmjs.org/');
     assert.equal(metadata.bin['flawless-ui-ux'], 'bin/flawless-ui-ux.js');
-    for (const file of ['src/browser.js', 'skills/flawless-ui-ux/SKILL.md', 'skills/flawless-ui-ux/references/inspection.md', 'docs/assets/logo.svg', 'CHANGELOG.md', 'install.sh']) assert.ok((await fs.stat(path.join(root, file))).isFile());
+    for (const file of ['src/browser.js', 'src/maintenance.js', 'src/html-report.js', 'src/installation-baselines.json', 'skills/flawless-ui-ux/SKILL.md', 'skills/flawless-ui-ux/references/inspection.md', 'docs/assets/logo.svg', 'CHANGELOG.md', 'install.sh']) assert.ok((await fs.stat(path.join(root, file))).isFile());
     assert.deepEqual(await fs.readdir(path.join(root, 'docs')), ['assets']);
     assert.deepEqual((await fs.readdir(path.join(root, 'docs/assets'))).sort(), ['banner.svg', 'fintech-with-skill.png', 'fintech-without-skill.png', 'logo.svg']);
     for (const excluded of ['evals', 'tests', 'node_modules']) await assert.rejects(fs.stat(path.join(root, excluded)), { code: 'ENOENT' });
@@ -34,6 +34,9 @@ test('packed distribution contains the executable core and portable skill withou
     const report = JSON.parse(installed.stdout);
     assert.deepEqual(report.installations.map(target => target.agent), ['codex', 'opencode', 'antigravity', 'kiro', 'cursor', 'kilo', 'copilot', 'claude-code', 'pi', 'grok-build', 'devin', 'deepseek-harness']);
     assert.equal(new Set(report.installations.map(target => target.path)).size, 5);
+    const updated = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'update', '--project', project, '--format', 'json'], { encoding: 'utf8' });
+    assert.equal(updated.status, 0, updated.stderr);
+    assert.equal(JSON.parse(updated.stdout).installations.length, 5);
     assert.ok(report.installations.every(target => target.scope === 'project'));
     for (const target of report.installations) assert.equal(await fs.readFile(path.join(target.path, 'SKILL.md'), 'utf8'), await fs.readFile(path.join(root, 'skills/flawless-ui-ux/SKILL.md'), 'utf8'));
     const initialized = spawnSync('node', [path.join(root, metadata.bin['flawless-ui-ux']), 'init', '--project', project, '--format', 'json'], { encoding: 'utf8' });
