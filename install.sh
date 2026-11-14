@@ -48,7 +48,8 @@ fi
 destinations=()
 add_destination() {
   local candidate="$1" existing
-  for existing in "${destinations[@]}"; do
+  # ${arr[@]+...} guard: bash < 4.4 (macOS /bin/bash 3.2) treats an empty array as unbound under set -u.
+  for existing in ${destinations[@]+"${destinations[@]}"}; do
     [[ "$existing" == "$candidate" ]] && return 0
   done
   destinations+=("$candidate")
