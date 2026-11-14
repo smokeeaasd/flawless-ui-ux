@@ -8,9 +8,11 @@
 
 The [focused comparison](../evals/cases/17-maintenance-and-usefulness.md) and [result matrix](../evals/results/2.1.0/README.md) are prepared and pending. Runtime passes must not be reported as design/latency evaluations.
 
-Local validation on November 14, 2026: 79 tests passed across 13 files on Windows with Bun 1.4.4, Node 24.16.0, and an explicitly selected installed Edge executable. No browser tests were skipped. The final HTML presentation adjustment was followed by its three passing focused tests, including offline screenshot loading and narrow/wide layout. The distribution test unpacked the archive and exercised install/update through Node. All 33 maintainer Markdown documents had resolvable local file links; the 18 legacy file hashes matched the published v2.0.0 Git tag. Linux behavior remains subject to CI validation for this increment.
+Initial local validation on November 14, 2026: 79 tests passed across 13 files on Windows with Bun 1.4.4, Node 24.16.0, and an explicitly selected installed Edge executable. No browser tests were skipped. The final HTML presentation adjustment was followed by its three passing focused tests, including offline screenshot loading and narrow/wide layout. The distribution test unpacked the archive and exercised install/update through Node. All 33 maintainer Markdown documents had resolvable local file links; the 18 legacy file hashes matched the published v2.0.0 Git tag.
 
 The first CI run passed on Ubuntu but exposed an overly strict path-spelling comparison in Windows doctor inventory. Maintenance now uses canonical physical paths, groups safe parent aliases once, and still blocks root/internal links and paths escaping the project. All 11 focused maintenance tests passed locally after the correction, including alias preview/update/diagnostics. The divergence assertion now includes installation statuses for actionable failure output.
+
+After merging maintenance and the Bash installer fix, [main CI at 78abd69](https://github.com/smokeeaasd/flawless-ui-ux/actions/runs/43610327799) passed all 80 tests across 13 files on both Windows and Ubuntu. Browser fixtures were enabled. This supersedes the earlier pending Linux status and initial test count; it does not complete the model evaluation matrix.
 
 These checks validate the skill package, installer, CLI, and inspection/verification runtime. They do not score interface design or replace evaluations in the host agents.
 
@@ -34,7 +36,7 @@ FLAWLESS_TEST_BROWSER=1 bun test
 
 Alternatively set `FLAWLESS_BROWSER_EXECUTABLE` to an installed compatible Chromium executable. In PowerShell use `$env:FLAWLESS_TEST_BROWSER = '1'` before `bun test`. Browser tests are explicitly skipped when neither setting is supplied; source/context/CLI and installer tests still run. CI installs Chromium separately and requires browser tests on both operating systems.
 
-The same commands work on Windows with Git Bash installed. Tests locate Git Bash from the Git installation on Windows and use Bash from the command path elsewhere. Set `FLAWLESS_TEST_BASH` to select a compatible executable explicitly. WSL is a separate environment and is not established as tested by a Windows run.
+The same commands work on Windows with Git Bash installed. Tests locate Git Bash from the Git installation on Windows and use Bash from the command path elsewhere. Set `FLAWLESS_TEST_BASH` to select a compatible executable explicitly. WSL is a separate environment: the [focused legacy Bash comparison](#bash-32-compatibility) establishes only its recorded installation/distribution coverage, not native agent or browser behavior there.
 
 Bun runs the built-in test runner. The only development dependency is the strict YAML parser, pinned in `package.json` and `bun.lock`. The installed skill does not depend on either tool.
 
@@ -47,6 +49,8 @@ Bun runs the built-in test runner. The only development dependency is the strict
 | `tests/native-install.test.js` | Node/Bun installation for all supported agents, isolated global homes, shared destinations, configuration overrides and home expansion, canonical aliases, nested-path rejection, all-target preflight, rollback, host configuration preservation, and concurrent creation |
 | `tests/install-prompts.test.js` | Terminal/flag/CI routing, scope and multi-agent configuration, read-only destination summaries, decline/cancellation preservation, preflight rechecks, combined flags with JSON, and real prompt-library keyboard input under Node/Bun |
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
+| `tests/maintenance.test.js` | Legacy adoption, preview preservation, modified/unknown/newer copies, all-target refusal, replacement rollback, canonical aliases, scope divergence, browser availability, and Node/Bun output |
+| `tests/html-report.test.js` | Optional HTML and unchanged default artifacts, compatible 2.0 baselines, escaped content, offline captures, and narrow/wide layout |
 | `tests/context-markdown.test.js` | Markdown reuse, explicit source bounds, reference freshness, read-only behavior, v1 report migration, and surface-specific fingerprints |
 | `tests/init.test.js` | Canonical template creation, per-kind reuse, preservation of edits, preflight conflicts/links, concurrent creation, Node/Bun output, and discovery by context |
 | `tests/workflows.test.js` | Flow validation, state capture, keyboard expectations, explicit replay and changed-flow rejection, blocked writes, corresponding-screen inventories, and unverified missing targets |
@@ -59,6 +63,23 @@ The metadata checks reject duplicate YAML keys. Reference checks are scoped to t
 Installation tests copy the actual installer and skill into disposable directories and execute Bash against that copy. Global installation modes use isolated child-process home directories and `CODEX_HOME`/`XDG_CONFIG_HOME`/`CLAUDE_CONFIG_DIR`/`PI_CODING_AGENT_DIR` paths under those directories. Native tests set both `HOME` and `USERPROFILE`, check the resolved home before CLI global installation, and keep Bun's runtime cache outside the simulated profile. The user's actual home and existing agent installations are not used as destinations. The test checks complete file hashes rather than a fixed list of current filenames.
 
 Conflict tests verify that existing files, directories, local edits, and link targets survive. A conflict at any selected destination must fail before installing the first target. Link cases use directory junctions on Windows and directory symlinks on Linux, including missing targets and parent paths escaping the project for every agent selector. Shared destinations are copied once, while non-identical nested destinations are rejected; failure at the third, fourth, or final global copy rolls back earlier newly allocated skill directories. The fault simulation resolves home aliases and Windows short paths before matching a copy.
+
+## Bash 3.2 compatibility
+
+On November 14, 2026, the exact installer patch from PR #37 was compared against main at `4d87ac7` in Arch Linux/WSL2, using GNU Bash 3.2.57(1)-release on x86_64, Bun 1.4.4, and Node 26.13.1. Each variant used an independent disposable main copy and the same test command:
+
+```
+FLAWLESS_TEST_BASH=/absolute/path/to/bash-3.2.57 bun test tests/install.test.js tests/distribution.test.js
+```
+
+| Variant | Passed | Failed | Exit |
+|---|---:|---:|---:|
+| Before the fix | 8 | 6 | 1 |
+| With the fix | 14 | 0 | 0 |
+
+The baseline reproduced `destinations[@]: unbound variable` at the first empty-array loop under `set -u`. The corrected script preserved project/global agent selection, paths with spaces, shared-copy deduplication, local edits, conflict preflight, and directory/broken-link preservation. The distribution test passed in both variants.
+
+The interpreter was compiled from the [official GNU Bash 3.2.57 archive](https://ftp.gnu.org/gnu/bash/bash-3.2.57.tar.gz), with compiler tools and Bun extracted into temporary directories. The system package inventory was unchanged and its Bash 5.3.20 remained the default. Temporary tools and projects were removed after saving evidence outside the repository. This is a GNU Bash compatibility test on Linux, not native macOS validation. Windows/Ubuntu CI still uses modern Bash and does not automatically repeat this legacy-interpreter check.
 
 ## Continuous integration
 
