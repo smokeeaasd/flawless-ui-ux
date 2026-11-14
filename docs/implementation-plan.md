@@ -2,7 +2,7 @@
 
 ## 2.1.0 increment
 
-Deliver `update` with preservation checks and rollback, read-only `doctor`, and optional HTML reports, retaining existing behavior and schema compatibility. Installation metadata does not replace product/design Markdown. The [focused evaluation](../evals/cases/17-maintenance-and-usefulness.md) is prepared separately; model outcomes remain pending in its result index. No extra skill-reading requirements, hooks, dependencies, or automated model runs are introduced.
+Implemented: `update` with preservation checks and rollback, read-only `doctor`, and optional HTML reports, retaining existing behavior and schema compatibility. Maintenance resolves canonical Windows/alias paths, and the Bash alternative includes the empty-array compatibility fix verified with Bash 3.2.57. Installation metadata does not replace product/design Markdown. Windows/Ubuntu CI is passing; see [testing](testing.md). The [focused evaluation](../evals/cases/17-maintenance-and-usefulness.md) is prepared separately; model outcomes remain pending in its result index. No extra skill-reading requirements, hooks, dependencies, or automated model runs are introduced. Publication follows the separate [release procedure](releasing.md).
 
 Status: the local CLI, source/browser inspection path, saved artifacts, and corresponding verification are implemented. Runtime fixture tests are separate from the pending matched host/design evaluation. This plan follows the [product contract](product-contract.md), [architecture](skill-architecture.md), and [CLI contract](cli-contract.md).
 
@@ -14,7 +14,7 @@ This executable slice describes browser inspection. The shared skill also guides
 
 Include:
 
-- A Node-compatible ESM CLI exposing install, init, context, inspect, and verify, with Bun development/tests and no model-service dependency. Init creates missing Markdown structure; the agent supplies product/design content.
+- A Node-compatible ESM CLI exposing install, update, doctor, init, context, inspect, and verify, with Bun development/tests and no model-service dependency. Init creates missing Markdown structure; the agent supplies product/design content. Update/doctor maintain installation copies; they do not perform design work.
 - A project-scoped context reader with optional saved decisions, provenance, and stale-source reporting.
 - Source observations and a Playwright browser adapter using selected axe checks, rendered legibility/overflow/media observations, and runtime error evidence.
 - Compact text/JSON findings, explicit coverage, saved captures/manifests, and conservative before/after comparison.

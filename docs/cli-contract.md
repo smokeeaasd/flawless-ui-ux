@@ -82,7 +82,9 @@ Kiro paths follow its [official skill documentation](https://kiro.dev/docs/skill
 
 All selected targets are preflighted before creating installation directories. Existing files, directories, and links, including broken links, are refused without overwrite. Project parent links resolving outside the project and distinct nested global destinations are rejected. An exclusive destination creation also preserves a target that appears after preflight. On copy failure, cleanup removes only skill directories allocated by that invocation with unchanged identities; empty parent directories may remain. Any cleanup failure is reported with its path for manual resolution.
 
-Installation reports include schema/tool version, operation, completion, installation coverage, and each installed agent/scope/path, in the supported-agent order. Exit 0 means all selected copies completed, or the user declined confirmation; interrupted prompts return 130. Invalid arguments, existing installations, or copy failures return 2. No force-overwrite or automatic upgrade is provided. Review and remove an old installation explicitly before reinstalling. Native tests exercise Node/Bun on Windows and Ubuntu; macOS remains unverified.
+Installation reports include schema/tool version, operation, completion, installation coverage, and each installed agent/scope/path, in the supported-agent order. Exit 0 means all selected copies completed, or the user declined confirmation; interrupted prompts return 130. Invalid arguments, existing installations, or copy failures return 2. Install does not overwrite or implicitly upgrade a destination. Use the explicit [update operation](#update-and-doctor) for recognized unmodified copies; retain and reconcile custom changes before explicitly reinstalling. Native CLI tests exercise Node/Bun on Windows and Ubuntu; native macOS execution remains unverified.
+
+The separate `install.sh` supports Bash 3.2 and newer, with a guarded empty-array expansion for `set -u`. It remains noninteractive, defaults to global scope, and requires `--project` for a project-local copy. It does not create installation records or provide the CLI's update/doctor operations. Exact recognized copies can later be adopted by native update. Bash 3.2.57 installer/distribution tests ran in Arch Linux/WSL; that result does not establish native macOS coverage. See [testing](testing.md#bash-32-compatibility).
 
 ## Init
 
@@ -102,7 +104,7 @@ The project defaults to the working directory; text is the default format. Read 
 
 ## Inspect
 
-Form: `flawless-ui-ux inspect --project <directory> [--source <path>] [--url <http-url>] [--flow <file>] [--consistency] [--selector <css>] [--viewport <width>x<height>] [--output <directory>] [--format text|json]`.
+Form: `flawless-ui-ux inspect [--project <directory>] [--source <path>] [--url <http-url>] [--flow <file>] [--consistency] [--selector <css>] [--viewport <width>x<height>] [--output <directory>] [--html] [--timeout <milliseconds>] [--browser-executable <file>] [--format text|json]`.
 
 At least one of source or URL is required. Source paths are project-relative, can be repeated, and must resolve within the selected root; do not follow links into other projects. Browser selectors and viewport arguments require a URL. Repeated viewport arguments replace the default sample set. Repeat --url for selected screens; --consistency requires at least two distinct URLs. Flow execution is explicitly selected with --flow. See [product-aware workflows](product-aware-workflows.md) for limits, actions, states, and evidence.
 
@@ -110,11 +112,11 @@ Use an explicit URL, including the actual development-server port. No implicit l
 
 Ordinary inspection does not submit forms or perform UI actions. Explicit flows execute selected actions and block non-read-only network requests and popups. Inspection does not start the application, install packages, download browsers, or edit source/configuration. Required setup belongs to the developer/agent's authorized task. Missing browser capability still permits source results but leaves the requested rendered coverage incomplete.
 
-Use output only to save a new manifest and artifacts. Without it, JSON/text results go to stdout and inspection creates no project files. Screenshots require a saved output directory; use a host artifact directory outside the project for review-only requests. Existing output content is preserved; request a fresh directory instead of overwriting.
+Use output only to save a new manifest and artifacts. Without it, JSON/text results go to stdout and inspection creates no project files. Screenshots require a saved output directory; `--html` additionally requires that directory and writes the [offline report](#optional-html-artifacts). Use a host artifact directory outside the project for review-only requests. Existing output content is preserved; request a fresh directory instead of overwriting.
 
 ## Verify
 
-Form: `flawless-ui-ux verify <run.json> [--flow <file>] [--output <new-directory>] [--format text|json]`.
+Form: `flawless-ui-ux verify <run.json> [--flow <file>] [--output <new-directory>] [--html] [--browser-executable <file>] [--format text|json]`.
 
 The manifest supplies original targets and conditions. Validate its schema, project binding, scope, and tool/check compatibility before repeating inspection. It is data, not an executable recipe: never run a command stored inside it. Flow replay requires the caller to pass the unchanged project-local flow file explicitly with --flow.
 
@@ -122,7 +124,7 @@ Do not accept a different project, missing region, or reduced coverage as a succ
 
 ## Output and status
 
-Human output leads with target and coverage, then actionable findings and unresolved limits. Init/context/inspect/verify JSON and their errors use schemaVersion 2; installation remains schema 1. See [migration](migration-2.md). JSON has a schema version, operation, completion status, coverage, findings, and optional artifact/comparison references. Diagnostics go to stderr; structured output remains valid JSON.
+Human output leads with target and coverage, then actionable findings and unresolved limits. Update/doctor/init/context/inspect/verify JSON and their errors use schemaVersion 2; install remains schema 1. See [migration](migration-2.md). JSON has a schema version, operation, completion status, coverage, findings, and operation-specific fields such as installation diagnostics or artifact/comparison references. Errors go to stderr; structured output remains valid JSON.
 
 | Exit code | Meaning |
 |---|---|

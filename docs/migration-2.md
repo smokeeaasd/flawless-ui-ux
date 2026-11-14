@@ -1,5 +1,11 @@
 # Migrating to 2.0
 
+## Compatible 2.1 additions
+
+Version 2.1 retains existing commands and schema-2 context/inspection/verification reports. Complete compatible 2.0.x baselines remain usable with matching check versions and the same project, flow, and browser conditions. Optional HTML adds `artifacts.html` only when requested. Install retains schema 1; the new update/doctor operations use schema 2. Installation records are separate from product/design Markdown and do not require a context migration. See the [CLI contract](cli-contract.md#update-and-doctor).
+
+## Original 2.0 boundary
+
 The breaking change is the JSON report contract for context, inspect, verify, and their error envelopes: `schemaVersion` is now 2. Installation reports retain schema 1. Existing basic CLI commands and flags remain supported; no new dependency or browser installation is implicit.
 
 ## Context

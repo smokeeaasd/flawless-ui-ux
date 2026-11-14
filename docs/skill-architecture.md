@@ -24,7 +24,7 @@ Status: the skill and local executable core are implemented. Automatic host inte
 
 ## Dependency direction
 
-The agent uses the skill and CLI. The CLI calls the coordinator, context reader, and comparison code. The coordinator invokes source/browser adapters; adapters return observations that the findings layer normalizes. The core does not import host integrations, presentation code, or model clients.
+The agent uses the skill and CLI. The CLI calls maintenance, the coordinator, context reader, and comparison code. The coordinator invokes source/browser adapters; adapters return observations that the findings layer normalizes. Check logic is independent of host integrations, report presentation, and model clients. The persistence boundary optionally loads the HTML renderer without changing the evidence.
 
 The ESM entry point is `bin/flawless-ui-ux.js`. Implemented modules in `src/` separate options, context, inspection coordination, source/browser adapters, verification, maintenance, and shared paths/findings/report persistence. Report persistence loads the HTML renderer only when requested. No workspace or plugin framework is required.
 
@@ -46,7 +46,7 @@ The browser adapter uses [Playwright Library](https://playwright.dev/docs/librar
 
 Browser discovery/selection must be explicit and testable. Use a compatible configured executable or a separately prepared browser. Do not silently download a browser, take over an existing personal session, or evade host permissions. The source/context path remains usable without a browser. An unavailable requested browser yields partial coverage, useful remaining results, and a non-success status.
 
-The first integration gate covers Windows and Ubuntu through CLI/runtime and browser fixtures as well as the existing installer checks. Other platforms remain unverified until exercised. Passing fixtures does not establish host/model design usefulness.
+The integration gate covers Windows and Ubuntu through CLI/runtime and browser fixtures as well as installer checks. A focused Bash 3.2.57 installation/distribution comparison also ran in Arch Linux/WSL; it does not establish native macOS or broader WSL browser/host coverage. See [recorded validation](testing.md). Passing fixtures does not establish host/model design usefulness.
 
 ## Context
 
@@ -91,7 +91,7 @@ Basis distinguishes a named standard criterion, an explicit project constraint, 
 
 Schema-2 reports distinguish surface/state/viewport and optional flow/consistency evidence. Complete v1 initial-state manifests have an explicit migration path; see [migration](migration-2.md). A versioned run manifest records tool/check versions, project and source hashes, requested and final URL, selected region, viewports, readiness limits, coverage, findings, artifact references, and timestamps. Summaries distinguish completed, partial, and not-requested coverage for source, rendering, and interactions. A zero-finding partial scan is not a clean result.
 
-Default output is stdout. Explicit output directories hold run.json and requested captures; review-only work uses an artifact directory outside the project. Never overwrite an existing run or make a scan silently edit the application's ignore/config files.
+Default output is stdout. Explicit output directories hold run.json and requested captures, plus report.html only with `--html`; review-only work uses an artifact directory outside the project. Never overwrite an existing run or make a scan silently edit the application's ignore/config files.
 
 ## Verification
 

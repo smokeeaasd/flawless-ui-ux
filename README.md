@@ -43,6 +43,7 @@
   <a href="#what-is-flawless-ui-ux">About</a> ·
   <a href="#without-skill-vs-with-skill">Comparison</a> ·
   <a href="#install">Install</a> ·
+  <a href="#update-and-diagnose-installations">Update</a> ·
   <a href="#use-the-skill">Use the skill</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#inspect-and-verify">Inspect and verify</a> ·
@@ -117,7 +118,7 @@ This installs the skill through the [Skills CLI](https://github.com/vercel-labs/
 bash /absolute/path/flawless-ui-ux/install.sh --codex --project
 ```
 
-The Bash alternative requires `--project` for local installation; its default is global. Windows users need Git Bash or WSL.
+The alternative supports Bash 3.2 and newer. It requires `--project` for local installation; its default is global. Windows users need Git Bash or WSL. It copies the skill only; the npm package supplies the CLI commands.
 
 </details>
 
@@ -131,7 +132,7 @@ npx flawless-ui-ux@latest update --codex
 npx flawless-ui-ux@latest update --global --claude-code
 ```
 
-Without agent flags, `update` checks all supported destinations in the selected scope. Missing copies are skipped. Modified, unrecognized, linked, or newer copies stop the entire selected update before any installation changes. Keep local edits and reconcile them manually; there is no force overwrite. Clean 2.0.0 copies are recognized by their file hashes. New installs and updates record the package version and file hashes in `.flawless-install.json` inside the skill directory, separate from your product/design Markdown.
+Without agent flags, `update` checks all supported destinations in the selected scope. Missing copies are skipped. Modified, unrecognized, linked, or newer copies stop the entire selected update before any installation changes. Keep local edits and reconcile them manually; there is no force overwrite. Clean 2.0.0 copies are recognized by their file hashes. CLI installs and updates record the package version and file hashes in `.flawless-install.json` inside the skill directory, separate from your product/design Markdown. Bash and third-party installs may lack this record; exact recognized contents can still be adopted.
 
 Check local and global copies and browser availability:
 
@@ -249,6 +250,7 @@ The comparison separates **persistent**, **new**, and **no-longer-observed** fin
 - Repeat `--source` for additional files, or use `--selector` to inspect a region.
 - Use `--browser-executable` or `FLAWLESS_BROWSER_EXECUTABLE` to select an installed compatible Chromium. Keep browser conditions consistent between runs.
 - With `--output`, a new directory receives `run.json` and available screenshots; its parent must exist. Existing output directories are preserved. Without it, results go to stdout.
+- Add `--html` to include an offline `report.html` in that directory, with the same findings and coverage.
 
 These samples do not establish full WCAG conformance, complete keyboard journeys, business-flow correctness, or visual quality. Explicit flows cover only their selected actions and expectations. Small text and repetition require context. Ordinary inspection does not perform UI actions or submit forms. Explicit flows run selected actions with network-write and popup blocking. Inspection does not edit files, start servers, or download browsers.
 
@@ -258,7 +260,7 @@ CLI exit codes: `0` for completed coverage without confirmed errors, `1` for com
 
 ## Installation notes
 
-Existing files, local changes, and links are preserved. Review or remove an old installation before reinstalling. Host rules, plugins, permissions, and trust settings stay under your control.
+`install` preserves existing destinations. Use `update` for recognized unmodified copies; keep and reconcile custom changes before explicitly reinstalling. Host rules, plugins, permissions, and trust settings stay under your control.
 
 The twelve supported agents use **five project copies** of the same skill. Hosts that discover `.agents/skills` share one copy; others use their native directories.
 

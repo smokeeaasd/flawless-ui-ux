@@ -14,6 +14,11 @@ All notable changes to this project will be documented in this file.
 - Opt-in `--html` for inspect/verify output directories creates an offline report with local screenshots, findings, evidence, coverage, limits, flow observations, and verification differences. Default artifacts and JSON report schema remain unchanged.
 - A small creation/refinement evaluation protocol with separate baseline and assisted arms, frozen-input instructions, timing, and pending result records. No model-outcome claims are added by automated runtime tests.
 
+### Fixed
+
+- Bash installer compatibility with Bash 3.2: guard the initially empty destination array under `set -u`, preserving quoted paths and shared-copy deduplication. Verified with Bash 3.2.57 in Arch Linux/WSL; native macOS execution remains a separate coverage gap.
+- Maintenance resolves canonical installation paths instead of rejecting Windows short-name spellings, while preserving project boundaries and grouping safe parent aliases once.
+
 ### Compatibility
 
 - Preserve existing commands, install report schema 1, inspection report schema 2, and exit semantics. Verification accepts complete compatible 2.0.x and 2.1.x reports with matching check versions, retaining the explicit v1 migration path.

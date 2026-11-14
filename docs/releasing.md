@@ -10,6 +10,10 @@ Use the release version from `package.json`, a matching changelog entry, and a G
 
 The release notes describe shipped functionality, runtime requirements, and remaining limitations. Do not claim unperformed host/model quality or latency evaluations.
 
+For the 2.1 increment, include update/doctor, optional HTML, canonical maintenance paths, and the Bash 3.2 installer fix. Keep the pending matched model evaluations separate from completed runtime checks. The package version and a successful main CI run establish preparation, not npm publication or a GitHub release; verify the registry and release independently before reporting that users can fetch the new version.
+
+Archive review must retain the maintenance modules and legacy installation baseline as runtime files. Evaluations, maintainer reports, compiler downloads, and temporary test environments remain outside the published package. If installation logic changes, include preservation/update tests. If the Bash alternative changes, run its suite with a supported legacy interpreter when available, as described in [Bash 3.2 compatibility](testing.md#bash-32-compatibility). Native macOS coverage remains distinct from Linux Bash compatibility.
+
 ## Publish
 
 Use a clean main checkout at the approved commit, with the pinned dependencies installed. Authenticate to npm with `npm login`; complete any interactive authentication locally. Do not put credentials or tokens in release files.
