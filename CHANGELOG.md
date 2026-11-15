@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 2.2.0
+
 ### Added
 
 - Focused decision references for typography, layout, color, tables, charts, forms, states, copy, motion, performance, iOS, Android and desktop. The shared entry routes agents to the reference owning the decision while preserving create/redesign/refine/review boundaries.
@@ -18,7 +20,7 @@ All notable changes to this project will be documented in this file.
 
 ### Scope
 
-- No automatic hooks, live visual editor or shader/3D library. This working tree prepares content and distribution only; it does not publish a package or release.
+- No automatic hooks, live visual editor or shader/3D library. Existing CLI commands, report schemas and runtime dependencies remain unchanged.
 
 ## 2.1.0
 
