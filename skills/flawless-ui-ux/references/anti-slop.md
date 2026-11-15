@@ -47,3 +47,17 @@ Use motion to clarify change or support the experience. Repeated entrances, dela
 Investigate overlays, excessive icon-only actions, redundant arrows, and navigation that promises a destination but only moves within unrelated content. Choose presentation for the task's duration and context; a dialog is useful for a bounded action and less useful for sustained work.
 
 Keep functioning behavior when changing presentation. An unnecessary feature can be removed within scope; an explicitly requested interaction must remain. Check relevant widths and states for clipped labels, unreachable controls, and broken transitions. Judge the observed effect rather than seeking a zero-pattern count.
+
+## Worked diagnoses
+
+**Three identical cards for different jobs.** A service page places menu, hours and address in equally prominent cards with the same icon, title and sentence. The issue is not the card shape itself: visitors must extract a price, a schedule and a location from three different information types. A menu list, aligned hours and a concise address/visit region better expose those jobs. Keep the same facts and character. If the cards instead compare three subscription plans with the same fields, their repetition can support the task.
+
+**A polished dashboard hides the work.** Four oversized summary tiles and a large decorative chart push records below the fold. Find which summary actually changes a decision. Reduce or relocate supporting totals, align the records, attach states and actions to their object, and keep relevant numeric comparisons. Do not remove all summaries or make the table tiny to obtain a fashionable sparse layout. The question is whether the operational task leads.
+
+**A public page repeats its payoff.** The opening promises faster scheduling; a benefit repeats time savings; the next section says “less admin, more time”; the footer repeats the same reassurance. Replace only authorized copy with distinct confirmed information: how scheduling works, who can edit, the actual limitation, or the next action. If no additional facts exist, a shorter page can be more honest. Do not invent proof to fill the removed space.
+
+**A refinement substitutes a stereotype.** A vivid collection is made “professional” by removing color, imagery and scale, leaving anonymous bordered cards. Even if spacing is neater, the requested identity may have been lost. Diagnose readability, navigation or balance directly and keep expression where it serves the work. Neutrality, unfamiliar type and reduced decoration are not universal signs of quality.
+
+**A demonstration promises production behavior.** A local form displays “Booking confirmed” without a service or persistence. This is a product truth failure, not a tone preference. Use a truthful local result and retain entered data; make the integration boundary visible near the action. Do not manufacture network delay or a success count to make the example feel real.
+
+Apply these as reasoning examples, not a blacklist of shapes or words. If protected copy or structure contains an issue, report it without silently widening the task. A useful final pass improves the actual product while preserving its valid decisions.

@@ -40,7 +40,7 @@ test('native installation copies the complete skill for every agent and scope se
       if (scope === 'project' && agent === 'all') assert.equal(new Set(report.installations.map(i => i.path)).size, 5);
     }
   } finally { workspace.cleanup(); }
-}, 20000);
+}, 90000);
 
 for (const runtime of ['node', 'bun']) test(`global CLI installation honors environment overrides under ${runtime}`, async () => {
   const workspace = temporaryWorkspace();

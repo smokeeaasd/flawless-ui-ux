@@ -1,5 +1,7 @@
 # Design guidance balance
 
+Later work: the [skill expansion](skill-expansion.md) adds deeper decision procedures and executable materials. Its [focused results](../evals/results/expansion/README.md) are separate evidence; the historical observations and pending cases below retain their original scope.
+
 This historical review records the earlier steering corrections. The later [architecture simplification](skill-architecture.md) consolidates the instructions and removes overlapping routing; the [efficiency comparison](../evals/cases/11-instruction-efficiency.md) is pending. Earlier corrections alone do not establish the outcome of the simplified package.
 
 ## Scope and evidence

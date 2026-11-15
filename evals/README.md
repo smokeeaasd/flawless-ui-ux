@@ -1,5 +1,7 @@
 # Guided manual evaluations
 
+The [skill expansion round](results/expansion/README.md) records nine pilot and 27 final sessions, separate original/candidate/no-skill arms, independent selected checks, unfavorable outcomes and runner limitations. It is a distinct focused round; historical matrices below retain their own pending status. See [case 18](cases/18-skill-expansion.md) for the frozen tasks and reproducible preparation.
+
 The [2.1.0 focused round](cases/17-maintenance-and-usefulness.md) prepares three matched creation/refinement tasks and installation/report acceptance checks. Its [model result matrix](results/2.1.0/README.md) is pending; existing sequential showcase examples remain separate evidence.
 
 These materials evaluate skill behavior in Codex and OpenCode, with focused compatibility cases for the other supported agents. They are maintainer resources, excluded from the installed skill and npm distribution. There is no agent runner, model dependency, or design score in CI.

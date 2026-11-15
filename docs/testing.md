@@ -42,6 +42,10 @@ Bun runs the built-in test runner. The only development dependency is the strict
 
 ## Coverage
 
+The [skill expansion record](skill-expansion.md) separates content integrity, executable study checks and model evaluation. `node evals/scripts/check-studies.mjs /fresh/external/artifacts` exercises the eight web studies at 320, 390, 768 and 1440 CSS pixels, runs selected automated accessibility rules, and checks local state transitions. Set `FLAWLESS_BROWSER_EXECUTABLE` to an installed compatible browser when needed. `check-cli-study.mjs` exercises the bundled local inquiry flow over HTTP and replays it through verify. These maintainer scripts add no package/runtime dependency and do not establish native behavior or full accessibility.
+
+The maintenance suite uses `tests/fixtures/skill-2.0.0` as a frozen exact historical tree and separately tests adoption of an unrecorded current copy. Installation matrices allow 90 seconds for repeated complete copies; per-process limits and all file-preservation assertions remain in place.
+
 | File | Checks |
 |---|---|
 | `tests/package.test.js` | Valid YAML frontmatter, skill identity, Codex presentation metadata, normal automatic discovery policy, UTF-8 text, internal file and section references, and reference reachability from the entry point |

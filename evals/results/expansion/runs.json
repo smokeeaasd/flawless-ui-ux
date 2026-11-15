@@ -1,0 +1,2679 @@
+[
+  {
+    "id": "form-candidate",
+    "stage": "pilot",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Result: Improved the local inquiry form with persistent labels, required-field guidance, field-specific errors, an error summary focused on invalid submit, retained input, and truthful local-only confirmation. Errors update as fields are corrected.\n\nFiles read: AGENTS.md, tools.json, task.txt, index.html, local-skill/SKILL.md, local-skill/references/forms.md, states.md, interaction.md, inspection.md, calibration.md, anti-slop.md.\n\nChecks: Playwright with installed Edge exercised empty submission, partial input with malformed email, correction, resubmission, retained name and long details at 1440, 390 and 320 CSS pixels. Each empty submission reported three errors and focused the summary; malformed email left one error; valid input produced the local-only confirmation. No horizontal overflow was detected at those widths. Viewed the 390px success screenshot. Initial sandbox browser launch did not complete; the checks ran with elevated Edge execution.\n\nLimits: CLI inspect was attempted with a file URL and returned partial coverage because it requires HTTP(S); no CLI rendered report was produced. Screen reader announcements, keyboard-only journey, zoom/text-spacing overrides and other browsers were not tested. No backend or sent message was involved. No publish or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "invalid retention and local valid result",
+              "retained": true,
+              "visibleResult": "Ask about a repair\n\nLocal demonstration. No message is sent.\n\nAll fields are required.\n\nName\nReply email\nRepair details\nCheck inquiry\n\nInquiry checked locally; no message was sent."
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "invalid retention and local valid result",
+              "retained": true,
+              "visibleResult": "Ask about a repair\n\nLocal demonstration. No message is sent.\n\nAll fields are required.\n\nName\nReply email\nRepair details\nCheck inquiry\n\nInquiry checked locally; no message was sent."
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "form-current",
+    "stage": "pilot",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Result: Improved the local repair inquiry form with visible labels, field-specific errors, a linked error summary, retained input, and a clear local-only success state. No backend was added.\nReferences read: local-skill/SKILL.md; references/project-context.md, interaction.md, inspection.md, anti-slop.md.\nChecks: CLI source inspection of index.html completed with no findings (rendered and interaction coverage not requested). Playwright with installed Edge exercised empty submission, invalid email, retained values, correction and success, and checked horizontal overflow at 1440, 390 and 320 CSS pixels; all passed. Source copy and icon pass completed.\nLimits: No screen-reader testing, full WCAG audit, visual screenshot review, or 200% text scaling test was performed. Browser checks cover only the exercised flows.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "invalid retention and local valid result",
+              "retained": true,
+              "visibleResult": "REPAIR INQUIRY · DEMO\n\nAsk about a repair\n\nTell us what needs attention, then check your inquiry for missing information.\n\nThis is a local demonstration. No message is sent.\n\nName\nReply email\n\nFor example, name@example.com\n\nRepair details\n\nDescribe what needs repair.\n\nCheck inquiry\n\nInquiry checked. This demonstration does not send a message."
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "invalid retention and local valid result",
+              "retained": true,
+              "visibleResult": "REPAIR INQUIRY · DEMO\n\nAsk about a repair\n\nTell us what needs attention, then check your inquiry for missing information.\n\nThis is a local demonstration. No message is sent.\n\nName\nReply email\n\nFor example, name@example.com\n\nRepair details\n\nDescribe what needs repair.\n\nCheck inquiry\n\nInquiry checked. This demonstration does not send a message."
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "form-none",
+    "stage": "pilot",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Implemented responsive inquiry form with persistent labels, inline validation, linked error summary, retained entries, and explicit local-only success messaging. Preserved name, email, and repair details.\nChecks: reviewed markup and validation logic. Attempted Playwright with the provided Edge executable at phone and desktop widths; Edge exited at launch with a Crashpad named-pipe error, so browser interaction and visual checks could not be completed. No backend, remote assets, or dependencies added.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "invalid retention and local valid result",
+              "retained": true,
+              "visibleResult": "REPAIR STUDIO / INQUIRY\n\nTell us what needs repair.\n\nShare a little about your item and what it needs. Start with whatever you know.\n\nJust a demonstration.\nThis form checks your entries on this device. It does not send or save a message.\n\nYour inquiry\n\nAll fields are required.\n\nYour inquiry is ready. This is a local demo, so no message was sent or saved.\nName (required)\nReply email (required)\n\nFor example, you@example.com\n\nRepair details (required)\n\nDescribe the item and what needs attention.\n\nCheck inquiry\n\nChecking is local; nothing will be sent."
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "invalid retention and local valid result",
+              "retained": true,
+              "visibleResult": "REPAIR STUDIO / INQUIRY\n\nTell us what needs repair.\n\nShare a little about your item and what it needs. Start with whatever you know.\n\nJust a demonstration.\nThis form checks your entries on this device. It does not send or save a message.\n\nYour inquiry\n\nAll fields are required.\n\nYour inquiry is ready. This is a local demo, so no message was sent or saved.\nName (required)\nReply email (required)\n\nFor example, you@example.com\n\nRepair details (required)\n\nDescribe the item and what needs attention.\n\nCheck inquiry\n\nChecking is local; nothing will be sent."
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "mobile-candidate",
+    "stage": "pilot",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Files read: AGENTS.md, tools.json, task.txt, local-skill/SKILL.md, local-skill/references/calibration.md, structure.md, tables.md, layout.md, interaction.md, inspection.md, index.html, styles.css, app.js.\nChanges: retained the desktop table and all existing records, wording, calculations, navigation and controls. At phone width each row becomes a labeled record with its action visible; adjusted hierarchy, control size, contrast and focus styling.\nChecks: CLI inspect completed source inspection but rendered coverage was partial because its default Chromium was missing. Installed Edge, launched outside sandbox, rendered the local file at 1440, 390 and 320px; six rows and no document overflow at each width. At each width searched Maya, marked R-201 ready, confirmed ready count 3 and feedback, and cleared filters back to six jobs. Visually inspected the 390px capture. No full accessibility audit, keyboard journey, status-filter test, or desktop screenshot review was completed. No baseline capture was obtained. No dependencies installed, publication or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "search/filter/update/clear",
+              "met": true
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "search/filter/update/clear",
+              "met": true
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "mobile-current",
+    "stage": "pilot",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Result: Refined the Benchroom repair queue with clearer hierarchy, readable controls and visible focus. Desktop retains the table; phone widths show each record as a labeled, actionable block. Existing wording, records, calculations, navigation and actions remain intact.\n\nReferences read: AGENTS.md, tools.json, task.txt, local-skill/SKILL.md, and local-skill/references/project-context.md, structure.md, craft.md, interaction.md, inspection.md and anti-slop.md.\n\nChecks: Local CLI source inspection of index.html, styles.css and app.js completed with no findings. Playwright with installed Edge checked widths 320, 390, 768 and 1440: no page-level horizontal overflow; six initial rows; search, mark ready, ready count and feedback, combined filtering and clear filters worked. Visually inspected the 390px full-page capture including lower records. Reviewed source copy and icons; no icons or decorative arrows were introduced.\n\nLimits: Browser checks sampled selected paths and widths, not all keyboard journeys, text-spacing overrides, assistive technologies or full WCAG conformance. Contrast was improved by selecting darker text, but individual computed color pairs were not instrumentally measured. Desktop and intermediate screenshots were captured but not visually reviewed. No publication or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "search/filter/update/clear",
+              "met": true
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "search/filter/update/clear",
+              "met": true
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "mobile-none",
+    "stage": "pilot",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Updated the repair queue styling for desktop and phone: clearer hierarchy, stronger contrast, visible keyboard focus, larger controls, and responsive job cards with field labels and full-width actions. Existing records, calculations, wording, navigation, and interactions are retained.\nChecks: node --check app.js passed. Local inspection CLI source inspection completed. Attempted Playwright/Edge verification at desktop and phone widths, but Edge closed during launch in the sandbox; rendered layout and interaction checks could not be completed.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "search/filter/update/clear",
+              "met": true
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "search/filter/update/clear",
+              "met": true
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "type-candidate",
+    "stage": "pilot",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Improved typography in styles.css: raised and darkened form labels, demo note and feedback using the existing ink color; improved line height and reading measure; refined heading scale and restored a visible keyboard focus outline. Existing wording, colors, layout, and JavaScript remain intact.\n\nFiles read: AGENTS.md, tools.json, task.txt, index.html, styles.css, app.js, local-skill/SKILL.md, local-skill/references/typography.md, inspection.md, craft.md, color.md.\n\nChecks: local CLI source inspection of styles.css completed with no findings; Edge/Playwright rendered at 1440 and 390 pixels, captures visually inspected, no horizontal overflow at either width. Valid form submission produced expected demo feedback at both widths. Browser required an escalated launch. No baseline capture, 200% zoom, contrast measurement, keyboard interaction test, or comprehensive accessibility audit was performed. No publish or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "htmlEqualToFixture": true,
+      "behaviorEqualToFixture": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "local interest form",
+              "text": "Demo complete. No ticket was reserved, no details were stored, and no email or payment was sent."
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "local interest form",
+              "text": "Demo complete. No ticket was reserved, no details were stored, and no email or payment was sent."
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "type-current",
+    "stage": "pilot",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Typography refinement completed in styles.css. Wording, gradient brand colors, layout and form behavior were preserved. Increased form label, notice and feedback readability; refined heading, body and control rhythm; restored visible keyboard focus.\n\nReferences read: AGENTS.md, tools.json, task.txt, local-skill/SKILL.md, local-skill/references/project-context.md, craft.md, inspection.md and anti-slop.md (including final pass). Inspected index.html, styles.css and app.js.\n\nChecks: local CLI source inspection of index.html and styles.css completed with no findings; rendered Edge screenshots reviewed at 1440 and 390 pixels; no horizontal document overflow at those widths; valid demo submission returned the existing success message at both widths. Dark text contrast measured against the solid page background and gradient endpoint colors. Copy and controls reviewed within the scope of the refinement.\n\nLimits: only the stated widths and valid submission were exercised; this is not full accessibility, keyboard journey, or cross-browser testing. Gradient contrast varies across the surface. No publication or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "htmlEqualToFixture": true,
+      "behaviorEqualToFixture": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "local interest form",
+              "text": "Demo complete. No ticket was reserved, no details were stored, and no email or payment was sent."
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "local interest form",
+              "text": "Demo complete. No ticket was reserved, no details were stored, and no email or payment was sent."
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "type-none",
+    "stage": "pilot",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Updated styles.css to improve type hierarchy, line height, text contrast, label sizing, and keyboard focus visibility. Preserved wording, gradient and core palette, page structure, and JavaScript behavior.\nChecks: inspected HTML, CSS, and JavaScript; attempted Playwright verification using the configured Edge executable. Edge exited during launch with a crashpad named-pipe error, so visual, responsive, and interactive browser checks could not be completed in this environment. No additional dependencies or external services were used.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "htmlEqualToFixture": true,
+      "behaviorEqualToFixture": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "width": 1440,
+          "interactions": [
+            {
+              "check": "local interest form",
+              "text": "Demo complete. No ticket was reserved, no details were stored, and no email or payment was sent."
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "interactions": [
+            {
+              "check": "local interest form",
+              "text": "Demo complete. No ticket was reserved, no details were stored, and no email or payment was sent."
+            }
+          ]
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-operations-candidate-1",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changes: Created index.html with in-memory volunteer shift overview. Preserves all shifts/volunteers from data.json. Coverage = assigned places / 7 required. Uncovered shifts count (assigned<capacity). Assign available volunteer with validations (availability, capacity, no duplicate). Undo assignment. Filters by search/day/task with clear filters button and useful empty result. Responsive table/card layout. Updates coverage, counts, row/detail state, feedback together.\n\nReferences read: data.json, local-skill/SKILL.md, references/tables.md, states.md, interaction.md.\n\nChecks performed: file exists, basic node read; no dependency install. No browser run performed due to time constraints.\n\nRemaining limits: no automated/browser interaction verification; changes in memory only.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [
+      "SKILL.md",
+      "references/tables.md",
+      "references/states.md",
+      "references/interaction.md"
+    ],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "select-name",
+              "impact": "critical",
+              "targets": [
+                [
+                  ".volSelect[data-shift=\"S2\"]"
+                ],
+                [
+                  ".volSelect[data-shift=\"S3\"]"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "select-name",
+              "impact": "critical",
+              "targets": [
+                [
+                  ".volSelect[data-shift=\"S2\"]"
+                ],
+                [
+                  ".volSelect[data-shift=\"S3\"]"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "assignment and undo change the view",
+          "met": true,
+          "initial": "Volunteer Shift Overview\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nUncovered shifts\n2\nSearch\nDay\nAll days\nTuesday\nWednesday\nTask\nAll tasks\nWelcome desk\nPacking\nClear filters\nReady.\nShifts\nS1\nTuesday 09:00–11:00\nWelcome desk\n2/2\nAda, Tariq\n None available\nUndo Ada\nUndo Tariq\nS2\nTuesday 11:00–13:00\nWelcome desk\n1/2\nJon\n \nAda\nMei\nNoa\nAssign\nUndo Jon\nS3\nWednesday 09:00–11:00\nPacking\n0/3\n—\n \nTariq\nMei\nNoa\nAssign\nVolunteers\nAda\nS1, S2\nS1\nTariq\nS1, S3\nS1\nJon\nS2\nS2\nMei\nS2, S3\n—\nNoa\nS1, S2, S3\n—",
+          "assigned": "Volunteer Shift Overview\nCoverage\n57%\nAssigned places\n4\nRequired places\n7\nUncovered shifts\n2\nSearch\nDay\nAll days\nTuesday\nWednesday\nTask\nAll tasks\nWelcome desk\nPacking\nClear filters\nAssigned Mei to S3.\nShifts\nS1\nTuesday 09:00–11:00\nWelcome desk\n2/2\nAda, Tariq\n None available\nUndo Ada\nUndo Tariq\nS2\nTuesday 11:00–13:00\nWelcome desk\n1/2\nJon\n \nAda\nMei\nNoa\nAssign\nUndo Jon\nS3\nWednesday 09:00–11:00\nPacking\n1/3\nMei\n \nTariq\nNoa\nAssign\nUndo Mei\nVolunteers\nAda\nS1, S2\nS1\nTariq\nS1, S3\nS1\nJon\nS2\nS2\nMei\nS2, S3\nS3\nNoa\nS1, S2, S3\n—",
+          "after": "Volunteer Shift Overview\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nUncovered shifts\n2\nSearch\nDay\nAll days\nTuesday\nWednesday\nTask\nAll tasks\nWelcome desk\nPacking\nClear filters\nRemoved Mei from S3.\nShifts\nS1\nTuesday 09:00–11:00\nWelcome desk\n2/2\nAda, Tariq\n None available\nUndo Ada\nUndo Tariq\nS2\nTuesday 11:00–13:00\nWelcome desk\n1/2\nJon\n \nAda\nMei\nNoa\nAssign\nUndo Jon\nS3\nWednesday 09:00–11:00\nPacking\n0/3\n—\n \nTariq\nMei\nNoa\nAssign\nVolunteers\nAda\nS1, S2\nS1\nTariq\nS1, S3\nS1\nJon\nS2\nS2\nMei\nS2, S3\n—\nNoa\nS1, S2, S3\n—"
+        },
+        {
+          "check": "empty query",
+          "text": "Volunteer Shift Overview\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nUncovered shifts\n2\nSearch\nDay\nAll days\nTuesday\nWednesday\nTask\nAll tasks\nWelcome desk\nPacking\nClear filters\nRemoved Mei from S3.\nShifts\nNo shifts match the current filters.\nVolunteers\nAda\nS1, S2\nS1\nTariq\nS1, S3\nS1\nJon\nS2\nS2\nMei\nS2, S3\n—\nNoa\nS1, S2, S3\n—"
+        },
+        {
+          "check": "clear query",
+          "cleared": true,
+          "text": "Volunteer Shift Overview\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nUncovered shifts\n2\nSearch\nDay\nAll days\nTuesday\nWednesday\nTask\nAll tasks\nWelcome desk\nPacking\nClear filters\nFilters cleared.\nShifts\nS1\nTuesday 09:00–11:00\nWelcome desk\n2/2\nAda, Tariq\n None available\nUndo Ada\nUndo Tariq\nS2\nTuesday 11:00–13:00\nWelcome desk\n1/2\nJon\n \nAda\nMei\nNoa\nAssign\nUndo Jon\nS3\nWednesday 09:00–11:00\nPacking\n0/3\n—\n \nTariq\nMei\nNoa\nAssign\nVolunteers\nAda\nS1, S2\nS1\nTariq\nS1, S3\nS1\nJon\nS2\nS2\nMei\nS2, S3\n—\nNoa\nS1, S2, S3\n—"
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-operations-current-1",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changes: created index.html with in-memory volunteer shift overview. Data from data.json embedded (3 shifts, 5 volunteers). Coverage = assigned places / 7 required. Features: metrics, filter search/status, clear filters, shift rows, detail panel, assign with availability/capacity/duplicate validation, undo last assignment, empty result. Responsive layout. No dependencies/remote assets.\n\nReferences read: local-skill/SKILL.md, interaction.md, structure.md, data.json, product.md, design.md, prompt.txt, tools.json.\n\nChecks performed: static source review; layout responsive via CSS media query. Browser rendering not run due to sandbox constraints.\n\nRemaining limits: in-memory only; no persistence; embedded data snapshot; no automated tests run.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [
+      "SKILL.md",
+      "assets/context/product.md",
+      "assets/context/design.md",
+      "references/structure.md",
+      "references/interaction.md"
+    ],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  "footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": true,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  "footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "journey incomplete",
+          "error": "No named undo action for Mei; manual inspection required."
+        }
+      ],
+      "adaptedFollowup": {
+        "id": "beam-operations-current-1",
+        "snapshots": [
+          {
+            "name": "initial",
+            "text": "Volunteer Shift Overview\n\nIn-memory coordination. Changes are not saved or sent.\n\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nAll shifts\nUncovered only\nFull only\nClear filters\nReady.\nSHIFT\tTASK\tCAPACITY\tASSIGNED\tSTATUS\tACTIONS\nS1\nTuesday 09:00–11:00\tWelcome desk\t2/2\t\nAda\nTariq\n\tFull\tView\nS2\nTuesday 11:00–13:00\tWelcome desk\t1/2\t\nJon\n\tPartial\tView\nS3\nWednesday 09:00–11:00\tPacking\t0/3\t\n—\n\tUncovered\tView\nShift detail\nSelect a shift to view details and assign volunteers.\nIn-memory only. No data is saved or transmitted."
+          },
+          {
+            "name": "assigned Mei to S3",
+            "text": "Volunteer Shift Overview\n\nIn-memory coordination. Changes are not saved or sent.\n\nCoverage\n57%\nAssigned places\n4\nRequired places\n7\nAll shifts\nUncovered only\nFull only\nClear filters\nAssigned Mei to S3.\nSHIFT\tTASK\tCAPACITY\tASSIGNED\tSTATUS\tACTIONS\nS1\nTuesday 09:00–11:00\tWelcome desk\t2/2\t\nAda\nTariq\n\tFull\tView\nS2\nTuesday 11:00–13:00\tWelcome desk\t1/2\t\nJon\n\tPartial\tView\nS3\nWednesday 09:00–11:00\tPacking\t1/3\t\nMei\n\tPartial\tView\nShift detail\nS3 — Packing\n\nWednesday, 09:00–11:00\n\nCapacity: 1/3\n\nAssigned: Mei\n\nVolunteer\nTariq\nMei (assigned)\nNoa\nAssign\nUndo last\n\nAvailable for this shift: Tariq, Mei, Noa\n\nIn-memory only. No data is saved or transmitted."
+          },
+          {
+            "name": "undid last assignment",
+            "text": "Volunteer Shift Overview\n\nIn-memory coordination. Changes are not saved or sent.\n\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nAll shifts\nUncovered only\nFull only\nClear filters\nRemoved Mei from S3.\nSHIFT\tTASK\tCAPACITY\tASSIGNED\tSTATUS\tACTIONS\nS1\nTuesday 09:00–11:00\tWelcome desk\t2/2\t\nAda\nTariq\n\tFull\tView\nS2\nTuesday 11:00–13:00\tWelcome desk\t1/2\t\nJon\n\tPartial\tView\nS3\nWednesday 09:00–11:00\tPacking\t0/3\t\n—\n\tUncovered\tView\nShift detail\nS3 — Packing\n\nWednesday, 09:00–11:00\n\nCapacity: 0/3\n\nAssigned: none\n\nVolunteer\nTariq\nMei\nNoa\nAssign\nUndo last\n\nAvailable for this shift: Tariq, Mei, Noa\n\nIn-memory only. No data is saved or transmitted."
+          },
+          {
+            "name": "empty search",
+            "text": "Volunteer Shift Overview\n\nIn-memory coordination. Changes are not saved or sent.\n\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nAll shifts\nUncovered only\nFull only\nClear filters\nRemoved Mei from S3.\nSHIFT\tTASK\tCAPACITY\tASSIGNED\tSTATUS\tACTIONS\nNo shifts match the current filters. Clear filters to see all shifts.\nShift detail\nS3 — Packing\n\nWednesday, 09:00–11:00\n\nCapacity: 0/3\n\nAssigned: none\n\nVolunteer\nTariq\nMei\nNoa\nAssign\nUndo last\n\nAvailable for this shift: Tariq, Mei, Noa\n\nIn-memory only. No data is saved or transmitted."
+          },
+          {
+            "name": "filters cleared",
+            "text": "Volunteer Shift Overview\n\nIn-memory coordination. Changes are not saved or sent.\n\nCoverage\n43%\nAssigned places\n3\nRequired places\n7\nAll shifts\nUncovered only\nFull only\nClear filters\nFilters cleared.\nSHIFT\tTASK\tCAPACITY\tASSIGNED\tSTATUS\tACTIONS\nS1\nTuesday 09:00–11:00\tWelcome desk\t2/2\t\nAda\nTariq\n\tFull\tView\nS2\nTuesday 11:00–13:00\tWelcome desk\t1/2\t\nJon\n\tPartial\tView\nS3\nWednesday 09:00–11:00\tPacking\t0/3\t\n—\n\tUncovered\tView\nShift detail\nS3 — Packing\n\nWednesday, 09:00–11:00\n\nCapacity: 0/3\n\nAssigned: none\n\nVolunteer\nTariq\nMei\nNoa\nAssign\nUndo last\n\nAvailable for this shift: Tariq, Mei, Noa\n\nIn-memory only. No data is saved or transmitted."
+          }
+        ],
+        "completed": true
+      }
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-operations-none-1",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changes: Created index.html with embedded data from data.json. In-memory state; coverage, counts, row/detail state and feedback update together. Supports finding uncovered shifts (filter), assigning available volunteer with validation, undo assignment. Empty result + clear filters. Responsive at desktop/phone.\n\nReferences read: task.txt, data.json, tools.json, prompt.txt.\n\nChecks performed: Playwright/Edge smoke test at 1280x800 and 390x844; assign/undo/coverage verified. Initial coverage 3/7.\n\nLimits: No persistence; data embedded. No remote assets/dependencies.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "select-name",
+              "impact": "critical",
+              "targets": [
+                [
+                  "#filter"
+                ],
+                [
+                  "#volSelect"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "select-name",
+              "impact": "critical",
+              "targets": [
+                [
+                  "#filter"
+                ],
+                [
+                  "#volSelect"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "journey incomplete",
+          "error": "No available Mei assignment control found; inspect the preserved artifact manually."
+        }
+      ],
+      "adaptedFollowup": {
+        "id": "beam-operations-none-1",
+        "snapshots": [
+          {
+            "name": "initial",
+            "text": "Volunteer Shift Overview\nIn-memory planning. Nothing is saved or sent.\nCoverage: 3 / 7\nSHIFTS\n3\nREQUIRED PLACES\n7\nASSIGNED PLACES\n3\nCOVERAGE\n43%\nAll shifts\nUncovered only\nFull only\nClear filters\nNoa\nAssign volunteer\nShifts\nID\tDAY / TIME\tTASK\tASSIGNED\tSTATUS\nS1\tTuesday\n09:00–11:00\tWelcome desk\t2 / 2\tFull\nS2\tTuesday\n11:00–13:00\tWelcome desk\t1 / 2\tOpen\nS3\tWednesday\n09:00–11:00\tPacking\t0 / 3\tOpen\nShift S1 — Welcome desk\nDay\nTuesday\nTime\n09:00–11:00\nTask\nWelcome desk\nCapacity\n2 / 2\nStatus\nFull\nAssigned\nAda\n✕\nTariq\n✕\nVolunteers\nAda\nalready assigned\nTariq\nalready assigned\nJon\nnot available\nMei\nnot available\nNoa\nshift full"
+          },
+          {
+            "name": "assigned Mei to S3",
+            "text": "Volunteer Shift Overview\nIn-memory planning. Nothing is saved or sent.\nCoverage: 4 / 7\nSHIFTS\n3\nREQUIRED PLACES\n7\nASSIGNED PLACES\n4\nCOVERAGE\n57%\nAll shifts\nUncovered only\nFull only\nClear filters\nTariq\nNoa\nAssign volunteer\nShifts\nID\tDAY / TIME\tTASK\tASSIGNED\tSTATUS\nS1\tTuesday\n09:00–11:00\tWelcome desk\t2 / 2\tFull\nS2\tTuesday\n11:00–13:00\tWelcome desk\t1 / 2\tOpen\nS3\tWednesday\n09:00–11:00\tPacking\t1 / 3\tOpen\nAssigned Mei to S3.\nShift S3 — Packing\nDay\nWednesday\nTime\n09:00–11:00\nTask\nPacking\nCapacity\n1 / 3\nStatus\nOpen\nAssigned\nMei\n✕\nVolunteers\nAda\nnot available\nTariq\navailable\nJon\nnot available\nMei\nalready assigned\nNoa\navailable"
+          },
+          {
+            "name": "removed Mei from S3",
+            "text": "Volunteer Shift Overview\nIn-memory planning. Nothing is saved or sent.\nCoverage: 3 / 7\nSHIFTS\n3\nREQUIRED PLACES\n7\nASSIGNED PLACES\n3\nCOVERAGE\n43%\nAll shifts\nUncovered only\nFull only\nClear filters\nTariq\nMei\nNoa\nAssign volunteer\nShifts\nID\tDAY / TIME\tTASK\tASSIGNED\tSTATUS\nS1\tTuesday\n09:00–11:00\tWelcome desk\t2 / 2\tFull\nS2\tTuesday\n11:00–13:00\tWelcome desk\t1 / 2\tOpen\nS3\tWednesday\n09:00–11:00\tPacking\t0 / 3\tOpen\nRemoved Mei from S3.\nShift S3 — Packing\nDay\nWednesday\nTime\n09:00–11:00\nTask\nPacking\nCapacity\n0 / 3\nStatus\nOpen\nAssigned\nNo one assigned yet.\nVolunteers\nAda\nnot available\nTariq\navailable\nJon\nnot available\nMei\navailable\nNoa\navailable"
+          },
+          {
+            "name": "empty search",
+            "text": "Volunteer Shift Overview\nIn-memory planning. Nothing is saved or sent.\nCoverage: 3 / 7\nSHIFTS\n3\nREQUIRED PLACES\n7\nASSIGNED PLACES\n3\nCOVERAGE\n43%\nAll shifts\nUncovered only\nFull only\nClear filters\nTariq\nMei\nNoa\nAssign volunteer\nShifts\nNo shifts match the current filters.\nRemoved Mei from S3.\nShift S3 — Packing\nDay\nWednesday\nTime\n09:00–11:00\nTask\nPacking\nCapacity\n0 / 3\nStatus\nOpen\nAssigned\nNo one assigned yet.\nVolunteers\nAda\nnot available\nTariq\navailable\nJon\nnot available\nMei\navailable\nNoa\navailable"
+          },
+          {
+            "name": "filters cleared",
+            "text": "Volunteer Shift Overview\nIn-memory planning. Nothing is saved or sent.\nCoverage: 3 / 7\nSHIFTS\n3\nREQUIRED PLACES\n7\nASSIGNED PLACES\n3\nCOVERAGE\n43%\nAll shifts\nUncovered only\nFull only\nClear filters\nTariq\nMei\nNoa\nAssign volunteer\nShifts\nID\tDAY / TIME\tTASK\tASSIGNED\tSTATUS\nS1\tTuesday\n09:00–11:00\tWelcome desk\t2 / 2\tFull\nS2\tTuesday\n11:00–13:00\tWelcome desk\t1 / 2\tOpen\nS3\tWednesday\n09:00–11:00\tPacking\t0 / 3\tOpen\nFilters cleared.\nShift S3 — Packing\nDay\nWednesday\nTime\n09:00–11:00\nTask\nPacking\nCapacity\n0 / 3\nStatus\nOpen\nAssigned\nNo one assigned yet.\nVolunteers\nAda\nnot available\nTariq\navailable\nJon\nnot available\nMei\navailable\nNoa\navailable"
+          }
+        ],
+        "completed": true
+      }
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-public-candidate-1",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changes:\n- Added index.html: single-file public page for Morrow Print Room with session cards, visit info, and local inquiry form.\n\nReferences read:\n- local-skill/SKILL.md\n- references/structure.md\n- references/forms.md\n- references/anti-slop.md\n\nChecks performed:\n- Source inspection of HTML/CSS/JS for fact accuracy, required fields, validation, retained input, truthful local result.\n- Responsive CSS: grid collapses to one column at <=700px.\n\nRemaining limits:\n- No browser/rendered inspection performed; visual layout unverified.\n- No automated tests available; interaction checked by code review only.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [
+      "SKILL.md",
+      "references/structure.md",
+      "references/forms.md",
+      "references/anti-slop.md"
+    ],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [
+            "",
+            "",
+            "",
+            "Demo validated; no message was sent and no place was reserved.Session: Intro to risograph — Saturday 10:30 — $25Name: Test ReaderEmail: reader@example.com"
+          ],
+          "tail": " Choose a session, then send an inquiry — nothing is reserved or sent.\n\nIntro to risograph\n\n$25\n\nWhen Saturday 10:30\nLength 90 minutes\nIncludes materials\nEdition up to 20 sheets per visitor\n\nA first session with the risograph. Materials are included.\n\nOpen print desk\n\n$18\n\nWhen Sunday 13:00\nLength 2 hours\nBring a prepared design\nEdition up to 20 sheets per visitor\n\nPrint from a design you have already prepared.\n\nVisit\nAddress: 24 River Lane\nHours: Saturday and Sunday, 10:00–17:00\nAccess: step-free entrance\nSession inquiry\n\nLocal check only. No message is sent and no place is reserved.\n\nChoose a session\nSession\nSelect a session…\nIntro to risograph — Saturday 10:30 — $25\nOpen print desk — Sunday 13:00 — $18\n\nName\n\nEmail\n\nCheck inquiry\nDemo validated; no message was sent and no place was reserved.\nSession: Intro to risograph — Saturday 10:30 — $25\nName: Test Reader\nEmail: reader@example.com",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-public-current-1",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Created index.html: single-file public page for Morrow Print Room (plain HTML/CSS/JS, no dependencies/remote assets).\n\nChanges:\n- index.html: sticky header with section nav; hero with headline and visit aside; Sessions section with two offer cards (Intro to risograph Saturday 10:30, 90 min, $25, materials included; Open print desk Sunday 13:00, 2 hr, $18, bring prepared design); Visit facts (24 River Lane; Sat/Sun 10:00–17:00; step-free; 20 sheets/visitor); Inquiry form with session select, name, email, validation, retained input via localStorage; local-only summary result; footer. Responsive at 760px.\n\nChecks performed:\n- Node parse check: file reads, contains script.\n- Playwright/Edge render: title loaded; mobile viewport (375x800) set without error.\n\nReferences read: local-skill/SKILL.md, references/direction.md, structure.md, craft.md, interaction.md.\n\nRemaining limits:\n- Visual contrast/typography not manually measured beyond source; no automated a11y audit run.\n- No real submission/reservation (by requirement).",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [
+      "SKILL.md",
+      "references/interaction.md",
+      "references/direction.md",
+      "references/craft.md",
+      "references/structure.md"
+    ],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": true,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [],
+          "tail": "ss\n24 River Lane\nOpen\nSaturday & Sunday, 10:00–17:00\nEntrance\nStep-free\nEdition limit\n20 sheets per visitor\nSessions\n\nChoose one session. Both run during open hours. Prices per visitor.\n\nSATURDAY\nIntro to risograph\nTime\n10:30\nDuration\n90 minutes\nPrice\n$25\nMaterials\nIncluded\n$25 per visitor\nSelect this session\nSUNDAY\nOpen print desk\nTime\n13:00\nDuration\n2 hours\nPrice\n$18\nBring\nA prepared design\n$18 per visitor\nSelect this session\nInquiry\n\nSelect a session, leave your name and email. Nothing is sent or reserved; this stays on your device.\n\nNAME\nEMAIL\nSESSION\nIntro to risograph — Saturday 10:30 ($25)\nOpen print desk — Sunday 13:00 ($18)\nSave inquiry locally\nSaved locally (not sent).\nYour inquiry: Test Reader · reader@example.com · Intro to risograph — Saturday 10:30 ($25). Nothing was reserved or emailed.\nMorrow Print Room · 24 River Lane · Saturday & Sunday 10:00–17:00 · Step-free entrance.",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-public-none-1",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changes: created index.html with distinctive public page for Morrow Print Room. Facts only: address 24 River Lane; open Sat/Sun 10:00-17:00; step-free entrance; edition limited to 20 sheets per visitor; Intro to risograph Sat 10:30, 90 min, $25, materials included; Open print desk Sun 13:00, 2 hours, $18, bring prepared design. Visit info and offers in grid cards. Local session-selection + inquiry form with name/email, validation messages, retained input via localStorage. Nothing sent/reserved. Plain HTML/CSS/JS, responsive.\n\nExact references read: task.txt, tools.json, AGENTS.md, prompt.txt.\n\nChecks performed: file created and listed; manual review of markup/JS logic for validation, localStorage retention, selection sync, responsive CSS. No browser automation run.\n\nRemaining limits: no automated visual/browser tests executed; no dependency installation.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  "button[type=\"submit\"]"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  "button[type=\"submit\"]"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [],
+          "tail": "tell us your name and email, and we'll hold the details locally. Nothing is sent or reserved.\n\nVISIT\nAddress\n24 River Lane\nOpen\nSaturday and Sunday, 10:00–17:00\nAccess\nStep-free entrance\nEdition\nLimited to 20 sheets per visitor\nIntro to risograph\n\nSaturday · 10:30 · 90 minutes\n\n$25\nMaterials included\nSelect this session\nOpen print desk\n\nSunday · 13:00 · 2 hours\n\n$18\nBring a prepared design\nSelect this session\nSession inquiry\nSESSION\nChoose a session\nIntro to risograph — Saturday 10:30\nOpen print desk — Sunday 13:00\nNAME\nEMAIL\nNOTES (OPTIONAL)\n Send inquiry locally\nInquiry recorded locally for Intro to risograph — Saturday 10:30. Nothing was sent or reserved.\nHOW IT WORKS\n1\nPick a session above or in the form.\n2\nEnter your name and email.\n3\nSubmit to validate. Nothing leaves your browser.\n4\nVisit us at 24 River Lane on the weekend.\nMorrow Print Room · 24 River Lane · Sat & Sun 10:00–17:00",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-refinement-candidate-1",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changed styles.css only: improved body font size/line height, heading scale and spacing, paragraph measure and rhythm, label/blockquote/form styling, and focus-visible treatment. Preserved all copy, content order, brand palette, two-region desktop grid, and existing JS behavior. Checked rendered output at 1280px desktop and 390px phone widths with Playwright/Edge; screenshots were temporary and removed. Remaining limits: contrast not numerically measured; interaction beyond screenshots not exercised.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [
+      "SKILL.md",
+      "references/typography.md"
+    ],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": false
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-refinement-current-1",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changed styles.css typography, spacing, and focus treatment only. HTML/app.js untouched; words, order, palette, two-region desktop composition, and form behavior preserved.\n\nReferences read: local-skill/SKILL.md; local-skill/references/craft.md (typography, hierarchy, responsive); local-skill/references/interaction.md (focus, accessibility).\n\nChecks performed: Playwright/Edge screenshots at 1280x900 desktop and 390x844 mobile; form behavior not changed. CSS parsed and page rendered.\n\nRemaining limits: no automated contrast/focus measurement run; visual quality judged from source and screenshots. No dependency installation.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [
+      "SKILL.md",
+      "references/craft.md",
+      "references/interaction.md"
+    ],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": false
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "beam-refinement-none-1",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "beam 1.0 via opencode/beam-free#medium",
+    "modelNotes": "Changes: styles.css only. Improved typography (16px/1.6 Georgia, responsive h1, h2 spacing, max-width paragraphs, blockquote styling), spacing (main margins/gaps, section margins), and focus treatment (:focus-visible outlines for links/buttons/textarea). Preserved HTML content, order, brand palette, two-region grid, and app.js behavior.\n\nExact references read: index.html, styles.css, app.js, task.txt, tools.json, AGENTS.md.\n\nChecks performed: Playwright/Edge headless screenshots at 1280px desktop and 390px phone widths (rendered without errors; files removed after check). No console errors observed.\n\nRemaining limits: Visual quality judged from screenshots only; no automated accessibility audit beyond focus styles. Form behavior unchanged.",
+    "referenceReadEvidence": "observed OpenCode read-tool trace; shell/execute reads may additionally appear in raw trace",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": false
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-operations-candidate-1",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Built index.html: a responsive volunteer shift overview with whole-schedule coverage, search and coverage filters, inline shift details, available-volunteer assignment, removal, feedback, and an empty result with filter clearing. Data stays in memory.\n\nReferences actually read: local-skill/SKILL.md; local-skill/references/direction.md, structure.md, tables.md, interaction.md, states.md, craft.md, inspection.md, anti-slop.md (combined output was truncated, so not all reference text was visible). Also read AGENTS.md, tools.json, prompt.txt, data.json.\n\nChecks: Installed Edge and Playwright tested at 1440 and 390 pixels: initial coverage 3/7; assigned Mei to S2 and observed 4/7 and feedback; removed Mei and observed 3/7; search empty state and clear restored all three shifts; no document horizontal overflow. Inspected initial screenshots at both sizes. CLI source inspect completed with one contextual 11px text-size warning (desktop column labels); no rendered CLI checks requested. Source reviewed for final pattern pass and assignment guards.\n\nLimits: No exhaustive keyboard, contrast, zoom, or assistive technology testing; no rendered CLI flow or verify run. Screenshots capture initial state only. No persistence or network integration by design.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Select available volunteer",
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "journey incomplete",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('select').nth(2)\u001b[22m\n\u001b[2m    - locator resolved to <select aria-label=\"Available volunteer for Packing Wednesday 09:00–11:00\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for el"
+        }
+      ],
+      "adaptedFollowup": {
+        "id": "terra-operations-candidate-1",
+        "snapshots": [
+          {
+            "name": "initial",
+            "text": "●  VOLUNTEER OPERATIONS\n\nSCHEDULE / OVERVIEW\n\nVolunteer shifts\n\nFind open places and coordinate the people available.\n\n3 / 7\nCoverage · all shifts\n4 places open\nShift overview\n\n3 of 3 shifts shown\n\nSearch shifts\nCoverage\nAll shifts\nNeeds coverage\nCovered\nClear filters\nTuesday\n09:00–11:00\nWelcome desk\nS1 · 2 of 2 assigned\nCovered\nManage shift\nTuesday\n11:00–13:00\nWelcome desk\nS2 · 1 of 2 assigned\n1 place open\nManage shift\nWednesday\n09:00–11:00\nPacking\nS3 · 0 of 3 assigned\n3 places open\nManage shift\n\nChanges are in memory only. Reloading restores the supplied schedule."
+          },
+          {
+            "name": "assigned Mei to S3",
+            "text": "●  VOLUNTEER OPERATIONS\n\nSCHEDULE / OVERVIEW\n\nVolunteer shifts\n\nFind open places and coordinate the people available.\n\n4 / 7\nCoverage · all shifts\n3 places open\nShift overview\n\n3 of 3 shifts shown\n\nSearch shifts\nCoverage\nAll shifts\nNeeds coverage\nCovered\nClear filters\nMei assigned to Packing, Wednesday 09:00–11:00.\nTuesday\n09:00–11:00\nWelcome desk\nS1 · 2 of 2 assigned\nCovered\nManage shift\nTuesday\n11:00–13:00\nWelcome desk\nS2 · 1 of 2 assigned\n1 place open\nManage shift\nWednesday\n09:00–11:00\nPacking\nS3 · 1 of 3 assigned\n2 places open\nClose details\nASSIGNED VOLUNTEERS\nMei\nRemove\nASSIGN A VOLUNTEER\nSelect available volunteer\nTariq\nNoa\nAssign\n\nOnly volunteers available for this shift are listed.\n\nChanges are in memory only. Reloading restores the supplied schedule."
+          },
+          {
+            "name": "removed Mei from S3",
+            "text": "●  VOLUNTEER OPERATIONS\n\nSCHEDULE / OVERVIEW\n\nVolunteer shifts\n\nFind open places and coordinate the people available.\n\n3 / 7\nCoverage · all shifts\n4 places open\nShift overview\n\n3 of 3 shifts shown\n\nSearch shifts\nCoverage\nAll shifts\nNeeds coverage\nCovered\nClear filters\nMei removed from Packing, Wednesday 09:00–11:00.\nTuesday\n09:00–11:00\nWelcome desk\nS1 · 2 of 2 assigned\nCovered\nManage shift\nTuesday\n11:00–13:00\nWelcome desk\nS2 · 1 of 2 assigned\n1 place open\nManage shift\nWednesday\n09:00–11:00\nPacking\nS3 · 0 of 3 assigned\n3 places open\nClose details\nASSIGNED VOLUNTEERS\nNo volunteers assigned yet.\nASSIGN A VOLUNTEER\nSelect available volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly volunteers available for this shift are listed.\n\nChanges are in memory only. Reloading restores the supplied schedule."
+          },
+          {
+            "name": "empty search",
+            "text": "●  VOLUNTEER OPERATIONS\n\nSCHEDULE / OVERVIEW\n\nVolunteer shifts\n\nFind open places and coordinate the people available.\n\n3 / 7\nCoverage · all shifts\n4 places open\nShift overview\n\n0 of 3 shifts shown\n\nSearch shifts\nCoverage\nAll shifts\nNeeds coverage\nCovered\nClear filters\nMei removed from Packing, Wednesday 09:00–11:00.\nNo shifts match these filters\n\nTry another search or show all shifts.\n\nClear filters\n\nChanges are in memory only. Reloading restores the supplied schedule."
+          },
+          {
+            "name": "filters cleared",
+            "text": "●  VOLUNTEER OPERATIONS\n\nSCHEDULE / OVERVIEW\n\nVolunteer shifts\n\nFind open places and coordinate the people available.\n\n3 / 7\nCoverage · all shifts\n4 places open\nShift overview\n\n3 of 3 shifts shown\n\nSearch shifts\nCoverage\nAll shifts\nNeeds coverage\nCovered\nClear filters\nMei removed from Packing, Wednesday 09:00–11:00.\nTuesday\n09:00–11:00\nWelcome desk\nS1 · 2 of 2 assigned\nCovered\nManage shift\nTuesday\n11:00–13:00\nWelcome desk\nS2 · 1 of 2 assigned\n1 place open\nManage shift\nWednesday\n09:00–11:00\nPacking\nS3 · 0 of 3 assigned\n3 places open\nClose details\nASSIGNED VOLUNTEERS\nNo volunteers assigned yet.\nASSIGN A VOLUNTEER\nSelect available volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly volunteers available for this shift are listed.\n\nChanges are in memory only. Reloading restores the supplied schedule."
+          }
+        ],
+        "completed": true
+      }
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-operations-candidate-2",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Built index.html: local shift overview, whole-roster coverage, search and coverage filters, available-volunteer assignment and removal, empty result and clear filters. All provided shifts and volunteers are represented; changes are in memory.\nReferences read: local-skill/SKILL.md; local-skill/references/direction.md, structure.md, craft.md, tables.md, interaction.md, states.md, anti-slop.md, inspection.md, typography.md, layout.md, color.md, forms.md. Also read AGENTS.md, tools.json, prompt.txt and data.json. Some reference output was truncated in the terminal; typography/layout/color/forms were read through the shell without displaying their contents.\nChecks: Playwright with local Edge at 1440 and 390 widths: initial coverage 3/7 (43%), assignment of Mei to S2 4/7 (57%), removal returns 3/7, no-match empty state and clear return 3 shifts; no horizontal document overflow at either width. Inspected the 390 screenshot. Local CLI source inspection completed with no findings; rendered and interaction CLI coverage were not requested. Source guards enforce availability, capacity and no duplicates.\nLimits: No screen reader or comprehensive keyboard testing; no persistence or remote integration by design. Desktop screenshot was captured but not visually reviewed. Final focus adjustment was not rerun in the browser.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  "article:nth-child(1) > div:nth-child(2) > .id"
+                ],
+                [
+                  "article:nth-child(1) > .assignblock > .hint"
+                ],
+                [
+                  "article:nth-child(2) > div:nth-child(2) > .id"
+                ],
+                [
+                  "article:nth-child(2) > .assignblock > .hint"
+                ],
+                [
+                  "article:nth-child(3) > div:nth-child(2) > .id"
+                ],
+                [
+                  ".none"
+                ],
+                [
+                  "article:nth-child(3) > .assignblock > .hint"
+                ],
+                [
+                  ".footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  "article:nth-child(1) > div:nth-child(2) > .id"
+                ],
+                [
+                  "article:nth-child(1) > .assignblock > .hint"
+                ],
+                [
+                  "article:nth-child(2) > div:nth-child(2) > .id"
+                ],
+                [
+                  "article:nth-child(2) > .assignblock > .hint"
+                ],
+                [
+                  "article:nth-child(3) > div:nth-child(2) > .id"
+                ],
+                [
+                  ".none"
+                ],
+                [
+                  "article:nth-child(3) > .assignblock > .hint"
+                ],
+                [
+                  ".footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Choose volunteer",
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "assignment and undo change the view",
+          "met": true,
+          "initial": "✳ VOLUNTEER COORDINATION\n\nSCHEDULE · ALL SHIFTS\n\nShift coverage\n\nFind open places and assign available volunteers.\n\nCoverage · all shifts\n3 / 7 places · 43%\nOpen places\n4\nShifts needing people\n2\nShifts\n\n3 of 3 shifts shown\n\nSearch\nCoverage\nAll shifts\nNeeds people\nFully covered\nClear filters\n\nTuesday\n09:00–11:00\nWelcome desk\nShift S1\nFULLY COVERED · 2/2\nAda\n×\nTariq\n×\nShift is full\nNoa\nAssign\n\nRemove a volunteer to open a place.\n\nTuesday\n11:00–13:00\nWelcome desk\nShift S2\n1 PLACE OPEN · 1/2\nJon\n×\nChoose volunteer\nAda\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nWednesday\n09:00–11:00\nPacking\nShift S3\n3 PLACES OPEN · 0/3\nNo volunteers assigned\nChoose volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nAvailability is based on the supplied shift list. Changes reset when this page is refreshed.",
+          "assigned": "✳ VOLUNTEER COORDINATION\n\nSCHEDULE · ALL SHIFTS\n\nShift coverage\n\nFind open places and assign available volunteers.\n\nCoverage · all shifts\n4 / 7 places · 57%\nOpen places\n3\nShifts needing people\n2\nShifts\n\n3 of 3 shifts shown\n\nSearch\nCoverage\nAll shifts\nNeeds people\nFully covered\nClear filters\n\nMei assigned to Packing, Wednesday 09:00–11:00.\n\nTuesday\n09:00–11:00\nWelcome desk\nShift S1\nFULLY COVERED · 2/2\nAda\n×\nTariq\n×\nShift is full\nNoa\nAssign\n\nRemove a volunteer to open a place.\n\nTuesday\n11:00–13:00\nWelcome desk\nShift S2\n1 PLACE OPEN · 1/2\nJon\n×\nChoose volunteer\nAda\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nWednesday\n09:00–11:00\nPacking\nShift S3\n2 PLACES OPEN · 1/3\nMei\n×\nChoose volunteer\nTariq\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nAvailability is based on the supplied shift list. Changes reset when this page is refreshed.",
+          "after": "✳ VOLUNTEER COORDINATION\n\nSCHEDULE · ALL SHIFTS\n\nShift coverage\n\nFind open places and assign available volunteers.\n\nCoverage · all shifts\n3 / 7 places · 43%\nOpen places\n4\nShifts needing people\n2\nShifts\n\n3 of 3 shifts shown\n\nSearch\nCoverage\nAll shifts\nNeeds people\nFully covered\nClear filters\n\nMei removed from Packing, Wednesday 09:00–11:00.\n\nTuesday\n09:00–11:00\nWelcome desk\nShift S1\nFULLY COVERED · 2/2\nAda\n×\nTariq\n×\nShift is full\nNoa\nAssign\n\nRemove a volunteer to open a place.\n\nTuesday\n11:00–13:00\nWelcome desk\nShift S2\n1 PLACE OPEN · 1/2\nJon\n×\nChoose volunteer\nAda\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nWednesday\n09:00–11:00\nPacking\nShift S3\n3 PLACES OPEN · 0/3\nNo volunteers assigned\nChoose volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nAvailability is based on the supplied shift list. Changes reset when this page is refreshed."
+        },
+        {
+          "check": "empty query",
+          "text": "✳ VOLUNTEER COORDINATION\n\nSCHEDULE · ALL SHIFTS\n\nShift coverage\n\nFind open places and assign available volunteers.\n\nCoverage · all shifts\n3 / 7 places · 43%\nOpen places\n4\nShifts needing people\n2\nShifts\n\n0 of 3 shifts shown\n\nSearch\nCoverage\nAll shifts\nNeeds people\nFully covered\nClear filters\n\nMei removed from Packing, Wednesday 09:00–11:00.\n\nNo shifts found\nTry another search or coverage filter.\nClear filters\n\nAvailability is based on the supplied shift list. Changes reset when this page is refreshed."
+        },
+        {
+          "check": "clear query",
+          "cleared": true,
+          "text": "✳ VOLUNTEER COORDINATION\n\nSCHEDULE · ALL SHIFTS\n\nShift coverage\n\nFind open places and assign available volunteers.\n\nCoverage · all shifts\n3 / 7 places · 43%\nOpen places\n4\nShifts needing people\n2\nShifts\n\n3 of 3 shifts shown\n\nSearch\nCoverage\nAll shifts\nNeeds people\nFully covered\nClear filters\n\nMei removed from Packing, Wednesday 09:00–11:00.\n\nTuesday\n09:00–11:00\nWelcome desk\nShift S1\nFULLY COVERED · 2/2\nAda\n×\nTariq\n×\nShift is full\nNoa\nAssign\n\nRemove a volunteer to open a place.\n\nTuesday\n11:00–13:00\nWelcome desk\nShift S2\n1 PLACE OPEN · 1/2\nJon\n×\nChoose volunteer\nAda\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nWednesday\n09:00–11:00\nPacking\nShift S3\n3 PLACES OPEN · 0/3\nNo volunteers assigned\nChoose volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nAvailability is based on the supplied shift list. Changes reset when this page is refreshed."
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-operations-current-1",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Built index.html as a dependency-free, in-memory volunteer shift overview. Includes all three shifts and five volunteers, coverage and open-place counts, search and coverage filters, available-volunteer assignment, removal, and empty-result recovery. Data resets on refresh.\nReferences actually read: AGENTS.md; tools.json; prompt.txt; data.json; local-skill/SKILL.md; local-skill/references/direction.md; interaction.md; craft.md; inspection.md; anti-slop.md.\nChecks performed: Ran installed Edge through Playwright at 1440, 390, and 320 CSS pixels. At each width confirmed initial 3/7 coverage, assigning Mei to S2 changed it to 4/7, removing Mei restored 3/7, a nonmatching search showed the empty state, Clear filters restored three rows, and document width did not overflow. Viewed the 390px screenshot. Ran the local inspection CLI against index.html: source coverage completed with no findings; rendered and interaction coverage were not requested in that CLI run. Reviewed copy and controls for the final pattern pass.\nLimits: Browser tests exercised one assignment/removal path; they do not establish full keyboard, accessibility, or browser coverage. Contrast ratios were not measured. The application is intentionally temporary and does not persist data.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Choose a volunteer",
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "assignment and undo change the view",
+          "met": true,
+          "initial": "✳ VOLUNTEER DESK\nOPERATIONS / SCHEDULE\nShift overview\n\nSee where help is needed and assign available volunteers.\n\nOVERALL COVERAGE\n43%\n3 of 7 places filled · 4 open\nShifts\n\n3 of 3 shifts shown · 2 need coverage\n\nSearch\nCoverage\nAll shifts\nNeeds coverage\nFully covered\nSELECT A SHIFT TO MANAGE\nTuesday\n09:00–11:00\nWelcome desk\n2 / 2 assigned · Ada, Tariq\nCovered\nTuesday\n11:00–13:00\nWelcome desk\n1 / 2 assigned · Jon\n1 open\nWednesday\n09:00–11:00\nPacking\n0 / 3 assigned\n3 open\nSHIFT DETAILS · S2\n1 open\nWelcome desk\n\nTuesday · 11:00–13:00\n\nAssigned 1 / 2\nJon\n×\nAssign a volunteer\nChoose a volunteer\nAda\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nChanges are temporary and stay in this browser session. Refreshing resets the schedule.",
+          "assigned": "✳ VOLUNTEER DESK\nOPERATIONS / SCHEDULE\nShift overview\n\nSee where help is needed and assign available volunteers.\n\nOVERALL COVERAGE\n57%\n4 of 7 places filled · 3 open\nShifts\n\n3 of 3 shifts shown · 2 need coverage\n\nSearch\nCoverage\nAll shifts\nNeeds coverage\nFully covered\nSELECT A SHIFT TO MANAGE\nTuesday\n09:00–11:00\nWelcome desk\n2 / 2 assigned · Ada, Tariq\nCovered\nTuesday\n11:00–13:00\nWelcome desk\n1 / 2 assigned · Jon\n1 open\nWednesday\n09:00–11:00\nPacking\n1 / 3 assigned · Mei\n2 open\nSHIFT DETAILS · S3\n2 open\nPacking\n\nWednesday · 09:00–11:00\n\nAssigned 1 / 3\nMei\n×\nAssign a volunteer\nChoose a volunteer\nTariq\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nMei assigned to Packing.\n\nChanges are temporary and stay in this browser session. Refreshing resets the schedule.",
+          "after": "✳ VOLUNTEER DESK\nOPERATIONS / SCHEDULE\nShift overview\n\nSee where help is needed and assign available volunteers.\n\nOVERALL COVERAGE\n43%\n3 of 7 places filled · 4 open\nShifts\n\n3 of 3 shifts shown · 2 need coverage\n\nSearch\nCoverage\nAll shifts\nNeeds coverage\nFully covered\nSELECT A SHIFT TO MANAGE\nTuesday\n09:00–11:00\nWelcome desk\n2 / 2 assigned · Ada, Tariq\nCovered\nTuesday\n11:00–13:00\nWelcome desk\n1 / 2 assigned · Jon\n1 open\nWednesday\n09:00–11:00\nPacking\n0 / 3 assigned\n3 open\nSHIFT DETAILS · S3\n3 open\nPacking\n\nWednesday · 09:00–11:00\n\nAssigned 0 / 3\nNo volunteers assigned yet.\nAssign a volunteer\nChoose a volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nMei removed from Packing.\n\nChanges are temporary and stay in this browser session. Refreshing resets the schedule."
+        },
+        {
+          "check": "empty query",
+          "text": "✳ VOLUNTEER DESK\nOPERATIONS / SCHEDULE\nShift overview\n\nSee where help is needed and assign available volunteers.\n\nOVERALL COVERAGE\n43%\n3 of 7 places filled · 4 open\nShifts\n\n0 of 3 shifts shown · 2 need coverage\n\nSearch\nCoverage\nAll shifts\nNeeds coverage\nFully covered\nSELECT A SHIFT TO MANAGE\nNo shifts match\n\nTry another search or show all shifts.\n\nClear filters\nSHIFT DETAILS · S3\n3 open\nPacking\n\nWednesday · 09:00–11:00\n\nAssigned 0 / 3\nNo volunteers assigned yet.\nAssign a volunteer\nChoose a volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nMei removed from Packing.\n\nChanges are temporary and stay in this browser session. Refreshing resets the schedule."
+        },
+        {
+          "check": "clear query",
+          "cleared": true,
+          "text": "✳ VOLUNTEER DESK\nOPERATIONS / SCHEDULE\nShift overview\n\nSee where help is needed and assign available volunteers.\n\nOVERALL COVERAGE\n43%\n3 of 7 places filled · 4 open\nShifts\n\n3 of 3 shifts shown · 2 need coverage\n\nSearch\nCoverage\nAll shifts\nNeeds coverage\nFully covered\nSELECT A SHIFT TO MANAGE\nTuesday\n09:00–11:00\nWelcome desk\n2 / 2 assigned · Ada, Tariq\nCovered\nTuesday\n11:00–13:00\nWelcome desk\n1 / 2 assigned · Jon\n1 open\nWednesday\n09:00–11:00\nPacking\n0 / 3 assigned\n3 open\nSHIFT DETAILS · S3\n3 open\nPacking\n\nWednesday · 09:00–11:00\n\nAssigned 0 / 3\nNo volunteers assigned yet.\nAssign a volunteer\nChoose a volunteer\nTariq\nMei\nNoa\nAssign\n\nOnly available, unassigned volunteers are shown.\n\nMei removed from Packing.\n\nChanges are temporary and stay in this browser session. Refreshing resets the schedule."
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-operations-current-2",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Built index.html with responsive volunteer shift overview, overall coverage, all/open filtering, availability-constrained assignments, removal, feedback and in-memory state. Preserved supplied shifts and volunteers.\nReferences read: AGENTS.md; tools.json; prompt.txt; data.json; local-skill/SKILL.md; local-skill/references/direction.md, structure.md, craft.md, interaction.md, anti-slop.md, inspection.md.\nChecks: CLI source inspection completed with no findings (rendered and interaction coverage not requested). Playwright with installed Edge at 1440 and 390 pixels: initial coverage 3/7, no horizontal page overflow, filtering to open, assigning Mei to S2 changed coverage to 4/7 and removed that full shift from open results, removing Mei restored 3/7. Captured both widths and visually inspected the 390px screenshot. Reviewed source copy and icon use for the final pattern pass.\nLimits: Full keyboard, contrast measurement, zoom, empty-filter state and all possible assignment combinations were not separately tested. Changes are not persisted. No publish or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".none"
+                ],
+                [
+                  ".foot"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".none"
+                ],
+                [
+                  ".foot"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Choose available volunteer",
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "assignment and undo change the view",
+          "met": true,
+          "initial": "✳ COMMUNITY OPERATIONS\nVOLUNTEER COORDINATION\nShift overview\n\nFind open places and match volunteers to their available shifts.\n\nOverall coverage\n3 / 7\n43%\n4 places still open\nShifts\n\n3 of 3 shifts shown\n\nAll shifts\nNeeds cover\nTuesday09:00–11:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nAda\n×\nTariq\n×\nTuesday11:00–13:00\nWelcome desk\n1 place open\nASSIGNED · 1 OF 2\nJon\n×\nChoose available volunteer\nAda\nMei\nNoa\nAssign\nWednesday09:00–11:00\nPacking\n3 places open\nASSIGNED · 0 OF 3\nNo volunteers assigned yet\nChoose available volunteer\nTariq\nMei\nNoa\nAssign\n\nChanges are temporary and remain only on this page. Refreshing will restore the original roster.",
+          "assigned": "✳ COMMUNITY OPERATIONS\nVOLUNTEER COORDINATION\nShift overview\n\nFind open places and match volunteers to their available shifts.\n\nOverall coverage\n4 / 7\n57%\n3 places still open\nShifts\n\n3 of 3 shifts shown\n\nAll shifts\nNeeds cover\nMei assigned to Wednesday 09:00–11:00 Packing.\nTuesday09:00–11:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nAda\n×\nTariq\n×\nTuesday11:00–13:00\nWelcome desk\n1 place open\nASSIGNED · 1 OF 2\nJon\n×\nChoose available volunteer\nAda\nMei\nNoa\nAssign\nWednesday09:00–11:00\nPacking\n2 places open\nASSIGNED · 1 OF 3\nMei\n×\nChoose available volunteer\nTariq\nNoa\nAssign\n\nChanges are temporary and remain only on this page. Refreshing will restore the original roster.",
+          "after": "✳ COMMUNITY OPERATIONS\nVOLUNTEER COORDINATION\nShift overview\n\nFind open places and match volunteers to their available shifts.\n\nOverall coverage\n3 / 7\n43%\n4 places still open\nShifts\n\n3 of 3 shifts shown\n\nAll shifts\nNeeds cover\nMei removed from Wednesday 09:00–11:00 Packing.\nTuesday09:00–11:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nAda\n×\nTariq\n×\nTuesday11:00–13:00\nWelcome desk\n1 place open\nASSIGNED · 1 OF 2\nJon\n×\nChoose available volunteer\nAda\nMei\nNoa\nAssign\nWednesday09:00–11:00\nPacking\n3 places open\nASSIGNED · 0 OF 3\nNo volunteers assigned yet\nChoose available volunteer\nTariq\nMei\nNoa\nAssign\n\nChanges are temporary and remain only on this page. Refreshing will restore the original roster."
+        },
+        {
+          "check": "journey incomplete",
+          "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=search],input#search').first()\u001b[22m\n"
+        }
+      ],
+      "adaptedFollowup": {
+        "id": "terra-operations-current-2",
+        "snapshots": [
+          {
+            "name": "initial",
+            "text": "✳ COMMUNITY OPERATIONS\nVOLUNTEER COORDINATION\nShift overview\n\nFind open places and match volunteers to their available shifts.\n\nOverall coverage\n3 / 7\n43%\n4 places still open\nShifts\n\n3 of 3 shifts shown\n\nAll shifts\nNeeds cover\nTuesday09:00–11:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nAda\n×\nTariq\n×\nTuesday11:00–13:00\nWelcome desk\n1 place open\nASSIGNED · 1 OF 2\nJon\n×\nChoose available volunteer\nAda\nMei\nNoa\nAssign\nWednesday09:00–11:00\nPacking\n3 places open\nASSIGNED · 0 OF 3\nNo volunteers assigned yet\nChoose available volunteer\nTariq\nMei\nNoa\nAssign\n\nChanges are temporary and remain only on this page. Refreshing will restore the original roster."
+          },
+          {
+            "name": "all seven places assigned",
+            "text": "✳ COMMUNITY OPERATIONS\nVOLUNTEER COORDINATION\nShift overview\n\nFind open places and match volunteers to their available shifts.\n\nOverall coverage\n7 / 7\n100%\n0 places still open\nShifts\n\n3 of 3 shifts shown\n\nAll shifts\nNeeds cover\nNoa assigned to Wednesday 09:00–11:00 Packing.\nTuesday09:00–11:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nAda\n×\nTariq\n×\nTuesday11:00–13:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nJon\n×\nAda\n×\nWednesday09:00–11:00\nPacking\nFully covered\nASSIGNED · 3 OF 3\nTariq\n×\nMei\n×\nNoa\n×\n\nChanges are temporary and remain only on this page. Refreshing will restore the original roster."
+          },
+          {
+            "name": "empty needs-cover filter",
+            "text": "✳ COMMUNITY OPERATIONS\nVOLUNTEER COORDINATION\nShift overview\n\nFind open places and match volunteers to their available shifts.\n\nOverall coverage\n7 / 7\n100%\n0 places still open\nShifts\n\n0 of 3 shifts shown\n\nAll shifts\nNeeds cover\nNo shifts need cover\n\nAll shifts are currently fully covered.\n\nShow all shifts\n\nChanges are temporary and remain only on this page. Refreshing will restore the original roster."
+          },
+          {
+            "name": "show all shifts",
+            "text": "✳ COMMUNITY OPERATIONS\nVOLUNTEER COORDINATION\nShift overview\n\nFind open places and match volunteers to their available shifts.\n\nOverall coverage\n7 / 7\n100%\n0 places still open\nShifts\n\n3 of 3 shifts shown\n\nAll shifts\nNeeds cover\nTuesday09:00–11:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nAda\n×\nTariq\n×\nTuesday11:00–13:00\nWelcome desk\nFully covered\nASSIGNED · 2 OF 2\nJon\n×\nAda\n×\nWednesday09:00–11:00\nPacking\nFully covered\nASSIGNED · 3 OF 3\nTariq\n×\nMei\n×\nNoa\n×\n\nChanges are temporary and remain only on this page. Refreshing will restore the original roster."
+          }
+        ],
+        "completed": true
+      }
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-operations-none-1",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Created index.html, a dependency-free shift overview with coverage metrics, search and status filtering, shift details, availability-aware assignment, removal to undo assignments, and in-memory feedback. Embedded the supplied data so it works directly from a local file. Created check.mjs for local browser checks.\nReferences read: AGENTS.md, tools.json, prompt.txt, data.json in this run directory. Attempted to read workspace-root AGENTS.md; it was absent.\nChecks performed: Ran check.mjs with installed Playwright and Edge at 1280x850 and 390x850. At both widths initial coverage was 43%, four places were open, and three shifts appeared with no horizontal overflow. Assigning Mei to S2 changed coverage to 57% and filled the shift; removing Mei restored 43%. A search with no results showed the empty state; Clear filters restored all three rows. The first browser attempt did not complete in the sandbox; the local Edge check succeeded with escalation.\nLimits: Browser checks covered the described paths, not every possible interaction or assistive technology. Changes are memory-only and reset on reload. No publishing or commit performed.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".heading > div:nth-child(1) > .eyebrow"
+                ],
+                [
+                  ".heading > div:nth-child(1) > p"
+                ],
+                [
+                  ".metric:nth-child(1) > .metric-head"
+                ],
+                [
+                  "#coverageText"
+                ],
+                [
+                  ".metric:nth-child(2) > .metric-head"
+                ],
+                [
+                  ".metric:nth-child(2) > small"
+                ],
+                [
+                  ".metric:nth-child(3) > .metric-head"
+                ],
+                [
+                  ".metric:nth-child(3) > small"
+                ],
+                [
+                  ".panel-head > div > p"
+                ],
+                [
+                  ".table-head > span:nth-child(1)"
+                ],
+                [
+                  ".table-head > span:nth-child(2)"
+                ],
+                [
+                  ".table-head > span:nth-child(3)"
+                ],
+                [
+                  ".table-head > span:nth-child(4)"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(1) > small"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(2) > small"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(3) > small"
+                ],
+                [
+                  ".active > span:nth-child(1) > small"
+                ],
+                [
+                  ".active > span:nth-child(2) > small"
+                ],
+                [
+                  ".active > span:nth-child(3) > small"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(1) > small"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(2) > small"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(3) > small"
+                ],
+                [
+                  ".detail-sub"
+                ],
+                [
+                  ".detail-info > div:nth-child(1) > span"
+                ],
+                [
+                  ".detail-info > div:nth-child(2) > span"
+                ],
+                [
+                  ".section-title > span"
+                ],
+                [
+                  ".hint"
+                ],
+                [
+                  ".footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".heading > div:nth-child(1) > .eyebrow"
+                ],
+                [
+                  ".heading > div:nth-child(1) > p"
+                ],
+                [
+                  ".metric:nth-child(1) > .metric-head"
+                ],
+                [
+                  "#coverageText"
+                ],
+                [
+                  ".metric:nth-child(2) > .metric-head"
+                ],
+                [
+                  ".metric:nth-child(2) > small"
+                ],
+                [
+                  ".metric:nth-child(3) > .metric-head"
+                ],
+                [
+                  ".metric:nth-child(3) > small"
+                ],
+                [
+                  ".panel-head > div > p"
+                ],
+                [
+                  ".table-head > span:nth-child(1)"
+                ],
+                [
+                  ".table-head > span:nth-child(2)"
+                ],
+                [
+                  ".table-head > span:nth-child(4)"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(1) > small"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(2) > small"
+                ],
+                [
+                  ".active > span:nth-child(1) > small"
+                ],
+                [
+                  ".active > span:nth-child(2) > small"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(1) > small"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(2) > small"
+                ],
+                [
+                  ".detail-sub"
+                ],
+                [
+                  ".detail-info > div:nth-child(1) > span"
+                ],
+                [
+                  ".detail-info > div:nth-child(2) > span"
+                ],
+                [
+                  ".section-title > span"
+                ],
+                [
+                  ".hint"
+                ],
+                [
+                  ".footer"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Select available volunteer",
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "assignment and undo change the view",
+          "met": true,
+          "initial": "✳\nfieldwork\nVolunteer operations\nOPERATIONS / SCHEDULING\nShift overview\n\nKeep every shift covered and your team in the loop.\n\nSHIFT COVERAGE\n↗\n43%\n3 of 7 places filled\nOPEN PLACES\n◌\n4\nPlaces still needing volunteers\nUNCOVERED SHIFTS\n◷\n2\nShifts with places available\nAll shifts\n\nReview coverage and select a shift to manage it.\n\n3 / 3\nAll shifts\nNeeds coverage\nFully covered\nDAY & TIME\nTASK\nSTATUS\nTuesday\n09:00–11:00\nWelcome desk\nS1\nCovered\nTuesday\n11:00–13:00\nWelcome desk\nS2\n1 open\nWednesday\n09:00–11:00\nPacking\nS3\n3 open\nSHIFT DETAILS · S2\nWelcome desk\n\nManage the people on this shift.\n\n1 place open\nDAY\nTuesday\nTIME\n11:00–13:00\nAssigned volunteers\n1 / 2\nJ\nJon\nRemove\nAssign a volunteer\nSelect available volunteer\nAda\nMei\nNoa\nAssign to shift\n\nOnly available volunteers are shown.\n\nChanges stay in this browser session and are not saved or sent.",
+          "assigned": "✳\nfieldwork\nVolunteer operations\nOPERATIONS / SCHEDULING\nShift overview\n\nKeep every shift covered and your team in the loop.\n\nSHIFT COVERAGE\n↗\n57%\n4 of 7 places filled\nOPEN PLACES\n◌\n3\nPlaces still needing volunteers\nUNCOVERED SHIFTS\n◷\n2\nShifts with places available\nAll shifts\n\nReview coverage and select a shift to manage it.\n\n3 / 3\nAll shifts\nNeeds coverage\nFully covered\nDAY & TIME\nTASK\nSTATUS\nTuesday\n09:00–11:00\nWelcome desk\nS1\nCovered\nTuesday\n11:00–13:00\nWelcome desk\nS2\n1 open\nWednesday\n09:00–11:00\nPacking\nS3\n2 open\nSHIFT DETAILS · S3\nPacking\n\nManage the people on this shift.\n\n2 places open\nDAY\nWednesday\nTIME\n09:00–11:00\nAssigned volunteers\n1 / 3\nM\nMei\nRemove\nAssign a volunteer\nSelect available volunteer\nTariq\nNoa\nAssign to shift\n\nOnly available volunteers are shown.\n\nMei assigned to this shift.\nChanges stay in this browser session and are not saved or sent.",
+          "after": "✳\nfieldwork\nVolunteer operations\nOPERATIONS / SCHEDULING\nShift overview\n\nKeep every shift covered and your team in the loop.\n\nSHIFT COVERAGE\n↗\n43%\n3 of 7 places filled\nOPEN PLACES\n◌\n4\nPlaces still needing volunteers\nUNCOVERED SHIFTS\n◷\n2\nShifts with places available\nAll shifts\n\nReview coverage and select a shift to manage it.\n\n3 / 3\nAll shifts\nNeeds coverage\nFully covered\nDAY & TIME\nTASK\nSTATUS\nTuesday\n09:00–11:00\nWelcome desk\nS1\nCovered\nTuesday\n11:00–13:00\nWelcome desk\nS2\n1 open\nWednesday\n09:00–11:00\nPacking\nS3\n3 open\nSHIFT DETAILS · S3\nPacking\n\nManage the people on this shift.\n\n3 places open\nDAY\nWednesday\nTIME\n09:00–11:00\nAssigned volunteers\n0 / 3\nNo volunteers assigned yet.\nAssign a volunteer\nSelect available volunteer\nTariq\nMei\nNoa\nAssign to shift\n\nOnly available volunteers are shown.\n\nMei removed from this shift.\nChanges stay in this browser session and are not saved or sent."
+        },
+        {
+          "check": "empty query",
+          "text": "✳\nfieldwork\nVolunteer operations\nOPERATIONS / SCHEDULING\nShift overview\n\nKeep every shift covered and your team in the loop.\n\nSHIFT COVERAGE\n↗\n43%\n3 of 7 places filled\nOPEN PLACES\n◌\n4\nPlaces still needing volunteers\nUNCOVERED SHIFTS\n◷\n2\nShifts with places available\nAll shifts\n\nReview coverage and select a shift to manage it.\n\n0 / 3\nAll shifts\nNeeds coverage\nFully covered\nDAY & TIME\nTASK\nSTATUS\nNo shifts found\n\nTry a different search or filter.\n\nClear filters\nSHIFT DETAILS · S3\nPacking\n\nManage the people on this shift.\n\n3 places open\nDAY\nWednesday\nTIME\n09:00–11:00\nAssigned volunteers\n0 / 3\nNo volunteers assigned yet.\nAssign a volunteer\nSelect available volunteer\nTariq\nMei\nNoa\nAssign to shift\n\nOnly available volunteers are shown.\n\nMei removed from this shift.\nChanges stay in this browser session and are not saved or sent."
+        },
+        {
+          "check": "clear query",
+          "cleared": true,
+          "text": "✳\nfieldwork\nVolunteer operations\nOPERATIONS / SCHEDULING\nShift overview\n\nKeep every shift covered and your team in the loop.\n\nSHIFT COVERAGE\n↗\n43%\n3 of 7 places filled\nOPEN PLACES\n◌\n4\nPlaces still needing volunteers\nUNCOVERED SHIFTS\n◷\n2\nShifts with places available\nAll shifts\n\nReview coverage and select a shift to manage it.\n\n3 / 3\nAll shifts\nNeeds coverage\nFully covered\nDAY & TIME\nTASK\nSTATUS\nTuesday\n09:00–11:00\nWelcome desk\nS1\nCovered\nTuesday\n11:00–13:00\nWelcome desk\nS2\n1 open\nWednesday\n09:00–11:00\nPacking\nS3\n3 open\nSHIFT DETAILS · S3\nPacking\n\nManage the people on this shift.\n\n3 places open\nDAY\nWednesday\nTIME\n09:00–11:00\nAssigned volunteers\n0 / 3\nNo volunteers assigned yet.\nAssign a volunteer\nSelect available volunteer\nTariq\nMei\nNoa\nAssign to shift\n\nOnly available volunteers are shown.\n\nMei removed from this shift.\nChanges stay in this browser session and are not saved or sent."
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-operations-none-2",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Created index.html, a dependency-free, in-memory volunteer shift overview with coverage summary, searchable and filterable shift list, shift details, availability-restricted assignment, removal, and empty-state filter clearing. Created check.mjs for local browser verification.\nReferences read: AGENTS.md, tools.json, prompt.txt, data.json in this run directory. The workspace-root AGENTS.md was requested but does not exist.\nChecks performed: Ran check.mjs with installed Playwright and local Edge. Initial coverage 43% (3 of 7), 2 shifts needing people, 3 shifts shown. Assigned Mei to S2: coverage 57%, 1 shift needing people, confirmation shown. Removed Mei: coverage returned to 43% and removal confirmation shown. Search with no match showed empty state; clear filters restored 3 rows. At 375px viewport document width was 375px, indicating no horizontal overflow. Assignment validation also checks capacity, availability and duplicates in code.\nLimits: Browser check covered the stated interaction path and width, not every possible combination or assistive technology. Changes are in memory only and reset on reload. No publish or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Failed",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".intro > div:nth-child(1) > .eyebrow"
+                ],
+                [
+                  ".intro > div:nth-child(1) > p"
+                ],
+                [
+                  ".date"
+                ],
+                [
+                  "#coverageNote"
+                ],
+                [
+                  ".stat:nth-child(2) > small"
+                ],
+                [
+                  ".stat:nth-child(3) > small"
+                ],
+                [
+                  ".section-head > div > p"
+                ],
+                [
+                  ".list-head > span:nth-child(1)"
+                ],
+                [
+                  ".list-head > span:nth-child(2)"
+                ],
+                [
+                  ".list-head > span:nth-child(3)"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(1) > .secondary"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(2) > .secondary"
+                ],
+                [
+                  ".covered"
+                ],
+                [
+                  ".selected > span:nth-child(1) > .secondary"
+                ],
+                [
+                  ".selected > span:nth-child(2) > .secondary"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(1) > .secondary"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(2) > .secondary"
+                ],
+                [
+                  ".detail-top > div > .eyebrow"
+                ],
+                [
+                  ".detail-sub"
+                ],
+                [
+                  ".detail-label > span:nth-child(1)"
+                ],
+                [
+                  ".detail-label > span:nth-child(2)"
+                ],
+                [
+                  ".remove"
+                ],
+                [
+                  ".vacant"
+                ],
+                [
+                  ".hint"
+                ],
+                [
+                  ".footer > span:nth-child(1)"
+                ],
+                [
+                  ".footer > span:nth-child(2)"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "targets": [
+                [
+                  ".intro > div:nth-child(1) > .eyebrow"
+                ],
+                [
+                  ".intro > div:nth-child(1) > p"
+                ],
+                [
+                  ".date"
+                ],
+                [
+                  "#coverageNote"
+                ],
+                [
+                  ".stat:nth-child(2) > small"
+                ],
+                [
+                  ".stat:nth-child(3) > small"
+                ],
+                [
+                  ".section-head > div > p"
+                ],
+                [
+                  ".list-head > span:nth-child(1)"
+                ],
+                [
+                  ".list-head > span:nth-child(2)"
+                ],
+                [
+                  ".list-head > span:nth-child(3)"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(1) > .secondary"
+                ],
+                [
+                  "button[data-shift=\"S1\"] > span:nth-child(2) > .secondary"
+                ],
+                [
+                  ".covered"
+                ],
+                [
+                  ".selected > span:nth-child(1) > .secondary"
+                ],
+                [
+                  ".selected > span:nth-child(2) > .secondary"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(1) > .secondary"
+                ],
+                [
+                  "button[data-shift=\"S3\"] > span:nth-child(2) > .secondary"
+                ],
+                [
+                  ".detail-top > div > .eyebrow"
+                ],
+                [
+                  ".detail-sub"
+                ],
+                [
+                  ".detail-label > span:nth-child(1)"
+                ],
+                [
+                  ".detail-label > span:nth-child(2)"
+                ],
+                [
+                  ".remove"
+                ],
+                [
+                  ".vacant"
+                ],
+                [
+                  ".hint"
+                ],
+                [
+                  ".footer > span:nth-child(1)"
+                ],
+                [
+                  ".footer > span:nth-child(2)"
+                ]
+              ]
+            }
+          ],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "Wednesday availability",
+          "candidates": [
+            "Tariq",
+            "Mei",
+            "Noa"
+          ],
+          "excludesUnavailableAdaAndJon": true
+        },
+        {
+          "check": "assignment and undo change the view",
+          "met": true,
+          "initial": "✳\nshiftboard\nC\nOPERATIONS / OVERVIEW\nVolunteer shifts\n\nKeep every shift covered and your team ready.\n\n◷   Weekly schedule\nOverall coverage\n◔\n43%\n3 of 7 places filled\nShifts needing people\n↗\n2\nShifts with available places\nVolunteers\n♧\n5\nPeople on your roster\nShift schedule\n\nSelect a shift to manage its team.\n\n⌕\nAll shifts\nNeeds people\nCovered\nSHIFT\nSCHEDULE\nCOVERAGE\nWelcome desk\nS1 · 0 places open\nTuesday\n09:00–11:00\n2/2 covered\nWelcome desk\nS2 · 1 place open\nTuesday\n11:00–13:00\n1/2 filled\nPacking\nS3 · 3 places open\nWednesday\n09:00–11:00\n0/3 filled\nSHIFT DETAILS · S2\nWelcome desk\nTuesday  ·  11:00–13:00\nNeeds people\nASSIGNED TEAM\n1 / 2 PLACES\nJ\nJon\nRemove\n＋   Open place\nAssign a volunteer\nOnly available, unassigned volunteers are shown.\nAda\nMei\nNoa\nAssign\n\nChanges are in memory for this session only.\nVolunteer operations · Shiftboard",
+          "assigned": "✳\nshiftboard\nC\nOPERATIONS / OVERVIEW\nVolunteer shifts\n\nKeep every shift covered and your team ready.\n\n◷   Weekly schedule\nOverall coverage\n◔\n57%\n4 of 7 places filled\nShifts needing people\n↗\n2\nShifts with available places\nVolunteers\n♧\n5\nPeople on your roster\nShift schedule\n\nSelect a shift to manage its team.\n\n⌕\nAll shifts\nNeeds people\nCovered\nSHIFT\nSCHEDULE\nCOVERAGE\nWelcome desk\nS1 · 0 places open\nTuesday\n09:00–11:00\n2/2 covered\nWelcome desk\nS2 · 1 place open\nTuesday\n11:00–13:00\n1/2 filled\nPacking\nS3 · 2 places open\nWednesday\n09:00–11:00\n1/3 filled\nSHIFT DETAILS · S3\nPacking\nWednesday  ·  09:00–11:00\nNeeds people\nASSIGNED TEAM\n1 / 3 PLACES\nM\nMei\nRemove\n＋   Open place\n＋   Open place\nAssign a volunteer\nOnly available, unassigned volunteers are shown.\nTariq\nNoa\nAssign\n\nMei assigned to Packing.\n\nChanges are in memory for this session only.\nVolunteer operations · Shiftboard",
+          "after": "✳\nshiftboard\nC\nOPERATIONS / OVERVIEW\nVolunteer shifts\n\nKeep every shift covered and your team ready.\n\n◷   Weekly schedule\nOverall coverage\n◔\n43%\n3 of 7 places filled\nShifts needing people\n↗\n2\nShifts with available places\nVolunteers\n♧\n5\nPeople on your roster\nShift schedule\n\nSelect a shift to manage its team.\n\n⌕\nAll shifts\nNeeds people\nCovered\nSHIFT\nSCHEDULE\nCOVERAGE\nWelcome desk\nS1 · 0 places open\nTuesday\n09:00–11:00\n2/2 covered\nWelcome desk\nS2 · 1 place open\nTuesday\n11:00–13:00\n1/2 filled\nPacking\nS3 · 3 places open\nWednesday\n09:00–11:00\n0/3 filled\nSHIFT DETAILS · S3\nPacking\nWednesday  ·  09:00–11:00\nNeeds people\nASSIGNED TEAM\n0 / 3 PLACES\n＋   Open place\n＋   Open place\n＋   Open place\nAssign a volunteer\nOnly available, unassigned volunteers are shown.\nTariq\nMei\nNoa\nAssign\n\nMei removed from Packing.\n\nChanges are in memory for this session only.\nVolunteer operations · Shiftboard"
+        },
+        {
+          "check": "empty query",
+          "text": "✳\nshiftboard\nC\nOPERATIONS / OVERVIEW\nVolunteer shifts\n\nKeep every shift covered and your team ready.\n\n◷   Weekly schedule\nOverall coverage\n◔\n43%\n3 of 7 places filled\nShifts needing people\n↗\n2\nShifts with available places\nVolunteers\n♧\n5\nPeople on your roster\nShift schedule\n\nSelect a shift to manage its team.\n\n⌕\nAll shifts\nNeeds people\nCovered\nSHIFT\nSCHEDULE\nCOVERAGE\nNo shifts match your filters.\nClear filters\nSHIFT DETAILS · S3\nPacking\nWednesday  ·  09:00–11:00\nNeeds people\nASSIGNED TEAM\n0 / 3 PLACES\n＋   Open place\n＋   Open place\n＋   Open place\nAssign a volunteer\nOnly available, unassigned volunteers are shown.\nTariq\nMei\nNoa\nAssign\n\nMei removed from Packing.\n\nChanges are in memory for this session only.\nVolunteer operations · Shiftboard"
+        },
+        {
+          "check": "clear query",
+          "cleared": true,
+          "text": "✳\nshiftboard\nC\nOPERATIONS / OVERVIEW\nVolunteer shifts\n\nKeep every shift covered and your team ready.\n\n◷   Weekly schedule\nOverall coverage\n◔\n43%\n3 of 7 places filled\nShifts needing people\n↗\n2\nShifts with available places\nVolunteers\n♧\n5\nPeople on your roster\nShift schedule\n\nSelect a shift to manage its team.\n\n⌕\nAll shifts\nNeeds people\nCovered\nSHIFT\nSCHEDULE\nCOVERAGE\nWelcome desk\nS1 · 0 places open\nTuesday\n09:00–11:00\n2/2 covered\nWelcome desk\nS2 · 1 place open\nTuesday\n11:00–13:00\n1/2 filled\nPacking\nS3 · 3 places open\nWednesday\n09:00–11:00\n0/3 filled\nSHIFT DETAILS · S3\nPacking\nWednesday  ·  09:00–11:00\nNeeds people\nASSIGNED TEAM\n0 / 3 PLACES\n＋   Open place\n＋   Open place\n＋   Open place\nAssign a volunteer\nOnly available, unassigned volunteers are shown.\nTariq\nMei\nNoa\nAssign\n\nMei removed from Packing.\n\nChanges are in memory for this session only.\nVolunteer operations · Shiftboard"
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-public-candidate-1",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Result: Created index.html, a responsive public page for Morrow Print Room with session comparison, visit details, and a local inquiry form. Session links preselect the form; validation retains entered values; no data is sent or reserved.\nReferences read: AGENTS.md, tools.json, prompt.txt, local-skill/SKILL.md, and local-skill/references/direction.md, structure.md, craft.md, typography.md, layout.md, color.md, forms.md, states.md, interaction.md, copy.md, anti-slop.md, inspection.md (the combined reference output was truncated, so not every line was visible).\nChecks: CLI inspect ran against index.html at localhost, source coverage completed but rendered coverage was partial because default Chromium was absent. Edge/Playwright ran against the local file at 1440x900 and 390x844: no horizontal overflow; empty form showed all three errors and focused session; session selection worked; invalid email showed an error while retaining name; valid input produced a truthful local result. Captured both full-page screenshots and visually inspected the phone screenshot. Final source adjustment associated session error with its select; this attribute change was not rerun. Final pattern pass checked copy, arrows, composition, and unsupported proof. No invented social proof or external assets.\nLimits: Desktop screenshot was captured but not visually inspected; keyboard traversal, contrast measurement, and full accessibility conformance were not tested. No network submission or persistence across reload is implemented. No publishing or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [
+            "Inquiry prepared for Intro to risograph. Your details remain on this page; nothing has been sent or reserved."
+          ],
+          "tail": "little\nroom for print.\n\nTwo ways to spend time at Morrow Print Room. Choose the session that fits you.\n\nM.\nTHE WEEKEND SCHEDULE\nPick your session.\n\nEach visitor can print an edition of up to 20 sheets.\n\n01\nIntro to risograph\n\nSaturday · 10:30\n90 minutes\n\nMaterials included.\n\n$25\nSelect session\n02\nOpen print desk\n\nSunday · 13:00\n2 hours\n\nBring a prepared design.\n\n$18\nSelect session\nFIND THE ROOM\nCome by\nthis weekend.\nAddress\n24 River Lane\nOpening hours\nSaturday & Sunday\n10:00–17:00\nAccess\nStep-free entrance\nSESSION INQUIRY\nStart here.\n\nChoose a session and enter your details to prepare a local inquiry. Nothing is sent or reserved.\n\nSession\nChoose a session\nIntro to risograph\nOpen print desk\nName\nEmail\nPrepare inquiry\nInquiry prepared for Intro to risograph. Your details remain on this page; nothing has been sent or reserved.\nMORROW PRINT ROOM\n24 River Lane · Saturday & Sunday, 10:00–17:00",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-public-candidate-2",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Built index.html as a standalone responsive Morrow Print Room page with session comparison, visit information, and a local inquiry form. Session buttons select the corresponding radio option; validation retains entered values and the result explicitly says nothing was sent or reserved.\n\nInstructions read: AGENTS.md, tools.json, prompt.txt, local-skill/SKILL.md. References read: local-skill/references/direction.md, structure.md, craft.md, typography.md, layout.md, color.md, forms.md, states.md, interaction.md, copy.md, anti-slop.md, inspection.md. The combined reference output was truncated by the tool, so not every line was visible.\n\nChecks: Viewed full-page Edge captures at 1440 and 390 pixels. Playwright exercised empty submission, selecting Open print desk, completing name and email, local feedback and retained values at both widths; no horizontal document overflow was detected. CLI inspect on localhost:18973 completed source and rendered checks with no findings; the served page was identified by Morrow Print Room text. A first CLI attempt using file: was unsupported, and port 8765 served an unrelated page; that report is not evidence for this page. Final pattern pass reviewed copy, controls and visual composition.\n\nLimits: Keyboard-only operation and invalid-email correction were not separately exercised. The CLI did not exercise an interaction flow or establish full accessibility conformance. No message is sent, no reservation is made, and input is held only in the current page. No publishing or commit performed.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [
+            "Inquiry prepared for Intro to risograph. Nothing was sent or reserved."
+          ],
+          "tail": ".\n\nTwo ways to spend a weekend at Morrow Print Room.\n\nChoose a session, then prepare a local inquiry below.\n\nTHE WEEKEND SCHEDULE / 01—02\nChoose your session\n\nTwo sessions, two ways to print.\n\nSATURDAY\nIntro to risograph\n\nMaterials included\n\n10:30\n90 minutes · $25\nSelect session\nSUNDAY\nOpen print desk\n\nBring a prepared design\n\n13:00\n2 hours · $18\nSelect session\n\nEdition size is limited to 20 sheets per visitor.\n\nFIND THE ROOM\nPlan your visit\nADDRESS\n24 River Lane\nOPEN\nSaturday & Sunday\n10:00–17:00\nACCESS\nStep-free entrance\nMORROW\nPRINT\nROOM\nYOUR SELECTION\nPrepare an inquiry\n\nChoose a session and add your details to review your inquiry here.\n\nThis is a local interaction. Nothing is sent or reserved.\n\nSession\nIntro to risograph\nOpen print desk\nName\nEmail\nReview inquiry\nInquiry prepared for Intro to risograph. Nothing was sent or reserved.\nMORROW PRINT ROOM\n24 River Lane · Saturday & Sunday",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-public-current-1",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Created index.html with responsive session comparison, visit details, local session selection and inquiry validation. Nothing is sent or reserved.\nReferences read: AGENTS.md; tools.json; prompt.txt; local-skill/SKILL.md; local-skill/references/direction.md, interaction.md, craft.md, anti-slop.md, inspection.md.\nChecks: Edge/Playwright at 1440, 390 and 320 CSS pixels: no document horizontal overflow; open print desk selection, empty name/email errors, invalid email error, valid local status, retained name. Viewed 390px full-page screenshot. CLI inspect --project . --source index.html --format json --output inspection: source coverage completed, zero findings; rendered and interaction coverage not requested. Source final pattern pass: reviewed copy and controls, no decorative arrows or unsupported proof. Contrast measured for authored main foreground/background pairs via contrast.cjs.\nLimits: No full accessibility audit, 200% zoom or text-spacing override check; no desktop screenshot visual review. Interaction is local only and does not persist across reloads.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [
+            "Inquiry ready for Intro to risograph. Nothing has been sent or reserved."
+          ],
+          "tail": "D AT THE PRINT ROOM / 01\nMake an\nimpression.\n\nTwo ways to spend time in the print room. Pick the session that fits you.\n\nSAT + SUN\n10:00–17:00\nON THE SCHEDULE / 02\nChoose your session.\n\nEach visitor can print an edition of up to 20 sheets.\n\n01 / SATURDAY\n$25\nIntro to\nrisograph\n\nSTARTS\n10:30 · 90 minutes\n\nINCLUDED\nMaterials\n\nSelect intro session\n02 / SUNDAY\n$18\nOpen print\ndesk\n\nSTARTS\n13:00 · 2 hours\n\nBRING\nA prepared design\n\nSelect open print desk\nCOME BY / 03\nFind the\nprint room.\nADDRESS\n24 River Lane\nHOURS\nSaturday & Sunday\n10:00–17:00\nACCESS\nStep-free entrance\nMAKE A SELECTION / 04\nInterested?\n\nChoose a session and add your details below. This is a local inquiry preview; nothing is sent or reserved.\n\nSession\nIntro to risograph\nOpen print desk\nName\nEmail\nReview inquiry\n\nInquiry ready for Intro to risograph. Nothing has been sent or reserved.\n\nMORROW PRINT ROOM\n24 RIVER LANE · SAT + SUN",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-public-current-2",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Created index.html, a responsive public page with session comparison, visit details, and local selection and inquiry validation. Inputs remain on the page; nothing is sent or reserved.\nReferences read: AGENTS.md, tools.json, prompt.txt, local-skill/SKILL.md, local-skill/references/direction.md, craft.md, interaction.md, structure.md, anti-slop.md, inspection.md. Root AGENTS.md was attempted but does not exist.\nChecks: Playwright with local Edge at 1440, 390 and 320 CSS px: no horizontal overflow; selecting the first session, submitting empty fields, completing name and email, and local confirmation with retained name succeeded. Inspected full-page screenshots at 1440 and 390. CLI source inspection of index.html completed with no findings; rendered and interaction coverage was not requested in the CLI. Final source/copy and visual pattern pass performed.\nLimits: Browser tests cover only the first session selection and basic form path; no complete keyboard, screen-reader, zoom, or contrast measurement audit was performed. No publishing or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [
+            "Inquiry ready for Intro to risograph. Nothing has been sent or reserved."
+          ],
+          "tail": "nd some time in the print room. Find the session that suits you.\n\nprint\nroom\nTHE WEEKEND SCHEDULE\nChoose your session\n\nEach visitor can print an edition of up to 20 sheets.\n\n01 / Saturday\n$25\nIntro to risograph\n\nMaterials included.\n\n10:30\n90 minutes\nChoose this session\n02 / Sunday\n$18\nOpen print desk\n\nBring a prepared design.\n\n13:00\n2 hours\nChoose this session\nFIND THE ROOM\nVisit us\nADDRESS\n\n24 River Lane\n\nOPENING HOURS\n\nSaturday & Sunday\n10:00–17:00\n\nACCESS\n\nStep-free entrance\n\nSESSION INQUIRY\nMake a note of your choice.\n\nChoose a session and enter your details below. This is a local inquiry form; nothing is sent or reserved.\n\nSession\nIntro to risograph · Saturday\nOpen print desk · Sunday\n\nName\n\nEmail\n\nReview inquiry\n\nYour details stay on this page.\n\nInquiry ready for Intro to risograph. Nothing has been sent or reserved.\n\nMORROW PRINT ROOM\n24 River Lane · Saturday & Sunday, 10:00–17:00",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-public-none-1",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Created index.html, a self-contained responsive public page for Morrow Print Room with session cards, visit details, and a local inquiry form. Session buttons select the corresponding form option; validation and successful review retain entered values. Nothing is sent or reserved.\nReferences read: AGENTS.md, tools.json, prompt.txt in this run directory. No skills, external assets, services, other runs, or dependencies were used.\nChecks: Ran node check.mjs using the installed Playwright and local Edge, with authorized sandbox escalation. At viewport widths 1440 and 390: no document horizontal overflow; Open print desk button selected the correct option; empty name produced the name validation message; invalid email produced the email validation message; valid entries produced the local review message and retained name and email. Initial test invocation failed due to a Windows ESM path; corrected to a file URL. An un-escalated run produced no output; the escalated run passed.\nLimits: No real submission or reservation is implemented by design. Browser checks exercised one session button and the specified validation paths; no assistive technology testing was performed. No publishing or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [
+            "Your inquiry is ready to review. Nothing has been sent or reserved."
+          ],
+          "tail": "ions   ↘\nPAPER / INK / REPEAT\n24 RIVER LANE\nSAT & SUN   10:00–17:00\nSTEP-FREE ENTRANCE ↗\n01 / WHAT’S ON\nPick your session.\n\nTwo ways to spend time with print. Editions are limited to 20 sheets per visitor.\n\nSATURDAY / 10:30\n01\nIntro to risograph\n\n90 minutes · Materials included\n\n$25\nChoose this session ↗\nSUNDAY / 13:00\n02\nOpen print desk\n\n2 hours · Bring a prepared design\n\n$18\nChoose this session ↗\n02 / FIND US\nCome on in.\nLOCATION\n\n24 River Lane\nStep-free entrance\n\nOPENING HOURS\n\nSaturday & Sunday\n10:00–17:00\n\n03 / YOUR INQUIRY\nLet’s talk print.\n\nChoose the session you’re interested in and leave your details below.\n\nSession\nChoose a session\nIntro to risograph\nOpen print desk\nName\nEmail\nReview inquiry   ↗\n\nThis is a local inquiry only. Nothing is sent or reserved.\n\nYour inquiry is ready to review. Nothing has been sent or reserved.\n\nMORROW PRINT ROOM\n24 RIVER LANE · SAT & SUN 10:00–17:00",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-public-none-2",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Created index.html, a responsive local Morrow Print Room page with session and visit details, session selection, validation and a local inquiry preview. Nothing is sent or reserved.\nReferences read: AGENTS.md, tools.json, prompt.txt in this run directory. An attempted read of the workspace-root AGENTS.md found no file.\nChecks performed: node check.mjs using the supplied Playwright and Edge paths. At 1440px and 375px, no horizontal overflow was detected; empty submission produced all three validation messages; selecting Open print desk populated the form; valid name and email produced the local preview. Screenshots saved as check-1440.png and check-375.png. Initial sandboxed Edge launch failed with a Crashpad pipe error; the check passed with local execution escalation.\nLimits: Automated checks cover the stated interactions and widths, not a full accessibility audit or every browser. No network submission, reservation, publication or commit was performed.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {},
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "invalid retains input",
+          "met": true
+        },
+        {
+          "check": "valid inquiry result",
+          "status": [
+            "Inquiry preview: Test Reader (reader@example.com) is interested in Intro to risograph. Nothing has been sent or reserved."
+          ],
+          "tail": "sion ↗\nSUNDAY / 13:00\n02\nOpen print desk\n2 hours\n$18\nBring a prepared design\n\nBring your prepared design to the open print desk.\n\nInquire about this session ↗\n02 / FIND US\nCome on in.\n\nA little time, a little ink, and room to make.\n\nADDRESS\n24 River Lane\nOPENING HOURS\nSaturday & Sunday\n10:00–17:00\nACCESS\nStep-free entrance\nEDITION LIMIT\n20 sheets per visitor\n03 / GET IN TOUCH\nInterested?\nStart here.\n\nChoose a session and leave your details below. This is a local inquiry preview only; nothing will be sent or reserved.\n\nSession\nChoose a session\nIntro to risograph\nOpen print desk\n\nYour name\n\nEmail address\n\nPreview inquiry\n↗\n\nYour details stay on this page. This does not send an inquiry or reserve a place.\n\nInquiry preview: Test Reader (reader@example.com) is interested in Intro to risograph. Nothing has been sent or reserved.\nMorrow\nPrint Room.\n\n24 River Lane\nSaturday & Sunday / 10:00–17:00",
+          "valuesRetained": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-refinement-candidate-1",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Refined styles.css only: retained Georgia, palette, copy, order, desktop two-region grid and existing script; increased prose scale and leading, clarified heading and metadata hierarchy, adjusted spacing and reading measure, and added visible keyboard focus treatment.\nReferences actually read: AGENTS.md; tools.json; prompt.txt; local-skill/SKILL.md; local-skill/references/calibration.md, typography.md, layout.md, interaction.md, inspection.md, craft.md, anti-slop.md. Also inspected index.html, styles.css and app.js.\nChecks: Captured baseline and updated pages with local Edge/Playwright at 1440x900 and 390x844; visually inspected updated desktop and phone screenshots. At both widths body computed to 16px/25.6px versus baseline 13px/16.25px. Checked 320px viewport too. At all three widths tested typing and submitting a local note, observed the note and status text and cleared field; Tab focused the first link with a solid focus outline. At 200% root font size scroll width matched viewport at 1440 and 390; at 320 it reported 335px after form interaction, so that edge case needs further inspection. No copy or behavior files were changed.\nCLI inspection attempted for styles.css with local URL at 1440 and 390. Source coverage completed, but rendered coverage was partial because navigation timed out; no CLI rendered pass is claimed. Browser checks above used the local file directly. Full accessibility, other browsers, touch and all keyboard paths were not tested. No publish or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-refinement-candidate-2",
+    "stage": "final",
+    "arm": "candidate",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Result: Refined styles.css only. Increased body type from 13px to 16px with 1.6 leading; clarified heading, label and quote hierarchy; adjusted reading measure and spacing; added visible focus outlines and roomier form controls. Preserved HTML copy/order, Georgia, palette, desktop two-region grid and app.js behavior.\n\nReferences read: local-skill/SKILL.md; local-skill/references/calibration.md, craft.md, typography.md, layout.md, interaction.md, anti-slop.md, inspection.md. Also read AGENTS.md, tools.json, prompt.txt, index.html, styles.css and app.js.\n\nChecks: Captured and visually compared baseline and revised page at 1440x900 and 390x844 in local Edge; revised page also checked at 320px. Playwright reported no horizontal overflow at those widths. Tab reached the first link; pointer submission of a test note produced the expected list item and local status at each width. CLI inspection against a temporary local server completed source and rendered checks at 1440x900 and 390x844 with zero findings; interaction flow was not requested. HTML and JS were not edited. Screenshots and inspection/run.json are retained in this run.\n\nLimits: No exhaustive keyboard journey, zoom/text-spacing override, touch-device, or full accessibility-conformance test was performed. CLI pairing does not independently prove served source identity; the server was started in this run directory. No publication or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-refinement-current-1",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Refined the existing Georgia typography, reading measure, heading hierarchy, spacing, form sizing and visible keyboard focus in styles.css. Preserved copy, content order, palette, desktop two-region composition and local note behavior.\nReferences read: AGENTS.md; tools.json; prompt.txt; local-skill/SKILL.md; local-skill/references/project-context.md; local-skill/references/craft.md; local-skill/references/inspection.md; local-skill/references/anti-slop.md. Also inspected index.html, styles.css and app.js.\nChecks: Viewed full-page Edge screenshots at 1440px and 390px; no horizontal overflow at either width. Submitted a test note at each width and observed the added note and status. Source inspection CLI completed for index.html and styles.css with no findings; rendered and interaction CLI coverage were not requested. Calculated palette contrast: ink on paper 10.69:1, accent on paper 5.21:1. Reviewed copy and composition within the authorized scope. Browser required authorized sandbox escalation.\nLimits: Checks cover the sampled widths and local submission only; no comprehensive accessibility or cross-browser audit. Focus styling was implemented but not separately exercised with keyboard. No publish or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": true
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-refinement-current-2",
+    "stage": "final",
+    "arm": "current",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Refined CSS typography, reading measure, spacing, and keyboard focus treatment. Preserved page copy, content order, palette, two-region desktop composition, and application script.\nReferences read: AGENTS.md, tools.json, prompt.txt, local-skill/SKILL.md, local-skill/references/project-context.md, local-skill/references/craft.md, local-skill/references/inspection.md, local-skill/references/anti-slop.md. Inspected index.html, styles.css, and app.js.\nChecks: Local CLI source inspection completed with no findings; coverage was source only. Edge/Playwright screenshots visually reviewed at 1440x900 and 390x844, including lower content; no horizontal overflow at either width. Submitted a test observation at both widths and confirmed added text and status. Calculated ink/paper and accent/paper contrast ratios using the palette values. Source copy and controls reviewed against the relevant final-pass checks.\nLimits: Browser interaction checks cover only the local submission at two widths; no exhaustive keyboard, zoom, or accessibility audit. The CLI source inspection did not include rendered coverage. No publish or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": false
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-refinement-none-1",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Refined styles.css typography, line lengths, spacing, form sizing, and visible keyboard focus. Preserved original text, palette, desktop two-column composition, and app.js behavior.\nReferences read: AGENTS.md, tools.json, prompt.txt, index.html, styles.css, app.js, all in this run directory. tools.json supplied installed Playwright and Edge paths.\nChecks: Ran Playwright with installed Edge at 1440x900 and 375x900. Both had scrollWidth equal to clientWidth (1440 and 375); desktop had two grid columns and phone one. At each width submitted a test observation and confirmed the added text, status message, and cleared field. Inspected full-page screenshots at both widths. Initial sandboxed browser launch failed due to Crashpad; reran successfully with authorized escalation.\nLimits: No broader browser, screen-reader, or manual keyboard testing performed. No publication or commit.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": false
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  },
+  {
+    "id": "terra-refinement-none-2",
+    "stage": "final",
+    "arm": "none",
+    "completed": true,
+    "modelRequested": "gpt-6.1-terra low",
+    "modelNotes": "Changes: Updated styles.css typography, reading measure, spacing, responsive sizing, and visible keyboard focus treatment. Preserved page text, order, palette, two-region desktop layout, and JavaScript behavior.\nReferences read: AGENTS.md, tools.json, prompt.txt, index.html, styles.css, app.js in this run directory. The workspace-root AGENTS.md was requested but does not exist.\nChecks performed: Used installed Playwright and Microsoft Edge headless against the local file at 1440x900 and 375x900. Visually inspected full-page screenshots. Confirmed no horizontal overflow (document widths 1440 and 375), two grid columns on desktop and one on phone. Submitted a test observation at each width; the list and status updated and the textarea cleared. Browser launch required authorized sandbox escalation. The initial test script import failed because a Windows path was not a file URL; corrected before the successful checks.\nLimits: Checked only these two viewport widths in Edge; did not test other browsers or assistive technologies. Keyboard focus styling was implemented but not separately exercised by keyboard automation.\n",
+    "referenceReadEvidence": "attributed result notes; full independent read trace unavailable",
+    "observedReadPaths": [],
+    "scopeEvidence": {
+      "protectedCopyEqual": true,
+      "behaviorSourceEqual": true,
+      "brandVariablesRetained": true
+    },
+    "selectedInitialAccess": {
+      "status": "Met",
+      "limit": "Selected initial widths/rules only; comprehensive access remains Unobserved",
+      "samples": [
+        {
+          "width": 1440,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "violations": [],
+          "pageErrors": [],
+          "remoteRequests": []
+        }
+      ]
+    },
+    "primaryJourney": {
+      "status": "Met",
+      "limit": "Exercised journey, not every constraint or state",
+      "initialHarness": [
+        {
+          "check": "protected initial copy",
+          "text": "Small WeatherField notes / 04Places in useA room changes through the day.Notes on light, objects and the routines between them.Read the notesStart with what happens hereA desk can be a place to read in the morning and a place to mend something in the evening. Notice the routine before deciding what should stay within reach.Keep a place for returningAn arrangement is useful when an object can leave and return without everything else moving. Leave enough room for the things you actually use.Order becomes visible through use.Leave a noteThis local example keeps a note on the page until reload. It does not send or save anything.Your observationAdd note locallySmall Weather / Original illustrative text"
+        },
+        {
+          "check": "local note",
+          "met": true
+        },
+        {
+          "check": "320px diagnostic doubled computed text",
+          "overflow": false
+        }
+      ],
+      "adaptedFollowup": null
+    },
+    "fullCraftAcceptance": "Unobserved: qualitative first-repeat captures sampled; no aesthetic score"
+  }
+]
