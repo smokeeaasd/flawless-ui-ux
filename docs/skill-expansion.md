@@ -1,6 +1,6 @@
 # Skill expansion
 
-This unreleased expansion turns short general guidance into decision procedures, original worked cases and executable materials. It preserves the existing CLI and public schemas. The package version remains unchanged until release preparation; no npm publication, tag or GitHub release is performed by this work.
+Version 2.2.0 expands the skill with decision procedures, original worked cases and executable materials. It preserves the existing CLI and public schemas. Registry publication and the matching GitHub release are verified separately from the source changes, as described in the [release procedure](releasing.md).
 
 ## Delivered content
 
