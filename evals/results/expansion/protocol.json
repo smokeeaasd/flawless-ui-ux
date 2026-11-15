@@ -1,0 +1,691 @@
+{
+  "frozenAt": "2026-11-15T00:06:00.647Z",
+  "tools": {
+    "playwright": "C:\\Users\\lucas\\Desktop\\flawless-ui-ux\\flawless-ui-ux\\node_modules\\playwright\\index.mjs",
+    "browser": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+    "cli": "C:\\Users\\lucas\\Desktop\\flawless-ui-ux\\flawless-ui-ux\\bin\\flawless-ui-ux.js"
+  },
+  "tasks": {
+    "public": "Build a distinctive, usable public page for the fictional Morrow Print Room. Audience: neighbors deciding which print session to attend. Facts: 24 River Lane; open Saturday and Sunday 10:00\u201317:00; step-free entrance; Intro to risograph, Saturday 10:30, 90 minutes, $25, materials included; Open print desk, Sunday 13:00, 2 hours, $18, bring a prepared design; edition size is limited to 20 sheets per visitor. Make the offers and visit information easy to find. Include a local session-selection and inquiry interaction with name and email, understandable validation and retained input; nothing is sent or reserved. Use only these facts, no invented social proof. Use plain HTML/CSS/JS without dependencies or remote assets. Supply index.html and working local interactions at desktop and phone widths.",
+    "operations": "Build an operational volunteer shift overview from data.json. The coordinator must find uncovered shifts, assign an available volunteer to a shift, and undo that assignment. Preserve every supplied shift and volunteer. Coverage is the number of assigned places divided by the seven required places. Prevent duplicate assignments within a shift, capacity overflow and assignments outside the supplied availability. Update coverage, counts, row/detail state and feedback together. Provide a useful empty result and a way to clear filtering. Changes are in memory only, not saved or sent. Use plain HTML/CSS/JS without dependencies or remote assets. Supply index.html and working local interactions at desktop and phone widths. Choose a coherent visual direction appropriate to repeated operational work.",
+    "refinement": "Improve typography, readability and hierarchy on this field-notes page. Preserve every word, content order, brand palette, two-region desktop composition, and all existing behavior. Limit changes to typography, spacing and focus treatment. Do not replace the brand, add features or rewrite copy. Check desktop and phone widths."
+  },
+  "runs": [
+    {
+      "id": "terra-public-none-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "public",
+      "arm": "none",
+      "repeat": 1,
+      "promptSha256": "3618d28b0d5bc00792c6aa40e6393fa6d38f6a2a7a8ca063a380ecb52fdd5630"
+    },
+    {
+      "id": "terra-public-current-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "public",
+      "arm": "current",
+      "repeat": 1,
+      "promptSha256": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28"
+    },
+    {
+      "id": "terra-public-candidate-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "public",
+      "arm": "candidate",
+      "repeat": 1,
+      "promptSha256": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28"
+    },
+    {
+      "id": "terra-operations-none-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "operations",
+      "arm": "none",
+      "repeat": 1,
+      "promptSha256": "a2409122085045511061a67c823ec4a0fa004648d676593b0c82108fa1ef4356"
+    },
+    {
+      "id": "terra-operations-current-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "operations",
+      "arm": "current",
+      "repeat": 1,
+      "promptSha256": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89"
+    },
+    {
+      "id": "terra-operations-candidate-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "operations",
+      "arm": "candidate",
+      "repeat": 1,
+      "promptSha256": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89"
+    },
+    {
+      "id": "terra-refinement-none-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "refinement",
+      "arm": "none",
+      "repeat": 1,
+      "promptSha256": "df802da506a2e5ea291ff718e4effa8ff6672557cfc0c4e05609152dc8ac6a46"
+    },
+    {
+      "id": "terra-refinement-current-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "refinement",
+      "arm": "current",
+      "repeat": 1,
+      "promptSha256": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01"
+    },
+    {
+      "id": "terra-refinement-candidate-1",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "refinement",
+      "arm": "candidate",
+      "repeat": 1,
+      "promptSha256": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01"
+    },
+    {
+      "id": "terra-public-none-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "public",
+      "arm": "none",
+      "repeat": 2,
+      "promptSha256": "3618d28b0d5bc00792c6aa40e6393fa6d38f6a2a7a8ca063a380ecb52fdd5630"
+    },
+    {
+      "id": "terra-public-current-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "public",
+      "arm": "current",
+      "repeat": 2,
+      "promptSha256": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28"
+    },
+    {
+      "id": "terra-public-candidate-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "public",
+      "arm": "candidate",
+      "repeat": 2,
+      "promptSha256": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28"
+    },
+    {
+      "id": "terra-operations-none-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "operations",
+      "arm": "none",
+      "repeat": 2,
+      "promptSha256": "a2409122085045511061a67c823ec4a0fa004648d676593b0c82108fa1ef4356"
+    },
+    {
+      "id": "terra-operations-current-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "operations",
+      "arm": "current",
+      "repeat": 2,
+      "promptSha256": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89"
+    },
+    {
+      "id": "terra-operations-candidate-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "operations",
+      "arm": "candidate",
+      "repeat": 2,
+      "promptSha256": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89"
+    },
+    {
+      "id": "terra-refinement-none-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "refinement",
+      "arm": "none",
+      "repeat": 2,
+      "promptSha256": "df802da506a2e5ea291ff718e4effa8ff6672557cfc0c4e05609152dc8ac6a46"
+    },
+    {
+      "id": "terra-refinement-current-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "refinement",
+      "arm": "current",
+      "repeat": 2,
+      "promptSha256": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01"
+    },
+    {
+      "id": "terra-refinement-candidate-2",
+      "model": "gpt-6.1-terra",
+      "reasoning": "low",
+      "task": "refinement",
+      "arm": "candidate",
+      "repeat": 2,
+      "promptSha256": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01"
+    },
+    {
+      "id": "beam-public-none-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "public",
+      "arm": "none",
+      "repeat": 1,
+      "promptSha256": "3618d28b0d5bc00792c6aa40e6393fa6d38f6a2a7a8ca063a380ecb52fdd5630"
+    },
+    {
+      "id": "beam-public-current-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "public",
+      "arm": "current",
+      "repeat": 1,
+      "promptSha256": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28"
+    },
+    {
+      "id": "beam-public-candidate-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "public",
+      "arm": "candidate",
+      "repeat": 1,
+      "promptSha256": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28"
+    },
+    {
+      "id": "beam-operations-none-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "operations",
+      "arm": "none",
+      "repeat": 1,
+      "promptSha256": "a2409122085045511061a67c823ec4a0fa004648d676593b0c82108fa1ef4356"
+    },
+    {
+      "id": "beam-operations-current-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "operations",
+      "arm": "current",
+      "repeat": 1,
+      "promptSha256": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89"
+    },
+    {
+      "id": "beam-operations-candidate-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "operations",
+      "arm": "candidate",
+      "repeat": 1,
+      "promptSha256": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89"
+    },
+    {
+      "id": "beam-refinement-none-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "refinement",
+      "arm": "none",
+      "repeat": 1,
+      "promptSha256": "df802da506a2e5ea291ff718e4effa8ff6672557cfc0c4e05609152dc8ac6a46"
+    },
+    {
+      "id": "beam-refinement-current-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "refinement",
+      "arm": "current",
+      "repeat": 1,
+      "promptSha256": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01"
+    },
+    {
+      "id": "beam-refinement-candidate-1",
+      "model": "opencode/beam-free#medium",
+      "reasoning": "medium",
+      "task": "refinement",
+      "arm": "candidate",
+      "repeat": 1,
+      "promptSha256": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01"
+    }
+  ],
+  "candidateHashes": {
+    "agents/openai.yaml": "ef5ba4542c1a432a16c8b83b188ae1a25657c836b9ef930c209ba90764671420",
+    "assets/context/design.md": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1",
+    "assets/context/product.md": "59d8bdc45a8ed969d683b888dcb81843d2d94ba8348e399f4879250aac2afe25",
+    "assets/design-studies/collection.png": "f4f213527740b4209e5d479e994916505914d17f9efbc58d5dad4b600927b197",
+    "assets/design-studies/reading.png": "33c12214b26494678483a33bd28b761020e3bc682fc43de047e01e02990a8e8c",
+    "assets/design-studies/service.png": "8a1ef809e0aab52135aafa2ca50a7bdf53f70ea1c7848279bd78fcec7964a9a3",
+    "assets/design-studies/workspace.png": "582ff7086fdb8c9b23a6673a7271b1e5379a11e9328b19353b576dcf4f211f7d",
+    "assets/examples/cafe.html": "9861781c74ddfe7d87e5efe26d4a822f0a2f3920a2185d4e18d5f4486b9a5487",
+    "assets/examples/collection.html": "886788daec01afd230b6624a201bffe7a7764e6647f236708a234754ba8389a7",
+    "assets/examples/comparison.html": "44d91b2425222d122994d048d27ab3da44564e58bb807caa18b95649704bee10",
+    "assets/examples/finance.html": "92827bd0ca6142924bb62844e79dc2677d768c5f8896c4d081b289851f6fab46",
+    "assets/examples/form.html": "a0f09e5b6e1d4a29f73bc70fe07ade26d9bad42bae7356bf0deaa9e054f53625",
+    "assets/examples/index.html": "235fc9d872c2eb7311f17cb7fc4e72819ad5841f2f596b7f4f425dc876f08f3e",
+    "assets/examples/native/ReadingList.kt": "9f00874475623fca4b0c8a84a71c629dab7e7c9eeade695955138a0b845a6e73",
+    "assets/examples/native/ReadingList.swift": "bc18cb7c5db8e16b5e26ffe8cdd875dd1b409bb6dc1872a4ff83c58c5094546a",
+    "assets/examples/queue.html": "80fc3504a18717d2eda72057ed51e11fb3423fa48dd296c95d60f1c7191c1605",
+    "assets/examples/reading.html": "2198aa8434ce9be3003ea6491bbf32fcb2a1f1dcd26b3043995b5a1f77e1d4ad",
+    "assets/examples/serve.mjs": "489d5d5117e5e3f367b692efc51a5e246f5f7c392d1e8a620efef102eeeb29b8",
+    "assets/examples/shared.css": "a28fdff41aca19a1545c4b482a653d597baae8362a44126d8693055fb26ff240",
+    "assets/examples/shared.js": "12e3bbc688480915fe0d8d70ef383fc26a28c128199284df6e41cddefbcfa2d9",
+    "assets/examples/software.html": "6f1b1f02aa84f2d660809a77275eb22565f317129e985eb5e188039f85ffc8e6",
+    "references/android.md": "65fcfe1c43d0930eabc9eaddd2c2ce7048082ff269fb42e459ffe3c38a037cf7",
+    "references/anti-slop.md": "0e26084b274b431a1c2b6fd77f46d5f082b881eb6612376f3c92773dbc00806f",
+    "references/calibration.md": "2eb939e01bc13b714a26571670eec211a19fdcd05f802199d42c3e869384d33a",
+    "references/charts.md": "a59f66855884b5836cdbd740e564c88a66bdd97526eaeec101891234e1b0d367",
+    "references/color.md": "41c443d60ebc0babc52a6e6cb31b2f8bd5583ecb11d0bea73bdf602fb1e21b0d",
+    "references/copy.md": "9774099d22f49bc4721df73a385b0d79d525330988d5259a83bb700786bd8e88",
+    "references/craft.md": "79ca92a4677c110afa496e82f4cbfc0f6544877cdc88e872687cd11cedf88069",
+    "references/design-studies.md": "7840c05f8636ad24144f6f1d99a1d9373bc099c537a55ac4b48bf56cdd9bc5f9",
+    "references/desktop.md": "0c3d17f94e500b9c9a0066272ac2d7007d4cf295d472e0abe3a2ebd2ec6e265d",
+    "references/direction.md": "c362b46351ff88d4d9a5cb0b38756873211a8b6229b5df94a7c029fa4ece803d",
+    "references/forms.md": "79f051f4c5ae6d64073f09fcd2397230a418415f9da89384630110aa07f286ba",
+    "references/inspection.md": "ce03da619b96001bebc63a452512bd1440e498717464d6de2a28f7a1d2b4d413",
+    "references/interaction.md": "207b61c0339d55906bbfbddaa400c513060dc02f706a8f17e82e4a709e02a0af",
+    "references/ios.md": "328b7a1d3ce0df575046243b7066def4d244237bd67a6b6479465933e859f4bf",
+    "references/layout.md": "653052e975dbefbc18da1756cd523f48c6f7b1df44cca681ec9500365d3872e5",
+    "references/motion.md": "3f5a3320044d078c1ae5bcb77e73d5ad2b513034f5d267a4e7a9cbe2232cd301",
+    "references/native-studies.md": "ae473c5cb04c73266872f2361def9e7da1978e888e3c6e456b9529586c808c11",
+    "references/performance.md": "a4773ce5354e77fd270a5518d031d1a525861b4fc177fd13589e3e36bb8c60c6",
+    "references/product-studies.md": "865899cf5149123fc91d1e2707340888c86b20e43d348d1271e3fa537a401b2b",
+    "references/project-context.md": "fe4ec0f820c4b605ab3d69c92c858fba50d97a16b0259e874aa8e865b7733fb0",
+    "references/review.md": "7b216b8b7579096f8b559942b418334c27e3b3c9d6eb0b17f9383e06d06ca84c",
+    "references/service-studies.md": "9dd349987eb0de3a017ca7feeea1bd6dbcf31dc964d3995b5ef506a83b00c136",
+    "references/states.md": "db31af8aa636d4fda97fcebc6843da473fd12a9bc428f522b357d5d38f26716e",
+    "references/structure.md": "5dac39821cfc73de22107341c6174e9fff9408609beaf57ce7fab21d4cc6a3e6",
+    "references/tables.md": "acb7cd32ff96d3043bc44f04c1505e4dd348d67a4df8884e8a0a3e5095d93a9f",
+    "references/typography.md": "d0ac417cf8575d8b47bff440bea2f67dc8954d7efedf0486191f9d17b6cb0031",
+    "SKILL.md": "d72c24f9a89036671d9f4a084c13b224e959e45e9cea1d75564b34d41a9f260b"
+  },
+  "rubric": "Met/Failed/Unobserved per function, access, scope and craft; no aesthetic score; preserve failed runs",
+  "initialHashes": {
+    "beam-operations-candidate-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-operations-candidate-1/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "beam-operations-candidate-1/prompt.txt": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89",
+    "beam-operations-candidate-1/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "beam-operations-candidate-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-operations-current-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-operations-current-1/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "beam-operations-current-1/prompt.txt": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89",
+    "beam-operations-current-1/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "beam-operations-current-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-operations-none-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-operations-none-1/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "beam-operations-none-1/prompt.txt": "a2409122085045511061a67c823ec4a0fa004648d676593b0c82108fa1ef4356",
+    "beam-operations-none-1/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "beam-operations-none-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-public-candidate-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-public-candidate-1/prompt.txt": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28",
+    "beam-public-candidate-1/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "beam-public-candidate-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-public-current-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-public-current-1/prompt.txt": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28",
+    "beam-public-current-1/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "beam-public-current-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-public-none-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-public-none-1/prompt.txt": "3618d28b0d5bc00792c6aa40e6393fa6d38f6a2a7a8ca063a380ecb52fdd5630",
+    "beam-public-none-1/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "beam-public-none-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-refinement-candidate-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-refinement-candidate-1/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "beam-refinement-candidate-1/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "beam-refinement-candidate-1/prompt.txt": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01",
+    "beam-refinement-candidate-1/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "beam-refinement-candidate-1/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "beam-refinement-candidate-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-refinement-current-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-refinement-current-1/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "beam-refinement-current-1/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "beam-refinement-current-1/prompt.txt": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01",
+    "beam-refinement-current-1/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "beam-refinement-current-1/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "beam-refinement-current-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "beam-refinement-none-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "beam-refinement-none-1/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "beam-refinement-none-1/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "beam-refinement-none-1/prompt.txt": "df802da506a2e5ea291ff718e4effa8ff6672557cfc0c4e05609152dc8ac6a46",
+    "beam-refinement-none-1/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "beam-refinement-none-1/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "beam-refinement-none-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-operations-candidate-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-operations-candidate-1/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "terra-operations-candidate-1/prompt.txt": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89",
+    "terra-operations-candidate-1/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "terra-operations-candidate-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-operations-candidate-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-operations-candidate-2/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "terra-operations-candidate-2/prompt.txt": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89",
+    "terra-operations-candidate-2/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "terra-operations-candidate-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-operations-current-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-operations-current-1/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "terra-operations-current-1/prompt.txt": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89",
+    "terra-operations-current-1/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "terra-operations-current-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-operations-current-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-operations-current-2/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "terra-operations-current-2/prompt.txt": "a21ed019ab832522467fe9004a3684c95487f1d58181497cc53e3fd1e175dc89",
+    "terra-operations-current-2/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "terra-operations-current-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-operations-none-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-operations-none-1/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "terra-operations-none-1/prompt.txt": "a2409122085045511061a67c823ec4a0fa004648d676593b0c82108fa1ef4356",
+    "terra-operations-none-1/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "terra-operations-none-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-operations-none-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-operations-none-2/data.json": "89ff2f008f6967380115ac017056f328bcb031b01a385c6492f25e51a2564347",
+    "terra-operations-none-2/prompt.txt": "a2409122085045511061a67c823ec4a0fa004648d676593b0c82108fa1ef4356",
+    "terra-operations-none-2/task.txt": "6d1cbc4677d88cc22518b214675086fd1d4303172569af84f6d41e2e40513f49",
+    "terra-operations-none-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-public-candidate-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-public-candidate-1/prompt.txt": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28",
+    "terra-public-candidate-1/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "terra-public-candidate-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-public-candidate-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-public-candidate-2/prompt.txt": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28",
+    "terra-public-candidate-2/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "terra-public-candidate-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-public-current-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-public-current-1/prompt.txt": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28",
+    "terra-public-current-1/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "terra-public-current-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-public-current-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-public-current-2/prompt.txt": "17272f7cf3f46be8c8b41f87b2f5a6c22bf15cdfc03bf0b314b4c2f828a47c28",
+    "terra-public-current-2/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "terra-public-current-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-public-none-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-public-none-1/prompt.txt": "3618d28b0d5bc00792c6aa40e6393fa6d38f6a2a7a8ca063a380ecb52fdd5630",
+    "terra-public-none-1/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "terra-public-none-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-public-none-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-public-none-2/prompt.txt": "3618d28b0d5bc00792c6aa40e6393fa6d38f6a2a7a8ca063a380ecb52fdd5630",
+    "terra-public-none-2/task.txt": "f5468c3744c78f754186101020e1629861d072ebdfbfafa3ea5df12017092758",
+    "terra-public-none-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-refinement-candidate-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-refinement-candidate-1/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "terra-refinement-candidate-1/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "terra-refinement-candidate-1/prompt.txt": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01",
+    "terra-refinement-candidate-1/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "terra-refinement-candidate-1/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "terra-refinement-candidate-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-refinement-candidate-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-refinement-candidate-2/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "terra-refinement-candidate-2/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "terra-refinement-candidate-2/prompt.txt": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01",
+    "terra-refinement-candidate-2/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "terra-refinement-candidate-2/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "terra-refinement-candidate-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-refinement-current-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-refinement-current-1/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "terra-refinement-current-1/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "terra-refinement-current-1/prompt.txt": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01",
+    "terra-refinement-current-1/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "terra-refinement-current-1/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "terra-refinement-current-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-refinement-current-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-refinement-current-2/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "terra-refinement-current-2/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "terra-refinement-current-2/prompt.txt": "f464289da4d0f843e479324f4d9a385dfeb3d90f644a1a664dcf1826c72b7e01",
+    "terra-refinement-current-2/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "terra-refinement-current-2/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "terra-refinement-current-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-refinement-none-1/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-refinement-none-1/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "terra-refinement-none-1/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "terra-refinement-none-1/prompt.txt": "df802da506a2e5ea291ff718e4effa8ff6672557cfc0c4e05609152dc8ac6a46",
+    "terra-refinement-none-1/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "terra-refinement-none-1/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "terra-refinement-none-1/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296",
+    "terra-refinement-none-2/AGENTS.md": "062f37e0cdbef3b90af800cae41f2b90435caa8fa86d25992f89bbf4e23f44c3",
+    "terra-refinement-none-2/app.js": "09d363d8587b7363b238f465bf826febb59a50ba3656520ca65f4b80c5fcb699",
+    "terra-refinement-none-2/index.html": "8e0643a9be1eaef35de6ff4e0a6626a7fb49af5b4f95e413f951026f77a29ba3",
+    "terra-refinement-none-2/prompt.txt": "df802da506a2e5ea291ff718e4effa8ff6672557cfc0c4e05609152dc8ac6a46",
+    "terra-refinement-none-2/styles.css": "adb860abbf5bc4b76a66a9cf74719603711d31820bebf0e8d8a0b03742ffff94",
+    "terra-refinement-none-2/task.txt": "6964f7d93bcd5e71e4c2c4377ee98817f0e5c2d1f83522d4cb65ae61b103af85",
+    "terra-refinement-none-2/tools.json": "83e7e37d21d00984063fbb2c9c6c9197126f7cddf85fb27b5de59038253bf296"
+  },
+  "baseline": {
+    "commit": "a11821d9abe99e447770a0fd43f2606755f9f689",
+    "version": "2.1.0",
+    "files": {
+      "SKILL.md": "b21a3b5c6fae633e24c9fc86afc13c6bf749e9ebde1e2273c5dcc9d5e74d1921",
+      "agents/openai.yaml": "ef5ba4542c1a432a16c8b83b188ae1a25657c836b9ef930c209ba90764671420",
+      "references/anti-slop.md": "ac794e4b80deaf72b10fc698394a268d5193f0ab7aaa21ffb5aacd6ff72ba4e2",
+      "references/calibration.md": "eacc033c51fc6598a663842e61b44687b6f811d77063099a559d9db0101a95b2",
+      "references/craft.md": "5fbba75c69f098abe5e70abafdd5690f93e0e7b61542ce00e6a151e96379f2ed",
+      "references/design-studies.md": "cba9929378dc74aee12ec847e107faec02f43f1890df2b6ac200a24164db5da2",
+      "references/direction.md": "a0fa5bff8f9f427c713bc54242748640100e900fce758a58797349a167dcc672",
+      "references/inspection.md": "df3f84bd64ef13a353c32abcf0e682927e734cf6964170d608198af4cfcbd426",
+      "references/interaction.md": "19b751383b44df1e4c6a11440945c53ed01d2858c5596c02ea080295b635e49d",
+      "references/project-context.md": "487154d34a0e9190f7e7761e49edf511d59e781102c07ef6080369979a620dfb",
+      "references/review.md": "033bcbb3de0bde11553504c3afec7d9dfc7fcfab830b0262623458a2213f3b27",
+      "references/structure.md": "10a5b7e314b47dccd4ab471915913f2ee84de4fb2b46c6328543ad15c8c79bd4",
+      "assets/context/design.md": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1",
+      "assets/context/product.md": "59d8bdc45a8ed969d683b888dcb81843d2d94ba8348e399f4879250aac2afe25",
+      "assets/design-studies/collection.png": "f4f213527740b4209e5d479e994916505914d17f9efbc58d5dad4b600927b197",
+      "assets/design-studies/reading.png": "33c12214b26494678483a33bd28b761020e3bc682fc43de047e01e02990a8e8c",
+      "assets/design-studies/service.png": "8a1ef809e0aab52135aafa2ca50a7bdf53f70ea1c7848279bd78fcec7964a9a3",
+      "assets/design-studies/workspace.png": "582ff7086fdb8c9b23a6673a7271b1e5379a11e9328b19353b576dcf4f211f7d"
+    }
+  },
+  "pilotCandidateHashes": [
+    {
+      "path": "SKILL.md",
+      "sha256": "d72c24f9a89036671d9f4a084c13b224e959e45e9cea1d75564b34d41a9f260b"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "ef5ba4542c1a432a16c8b83b188ae1a25657c836b9ef930c209ba90764671420"
+    },
+    {
+      "path": "assets/context/design.md",
+      "sha256": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1"
+    },
+    {
+      "path": "assets/context/product.md",
+      "sha256": "59d8bdc45a8ed969d683b888dcb81843d2d94ba8348e399f4879250aac2afe25"
+    },
+    {
+      "path": "assets/design-studies/collection.png",
+      "sha256": "f4f213527740b4209e5d479e994916505914d17f9efbc58d5dad4b600927b197"
+    },
+    {
+      "path": "assets/design-studies/reading.png",
+      "sha256": "33c12214b26494678483a33bd28b761020e3bc682fc43de047e01e02990a8e8c"
+    },
+    {
+      "path": "assets/design-studies/service.png",
+      "sha256": "8a1ef809e0aab52135aafa2ca50a7bdf53f70ea1c7848279bd78fcec7964a9a3"
+    },
+    {
+      "path": "assets/design-studies/workspace.png",
+      "sha256": "582ff7086fdb8c9b23a6673a7271b1e5379a11e9328b19353b576dcf4f211f7d"
+    },
+    {
+      "path": "assets/examples/cafe.html",
+      "sha256": "9861781c74ddfe7d87e5efe26d4a822f0a2f3920a2185d4e18d5f4486b9a5487"
+    },
+    {
+      "path": "assets/examples/collection.html",
+      "sha256": "886788daec01afd230b6624a201bffe7a7764e6647f236708a234754ba8389a7"
+    },
+    {
+      "path": "assets/examples/comparison.html",
+      "sha256": "44d91b2425222d122994d048d27ab3da44564e58bb807caa18b95649704bee10"
+    },
+    {
+      "path": "assets/examples/finance.html",
+      "sha256": "92827bd0ca6142924bb62844e79dc2677d768c5f8896c4d081b289851f6fab46"
+    },
+    {
+      "path": "assets/examples/form.html",
+      "sha256": "a0f09e5b6e1d4a29f73bc70fe07ade26d9bad42bae7356bf0deaa9e054f53625"
+    },
+    {
+      "path": "assets/examples/index.html",
+      "sha256": "235fc9d872c2eb7311f17cb7fc4e72819ad5841f2f596b7f4f425dc876f08f3e"
+    },
+    {
+      "path": "assets/examples/queue.html",
+      "sha256": "80fc3504a18717d2eda72057ed51e11fb3423fa48dd296c95d60f1c7191c1605"
+    },
+    {
+      "path": "assets/examples/reading.html",
+      "sha256": "2198aa8434ce9be3003ea6491bbf32fcb2a1f1dcd26b3043995b5a1f77e1d4ad"
+    },
+    {
+      "path": "assets/examples/serve.mjs",
+      "sha256": "489d5d5117e5e3f367b692efc51a5e246f5f7c392d1e8a620efef102eeeb29b8"
+    },
+    {
+      "path": "assets/examples/shared.css",
+      "sha256": "a28fdff41aca19a1545c4b482a653d597baae8362a44126d8693055fb26ff240"
+    },
+    {
+      "path": "assets/examples/shared.js",
+      "sha256": "12e3bbc688480915fe0d8d70ef383fc26a28c128199284df6e41cddefbcfa2d9"
+    },
+    {
+      "path": "assets/examples/software.html",
+      "sha256": "6f1b1f02aa84f2d660809a77275eb22565f317129e985eb5e188039f85ffc8e6"
+    },
+    {
+      "path": "assets/examples/native/ReadingList.kt",
+      "sha256": "9f00874475623fca4b0c8a84a71c629dab7e7c9eeade695955138a0b845a6e73"
+    },
+    {
+      "path": "assets/examples/native/ReadingList.swift",
+      "sha256": "bc18cb7c5db8e16b5e26ffe8cdd875dd1b409bb6dc1872a4ff83c58c5094546a"
+    },
+    {
+      "path": "references/android.md",
+      "sha256": "21b370f7f925827b352249c6e7de9f26bab863a6ddc917caec4d36be8abd1c3e"
+    },
+    {
+      "path": "references/anti-slop.md",
+      "sha256": "0e26084b274b431a1c2b6fd77f46d5f082b881eb6612376f3c92773dbc00806f"
+    },
+    {
+      "path": "references/calibration.md",
+      "sha256": "2eb939e01bc13b714a26571670eec211a19fdcd05f802199d42c3e869384d33a"
+    },
+    {
+      "path": "references/charts.md",
+      "sha256": "a59f66855884b5836cdbd740e564c88a66bdd97526eaeec101891234e1b0d367"
+    },
+    {
+      "path": "references/color.md",
+      "sha256": "41c443d60ebc0babc52a6e6cb31b2f8bd5583ecb11d0bea73bdf602fb1e21b0d"
+    },
+    {
+      "path": "references/copy.md",
+      "sha256": "9774099d22f49bc4721df73a385b0d79d525330988d5259a83bb700786bd8e88"
+    },
+    {
+      "path": "references/craft.md",
+      "sha256": "79ca92a4677c110afa496e82f4cbfc0f6544877cdc88e872687cd11cedf88069"
+    },
+    {
+      "path": "references/design-studies.md",
+      "sha256": "7840c05f8636ad24144f6f1d99a1d9373bc099c537a55ac4b48bf56cdd9bc5f9"
+    },
+    {
+      "path": "references/desktop.md",
+      "sha256": "0c3d17f94e500b9c9a0066272ac2d7007d4cf295d472e0abe3a2ebd2ec6e265d"
+    },
+    {
+      "path": "references/direction.md",
+      "sha256": "c362b46351ff88d4d9a5cb0b38756873211a8b6229b5df94a7c029fa4ece803d"
+    },
+    {
+      "path": "references/forms.md",
+      "sha256": "79f051f4c5ae6d64073f09fcd2397230a418415f9da89384630110aa07f286ba"
+    },
+    {
+      "path": "references/inspection.md",
+      "sha256": "ce03da619b96001bebc63a452512bd1440e498717464d6de2a28f7a1d2b4d413"
+    },
+    {
+      "path": "references/interaction.md",
+      "sha256": "207b61c0339d55906bbfbddaa400c513060dc02f706a8f17e82e4a709e02a0af"
+    },
+    {
+      "path": "references/ios.md",
+      "sha256": "f280427ec99ae2edb2bfd4167199b727455939f697b49cd4da9301331fdb0efa"
+    },
+    {
+      "path": "references/layout.md",
+      "sha256": "653052e975dbefbc18da1756cd523f48c6f7b1df44cca681ec9500365d3872e5"
+    },
+    {
+      "path": "references/motion.md",
+      "sha256": "3f5a3320044d078c1ae5bcb77e73d5ad2b513034f5d267a4e7a9cbe2232cd301"
+    },
+    {
+      "path": "references/native-studies.md",
+      "sha256": "ae473c5cb04c73266872f2361def9e7da1978e888e3c6e456b9529586c808c11"
+    },
+    {
+      "path": "references/performance.md",
+      "sha256": "a4773ce5354e77fd270a5518d031d1a525861b4fc177fd13589e3e36bb8c60c6"
+    },
+    {
+      "path": "references/product-studies.md",
+      "sha256": "865899cf5149123fc91d1e2707340888c86b20e43d348d1271e3fa537a401b2b"
+    },
+    {
+      "path": "references/project-context.md",
+      "sha256": "fe4ec0f820c4b605ab3d69c92c858fba50d97a16b0259e874aa8e865b7733fb0"
+    },
+    {
+      "path": "references/review.md",
+      "sha256": "7b216b8b7579096f8b559942b418334c27e3b3c9d6eb0b17f9383e06d06ca84c"
+    },
+    {
+      "path": "references/service-studies.md",
+      "sha256": "9dd349987eb0de3a017ca7feeea1bd6dbcf31dc964d3995b5ef506a83b00c136"
+    },
+    {
+      "path": "references/states.md",
+      "sha256": "db31af8aa636d4fda97fcebc6843da473fd12a9bc428f522b357d5d38f26716e"
+    },
+    {
+      "path": "references/structure.md",
+      "sha256": "5dac39821cfc73de22107341c6174e9fff9408609beaf57ce7fab21d4cc6a3e6"
+    },
+    {
+      "path": "references/tables.md",
+      "sha256": "acb7cd32ff96d3043bc44f04c1505e4dd348d67a4df8884e8a0a3e5095d93a9f"
+    },
+    {
+      "path": "references/typography.md",
+      "sha256": "d0ac417cf8575d8b47bff440bea2f67dc8954d7efedf0486191f9d17b6cb0031"
+    }
+  ],
+  "postFreezeBundleDelta": [
+    {
+      "path": "references/inspection.md",
+      "change": "changed",
+      "sha256": "b83ac3a00644ad1132296755b45f1191d2fa83e1668e1a1e100c2bf568a4c11a"
+    },
+    {
+      "path": "references/product-studies.md",
+      "change": "changed",
+      "sha256": "b62e6479591f39af46e550b7b433856fbb6fb300afcf189e5a1942b73c704921"
+    },
+    {
+      "path": "assets/examples/inquiry.flow.json",
+      "change": "added",
+      "sha256": "4ab201a08cb24a3a03650d3193d529d33fa101df374257a09ee589896740df1d"
+    }
+  ],
+  "deltaExplanation": "After final behavioral freezing, added an executable inquiry flow, its usage paragraph and explicit existing-browser/HTTP selection guidance. Configured-browser HTTP CLI inspection and replay were checked separately; model sessions test the frozen snapshot, not these later additions."
+}

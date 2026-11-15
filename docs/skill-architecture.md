@@ -1,6 +1,6 @@
 # Product architecture
 
-Status: the skill and local executable core are implemented. Automatic host integrations and matched design/usefulness evaluations remain pending. See the [contract](product-contract.md) and [delivery plan](implementation-plan.md).
+Status: the skill and local executable core are implemented. The [focused expansion evaluation](../evals/results/expansion/README.md) records matched tasks and their limits; historical evaluation matrices remain separate. Automatic host integrations are outside this expansion. See the [contract](product-contract.md) and [delivery plan](implementation-plan.md).
 
 ## Responsibilities
 
@@ -37,6 +37,8 @@ The shared skill applies to web, native mobile, and desktop interfaces. Platform
 New interfaces and broad redesigns load [Direction](../skills/flawless-ui-ux/references/direction.md), including its essential internal exploration of at least three meaningfully different compositions before implementation. The agent chooses an approach for the context rather than presenting a mandatory concept round. Focused refinements and constrained systems preserve their scope. Relevant references are loaded for concrete decisions, not as a fixed reading sequence.
 
 The CLI's rendered adapter covers browser interfaces. Native behavior, text scaling, semantics, and input require appropriate platform/project tools; an empty web scan does not verify a native interface.
+
+The expanded library has 26 references and ten original worked cases. The entry requires the owning reference for a decision, while small tasks retain a narrow reading path. Eight executable web studies and two explicitly uncompiled native source studies demonstrate relationships without adding a runtime framework. Maintainer protocols and model outputs stay outside installed instructions. See [expansion coverage and evidence](skill-expansion.md).
 
 ## Runtime choices
 

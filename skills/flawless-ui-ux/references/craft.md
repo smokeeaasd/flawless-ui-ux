@@ -2,6 +2,8 @@
 
 Read the section that affects the current design decision. Preserve established tokens and components during focused refinement.
 
+This is a map for cross-cutting choices. Read [Typography](typography.md) for type roles, family evaluation and resizing; [Layout](layout.md) for grouping, density and adaptation; and [Color](color.md) for semantic roles and actual contrast. These contain the worked procedures and code. For a data surface also load [Tables](tables.md) or [Charts](charts.md); for input use [Forms](forms.md). Do not treat the short overview here as a substitute for the owning decision.
+
 ## Hierarchy and layout
 
 Give the most useful information enough scale, position, and surrounding space to lead. Distinguish supporting roles through more than color: size, weight, alignment, grouping, and placement work together. Making every label prominent weakens the hierarchy.
@@ -33,6 +35,12 @@ Distinguish information by wording, shape, or another cue as well as color. Impr
 Use assets that explain the product, establish its character, or show real material. Inspect suitability, crop, resolution, and usage rights. Preserve required credits and distinguish illustrative imagery from actual customer or product evidence.
 
 Give important imagery sufficient scale. Match crop and placement to nearby text instead of treating the image as a leftover slot. Let borders, shadows, textures, illustrations, or motion contribute where useful; develop a consistent treatment without applying every effect everywhere.
+
+Inspect a candidate asset at its intended size and crop. Identify its subject, focal area, embedded text, contrast needs and mobile treatment. A photograph with useful empty space on the right may support nearby text; cropping it into a square can eliminate that relationship. Do not assume an attractive thumbnail survives the composition. Provide alternative text describing its useful information, or empty alternative text when it is purely decorative and the surrounding text already supplies the meaning.
+
+Distinguish an actual product screenshot, a concept and an illustration. A conceptual drawing can explain a process but must not imply a shipped feature or real customer result. Use original diagrams or permitted material where suitable; do not fill every empty slot with unrelated stock. If no appropriate image exists, a strong information composition can be complete without one. Keep credits and licensing obligations with the asset.
+
+For assets that affect loading and stability, use [Performance](performance.md). For animated detail use [Motion](motion.md). Neither an oversized background image nor a motion library is a default requirement for visual character.
 
 ## Responsive composition
 

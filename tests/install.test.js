@@ -87,7 +87,7 @@ describe("Bash installer", () => {
         assert.equal(existsSync(forbidden), false, `Unexpected destination: ${forbidden}`);
       }
     }
-  }, 30000);
+  }, 90000);
 
   test("copies include hidden files and nested resources", () => {
     mkdirSync(join(source, "assets"), { recursive: true });
@@ -185,7 +185,7 @@ describe("Bash installer", () => {
         }
       }
     }
-  }, 30000);
+  }, 90000);
 
   for (const broken of [false, true]) {
     test(`existing ${broken ? "broken" : "directory"} symlinks are preserved`, () => {

@@ -32,3 +32,25 @@ Prioritize task/access failures, significant comprehension problems, and finish 
 For findings, give the location, observed issue, consequence, and correction, with severity proportional to the effect. Mark unverified risks and distinguish preferences from defects. Avoid inventing findings to fill a report.
 
 Finish when material in-scope issues are resolved or a specific limitation prevents further work. Summarize the result and evidence without narrating every checkpoint. Never present more checks, fewer effects, or a different style as proof of better design.
+
+## Run a task-shaped critique
+
+Choose one representative primary journey and the changed edge cases. On a finance page, compare a particular period and trace one obligation into the total. On an inquiry form, intentionally submit incomplete input, correct one field, and complete the local action. On a reading page, follow a contents link with the sticky header present. Merely scanning the initial viewport misses the work that determines usefulness.
+
+Inspect at actual viewing size before enlarging a screenshot for detail. First ask what leads, what groups together and where action belongs. Then inspect type, alignment, contrast and crops. A full-page thumbnail is useful for rhythm but makes small text appear more legible than it is. Open matching narrow and wide captures; neither can stand in for the other. Include long content, zero results and meaningful selection/error states where applicable.
+
+Use the relevant reference to resolve a finding rather than accumulating generic advice. “Use more whitespace” does not identify which grouping is wrong. “The due date sits closer to the next record than its own amount” identifies the relationship and a plausible correction. “Replace the font” needs evidence that the current family or roles fail the content, beyond personal preference.
+
+## Write findings another person can reproduce
+
+A finding needs location and conditions, observed behavior, consequence and a proportional correction. For example: “At 390px, the Ready action for record R-104 is outside the page viewport. The fixed six-column grid causes page-level overflow, so a phone user cannot find the action without horizontal page scrolling. Adapt the row's secondary fields and retain the identifier, state and action together.” This can be reproduced and checked after a repair.
+
+Separate certainty: confirmed from the exercised state, source-derived risk awaiting rendering, or a design preference with its rationale. Severity follows impact: inability to complete a task and loss of input outrank a slightly inconsistent radius. Do not promote every stylistic difference to a blocker or bury a broken action under a list of cosmetic suggestions.
+
+A concise result can say: “Invalid input is now retained and linked to field errors. Checked empty submission and correction at 390px and desktop. Screen-reader announcement remains untested.” It should not say “fully accessible” after one automated scan. Keep tool output as supporting evidence; report the important interpretation in normal language.
+
+## Verify a correction without moving the goalposts
+
+Retest the original object, input and conditions. Verify neighboring behavior that shares the changed component or state. Confirm preserved copy and calculations from source when appearance could hide a change. A disappearing finding may mean the target disappeared, the page failed to load or the state was no longer sampled. Check coverage before treating the count as a repair.
+
+Stop when the requested outcome and material affected checks are satisfied. Repeatedly changing a valid design to accumulate novelty is not iteration. If a material issue remains outside scope, state it separately with its evidence and the boundary preventing correction. If a tool fails, name the unobserved check and complete the useful source or project checks still available.

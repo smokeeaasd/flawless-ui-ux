@@ -1,0 +1,72 @@
+{
+  "skillValidator": "passed",
+  "gitDiffCheck": "passed",
+  "fullSuiteInitial": {
+    "passed": 76,
+    "failed": 4,
+    "total": 80,
+    "browserEnabled": true
+  },
+  "correctedAffectedSuites": {
+    "passed": 42,
+    "failed": 0,
+    "files": [
+      "tests/install.test.js",
+      "tests/maintenance.test.js",
+      "tests/native-install.test.js"
+    ]
+  },
+  "finalPackageSuites": {
+    "passed": 6,
+    "failed": 0,
+    "files": [
+      "tests/package.test.js",
+      "tests/distribution.test.js"
+    ]
+  },
+  "distinctTestsPassingAcrossRuns": 81,
+  "singleFinalMonolithicRun": false,
+  "studies": {
+    "browser": "157.0.4341.60",
+    "widthSamples": 32,
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "selectedAutomatedViolations": 0,
+    "localTransitions": "passed"
+  },
+  "cliStudy": {
+    "inspect": {
+      "code": 0,
+      "coverage": {
+        "source": "completed",
+        "rendered": "completed",
+        "interaction": "completed",
+        "consistency": "not-requested"
+      }
+    },
+    "verify": {
+      "code": 0,
+      "coverage": {
+        "source": "completed",
+        "rendered": "completed",
+        "interaction": "completed",
+        "consistency": "not-requested"
+      }
+    },
+    "limit": "Unchanged example replay establishes CLI compatibility, not a measured repair or full accessibility."
+  },
+  "pack": {
+    "name": "flawless-ui-ux",
+    "version": "2.1.0",
+    "size": 740150,
+    "unpackedSize": 1029739,
+    "entryCount": 76
+  },
+  "maintainerFilesInPack": [],
+  "native": "source only; not compiled or device-tested",
+  "publication": "not performed"
+}

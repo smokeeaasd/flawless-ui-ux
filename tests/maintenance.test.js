@@ -13,9 +13,10 @@ import { temporaryWorkspace, snapshot, repository } from './helpers.js';
 test('update recognizes exact 2.0.0 copies, previews without writing, and records the running version', async () => {
   const workspace = temporaryWorkspace();
   try {
-    const installed = await install({ project: workspace.root, agent: 'codex' });
-    const destination = installed.installations[0].path;
-    await fs.unlink(path.join(destination, recordName)); // 2.0.0 and Bash/third-party installers have no record.
+    const destination = path.join(workspace.root, '.agents/skills/flawless-ui-ux');
+    await fs.mkdir(path.dirname(destination), { recursive: true });
+    // A historical tree must stay historical when the bundled guidance changes.
+    await fs.cp(path.join(repository, 'tests/fixtures/skill-2.0.0'), destination, { recursive: true });
     const before = snapshot(workspace.root);
     const preview = await update({ project: workspace.root, agents: ['codex', 'cursor'], dryRun: true });
     assert.equal(preview.exitCode, 0);
@@ -27,6 +28,26 @@ test('update recognizes exact 2.0.0 copies, previews without writing, and record
     assert.equal(result.installations[0].version, VERSION);
     assert.equal(JSON.parse(await fs.readFile(path.join(destination, recordName))).toolVersion, VERSION);
     assert.deepEqual((await fs.readdir(path.dirname(destination))).sort(), ['flawless-ui-ux']);
+  } finally { workspace.cleanup(); }
+});
+
+test('update adopts an exact unrecorded current copy without losing bundled resources', async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    const installed = await install({ project: workspace.root, agent: 'codex' });
+    const destination = installed.installations[0].path;
+    await fs.unlink(path.join(destination, recordName));
+    const before = snapshot(workspace.root);
+    const preview = await update({ project: workspace.root, agent: 'codex', dryRun: true });
+    assert.equal(preview.exitCode, 0);
+    assert.equal(preview.installations[0].version, VERSION);
+    assert.deepEqual(snapshot(workspace.root), before);
+    const result = await update({ project: workspace.root, agent: 'codex' });
+    assert.equal(result.exitCode, 0);
+    const after = snapshot(destination);
+    delete after[recordName];
+    assert.deepEqual(after, snapshot(path.join(repository, 'skills/flawless-ui-ux')));
+    assert.equal(JSON.parse(await fs.readFile(path.join(destination, recordName))).toolVersion, VERSION);
   } finally { workspace.cleanup(); }
 });
 

@@ -51,3 +51,23 @@ Use real facts and permitted assets. Identify illustrative data, and never turn 
 ## Carry the direction through
 
 Implement the same type roles, alignment, color logic, and level of finish in lower sections, detail views, forms, and relevant states. Compare the result with the intended relationships when rendering is available. Revise a weak focal point or unsuitable structure rather than compensating with another slogan or decorative panel.
+
+## Make the alternatives consequential
+
+Use the same facts for each alternative. In a small internal sketch, describe the leading region, the supporting sequence, the main action and the small-screen transformation. If all three start with the same centered claim, two buttons and three benefit cards, they are one composition with different decoration. Do not generate three full implementations merely to satisfy exploration.
+
+For a fictional café with menu, hours and address, plausible alternatives are: a menu-led opening with current offerings and prices; a place-led opening with an honest photograph and visit information; and a compact neighborhood notice with hours first and menu below. The choice depends on whether people need to choose an item, understand the place or check a visit. None requires imaginary reviews or a reservation workflow. The [service studies](service-studies.md) make this comparison executable.
+
+For a cash workspace, alternatives could lead with obligations due, account availability or a timeline of cash movement. Test them against a concrete question such as “Can this team cover Friday's payments?” Count neither regions nor effects. Prefer the structure that makes the relevant amount, period and action discoverable while keeping supporting evidence nearby. The [product studies](product-studies.md) use explicit arithmetic so visual polish cannot hide a wrong answer.
+
+Choose using task evidence: can the first view orient the visitor, do neighboring regions explain different things, does the structure work with supplied content, and can it adapt without losing the task? If the direction depends on an unavailable video, photograph or dataset, resolve that dependency before making it the only source of meaning. A diagram or typographic composition can be a deliberate alternative.
+
+## Turn direction into implementation decisions
+
+Write a short working contract for the chosen approach. Name the leading element, the shared alignment, the type roles, the distribution of emphasis, the role of assets and the mobile reordering. These are relationships, not compulsory numerical tokens. Inspect actual long labels and amounts before fixing widths.
+
+Example: “The menu leads. Names and prices stay on the same row when possible; descriptions sit below names. A single dark visit region groups hours and address. On phones the photo moves below the menu rather than pushing prices out of view.” This answers decisions the implementation otherwise invents. “Make it polished and unique” does not.
+
+Build one representative vertical slice before multiplying the treatment: a heading, real content, an action, a secondary region and a narrow state. Check whether the supposed identity survives actual copy. If the chosen type has no required glyphs, the image crops away its subject or the layout needs shortened facts, revise the direction instead of concealing the conflict. Use [Typography](typography.md), [Layout](layout.md) and [Color](color.md) for the owning craft decisions.
+
+Carry the vocabulary into the less glamorous parts. A result count, validation message, footer and detail view should belong to the same product without inheriting the hero's scale. Reuse semantic roles and spacing relationships; do not paste the same large rounded enclosure around every kind of information. Inspect the whole page at actual viewing size before claiming the direction is implemented.

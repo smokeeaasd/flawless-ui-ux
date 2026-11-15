@@ -1,0 +1,169 @@
+{
+  "method": "Whitespace-delimited tokens in SKILL.md and references/*.md, including Markdown and code; context templates and executable source excluded. Not model tokens.",
+  "baseline": {
+    "entryWords": 680,
+    "referenceCount": 10,
+    "referenceWords": 5488,
+    "files": [
+      {
+        "path": "SKILL.md",
+        "words": 680
+      },
+      {
+        "path": "references/anti-slop.md",
+        "words": 669
+      },
+      {
+        "path": "references/calibration.md",
+        "words": 294
+      },
+      {
+        "path": "references/craft.md",
+        "words": 644
+      },
+      {
+        "path": "references/design-studies.md",
+        "words": 511
+      },
+      {
+        "path": "references/direction.md",
+        "words": 746
+      },
+      {
+        "path": "references/inspection.md",
+        "words": 580
+      },
+      {
+        "path": "references/interaction.md",
+        "words": 492
+      },
+      {
+        "path": "references/project-context.md",
+        "words": 477
+      },
+      {
+        "path": "references/review.md",
+        "words": 411
+      },
+      {
+        "path": "references/structure.md",
+        "words": 664
+      }
+    ]
+  },
+  "candidate": {
+    "entryWords": 1190,
+    "referenceCount": 26,
+    "referenceWords": 24699,
+    "files": [
+      {
+        "path": "SKILL.md",
+        "words": 1190
+      },
+      {
+        "path": "references/android.md",
+        "words": 713
+      },
+      {
+        "path": "references/anti-slop.md",
+        "words": 1058
+      },
+      {
+        "path": "references/calibration.md",
+        "words": 818
+      },
+      {
+        "path": "references/charts.md",
+        "words": 935
+      },
+      {
+        "path": "references/color.md",
+        "words": 896
+      },
+      {
+        "path": "references/copy.md",
+        "words": 1044
+      },
+      {
+        "path": "references/craft.md",
+        "words": 882
+      },
+      {
+        "path": "references/design-studies.md",
+        "words": 915
+      },
+      {
+        "path": "references/desktop.md",
+        "words": 723
+      },
+      {
+        "path": "references/direction.md",
+        "words": 1253
+      },
+      {
+        "path": "references/forms.md",
+        "words": 1017
+      },
+      {
+        "path": "references/inspection.md",
+        "words": 1219
+      },
+      {
+        "path": "references/interaction.md",
+        "words": 1017
+      },
+      {
+        "path": "references/ios.md",
+        "words": 718
+      },
+      {
+        "path": "references/layout.md",
+        "words": 1056
+      },
+      {
+        "path": "references/motion.md",
+        "words": 921
+      },
+      {
+        "path": "references/native-studies.md",
+        "words": 792
+      },
+      {
+        "path": "references/performance.md",
+        "words": 916
+      },
+      {
+        "path": "references/product-studies.md",
+        "words": 1013
+      },
+      {
+        "path": "references/project-context.md",
+        "words": 926
+      },
+      {
+        "path": "references/review.md",
+        "words": 918
+      },
+      {
+        "path": "references/service-studies.md",
+        "words": 707
+      },
+      {
+        "path": "references/states.md",
+        "words": 989
+      },
+      {
+        "path": "references/structure.md",
+        "words": 1117
+      },
+      {
+        "path": "references/tables.md",
+        "words": 1090
+      },
+      {
+        "path": "references/typography.md",
+        "words": 1046
+      }
+    ]
+  }
+}

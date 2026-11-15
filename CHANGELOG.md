@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+
+- Focused decision references for typography, layout, color, tables, charts, forms, states, copy, motion, performance, iOS, Android and desktop. The shared entry routes agents to the reference owning the decision while preserving create/redesign/refine/review boundaries.
+- Ten original worked cases across four study references, with eight executable dependency-free web examples and two native source studies. Native compilation and device verification remain explicitly unperformed.
+- A local inquiry flow demonstrates invalid/valid state inspection and explicit verification replay through the existing CLI. No commands, report schemas or runtime dependencies change.
+- A frozen baseline, three-arm staged evaluation protocol, reproducible final fixtures and separate function/access/scope/craft evidence. Model outcomes and limitations are recorded in the maintainer evaluation report rather than presented as an aesthetic score.
+
+### Changed
+
+- Expanded project briefs, composition exploration, proportional refinement, task-shaped critique and contextual pattern diagnosis with concrete decisions and examples. Reference volume is supporting material, not a requirement to load the whole library.
+- Maintenance tests now use a frozen historical skill tree instead of treating the current bundle as 2.0.0. Installation matrix time budgets accommodate the larger copied bundle; preservation assertions remain intact.
+
+### Scope
+
+- No automatic hooks, live visual editor or shader/3D library. This working tree prepares content and distribution only; it does not publish a package or release.
+
 ## 2.1.0
 
 ### Added

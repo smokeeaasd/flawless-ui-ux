@@ -35,6 +35,8 @@ Correct material authorized issues and repeat affected observations. The verify 
 
 ## Guidance and tools
 
+Read the reference owning the decision before implementing it. A broad refinement uses Calibration plus affected craft/product guidance; a local type correction uses Typography without reopening the entire direction. The [expanded coverage map](skill-expansion.md) links the procedures and executable studies. This is selective disclosure, not a fixed full-library reading sequence.
+
 The skill owns product interpretation and semantic edits. The [architecture responsibilities](skill-architecture.md#responsibilities) assign context, observations, reporting, and comparison to the core. Routine work should consume focused guidance and concise results rather than read maintainer specifications or every reference.
 
 A tool can report a small rendered label or repeated arrow occurrences. The agent must determine their role and suitable correction. Protected copy in a visual-only task is preserved; report an out-of-scope issue rather than silently rewriting it.
@@ -47,4 +49,4 @@ Finish when material in-scope issues are resolved or a specific limit remains. R
 
 ## Evaluation
 
-The [manual kit](../evals/README.md) covers complete tasks, focused changes, scope, and unavailable tools. The [instruction-efficiency comparison](../evals/cases/11-instruction-efficiency.md) records actual loading and cost, while the [delivery plan](implementation-plan.md#behavioral-gate) defines the toolkit's usefulness gate. Post-runtime results remain pending.
+The [manual kit](../evals/README.md) covers complete tasks, focused changes, scope, and unavailable tools. The [expansion round](../evals/results/expansion/README.md) records 36 staged model sessions with independent selected observations and explicit limitations. Earlier [instruction-efficiency](../evals/cases/11-instruction-efficiency.md) and [delivery-plan](implementation-plan.md#behavioral-gate) matrices keep their own status; the expansion does not silently complete them.
