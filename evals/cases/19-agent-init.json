@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "id": "greenfield",
+      "request": "Use $flawless-ui-ux init.",
+      "scriptedReply": "This is a fictional community library for borrowers to find opening hours and borrowing rules. It is an English web product. The existing Vue stack can stay; there is no account system or backend. Leave the name and other undecided details open.",
+      "files": {
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Starter</title><body><div id=\"app\"></div></body></html>\n",
+        "package.json": "{\"name\":\"untitled-app\",\"private\":true,\"type\":\"module\",\"dependencies\":{\"vue\":\"3.5.44\"}}\n"
+      }
+    },
+    {
+      "id": "existing",
+      "request": "Use $flawless-ui-ux init.",
+      "scriptedReply": "The product is a local repair-desk tool for workshop staff. They find repairs and inspect status. Preserve the green identity and English. There is no backend or customer notification.",
+      "files": {
+        "DESIGN.md": "# Design\nKeep the green identity and existing system typography. These are protected choices.\n",
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Benchroom</title><style>body{background:#f4eee2;color:#273d35;font:16px system-ui}button{background:#273d35;color:white}</style><body><h1>Repair desk</h1><p>Find a repair and check its status.</p><label for=\"search\">Search repairs</label><input id=\"search\"><button>Find repair</button><p>No network service is connected.</p></body></html>\n"
+      }
+    },
+    {
+      "id": "rerun",
+      "request": "Use $flawless-ui-ux init. The existing PRODUCT.md is current; no product facts changed.",
+      "scriptedReply": null,
+      "files": {
+        "DESIGN.md": "# Design\nKeep the green identity and existing system typography. These are protected choices.\n",
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Benchroom</title><style>body{background:#f4eee2;color:#273d35;font:16px system-ui}button{background:#273d35;color:white}</style><body><h1>Repair desk</h1><p>Find a repair and check its status.</p><label for=\"search\">Search repairs</label><input id=\"search\"><button>Find repair</button><p>No network service is connected.</p></body></html>\n",
+        "PRODUCT.md": "# Product\nA local repair-desk tool for workshop staff. Staff find repairs and inspect status on a web interface. It has no backend or customer notification. Preserve the existing green identity and use English.\n"
+      }
+    },
+    {
+      "id": "legacy",
+      "request": "Use $flawless-ui-ux init.",
+      "scriptedReply": "This is an English web catalog for a fictional seed exchange. Gardeners find which seed varieties can be exchanged at the monthly meeting. There is no ordering, shipping or payment. Keep the stack; meeting location and dates remain open.",
+      "files": {
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Starter</title><body><div id=\"app\"></div></body></html>\n",
+        "package.json": "{\"name\":\"untitled-app\",\"private\":true,\"type\":\"module\",\"dependencies\":{\"vue\":\"3.5.44\"}}\n",
+        ".flawless-ui-ux/design.md": "# Design context\n\n<!-- Unfilled template. Record choices supported by the product and available evidence. Do not infer a universal aesthetic. -->\n\n## Identity\n\n<!-- The intended character and the product-specific reasons behind it. -->\n\n## Platform and conventions\n\n<!-- Relevant navigation, input, accessibility, and existing component conventions. -->\n\n## Information and visual roles\n\n<!-- Content priorities and the relationships between composition, typography, color, imagery, and interaction. -->\n\n## Protected decisions\n\n<!-- Explicit choices to preserve and where they apply. Distinguish confirmed decisions from proposals. -->\n\n## References and open choices\n\n<!-- Useful assets, sources, and unresolved choices, with their intended contribution. -->\n",
+        ".flawless-ui-ux/product.md": "# Product context\n\n<!-- Unfilled template. Record confirmed information and label assumptions. Keep useful existing documentation authoritative. -->\n\n## Product\n\n<!-- What the product or service provides and the requested scope. -->\n\n## Audience\n\n<!-- Who uses it and the relevant needs or usage conditions. -->\n\n## Primary tasks\n\n<!-- What users need to understand or accomplish, in priority order. -->\n\n## Facts and constraints\n\n<!-- Confirmed facts, platform requirements, functioning behavior, and explicit limits to preserve. -->\n\n## Sources and open questions\n\n<!-- Link to relevant documents or user decisions. Identify important unknowns without inventing answers. -->\n"
+      }
+    },
+    {
+      "id": "implicit-create",
+      "request": "Use $flawless-ui-ux to create a small public page for this project. Deliver a single working index.html, with no dependencies or external assets.",
+      "scriptedReply": "The page is for a fictional neighborhood tool swap. Visitors need its hours and address. It opens Saturday 10:00–14:00 at 12 Oak Road. Use English. There is no registration, reservation, backend or payment. You may choose the visual treatment; do not invent other product claims.",
+      "files": {
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Starter</title><body><div id=\"app\"></div></body></html>\n",
+        "package.json": "{\"name\":\"untitled-app\",\"private\":true,\"type\":\"module\",\"dependencies\":{\"vue\":\"3.5.44\"}}\n"
+      }
+    },
+    {
+      "id": "implicit-redesign",
+      "request": "Use $flawless-ui-ux to redesign the whole repair-desk page. Preserve every existing word and behavior; you may replace the visual identity. Keep the single HTML file and add no dependencies.",
+      "scriptedReply": "It is an English web tool for workshop staff to find a repair and inspect status. It is local with no backend or customer notification. The old green identity may be replaced as requested. Preserve all existing wording and behavior; other product features are out of scope.",
+      "files": {
+        "DESIGN.md": "# Design\nKeep the green identity and existing system typography. These are protected choices.\n",
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Benchroom</title><style>body{background:#f4eee2;color:#273d35;font:16px system-ui}button{background:#273d35;color:white}</style><body><h1>Repair desk</h1><p>Find a repair and check its status.</p><label for=\"search\">Search repairs</label><input id=\"search\"><button>Find repair</button><p>No network service is connected.</p></body></html>\n"
+      }
+    },
+    {
+      "id": "focused-review",
+      "request": "Use $flawless-ui-ux to review only the text contrast in index.html by source inspection. Report the issue and evidence limits without editing files. Do not build or run a browser.",
+      "scriptedReply": null,
+      "files": {
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Note</title><body><main><h1>Notes</h1><p style=\"color:#ddd;background:white\">Read the entry.</p></main></body></html>\n"
+      }
+    },
+    {
+      "id": "read-only",
+      "request": "Use $flawless-ui-ux init. The project is read-only for this task: do not create or modify any project files, even after answers.",
+      "scriptedReply": "This is a fictional English web noticeboard for students to read club meeting announcements. No account system, backend or messaging. The current stack can stay; meeting details remain open.",
+      "files": {
+        "index.html": "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Starter</title><body><div id=\"app\"></div></body></html>\n",
+        "package.json": "{\"name\":\"untitled-app\",\"private\":true,\"type\":\"module\",\"dependencies\":{\"vue\":\"3.5.44\"}}\n"
+      }
+    }
+  ]
+}

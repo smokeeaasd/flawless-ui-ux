@@ -1,23 +1,27 @@
 # Product context
 
-<!-- Unfilled template. Record confirmed information and label assumptions. Keep useful existing documentation authoritative. -->
+<!-- Outline for agent-led init. Inspect and complete an answer/confirmation round before writing a new record. Remove prompts, omit irrelevant sections, and keep existing authoritative documentation. -->
 
 ## Product
 
 <!-- What the product or service provides and the requested scope. -->
 
-## Audience
+## Audience and tasks
 
-<!-- Who uses it and the relevant needs or usage conditions. -->
+<!-- Who uses it, their situation, and the prioritized work they need to understand or accomplish. -->
 
-## Primary tasks
+## Platform and stack
 
-<!-- What users need to understand or accomplish, in priority order. -->
+<!-- Observed or confirmed platform, framework, and delivery environment. Leave an undecided choice open. -->
 
-## Facts and constraints
+## Capabilities and constraints
 
-<!-- Confirmed facts, platform requirements, functioning behavior, and explicit limits to preserve. -->
+<!-- Real functionality, content, integration boundaries, required wording, accessibility needs, and explicit limits. -->
+
+## Brand commitments
+
+<!-- Existing or explicitly confirmed names, assets, voice, and binding identity facts. Do not invent a visual direction during init. -->
 
 ## Sources and open questions
 
-<!-- Link to relevant documents or user decisions. Identify important unknowns without inventing answers. -->
+<!-- Link to evidence. Distinguish confirmed facts, repository observations, delegated choices, and open questions without copying a conversation or secrets. -->

@@ -1,6 +1,6 @@
 # Product-aware workflows
 
-Version 2 combines optional Markdown context, selected browser flows, and cross-screen evidence. The CLI exposes install, init, context, inspect, and verify. See [migration](migration-2.md) for the JSON report change.
+The toolkit combines agent-led product onboarding, Markdown context, selected browser flows and cross-screen evidence. The CLI exposes install, update, doctor, context, inspect and verify. Init runs inside the coding agent. See [3.0 migration](migration-3.md) for the removed terminal command and [2.0 migration](migration-2.md) for the earlier JSON report change.
 
 ## Markdown context
 
@@ -12,13 +12,13 @@ The context reader looks for `PRODUCT.md`, `DESIGN.md`, `docs/product.md`, `docs
 flawless-ui-ux context --project . --source docs/brief.md --format json
 ```
 
-When missing records are useful, initialize their structure explicitly:
+Initialize product knowledge inside the agent:
 
 ```
-flawless-ui-ux init --project . --format json
+$flawless-ui-ux init
 ```
 
-Init reuses supported existing documents per kind and creates only missing templates at `.flawless-ui-ux/product.md` and `.flawless-ui-ux/design.md`. It reports all reused/created paths and preserves edits on repeats. Product sections cover the summary, audience, tasks, facts/constraints, and sources/open questions. Design sections cover identity, platform conventions, information/visual roles, protected decisions, and references/open choices. The templates prescribe no palette, font, layout, or fictional fact. The agent analyzes and fills the content; no questionnaire is built into the command. Documents elsewhere remain authoritative and can be selected with context --source rather than duplicated.
+This is a skill invocation, not a shell command. The agent inspects evidence and completes one answer/confirmation round before writing a new product record. It reuses authoritative documents or creates `.flawless-ui-ux/product.md`, captures real product knowledge and open decisions, and preserves design records and the interface. Existing templates can be filled at their current paths. A rerun updates only stale or missing product information. Documents elsewhere remain authoritative and can be selected with context --source rather than duplicated. The CLI reader stays read-only; its presence is not required for the agent's conversation and file work.
 
 Up to eight explicit Markdown inputs are accepted, in addition to the conventional candidates. Sources stay inside the selected project, follow the shared text/size/exclusion rules, and are read without running project code. Each context document includes its hash, an excerpt of at most 8,000 characters, and a truncation flag. The agent reads further only when needed.
 

@@ -132,7 +132,7 @@ npx flawless-ui-ux@latest update --codex
 npx flawless-ui-ux@latest update --global --claude-code
 ```
 
-Without agent flags, `update` checks all supported destinations in the selected scope. Missing copies are skipped. Modified, unrecognized, linked, or newer copies stop the entire selected update before any installation changes. Keep local edits and reconcile them manually; there is no force overwrite. Clean 2.0.0 copies are recognized by their file hashes. CLI installs and updates record the package version and file hashes in `.flawless-install.json` inside the skill directory, separate from your product/design Markdown. Bash and third-party installs may lack this record; exact recognized contents can still be adopted.
+Without agent flags, `update` checks all supported destinations in the selected scope. Missing copies are skipped. Modified, unrecognized, linked, or newer copies stop the entire selected update before any installation changes. Keep local edits and reconcile them manually; there is no force overwrite. Clean 2.0.0 and published 2.2.0 copies are recognized by their file hashes. CLI installs and updates record the package version and file hashes in `.flawless-install.json` inside the skill directory, separate from your product/design Markdown. Bash and third-party installs may lack this record; exact recognized contents can still be adopted.
 
 Check local and global copies and browser availability:
 
@@ -145,18 +145,21 @@ npx flawless-ui-ux@latest doctor --global --format json
 
 ## Use the skill
 
-Describe the interface you need and name the skill:
+Start product onboarding inside your coding agent:
 
 ```text
-Use the flawless-ui-ux skill to build a financial dashboard for freelancers.
+$flawless-ui-ux init
 ```
 
-In Codex, invoke `$flawless-ui-ux`. Hosts with slash commands use `/flawless-ui-ux`; Pi uses `/skill:flawless-ui-ux`. You can also request the skill by name through your host's skill mechanism. Start a new session after installation if discovery needs to refresh.
+This is a message to the agent, not a terminal command. The agent inspects the project, asks about material gaps or confirms a compact reading, then writes useful product context after your answer. Init ends with the product record; it does not build a screen or choose a visual direction.
+
+Codex uses `$flawless-ui-ux init`; hosts with slash commands use `/flawless-ui-ux init`; Pi uses `/skill:flawless-ui-ux init`. You can also ask the skill by name to initialize product context. Start a new session after installation if discovery needs to refresh.
 
 Continue in the same conversation as the interface develops:
 
 | Task | Example request |
 |---|---|
+| Initialize | Initialize this project's product context. Inspect what exists and confirm the missing facts with me. |
 | Create | Build a landing page for an app that coordinates deployments and incident handoffs. |
 | Redesign | Redesign this account screen for mobile using the supplied brand palette. Preserve its content and behavior. |
 | Refine | Give the main action more presence while preserving the page's visual character. |
@@ -169,7 +172,7 @@ Continue in the same conversation as the interface develops:
 
 For new interfaces and broad redesigns, the agent considers at least three meaningfully different compositions internally before implementation, then chooses an approach for the product and task. Focused refinements preserve the authorized scope and established decisions.
 
-The bundled library includes 26 selectively loaded references: decision procedures for typography, layout, color, tables, charts, forms, state transitions, copy, motion, performance and platform conventions. Ten original worked cases connect diagnosis to implementation. [Eight web studies](skills/flawless-ui-ux/assets/examples/index.html) run without a build or dependencies; two native code studies require an existing SwiftUI or Compose project and are explicitly uncompiled here. These are examples to inspect and adapt, not a framework to install in your application. See the [coverage and validation record](docs/skill-expansion.md).
+The bundled library includes 27 selectively loaded references: decision procedures for typography, layout, color, tables, charts, forms, state transitions, copy, motion, performance and platform conventions. Ten original worked cases connect diagnosis to implementation. [Eight web studies](skills/flawless-ui-ux/assets/examples/index.html) run without a build or dependencies; two native code studies require an existing SwiftUI or Compose project and are explicitly uncompiled here. These are examples to inspect and adapt, not a framework to install in your application. See the [coverage and validation record](docs/skill-expansion.md).
 
 The design guidance applies to web, native mobile, and desktop interfaces. The CLI's rendered checks cover browser interfaces; native verification uses appropriate platform and project tools.
 
@@ -179,15 +182,15 @@ The design guidance applies to web, native mobile, and desktop interfaces. The C
 
 ## Product context and workflows
 
-Keep product facts and design decisions in your existing Markdown documents. The agent reuses them across tasks; context files are optional. Use `context --source docs/brief.md` to select a document outside the conventional locations.
+Keep product facts and design decisions in your existing Markdown documents. Init reuses authoritative product records; new records use `.flawless-ui-ux/product.md`. Design documents remain separate and are preserved during onboarding. Existing 2.x files do not need to move. Use `context --source docs/brief.md` to select a document outside the conventional locations.
 
-To prepare missing records, run:
+For a new interface or broad redesign without a useful product record, the agent runs onboarding first and resumes your original request after recording the answers. A focused refinement or review can use the existing implementation directly. To read saved context from the terminal:
 
 ```
-npx flawless-ui-ux init
+npx flawless-ui-ux context --format json
 ```
 
-The CLI creates product/design Markdown templates or reuses supported existing documents, preserving their content. Your agent fills the records from the project and your decisions. Read them later with `context`; initialization does not generate a brief or choose a visual style.
+The former terminal `init` command is removed in 3.0.0; it returns migration guidance without creating files. See [migration to 3.0](docs/migration-3.md) for agent invocation, preserved records and installation updates.
 
 Inspect related screens with repeated `--url` inputs and `--consistency` for a contextual style inventory. Add `--flow flows/edit-member.json` to exercise explicitly defined UI actions, expectations, and named states in a permitted test environment. Verification requires the unchanged flow file to be selected again. See [workflow examples and limits](docs/product-aware-workflows.md).
 

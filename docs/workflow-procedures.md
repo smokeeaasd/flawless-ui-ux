@@ -8,6 +8,7 @@ The design guidance applies to web, native mobile, and desktop interfaces, using
 
 | Request | Work to deliver | Preserve |
 |---|---|---|
+| Initialize | Confirmed, useful product context after an answer round | Existing UI, design records, and unrelated product decisions |
 | Create | The requested surface, content, interactions, and relevant states | Surrounding conventions and confirmed rules |
 | Redesign | An authorized replacement of visual decisions | Required facts, functioning paths, data meaning, and protected identity |
 | Refine | A proportional improvement in the existing intention | All decisions outside the intervention |
@@ -21,7 +22,7 @@ Mixed requests follow their local boundaries. Review with fixes authorizes the s
 
 Recover the actual project, target, content, assets, constraints, and required behavior. Use current records rather than generating a new brief for every edit. Reuse authoritative product/design Markdown and update affected decisions when persistence is useful. The context command supplies excerpts, hashes, and reference freshness from its documented sources; it does not choose the design.
 
-When new product/design records belong to the task, use init to create their canonical templates or identify supported existing documents. Read its returned paths and fill the relevant sections from evidence. The CLI determines structure; the agent interprets the product and resolves important unknowns. A successful init does not mean the documents are filled or the design is validated.
+Initialization runs inside the agent using the [init playbook](../skills/flawless-ui-ux/references/init.md). Inspect first, ask up to three related questions or confirm a precise reading, wait for the answer, then record meaningful product context. Reuse an authoritative record; otherwise write `.flawless-ui-ux/product.md`. An explicit init stops there and leaves design documents and implementation untouched. Creating a whole interface or broadly redesigning one without a useful record enters init and then resumes the original task; local extensions, refinements and review do not require onboarding. Empty templates are not useful context. No answer or write permission means persistence remains pending.
 
 For new interfaces and broad redesigns, follow the [essential composition exploration](../skills/flawless-ui-ux/references/direction.md#essential-explore-composition-before-implementation): consider at least three meaningfully different organizations of the primary content, then choose for the actual context. Keep this internal unless concepts are requested. Small refinements, fully specified compositions, and constrained existing systems retain their authorized boundaries.
 

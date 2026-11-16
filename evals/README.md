@@ -1,5 +1,7 @@
 # Guided manual evaluations
 
+The [3.0 agent-init round](results/agent-init/README.md) records five completed cases and three partial cases stopped at the user's request. It covers chat-based product onboarding and preservation, separately from native question-tool integration, design quality and runtime tests. See [case 19](cases/19-agent-init.md) for frozen inputs and preparation.
+
 The [skill expansion round](results/expansion/README.md) records nine pilot and 27 final sessions, separate original/candidate/no-skill arms, independent selected checks, unfavorable outcomes and runner limitations. It is a distinct focused round; historical matrices below retain their own pending status. See [case 18](cases/18-skill-expansion.md) for the frozen tasks and reproducible preparation.
 
 The [2.1.0 focused round](cases/17-maintenance-and-usefulness.md) prepares three matched creation/refinement tasks and installation/report acceptance checks. Its [model result matrix](results/2.1.0/README.md) is pending; existing sequential showcase examples remain separate evidence.
@@ -32,6 +34,7 @@ Use [11 Instruction efficiency](cases/11-instruction-efficiency.md) to compare t
 
 | Case | Starting project | Main observation |
 |---|---|---|
+| [19 Agent initialization](cases/19-agent-init.md) | Eight isolated empty/existing/template/review/read-only projects | Product confirmation, preservation, rerun reuse, automatic entry/resumption and pending persistence |
 | [01 Promotional page](cases/01-promotional-page.md) | Empty directory | Product-specific direction, complete content, useful next action |
 | [02 Dashboard redesign](cases/02-dashboard-redesign.md) | [Dashboard](fixtures/dashboard/) | New visual treatment without losing data or workflows |
 | [03 Typography refinement](cases/03-typography-refinement.md) | Fresh dashboard copy | Proportional changes within the existing identity |

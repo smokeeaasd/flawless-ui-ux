@@ -1,6 +1,6 @@
 ---
 name: flawless-ui-ux
-description: Create, redesign, refine, or review web, native mobile, and desktop interfaces with product-specific visual design and usable interactions.
+description: Initialize product context through a guided conversation, then create, redesign, refine, or review web, native mobile, and desktop interfaces with product-specific design and usable interactions.
 ---
 
 # Flawless UI/UX
@@ -8,6 +8,12 @@ description: Create, redesign, refine, or review web, native mobile, and desktop
 Turn a product task into a deliberate interface, then inspect what the implementation actually does. The useful output is a screen people can understand and operate, with visual character appropriate to its content. An unfamiliar font, a different palette, fewer cards, or a clean automated report is not proof of improvement.
 
 Use the requested platform and stack, preserving appropriate navigation, input, and accessibility conventions. Examples do not prescribe a sector, device, or aesthetic.
+
+## Initialize product context
+
+`init` is a conversation inside the coding agent: in Codex, `$flawless-ui-ux init`; in other hosts, invoke this skill with `init` or ask it to initialize product context. Read [Initialization](references/init.md), inspect the project, confirm material product knowledge with the user, and record it. An explicit init ends with the product record; it does not design or implement an interface.
+
+Before creating a whole interface or broadly redesigning one, recover its product context. A relevant, filled product record supplies continuity; a missing record or an unfilled template routes through Initialization. Retain the original request and resume it after confirmation and persistence, without repeating discovery. Do not force onboarding for a local component extension, focused refinement, or review. Use the existing implementation and available context within that task's scope.
 
 ## Establish the intervention
 
@@ -30,6 +36,7 @@ Read the owning reference before making that kind of decision. This is selective
 
 | Question | Reference |
 |---|---|
+| How do we initialize or update the product record? | [Initialization](references/init.md) and [Project context](references/project-context.md) |
 | Which information and action belong on this surface? | [Product structure](references/structure.md) |
 | What craft decision needs deeper treatment? | [Craft](references/craft.md), routing to [Typography](references/typography.md), [Layout](references/layout.md) and [Color](references/color.md) |
 | How should records and comparisons survive small screens? | [Tables](references/tables.md) and [Charts](references/charts.md) |

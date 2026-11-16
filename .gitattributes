@@ -20,3 +20,6 @@ bun.lock text eol=lf
 *.gif binary
 *.woff binary
 *.woff2 binary
+
+# Historical published bytes are hashed for safe unrecorded-copy adoption.
+tests/fixtures/skill-2.2.0/** -text whitespace=trailing-space,space-before-tab,cr-at-eol

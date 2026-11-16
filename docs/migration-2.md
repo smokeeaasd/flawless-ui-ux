@@ -1,5 +1,7 @@
 # Migrating to 2.0
 
+This page records the 2.x boundary. For the agent-led initialization change and removed terminal init in 3.0, see [migration to 3.0](migration-3.md).
+
 ## Compatible 2.1 additions
 
 Version 2.1 retains existing commands and schema-2 context/inspection/verification reports. Complete compatible 2.0.x baselines remain usable with matching check versions and the same project, flow, and browser conditions. Optional HTML adds `artifacts.html` only when requested. Install retains schema 1; the new update/doctor operations use schema 2. Installation records are separate from product/design Markdown and do not require a context migration. See the [CLI contract](cli-contract.md#update-and-doctor).

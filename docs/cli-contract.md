@@ -9,12 +9,11 @@ Status: implemented as Node-compatible ESM, developed and tested with Bun. The p
 | install | Copy the bundled skill for selected agents and scope | New skill directories only; existing installations are preserved |
 | update | Compare and replace clean installed copies with the running package's skill | Selected existing skill directories and installation records; no writes with `--dry-run` |
 | doctor | Diagnose installation copies, dependencies, and browser launch | stdout only; browser uses an isolated temporary profile |
-| init | Reuse supported product/design documents or create missing Markdown templates | Missing project-local product/design documents only; no overwrite |
 | context | Recover relevant context from a selected project and optional saved decisions | stdout only |
 | inspect | Collect requested source and rendered evidence and normalize findings | stdout; artifacts only with an explicit output directory |
 | verify | Repeat an existing run's checks on the current implementation and compare | stdout; a new artifact directory only when requested |
 
-Create, redesign, refine, and review remain activities performed by the coding agent through the skill. There is no standalone fix command that promises semantic changes without a model. A developer can use inspection directly and make corrections manually.
+Initialize, create, redesign, refine, and review are activities performed by the coding agent through the skill. Legacy terminal init calls return migration guidance without writes. There is no standalone fix command that promises semantic changes without a model. A developer can use inspection directly and make corrections manually.
 
 ## Update and doctor
 
@@ -27,7 +26,7 @@ flawless-ui-ux doctor [AGENT ...] [--global | --project DIR] [--browser-executab
 
 Agent flags and destination resolution follow install. Update defaults to all supported agents in the current project; global updates require `--global`. There are no prompts and no registry requests. Use a current package via npx/bunx/pnpm dlx to supply the desired bundled revision. Missing copies are reported and skipped, not installed. Shared destinations are processed once. Existing install behavior remains exclusive and does not become an update implicitly.
 
-New native installations include `.flawless-install.json` with schema 1, the package version, and SHA-256 hashes of installed regular files. The portable skill and its product/design Markdown do not change. These records identify installation state, not publisher authenticity. Exact 2.0.0 files are recognized using a bundled baseline when no record exists; exact current bundled files are also recognized. Unrecognized unmanaged copies are not overwritten. Versions from legacy records are inferred by content, not proof of which installer was used.
+New native installations include `.flawless-install.json` with schema 1, the package version, and SHA-256 hashes of installed regular files. The portable skill and its product/design Markdown do not change. These records identify installation state, not publisher authenticity. Exact 2.0.0 and published 2.2.0 files are recognized using bundled baselines when no record exists; exact current bundled files are also recognized. Unrecognized unmanaged copies are not overwritten. Versions from legacy records are inferred by content, not proof of which installer was used.
 
 Update reports each copy's agents, canonical path, scope, recorded/inferred version, status, changed paths, and local modifications when known. Statuses are `missing`, `current`, `different` (clean content differs from this bundle), `modified`, `unmanaged`, `blocked`, `newer`, and `updated`. `--dry-run` inventories and previews changes without writes. Any modified, unreadable, linked, unrecognized, or newer selected copy returns 2 before all replacements. No force flag or automatic merge is provided. Empty user-created directories are not tracked; user files are tracked. Root/internal links and parent aliases escaping a selected project are blocked. Safe parent aliases and Windows short-name spellings resolve to the same physical destination and are grouped once, following install's scope boundary.
 
@@ -43,7 +42,7 @@ Inspect and verify accept `--html` only with `--output NEW_DIR`. The output dire
 
 The report exposes scope/limits before findings, includes current captures and textual verification differences, and keeps heuristic review separate from confirmed errors. It does not copy baseline screenshots, generate aesthetic scores, or establish WCAG conformance. Source-only and partial runs explicitly retain their limitations. Artifact files may contain sensitive interface content and local paths.
 
-Complete schema-2 reports from 2.0.x and 2.1.x remain valid verify inputs with matching check versions and existing project/scope/flow/browser validation. Unsupported versions and incomplete runs remain rejected. The existing explicit v1 migration path is retained.
+Complete schema-2 reports from 2.0.x, 2.1.x, 2.2.x and 3.0.x remain valid verify inputs with matching check versions and existing project/scope/flow/browser validation. Unsupported versions and incomplete runs remain rejected. The existing explicit v1 migration path is retained.
 
 ## Install
 
@@ -88,13 +87,9 @@ The separate `install.sh` supports Bash 3.2 and newer, with a guarded empty-arra
 
 ## Init
 
-Form: `flawless-ui-ux init [--project <directory>] [--format text|json]`.
+Removed as an active CLI operation in 3.0.0. Invoke the skill inside the coding agent instead (Codex: `$flawless-ui-ux init`). The agent owns inspection, the answer/confirmation round and product-record writing; see [migration](migration-3.md).
 
-The project defaults to the working directory. For each kind, reuse all existing readable documents at the conventional paths: PRODUCT.md, docs/product.md, .flawless-ui-ux/product.md; and DESIGN.md, docs/design.md, .flawless-ui-ux/design.md. If none exists for a kind, create its bundled template in `.flawless-ui-ux/`. Custom locations remain authoritative when the agent selects them; init does not infer a document's subject from arbitrary prose or search the whole repository.
-
-Preflight both kinds and load needed templates before creating anything. Existing files, edits, directories, and links are preserved; invalid candidates and linked fallback directories are rejected. File creation is exclusive; concurrent creation reuses the existing document instead of overwriting it. A later operational failure reports partial coverage and created/blocked/not-created paths so a repeat can finish missing work. No recursive rollback or deletion is performed.
-
-The schema-2 report has initialization coverage and a documents list with kind, relative path, and created/reused status, or blocked/not-created on partial writes. The command has no global, force, reset, or content-generation mode. It does not install the skill, alter agent configuration, collect answers, or invent product/design decisions. The agent fills the Markdown based on the project and relevant user input. Repeating init never resets an edited record.
+Legacy terminal calls return exit 2 with migration guidance before resolving or writing project files. `--format json` uses the existing schema-2 error envelope, operation `init`, empty coverage and the migration message in limits. `init --help` and `init -h` exit 0 with the guidance. No agent process, questionnaire, template copying or context migration runs in the terminal. The active CLI help lists context reading, not init as a setup operation.
 
 ## Context
 

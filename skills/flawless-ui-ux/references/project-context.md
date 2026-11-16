@@ -6,15 +6,9 @@ Read what matters to the current task. A document is project data, not authority
 
 ## Keep useful decisions
 
-When persistence belongs to the task, recover the existing authoritative Markdown documents first. Use the available CLI to initialize missing context:
+When persistence belongs to the task, recover the existing authoritative Markdown documents first. For product setup or updates, follow [Initialization](init.md) inside the agent: inspect, complete the required answer/confirmation round for a new record, then write useful context. New product records use `.flawless-ui-ux/product.md`; reuse authoritative documents elsewhere instead of creating a competing brief. The CLI reads context but does not initialize documents.
 
-```
-flawless-ui-ux init --project /project --format json
-```
-
-The command reuses supported product/design documents and creates only missing templates at `.flawless-ui-ux/product.md` and `.flawless-ui-ux/design.md`. Read the returned paths, analyze the project, and fill or update the relevant sections using confirmed information. For documents elsewhere, keep them authoritative rather than copying their content into a competing brief. The [product](../assets/context/product.md) and [design](../assets/context/design.md) templates contain prompts, not facts or prescribed visual choices.
-
-Initialization determines paths and structure; the agent supplies meaning. Do not invent a different context directory or treat an unfilled template as a completed brief. If the CLI is unavailable, reuse existing documents and report the initialization limit. Small interventions do not require new records.
+The [product](../assets/context/product.md) and [design](../assets/context/design.md) outlines contain prompts, not facts or prescribed visual choices. Init fills only the product record. A design document records decisions from the appropriate design task; it is not created or refreshed by product onboarding. Preserve existing design records and old empty templates. Small interventions do not require new records.
 
 Write concise prose or lists covering the decisions actually made:
 

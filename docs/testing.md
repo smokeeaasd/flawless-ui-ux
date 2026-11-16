@@ -1,5 +1,11 @@
 # Package and installation tests
 
+## 3.0 agent onboarding
+
+The [3.0 migration](migration-3.md) moves product initialization into the skill. Runtime tests cover the removed terminal command's Node/Bun exit behavior, JSON errors and no-write guarantee, historical 2.2.0 adoption, local-edit preservation and compatible old/current verification reports. Agent behavior requires a separate [guided onboarding evaluation](../evals/cases/19-agent-init.md); matching prose or passing runtime tests does not establish that an interview occurred.
+
+Local 3.0 candidate validation on November 16, 2026: all 84 tests across 13 files passed on Windows with Bun 1.4.4, Node 24.16.0 and an explicitly selected installed Edge executable; no browser tests were skipped. The archive test exercised the unpacked CLI and skill. Skill validation and a separate npm dry run passed. The [behavior record](../evals/results/agent-init/README.md) contains five completed and three partial cases, stopped at the user's request to conserve tokens. Native structured question tools and post-answer read-only behavior remain unobserved. These are local checks; Linux CI and publication are separate.
+
 ## 2.1.0 maintenance and reporting
 
 `tests/maintenance.test.js` covers legacy adoption, read-only previews, clean replacement, local edits/additions/deletions blocking every selected update, rollback, missing/unrecognized copies, links, invalid metadata, scope divergence, and Node/Bun output. Browser availability is separate from agent activation.
@@ -44,7 +50,7 @@ Bun runs the built-in test runner. The only development dependency is the strict
 
 The [skill expansion record](skill-expansion.md) separates content integrity, executable study checks and model evaluation. `node evals/scripts/check-studies.mjs /fresh/external/artifacts` exercises the eight web studies at 320, 390, 768 and 1440 CSS pixels, runs selected automated accessibility rules, and checks local state transitions. Set `FLAWLESS_BROWSER_EXECUTABLE` to an installed compatible browser when needed. `check-cli-study.mjs` exercises the bundled local inquiry flow over HTTP and replays it through verify. These maintainer scripts add no package/runtime dependency and do not establish native behavior or full accessibility.
 
-The maintenance suite uses `tests/fixtures/skill-2.0.0` as a frozen exact historical tree and separately tests adoption of an unrecorded current copy. Installation matrices allow 90 seconds for repeated complete copies; per-process limits and all file-preservation assertions remain in place.
+The maintenance suite uses frozen 2.0.0 and published 2.2.0 trees, with exact-byte preservation for the latter, and separately tests adoption of an unrecorded current copy. Installation matrices allow 90 seconds for repeated complete copies; per-process limits and all file-preservation assertions remain in place.
 
 | File | Checks |
 |---|---|
@@ -55,8 +61,8 @@ The maintenance suite uses `tests/fixtures/skill-2.0.0` as a frozen exact histor
 | `tests/distribution.test.js` | Actual archive contents, native installation from an unpacked package, and missing bundled instructions |
 | `tests/maintenance.test.js` | Legacy adoption, preview preservation, modified/unknown/newer copies, all-target refusal, replacement rollback, canonical aliases, scope divergence, browser availability, and Node/Bun output |
 | `tests/html-report.test.js` | Optional HTML and unchanged default artifacts, compatible 2.0 baselines, escaped content, offline captures, and narrow/wide layout |
-| `tests/context-markdown.test.js` | Markdown reuse, explicit source bounds, reference freshness, read-only behavior, v1 report migration, and surface-specific fingerprints |
-| `tests/init.test.js` | Canonical template creation, per-kind reuse, preservation of edits, preflight conflicts/links, concurrent creation, Node/Bun output, and discovery by context |
+| `tests/context-markdown.test.js` | Markdown reuse, explicit source bounds, reference freshness, read-only behavior, v1 migration, 2.x/3.0 report compatibility, and surface-specific fingerprints |
+| `tests/init.test.js` | Removed terminal init guidance, Node/Bun text/JSON/help behavior, no writes on empty or existing projects, and continued reading of existing records |
 | `tests/workflows.test.js` | Flow validation, state capture, keyboard expectations, explicit replay and changed-flow rejection, blocked writes, corresponding-screen inventories, and unverified missing targets |
 | `tests/cli.test.js` | Node/Bun command output, context provenance and stale sources, scoped source inspection, saved runs and comparisons, invalid inputs, and unavailable browser coverage |
 | `tests/browser.test.js` | Known contrast/name failures and corrections, rendered text/overflow/media/runtime observations, regressions, removed targets, missing regions, and unexpected navigation |

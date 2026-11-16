@@ -1,0 +1,313 @@
+{
+  "date": "2026-11-16",
+  "method": "isolated scripted chat reply evaluations; structured question tool is deliberately unavailable; read-only case is instructed, not enforced by OS ACL",
+  "runner": "Fresh Codex collaboration subagents with inherited settings; exact model metadata not independently recorded",
+  "protocolSha256": "8d2cb7fd23a7139514af7d92d5f1905c56024355f4d0e3aaee1727a317b41452",
+  "candidateFiles": {
+    "SKILL.md": "0f4f2f5f57ff53dba6fae2aad27cf0a01f4861ecdbfaf3ac304c314790a6c88f",
+    "agents/openai.yaml": "32b7696c72bf8b71ca0811089c7b009e39f77d37978259b6ca8f71f7e9d83946",
+    "references/android.md": "65fcfe1c43d0930eabc9eaddd2c2ce7048082ff269fb42e459ffe3c38a037cf7",
+    "references/anti-slop.md": "0e26084b274b431a1c2b6fd77f46d5f082b881eb6612376f3c92773dbc00806f",
+    "references/calibration.md": "2eb939e01bc13b714a26571670eec211a19fdcd05f802199d42c3e869384d33a",
+    "references/charts.md": "a59f66855884b5836cdbd740e564c88a66bdd97526eaeec101891234e1b0d367",
+    "references/color.md": "41c443d60ebc0babc52a6e6cb31b2f8bd5583ecb11d0bea73bdf602fb1e21b0d",
+    "references/copy.md": "9774099d22f49bc4721df73a385b0d79d525330988d5259a83bb700786bd8e88",
+    "references/craft.md": "79ca92a4677c110afa496e82f4cbfc0f6544877cdc88e872687cd11cedf88069",
+    "references/design-studies.md": "7840c05f8636ad24144f6f1d99a1d9373bc099c537a55ac4b48bf56cdd9bc5f9",
+    "references/desktop.md": "0c3d17f94e500b9c9a0066272ac2d7007d4cf295d472e0abe3a2ebd2ec6e265d",
+    "references/direction.md": "c362b46351ff88d4d9a5cb0b38756873211a8b6229b5df94a7c029fa4ece803d",
+    "references/forms.md": "79f051f4c5ae6d64073f09fcd2397230a418415f9da89384630110aa07f286ba",
+    "references/init.md": "e0bba5fb497c53ead63022e6a01ddf0833f412f22cd7d63438ada514ab26dee1",
+    "references/inspection.md": "b83ac3a00644ad1132296755b45f1191d2fa83e1668e1a1e100c2bf568a4c11a",
+    "references/interaction.md": "207b61c0339d55906bbfbddaa400c513060dc02f706a8f17e82e4a709e02a0af",
+    "references/ios.md": "328b7a1d3ce0df575046243b7066def4d244237bd67a6b6479465933e859f4bf",
+    "references/layout.md": "653052e975dbefbc18da1756cd523f48c6f7b1df44cca681ec9500365d3872e5",
+    "references/motion.md": "3f5a3320044d078c1ae5bcb77e73d5ad2b513034f5d267a4e7a9cbe2232cd301",
+    "references/native-studies.md": "ae473c5cb04c73266872f2361def9e7da1978e888e3c6e456b9529586c808c11",
+    "references/performance.md": "a4773ce5354e77fd270a5518d031d1a525861b4fc177fd13589e3e36bb8c60c6",
+    "references/product-studies.md": "b62e6479591f39af46e550b7b433856fbb6fb300afcf189e5a1942b73c704921",
+    "references/project-context.md": "c611167e9685ca930c5bc110fa8e5d8ae9cb60590691d0423d95a3be19386952",
+    "references/review.md": "7b216b8b7579096f8b559942b418334c27e3b3c9d6eb0b17f9383e06d06ca84c",
+    "references/service-studies.md": "9dd349987eb0de3a017ca7feeea1bd6dbcf31dc964d3995b5ef506a83b00c136",
+    "references/states.md": "db31af8aa636d4fda97fcebc6843da473fd12a9bc428f522b357d5d38f26716e",
+    "references/structure.md": "5dac39821cfc73de22107341c6174e9fff9408609beaf57ce7fab21d4cc6a3e6",
+    "references/tables.md": "acb7cd32ff96d3043bc44f04c1505e4dd348d67a4df8884e8a0a3e5095d93a9f",
+    "references/typography.md": "d0ac417cf8575d8b47bff440bea2f67dc8954d7efedf0486191f9d17b6cb0031",
+    "assets/context/design.md": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1",
+    "assets/context/product.md": "b037df0f6b54c4e85715f247e6398a52f7705e600754cebc50c1b1c483213c66",
+    "assets/design-studies/collection.png": "f4f213527740b4209e5d479e994916505914d17f9efbc58d5dad4b600927b197",
+    "assets/design-studies/reading.png": "33c12214b26494678483a33bd28b761020e3bc682fc43de047e01e02990a8e8c",
+    "assets/design-studies/service.png": "8a1ef809e0aab52135aafa2ca50a7bdf53f70ea1c7848279bd78fcec7964a9a3",
+    "assets/design-studies/workspace.png": "582ff7086fdb8c9b23a6673a7271b1e5379a11e9328b19353b576dcf4f211f7d",
+    "assets/examples/cafe.html": "9861781c74ddfe7d87e5efe26d4a822f0a2f3920a2185d4e18d5f4486b9a5487",
+    "assets/examples/collection.html": "886788daec01afd230b6624a201bffe7a7764e6647f236708a234754ba8389a7",
+    "assets/examples/comparison.html": "44d91b2425222d122994d048d27ab3da44564e58bb807caa18b95649704bee10",
+    "assets/examples/finance.html": "92827bd0ca6142924bb62844e79dc2677d768c5f8896c4d081b289851f6fab46",
+    "assets/examples/form.html": "a0f09e5b6e1d4a29f73bc70fe07ade26d9bad42bae7356bf0deaa9e054f53625",
+    "assets/examples/index.html": "235fc9d872c2eb7311f17cb7fc4e72819ad5841f2f596b7f4f425dc876f08f3e",
+    "assets/examples/inquiry.flow.json": "4ab201a08cb24a3a03650d3193d529d33fa101df374257a09ee589896740df1d",
+    "assets/examples/queue.html": "80fc3504a18717d2eda72057ed51e11fb3423fa48dd296c95d60f1c7191c1605",
+    "assets/examples/reading.html": "2198aa8434ce9be3003ea6491bbf32fcb2a1f1dcd26b3043995b5a1f77e1d4ad",
+    "assets/examples/serve.mjs": "489d5d5117e5e3f367b692efc51a5e246f5f7c392d1e8a620efef102eeeb29b8",
+    "assets/examples/shared.css": "a28fdff41aca19a1545c4b482a653d597baae8362a44126d8693055fb26ff240",
+    "assets/examples/shared.js": "12e3bbc688480915fe0d8d70ef383fc26a28c128199284df6e41cddefbcfa2d9",
+    "assets/examples/software.html": "6f1b1f02aa84f2d660809a77275eb22565f317129e985eb5e188039f85ffc8e6",
+    "assets/examples/native/ReadingList.kt": "3434eb8fa06aaf07cf03f01dbf6fe3397f4d916e9557d004fa579a6e2a272cab",
+    "assets/examples/native/ReadingList.swift": "b57e7c8a748f816218d7984ad880736e4e1ce4561848f85a396a4edb08796c98"
+  },
+  "completedCases": 5,
+  "partialCases": 3,
+  "stopReason": "User requested no further agent execution to conserve tokens",
+  "runnerInterruption": "Legacy first continuation returned a usage-limit error; the same session completed after continuation, reporting a repeated reply with no additional edit",
+  "cases": [
+    {
+      "id": "greenfield",
+      "status": "met",
+      "initialFiles": {
+        "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+        "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d"
+      },
+      "snapshots": {
+        "before-answer": {
+          "phase": "before scripted answer",
+          "projectFiles": {
+            "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+            "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d"
+          },
+          "unchanged": true
+        },
+        "after": {
+          "phase": "after",
+          "projectFiles": {
+            "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+            "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d",
+            ".flawless-ui-ux/product.md": "5ddbaf9acbc33bd4a1aa745525a722ec2913197c273d55f2b3a4bd74df78fb00"
+          },
+          "unchanged": false,
+          "added": [
+            ".flawless-ui-ux/product.md"
+          ],
+          "removed": [],
+          "modified": []
+        }
+      },
+      "participantNoteSha256": "37672a399cfbd71fcb68a4f9e33899bc729d6b029c050fd3780fbd99c18c1487"
+    },
+    {
+      "id": "existing",
+      "status": "met",
+      "initialFiles": {
+        "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+        "index.html": "d65f8229064627eadd3a6c3ea8b00108509b36c089c58440ae4193c9f410f38b"
+      },
+      "snapshots": {
+        "before-answer": {
+          "phase": "before scripted answer",
+          "projectFiles": {
+            "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+            "index.html": "d65f8229064627eadd3a6c3ea8b00108509b36c089c58440ae4193c9f410f38b"
+          },
+          "unchanged": true
+        },
+        "after": {
+          "phase": "after",
+          "projectFiles": {
+            "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+            "index.html": "d65f8229064627eadd3a6c3ea8b00108509b36c089c58440ae4193c9f410f38b",
+            ".flawless-ui-ux/product.md": "4b3debb4bf80d68be4a677a546c522412a620ddd5015ed3a5ff4783ecf0a5bd7"
+          },
+          "unchanged": false,
+          "added": [
+            ".flawless-ui-ux/product.md"
+          ],
+          "removed": [],
+          "modified": []
+        }
+      },
+      "participantNoteSha256": "61df6ad40263348fb793e4264a9146f5354ebcd668a9e375383176efefd62cd6"
+    },
+    {
+      "id": "rerun",
+      "status": "met",
+      "initialFiles": {
+        "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+        "index.html": "d65f8229064627eadd3a6c3ea8b00108509b36c089c58440ae4193c9f410f38b",
+        "PRODUCT.md": "3a73caa28e8898d3e8795ccd15faf5d5c49bd093bf3aabbae51bb3ac89883071"
+      },
+      "snapshots": {
+        "after": {
+          "phase": "after",
+          "projectFiles": {
+            "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+            "index.html": "d65f8229064627eadd3a6c3ea8b00108509b36c089c58440ae4193c9f410f38b",
+            "PRODUCT.md": "3a73caa28e8898d3e8795ccd15faf5d5c49bd093bf3aabbae51bb3ac89883071"
+          },
+          "unchanged": true,
+          "added": [],
+          "removed": [],
+          "modified": []
+        }
+      },
+      "participantNoteSha256": "2842ba8333d958e59ab037cd378e05fa5fc883436280ba9dded4d57fb537be96"
+    },
+    {
+      "id": "legacy",
+      "status": "met",
+      "initialFiles": {
+        "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+        "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d",
+        ".flawless-ui-ux/design.md": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1",
+        ".flawless-ui-ux/product.md": "59d8bdc45a8ed969d683b888dcb81843d2d94ba8348e399f4879250aac2afe25"
+      },
+      "snapshots": {
+        "before-answer": {
+          "phase": "before-answer",
+          "projectFiles": {
+            "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+            "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d",
+            ".flawless-ui-ux/design.md": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1",
+            ".flawless-ui-ux/product.md": "59d8bdc45a8ed969d683b888dcb81843d2d94ba8348e399f4879250aac2afe25"
+          },
+          "unchanged": true,
+          "added": [],
+          "removed": [],
+          "modified": []
+        },
+        "after": {
+          "phase": "after",
+          "projectFiles": {
+            "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+            "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d",
+            ".flawless-ui-ux/design.md": "7e830482b88f0e50e10f9c570a07eb507d96c2cede3ed76d3ccc803591e35fe1",
+            ".flawless-ui-ux/product.md": "bce06bb032dfbdd24c97ffcfcfbb5284cec17bfcfc187c25f584d3123fbe66b1"
+          },
+          "unchanged": false,
+          "added": [],
+          "removed": [],
+          "modified": [
+            ".flawless-ui-ux/product.md"
+          ]
+        }
+      },
+      "participantNoteSha256": "4b37b432b865399c8c343a163194eeb08105d349d0a330ec01405d558fa0d8ba"
+    },
+    {
+      "id": "implicit-create",
+      "status": "partial",
+      "initialFiles": {
+        "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+        "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d"
+      },
+      "snapshots": {
+        "before-answer": {
+          "phase": "before-answer",
+          "projectFiles": {
+            "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+            "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d"
+          },
+          "unchanged": true,
+          "added": [],
+          "removed": [],
+          "modified": []
+        },
+        "interrupted": {
+          "phase": "interrupted",
+          "projectFiles": {
+            "index.html": "2aafc688c409850953d3d886ab3250dbe4a818b16c4810efb62eb08ce1845505",
+            "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d",
+            ".flawless-ui-ux/product.md": "245cc28e195014ae8a5bcee49e398e08452b471018c5e83494caa5574c1e41f4"
+          },
+          "unchanged": false,
+          "added": [
+            ".flawless-ui-ux/product.md"
+          ],
+          "removed": [],
+          "modified": [
+            "index.html"
+          ]
+        }
+      },
+      "participantNoteSha256": null
+    },
+    {
+      "id": "implicit-redesign",
+      "status": "partial",
+      "initialFiles": {
+        "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+        "index.html": "d65f8229064627eadd3a6c3ea8b00108509b36c089c58440ae4193c9f410f38b"
+      },
+      "snapshots": {
+        "before-answer": {
+          "phase": "before-answer",
+          "projectFiles": {
+            "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+            "index.html": "d65f8229064627eadd3a6c3ea8b00108509b36c089c58440ae4193c9f410f38b"
+          },
+          "unchanged": true,
+          "added": [],
+          "removed": [],
+          "modified": []
+        },
+        "interrupted": {
+          "phase": "interrupted",
+          "projectFiles": {
+            "DESIGN.md": "c414083b1c1473376746ca56dbf6ebab0dcd2edc3be8136fb0a7e016883d5e43",
+            "index.html": "e904d8f22d083db23c483a8d31749ce8f14a75d15d6e6370df1b9ecb99219138",
+            ".flawless-ui-ux/product.md": "d22d253954250e5c66cc139dcb13bf1b1b0c6d1f0ade6eb18666daecd566e5c1"
+          },
+          "unchanged": false,
+          "added": [
+            ".flawless-ui-ux/product.md"
+          ],
+          "removed": [],
+          "modified": [
+            "index.html"
+          ]
+        }
+      },
+      "participantNoteSha256": null
+    },
+    {
+      "id": "focused-review",
+      "status": "met",
+      "initialFiles": {
+        "index.html": "cdc4b661366d9cfa735dc3830de7a1e083b2df986d369bf120c74710d5a7bf78"
+      },
+      "snapshots": {
+        "after": {
+          "phase": "after",
+          "projectFiles": {
+            "index.html": "cdc4b661366d9cfa735dc3830de7a1e083b2df986d369bf120c74710d5a7bf78"
+          },
+          "unchanged": true,
+          "added": [],
+          "removed": [],
+          "modified": []
+        }
+      },
+      "participantNoteSha256": "f9bcbdde941a45c8fafb4c74138da3651bdf678c170f632fc7a237f9beb91fb0"
+    },
+    {
+      "id": "read-only",
+      "status": "partial",
+      "initialFiles": {
+        "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+        "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d"
+      },
+      "snapshots": {
+        "before-answer": {
+          "phase": "before-answer",
+          "projectFiles": {
+            "index.html": "8d626b729cf32f9c592776153dfb0ec45bf35afe8a4e44bcae225599a9b120b7",
+            "package.json": "08459915ebb90cb453c1771e179676adc5698866606125bbef4a58c079dc4b6d"
+          },
+          "unchanged": true,
+          "added": [],
+          "removed": [],
+          "modified": []
+        }
+      },
+      "participantNoteSha256": null
+    }
+  ]
+}

@@ -11,7 +11,7 @@ export async function verify(options) {
   if (stat.size > 20 * 1024 * 1024) throw new Error('Baseline exceeds 20 MiB.');
   let baseline = JSON.parse(await fs.readFile(options.baseline, 'utf8'));
   const legacy = baseline.schemaVersion === 1 && baseline.checkVersion === 1 && /^1\./.test(baseline.toolVersion);
-  const supportedVersion = baseline.toolVersion === VERSION || /^2\.(?:0|1)\.\d+$/.test(baseline.toolVersion);
+  const supportedVersion = baseline.toolVersion === VERSION || /^(?:2\.(?:0|1|2)|3\.0)\.\d+$/.test(baseline.toolVersion);
   if ((!legacy && (baseline.schemaVersion !== 2 || !supportedVersion || baseline.checkVersion !== CHECK_VERSION)) || !['inspect', 'verify'].includes(baseline.operation) || baseline.completion !== 'complete') throw new Error('Baseline is incomplete or incompatible. Use a complete supported run.');
   if (typeof baseline.project !== 'string' || await projectRoot(baseline.project) !== baseline.project) throw new Error('Baseline project identity changed.');
   const identity = await fs.stat(baseline.project);

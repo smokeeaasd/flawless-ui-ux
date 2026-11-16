@@ -1,5 +1,7 @@
 # Toolkit delivery plan
 
+This records the 2.x implementation plan. In 3.0, product initialization moves into the coding agent and the terminal operation is removed; see [migration to 3.0](migration-3.md) for current behavior.
+
 ## 2.1.0 increment
 
 Implemented: `update` with preservation checks and rollback, read-only `doctor`, and optional HTML reports, retaining existing behavior and schema compatibility. Maintenance resolves canonical Windows/alias paths, and the Bash alternative includes the empty-array compatibility fix verified with Bash 3.2.57. Installation metadata does not replace product/design Markdown. Windows/Ubuntu CI is passing; see [testing](testing.md). The [focused evaluation](../evals/cases/17-maintenance-and-usefulness.md) is prepared separately; model outcomes remain pending in its result index. No extra skill-reading requirements, hooks, dependencies, or automated model runs are introduced. Publication follows the separate [release procedure](releasing.md).
