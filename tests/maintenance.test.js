@@ -51,6 +51,46 @@ test('update adopts an exact unrecorded current copy without losing bundled reso
   } finally { workspace.cleanup(); }
 });
 
+for (const managed of [false, true]) test(`update preserves the published 2.2.0 tree and upgrades its ${managed ? 'recorded' : 'unrecorded'} installation`, async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    const destination = path.join(workspace.root, '.agents/skills/flawless-ui-ux');
+    await fs.mkdir(path.dirname(destination), { recursive: true });
+    await fs.cp(path.join(repository, 'tests/fixtures/skill-2.2.0'), destination, { recursive: true });
+    if (managed) {
+      const { installationRecord } = await import('../src/installation-record.js');
+      await fs.writeFile(path.join(destination, recordName), JSON.stringify(await installationRecord(destination, '2.2.0')));
+    }
+    const before = snapshot(workspace.root);
+    const preview = await update({ project: workspace.root, agent: 'codex', dryRun: true });
+    assert.equal(preview.exitCode, 0);
+    assert.equal(preview.installations[0].version, '2.2.0');
+    assert.ok(preview.installations[0].changes.some(change => change.path === 'references/init.md' && change.change === 'added'));
+    assert.deepEqual(snapshot(workspace.root), before);
+    const result = await update({ project: workspace.root, agent: 'codex' });
+    assert.equal(result.exitCode, 0);
+    const actual = snapshot(destination);
+    delete actual[recordName];
+    assert.deepEqual(actual, snapshot(path.join(repository, 'skills/flawless-ui-ux')));
+    assert.equal(JSON.parse(await fs.readFile(path.join(destination, recordName))).toolVersion, VERSION);
+  } finally { workspace.cleanup(); }
+});
+
+test('update preserves a locally edited unrecorded 2.2.0 copy', async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    const destination = path.join(workspace.root, '.agents/skills/flawless-ui-ux');
+    await fs.mkdir(path.dirname(destination), { recursive: true });
+    await fs.cp(path.join(repository, 'tests/fixtures/skill-2.2.0'), destination, { recursive: true });
+    await fs.appendFile(path.join(destination, 'SKILL.md'), '\nKeep this local instruction.\n');
+    const before = snapshot(workspace.root);
+    const result = await update({ project: workspace.root, agent: 'codex' });
+    assert.equal(result.exitCode, 2);
+    assert.equal(result.installations[0].status, 'unmanaged');
+    assert.deepEqual(snapshot(workspace.root), before);
+  } finally { workspace.cleanup(); }
+});
+
 test('update refuses all selected updates when any copy is modified, added to, or missing a tracked file', async () => {
   const workspace = temporaryWorkspace();
   try {
@@ -127,7 +167,7 @@ test('update will not downgrade a newer recorded installation', async () => {
     const installed = await install({ project: workspace.root, agent: 'codex' });
     const file = path.join(installed.installations[0].path, recordName);
     const record = JSON.parse(await fs.readFile(file));
-    record.toolVersion = '3.0.0';
+    record.toolVersion = `${Number(VERSION.split('.')[0]) + 1}.0.0`;
     await fs.writeFile(file, JSON.stringify(record));
     const before = snapshot(workspace.root);
     const result = await update({ project: workspace.root, agent: 'codex' });

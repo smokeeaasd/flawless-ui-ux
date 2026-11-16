@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-import { parse } from '../src/options.js';
+import { parse, INIT_MIGRATION } from '../src/options.js';
 import { context } from '../src/context.js';
 import { inspect } from '../src/inspect.js';
 import { verify } from '../src/verify.js';
 import { install } from '../src/install.js';
-import { init } from '../src/init.js';
 import { update, doctor } from '../src/maintenance.js';
 import { VERSION } from '../src/shared.js';
 import { configureInstall, shouldPromptInstall, InstallationCancelled } from '../src/install-prompts.js';
@@ -14,13 +13,13 @@ try {
   const { operation, options: parsed } = parse([...args]);
   const options = operation === 'install' && shouldPromptInstall(args) ? await configureInstall(parsed) : parsed;
   if (operation === 'version') console.log(VERSION);
+  else if (operation === 'init-help') console.log(INIT_MIGRATION);
   else if (operation === 'help') console.log(`flawless-ui-ux ${VERSION}
   install [AGENT ...] [--global | --project DIR]
           [--yes] [--format text|json]
   update [AGENT ...] [--global | --project DIR] [--dry-run] [--format text|json]
   doctor [AGENT ...] [--global | --project DIR] [--browser-executable FILE]
          [--format text|json]
-  init [--project DIR] [--format text|json]
   context [--project DIR] [--source DOCUMENT.md ...] [--format text|json]
   inspect [--project DIR] [--source FILE ...] [--url URL ...]
           [--flow FILE] [--consistency]
@@ -41,7 +40,7 @@ update skips missing copies; --dry-run previews file changes. It does not downlo
 doctor checks project and global copies (only global with --global), plus browser launch.
 doctor does not confirm agent loading or change settings. Missing browsers are advisory.
 --html writes report.html beside run.json and screenshots; it requires --output NEW_DIR.
-init creates missing product/design Markdown templates or reuses supported existing documents; it never overwrites them.
+Initialize product context inside your coding agent (Codex: $flawless-ui-ux init).
 inspect requires a source or URL. Defaults: 1440x900 and 390x844, 15000 ms.
 Ordinary inspection is observational. --flow explicitly runs selected UI actions; non-read-only network requests are blocked.
 Inspection does not start servers, download browsers, or edit sources.
@@ -49,7 +48,7 @@ FLAWLESS_BROWSER_EXECUTABLE explicitly selects an installed Chromium executable.
 Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
   130 interrupted installation.`);
   else {
-    const report = await ({ install, update, doctor, init, context, inspect, verify }[operation])(options);
+    const report = await ({ install, update, doctor, context, inspect, verify }[operation])(options);
     if (options.format === 'json') console.log(JSON.stringify(report, null, 2));
     else {
       if (operation === 'install') {
@@ -67,7 +66,6 @@ Exit codes: 0 completed/declined; 1 confirmed errors; 2 invalid/incomplete;
       }
       for (const f of report.findings) console.log(`[${f.status}/${f.severity}] ${f.checkId} ${f.target}: ${f.observation}\n  ${f.recommendation}`);
       if (report.operation === 'context') console.log(JSON.stringify({ sources: report.sources, missing: report.missing, documents: report.documents, saved: report.saved, decisions: report.decisions }, null, 2));
-      if (report.operation === 'init') for (const document of report.documents) console.log(`${document.status}: ${document.path} (${document.kind})`);
       if (report.flow) console.log(`Flow: ${JSON.stringify(report.flow)}`);
       if (report.consistency) console.log(`Consistency: ${JSON.stringify(report.consistency)}`);
       if (report.comparison) console.log(`Comparison: ${JSON.stringify(report.comparison)}`);

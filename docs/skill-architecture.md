@@ -12,7 +12,7 @@ Status: the skill and local executable core are implemented. The [focused expans
 | Offline report renderer | Optional HTML view of inspection/verification evidence and adjacent captures | Escapes content; no scripts, remote resources, new findings, or aesthetic scores |
 | Installation prompts | Terminal-only scope and multi-agent selection, read-only destination preview, and confirmation | Explicit flags, JSON, CI, and non-terminal use stay direct; the installer rechecks destinations after confirmation |
 | Context reader | Explicit project root, known metadata files, and optional saved decisions with source provenance | Read-only discovery inside the selected project; no search of sibling generations or global agent history |
-| Context initializer | Canonical product/design templates and supported existing document discovery | Explicit project-local writes only for missing records; content interpretation belongs to the agent |
+| Agent onboarding | Project discovery, a confirmation round and a useful product record | Product-only; preserve design/UI; CLI context is an optional read-only helper |
 | Inspection coordinator | Requested checks, target scope, evidence collection, and coverage | Runs a meaningful batch; does not start applications or change their dependencies |
 | Source adapter | File/line observations in selected source files | No claim of rendered failure when dynamic styles or framework behavior are unresolved |
 | Flow runner | Validated project-local actions, expectations, and named observation states | Explicit flow selection on inspect and verify; no code evaluation or manifest-authorized replay |
@@ -38,7 +38,7 @@ New interfaces and broad redesigns load [Direction](../skills/flawless-ui-ux/ref
 
 The CLI's rendered adapter covers browser interfaces. Native behavior, text scaling, semantics, and input require appropriate platform/project tools; an empty web scan does not verify a native interface.
 
-The expanded library has 26 references and ten original worked cases. The entry requires the owning reference for a decision, while small tasks retain a narrow reading path. Eight executable web studies and two explicitly uncompiled native source studies demonstrate relationships without adding a runtime framework. Maintainer protocols and model outputs stay outside installed instructions. See [expansion coverage and evidence](skill-expansion.md).
+The current library has 27 references, including agent onboarding, and ten original worked cases. The entry requires the owning reference for a decision, while small tasks retain a narrow reading path. Eight executable web studies and two explicitly uncompiled native source studies demonstrate relationships without adding a runtime framework. Maintainer protocols and model outputs stay outside installed instructions. See [expansion coverage and evidence](skill-expansion.md).
 
 ## Runtime choices
 
@@ -56,7 +56,7 @@ The project root is explicit or the current working directory. The reader recove
 
 Product and design decisions are ordinary Markdown authored by the agent when persistence belongs to the task. Existing authoritative documents are reused; .flawless-ui-ux/product.md and design.md are optional fallback locations, not required contracts. Excerpts, source hashes, truncation, and reference freshness are observations for the agent. Legacy JSON context is readable for migration only. See [context boundaries](product-aware-workflows.md#markdown-context).
 
-The init operation shares the reader's conventional locations, reuses existing records, and copies bundled templates only for missing kinds. The templates ship with both the CLI and portable skill. Exclusive file creation and all-kind preflight preserve existing content; the command does not generate facts or update filled records. Context remains read-only.
+Init is a skill flow rather than a CLI operation. It reads the selected project and authoritative records, confirms new product context, then writes through host file tools. New records use `.flawless-ui-ux/product.md`; existing supported or explicitly selected records retain their locations. Init preserves design documents and implementation. Missing useful context routes whole-interface creation or broad redesign through onboarding before resuming; focused work remains direct. The CLI context reader stays read-only. Terminal init calls return migration guidance without touching files. See [3.0 migration](migration-3.md).
 
 ## Inspection and coverage
 

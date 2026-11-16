@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { context } from '../src/context.js';
 import { parse } from '../src/options.js';
-import { hash, finding } from '../src/shared.js';
+import { hash, finding, VERSION } from '../src/shared.js';
 import { inspect } from '../src/inspect.js';
 import { verify } from '../src/verify.js';
 import { temporaryWorkspace, snapshot } from './helpers.js';
@@ -57,5 +57,27 @@ test('v1 initial-state manifests can be verified and unsupported versions are re
     const left = finding('render.text-size', '#title', '', { conditions: { viewport: '390x844', state: 'initial', surface: 'http://localhost/a' } });
     const right = finding('render.text-size', '#title', '', { conditions: { viewport: '390x844', state: 'initial', surface: 'http://localhost/b' } });
     assert.notEqual(left.fingerprint, right.fingerprint);
+  } finally { workspace.cleanup(); }
+});
+
+test('verify keeps complete 2.x and 3.0 report compatibility without accepting unknown versions or checks', async () => {
+  const workspace = temporaryWorkspace();
+  try {
+    const style = path.join(workspace.root, 'style.css');
+    await fs.writeFile(style, 'p{font-size:10px}');
+    const baseline = await inspect(parse(['inspect', '--project', workspace.root, '--source', 'style.css']).options);
+    const file = path.join(workspace.root, 'baseline.json');
+    await fs.writeFile(style, 'p{font-size:16px}');
+    for (const version of ['2.0.0', '2.1.0', '2.2.0', '3.0.0', '3.0.1', VERSION]) {
+      await fs.writeFile(file, JSON.stringify({ ...baseline, toolVersion: version }));
+      const result = await verify({ baseline: file });
+      assert.equal(result.completion, 'complete', version);
+      assert.equal(result.schemaVersion, 2);
+      assert.equal(result.comparison.noLongerObserved.length, 1, version);
+    }
+    for (const change of [{ toolVersion: '2.99.0' }, { toolVersion: '4.0.0' }, { toolVersion: '3.0.0', checkVersion: 999 }, { toolVersion: '3.0.0', completion: 'partial' }]) {
+      await fs.writeFile(file, JSON.stringify({ ...baseline, ...change }));
+      await assert.rejects(verify({ baseline: file }), /incompatible/);
+    }
   } finally { workspace.cleanup(); }
 });

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "name": "local inquiry recovery",
+  "steps": [
+    { "id": "submit-empty", "action": "click", "selector": "button[type=submit]" },
+    { "id": "summary-focused", "action": "expect", "selector": "#error-summary", "state": "focused" },
+    { "id": "invalid", "action": "observe" },
+    { "id": "enter-name", "action": "fill", "selector": "#name", "value": "Test Reader" },
+    { "id": "enter-email", "action": "fill", "selector": "#email", "value": "reader@example.com" },
+    { "id": "enter-message", "action": "fill", "selector": "#message", "value": "A chair needs a repair." },
+    { "id": "check-valid", "action": "click", "selector": "button[type=submit]" },
+    { "id": "summary-cleared", "action": "expect", "selector": "#error-summary", "state": "hidden" },
+    { "id": "valid", "action": "observe" }
+  ]
+}

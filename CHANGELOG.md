@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 3.0.0
+
+### Breaking
+
+- Product initialization now runs inside the coding agent through the skill. Terminal `init` no longer creates files; it returns migration guidance and exit 2, or help with exit 0. Existing documents keep their locations and contents.
+
+### Added
+
+- A dedicated onboarding playbook: inspect the project, complete an answer/confirmation round before writing new context, and record meaningful product facts and open decisions. Explicit init stops after the product record; whole-interface creation and broad redesign can enter onboarding and resume the original task. Focused work remains direct.
+- Recognition of exact unrecorded published 2.2.0 skill copies during updates, using an integrity-checked historical fixture. Existing managed-copy and local-edit preservation remains in place.
+- A 3.0 migration guide and updated invocation metadata, context guidance and documentation.
+
+### Compatibility
+
+- Preserve install schema 1 and report schema 2. Verify retains compatible 2.0.x, 2.1.x and 2.2.x baselines and supports 3.0.x with the same check conditions. The earlier supported v1 migration remains available.
+- No dependency changes or automatic context-file migration. This source preparation does not publish the release.
+
 ## 2.2.0
 
 ### Added

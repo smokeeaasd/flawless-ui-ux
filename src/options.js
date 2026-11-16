@@ -3,6 +3,8 @@ import { agents } from './agents.js';
 
 const agentOptions = [...agents.map(agent => agent.id), 'all-agents'];
 
+export const INIT_MIGRATION = 'init now runs inside your coding agent. Invoke the flawless-ui-ux skill with init (Codex: $flawless-ui-ux init), not in the terminal. The CLI no longer creates product or design documents; existing files are preserved.';
+
 export function validateInspection(options) {
   options.sources = [...new Set(options.sources.map(source => source.replaceAll('\\', '/')))];
   options.urls ||= options.url ? [options.url] : [];
@@ -37,7 +39,11 @@ export function parse(argv) {
   const options = { project: '.', sources: [], viewports: [], timeout: 15000, format: 'text' };
   if (['--help', '-h', undefined].includes(operation)) return { operation: 'help', options };
   if (operation === '--version') return { operation: 'version', options };
-  if (!['install', 'update', 'doctor', 'init', 'context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
+  if (operation === 'init') {
+    if (argv.length === 1 && ['--help', '-h'].includes(argv[0])) return { operation: 'init-help', options };
+    throw new Error(INIT_MIGRATION);
+  }
+  if (!['install', 'update', 'doctor', 'context', 'inspect', 'verify'].includes(operation)) throw new Error(`Unknown operation: ${operation}`);
   if (argv.length === 1 && ['--help', '-h'].includes(argv[0])) return { operation: 'help', options };
   const installation = ['install', 'update', 'doctor'].includes(operation);
   if (installation) { options.project = undefined; options.agent = 'all'; }
@@ -47,7 +53,7 @@ export function parse(argv) {
   }
   const seen = new Set();
   const selectedAgents = [];
-  const allowed = installation ? [...agentOptions, 'global', 'project', 'format', ...(operation === 'install' ? ['yes'] : operation === 'update' ? ['dry-run'] : ['browser-executable'])] : operation === 'init' ? ['project', 'format'] : operation === 'context' ? ['project', 'format', 'source'] : operation === 'verify' ? ['output', 'format', 'browser-executable', 'flow', 'html'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable', 'flow', 'consistency', 'html'];
+  const allowed = installation ? [...agentOptions, 'global', 'project', 'format', ...(operation === 'install' ? ['yes'] : operation === 'update' ? ['dry-run'] : ['browser-executable'])] : operation === 'context' ? ['project', 'format', 'source'] : operation === 'verify' ? ['output', 'format', 'browser-executable', 'flow', 'html'] : ['project', 'source', 'url', 'selector', 'viewport', 'output', 'format', 'timeout', 'browser-executable', 'flow', 'consistency', 'html'];
   while (argv.length) {
     const flag = argv.shift();
     if (!flag.startsWith('--') || !allowed.includes(flag.slice(2))) throw new Error(`Unknown option: ${flag}`);
