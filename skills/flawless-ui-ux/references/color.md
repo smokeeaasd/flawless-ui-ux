@@ -1,61 +1,52 @@
 # Color roles, contrast and state
 
-Use for palette decisions, theme work, weak contrast and competing emphasis. Preserve explicit brand colors and semantic conventions unless the task authorizes changing them. A single accent, a neutral canvas or a particular saturation level is not universally correct.
+Use for palette design, hue-tinted neutrals, theme work, weak contrast, and competing emphasis. Preserve explicit brand colors unless the task authorizes changing them.
 
-## Recover the existing meanings
+## Build a hue-tinted palette with clear distribution
 
-Inspect a representative screen and its tokens. Identify page, surface, raised surface, primary text, supporting text, border, brand, action, selection and state colors. Some roles can share a value, but their purposes differ. A brand orange used for buttons need not also mean warning. A green income label and a green selected row must remain distinguishable by wording or structure.
+Raw neutral grays (`#f5f5f5`, `#e5e5e5`, `#737373`, `#000000`) look disconnected and generic. Derive your surface ladder and ink scale in **OKLCH** by carrying a subtle `0.005–0.018` chroma from the brand or canvas hue (cool slate `240–255` for technical/ops, warm stone `65–85` for editorial/tactile):
 
-Read colors in their actual neighborhoods. A supporting label that works on white may fail inside a tinted card. Opacity, gradients, images, overlays, disabled styles and theme overrides change the effective background. A source list of hex literals cannot establish these relationships.
+- **60% Canvas & calm negative space:** page background and generous open margins.
+- **30% Structural surfaces, borders & text:** stepped card surfaces (`2–4%` lightness separation), `1px` low-opacity hairline borders, primary and muted ink.
+- **10% Focal accent & semantic cues:** primary CTA, active navigation, key data highlights, and honest status indicators.
 
-Before changing the palette, distinguish a contrast defect from a distribution problem. If four saturated panels compete, reducing the area of one color can restore hierarchy without desaturating the entire brand. If a secondary label is faint, increase its usable contrast and use size or placement to preserve hierarchy. Making every label equally dark and bold is another way to lose structure.
+If four saturated panels compete on one screen, reduce accent surface area rather than desaturating the brand. Never use warning/error hues for decorative badges.
 
-## Measure relevant contrast
+## Light and dark theme token recipe
 
-For web text, evaluate the applicable WCAG criterion against actual backgrounds: generally 4.5:1 for normal text and 3:1 for large text, with the criterion's definitions and exceptions. Meaningful authored control, focus and graphic information has separate non-text requirements. Decorative separators do not all need the same threshold. Use the authoritative [text contrast explanation](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) and [non-text contrast explanation](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) when applicability is uncertain.
-
-A contrast calculator needs the actual foreground and background. When opacity is involved, composite colors first or use a rendered checker that resolves the pair. Inspect text over the lightest or darkest relevant image region, including different responsive crops. A shadow under text is not a general substitute for a stable readable background.
-
-Do not conclude full accessibility conformance from passing these checks. Focus behavior, target spacing, text enlargement, state communication and control names require their own evidence.
-
-## Build semantic tokens
-
-Use role names that support changes across components. Keep primitive colors separate from the decision to use one for a role. For a small page, a compact role layer is sufficient; do not manufacture a large design-token framework when existing CSS variables solve the task.
+Dark mode is a luminance and edge-lighting translation—never a blanket inversion or pure `#000000` void. Replace light-mode shadows with stepped dark surfaces (`+3–5%` lightness per elevation step) and subtle translucent top/edge hairline borders:
 
 ```css
 :root {
-  --surface: #ffffff;
-  --ink: #172c25;
-  --ink-secondary: #465c52;
-  --action: #245b43;
-  --on-action: #ffffff;
-  --focus: #195eaa;
+  --hue: 245;
+  --canvas: oklch(0.978 0.006 var(--hue));
+  --surface: oklch(0.996 0.002 var(--hue));
+  --surface-raised: oklch(1 0 0);
+  --border: oklch(0.22 0.02 var(--hue) / 0.10);
+  --ink: oklch(0.19 0.018 var(--hue));
+  --ink-muted: oklch(0.45 0.016 var(--hue));
+  --accent: oklch(0.50 0.18 258);
+  --on-accent: oklch(0.99 0.005 258);
+  --focus: oklch(0.52 0.20 250);
 }
-.action { background: var(--action); color: var(--on-action); }
-.support { color: var(--ink-secondary); }
-.action:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+[data-theme="dark"] {
+  --canvas: oklch(0.145 0.016 var(--hue));
+  --surface: oklch(0.185 0.016 var(--hue));
+  --surface-raised: oklch(0.225 0.016 var(--hue));
+  --border: oklch(0.96 0.01 var(--hue) / 0.10);
+  --border-top: oklch(0.98 0.01 var(--hue) / 0.16);
+  --ink: oklch(0.93 0.008 var(--hue));
+  --ink-muted: oklch(0.71 0.014 var(--hue));
+  --accent: oklch(0.66 0.17 258);
+  --on-accent: oklch(0.14 0.02 258);
+  --focus: oklch(0.74 0.16 250);
+}
 ```
 
-These illustrative values are not an approved palette for every product. Measure them in the actual control and surrounding surface. A focus ring must remain visible when the same control appears on another background. Preserve existing token names if that avoids unnecessary churn.
+## Measure relevant contrast and state semantics
 
-## Encode information beyond color
-
-Use signs and labels for financial values, icons plus text for status, and explicit selected state for filters. In a chart, provide series names and another distinguishing cue when color alone would be ambiguous. A red border around an invalid field needs an associated explanation; an error summary can connect the user to the affected field.
-
-Keep stable meanings across views. If blue indicates selection in one area and a passive badge in another, the distinction may need a different shape or wording. Avoid using warning colors for ordinary information when they would repeatedly imply urgency. Conversely, do not hide a consequential warning inside neutral metadata to keep the page calm.
-
-## Theme as a role translation
-
-Dark mode is not a blanket inversion. Surfaces, dividers, shadows, focus and muted text need a coherent mapping. A shadow visible on a light canvas can disappear on a dark one; a tinted raised surface may communicate layering more effectively. Adjust accents and chart series for contrast without changing their meanings.
-
-Respect existing preference handling. A theme control should expose its current state and preserve the product's intended persistence. Test the first render, explicit switching, system preference changes where supported and the behavior of charts, menus, dialogs and embedded content. Do not introduce persistence solely to make a color pass look more complete if that expands scope.
-
-## Worked diagnosis
-
-A finance overview has readable totals but faint transaction categories on tinted pills. Confirm the computed foreground/background pair for those categories. If it fails, change the category text role or pill surface, not every green in the app. Verify the same role in dark mode and inside selected rows. Keep expense signs and income labels explicit. A new orange accent would not address the defect.
-
-For a café homepage, the problem may instead be competing colors between photograph and heading. Test a different crop, the proportion of the color field, or a text placement that preserves image detail. There is no reason to impose the dashboard's palette or component language on it.
-
-## Acceptance
-
-Inspect normal, hover, focus, selected, disabled and error states actually supported by the implementation. Verify meaningful text and graphical distinctions at relevant sizes, and review both themes when they ship. Ask whether emphasis still matches the task after corrections. Record intentional exceptions and unmeasured image/gradient cases. Passing pairs are evidence of those pairs, not proof that the palette or interface is well designed.
+- Measure text against **computed** backgrounds (including tinted cards, overlays, disabled styles, and responsive image crops): generally `4.5:1` for normal text and `3:1` for large text per [WCAG text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), and `3:1` for meaningful UI controls and focus rings per [non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html).
+- Keep focus rings unmistakably visible on both light and dark surfaces (`outline: 2px solid var(--focus); outline-offset: 2px`).
+- Encode meaning beyond color alone: use `−` signs and clear labels on financial values, icons plus text for status, and distinct shapes or fills for selected filters.
+- Inspect hover, focus, active, selected, disabled, and error states across both themes if supported before signing off.

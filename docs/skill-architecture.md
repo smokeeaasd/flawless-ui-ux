@@ -38,7 +38,7 @@ New interfaces and broad redesigns load [Direction](../skills/flawless-ui-ux/ref
 
 The CLI's rendered adapter covers browser interfaces. Native behavior, text scaling, semantics, and input require appropriate platform/project tools; an empty web scan does not verify a native interface.
 
-The current library has 27 references, including agent onboarding, and ten original worked cases. The entry requires the owning reference for a decision, while small tasks retain a narrow reading path. Eight executable web studies and two explicitly uncompiled native source studies demonstrate relationships without adding a runtime framework. Maintainer protocols and model outputs stay outside installed instructions. See [expansion coverage and evidence](skill-expansion.md).
+The current library has 28 references, including named aesthetic directions (`aesthetic-directions.md`), concrete visual-craft recipes, screenshot self-critique, agent onboarding, and ten original worked cases. The entry requires the owning reference for a decision, while small tasks retain a narrow reading path. Eight executable web studies and two explicitly uncompiled native source studies demonstrate relationships without adding a runtime framework. Maintainer protocols and model outputs stay outside installed instructions. See [expansion coverage and evidence](skill-expansion.md).
 
 ## Runtime choices
 
@@ -78,6 +78,7 @@ The first collectors are deliberately bounded:
 | Broken visible media | Report load state and target; distinguish failed load from still-pending readiness |
 | Uncaught page errors | Report the observed exception; do not claim its UI consequence without evidence |
 | Copy/icon inventory | Supply relevant text and icon occurrences for agent review; rhetorical redundancy and arrow purpose remain semantic decisions |
+| Visual-system telemetry | Summarize rendered font families, type scale, weights, colors, radii, and card-like containers for visual review; not an aesthetic score |
 
 Source collectors inspect named files and report useful locations and candidates. They do not attempt a complete React/CSS runtime simulation. A browser finding may have a DOM locator without a reliable source line; never fabricate that mapping.
 

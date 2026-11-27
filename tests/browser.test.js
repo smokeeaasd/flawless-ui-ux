@@ -43,6 +43,11 @@ browserTest('rendered inspection, correction, regression, and missing targets ar
     assert.ok(baseline.findings.some(f => f.checkId === 'accessibility.color-contrast' && f.status === 'confirmed'));
     assert.ok(baseline.findings.some(f => f.checkId === 'accessibility.button-name' && f.target === '#action'));
     assert.ok(baseline.findings.some(f => f.checkId === 'render.arrow-inventory' && f.status === 'needs-review'));
+    assert.ok(baseline.observations[0].visualMetrics);
+    assert.ok(baseline.observations[0].visualMetrics.fontFamilyCount >= 1);
+    assert.ok(baseline.observations[0].visualMetrics.fontSizeCount >= 2);
+    assert.ok(baseline.observations[0].visualMetrics.displayToBodyRatio > 1);
+    assert.ok(baseline.observations[0].visualMetrics.textColorCount >= 1);
     assert.equal(baseline.artifacts.screenshots.length, 2);
     assert.equal((await fs.readFile(baseline.artifacts.screenshots[0])).subarray(1, 4).toString(), 'PNG');
     mode = 'good';

@@ -1,59 +1,63 @@
 # Typography as an information system
 
-Use for font selection, reading comfort, numeric comparison and weak hierarchy. Preserve confirmed families during a focused refinement. A type replacement is not a harmless cleanup when the family carries the identity. Start with [Craft](craft.md) for scope and [Layout](layout.md) when the apparent text problem is actually a narrow container.
+Use for font selection, scale calibration, reading comfort, numeric alignment, and hierarchy. Preserve confirmed brand families during focused refinements. Start with [Craft](craft.md) for cross-cutting decisions and [Layout](layout.md) when wrapping defects stem from container sizing.
 
-## Diagnose roles before sizes
+## Choose scale ratio and pairings from the surface
 
-Inventory a representative heading, paragraph, label, metadata item, amount and control. Record family, rendered size, weight, line height, measure and color. Distinguish loaded fonts from fallback: inspect the actual font request and computed styles, not only a CSS declaration. A missing weight can produce synthetic bold and change wrapping even when the family name looks right.
+Select both modular ratio and font character from density, reading distance, and product personality:
 
-Ask what a reader should recognize without reading every word. The screen title locates the work; a section heading groups it; a label identifies a field; an amount is often a comparison target. Two roles with identical treatment can be ambiguous. Six roles with six unrelated treatments create another problem. Find the few distinctions that matter, then name tokens by role rather than by the value currently assigned.
+| Surface / tone | Ratio | Display family posture | Body / UI posture | Display tracking & leading |
+|---|---|---|---|---|
+| **Editorial / Reading** | `1.333–1.414` | Expressive serif (`Newsreader`, `Instrument Serif`, `Fraunces`) | Clean sans or readable serif (`1.6–1.7` lh) | `-0.03em` to `-0.04em`, `1.05–1.12` lh |
+| **Marketing / Brand Launch** | `1.333–1.50` | Geometric or condensed display (`Space Grotesk`, `Instrument Sans`, `Syne`) | Neutral sans (`Inter`, `Plus Jakarta Sans`, `1.55` lh) | `-0.025em` to `-0.035em`, `1.04–1.12` lh |
+| **Balanced Web App / SaaS** | `1.25` | Neo-grotesque or humanist (`Plus Jakarta Sans`, `DM Sans`, `Geist`) | Same family or clean sans (`1.5` lh) | `-0.02em`, `1.12–1.22` lh |
+| **Dense Ops / Fintech / Dev** | `1.125–1.20` | Crisp grotesque (`Inter`, `IBM Plex Sans`, `Geist`) | Same sans (`1.45` lh) + Mono (`IBM Plex Mono`, `JetBrains Mono`) | `-0.015em`, `1.15–1.25` lh |
+| **Warm Craft / Hospitality** | `1.25–1.333` | Warm serif or humanist (`Lora`, `Fraunces`, `Bricolage Grotesque`) | Humanist sans (`DM Sans`, `1.55–1.62` lh) | `-0.02em`, `1.10–1.18` lh |
 
-On an operational dashboard, start with the data a user came to inspect. An oversized welcome heading above unreadably small rows reverses the priority. On a public page, a large heading may legitimately communicate the offer, but its scale must leave the explanation and action accessible. A label is not automatically secondary just because its string is short: a medication instruction or a destructive-action confirmation can be essential information.
+System stacks remain valid when delivery speed, native platform parity, or tight operational density calls for them—judge the rendered result, not novelty alone.
 
-## Establish a small working system
+## Optical tuning rules
 
-Use a compact initial set: display if needed, title, section, body, label, metadata and numeric value. Some roles may share a size and differ through weight or space. Do not introduce a role for every individual component. Existing product tokens are the starting point, including intentionally dense table roles.
-
-For ordinary web prose, 1rem at the browser's usual default is a useful initial body size. It is not a universal accessibility minimum. A font with a small x-height may need a larger value; a dense utility label may legitimately be smaller when its importance, contrast, reading distance and enlargement behavior support it. Inspect real text at actual scale. A screenshot reduced to fit a chat is not a reliable reading-size test.
-
-Tune measure and leading together. A narrow mobile paragraph needs different rhythm from a wide reading column. Prose around 45–75 characters per line is a useful investigation range, not a constraint for tables, code or poetry. If a line is exhausting to track, constrain the reading column before making all the text larger. If a heading breaks into five short fragments, inspect its container and content before shrinking the entire scale.
+- **Role discipline:** establish 5–6 clear roles (`display`, `title`, `section`, `body`, `label`, `micro/mono`). Adjacent sizes need clear separation (`>= 1.2x` or distinct weight + uppercase tracking); six uncoordinated sizes create visual noise.
+- **Weight pairing:** pair bold/semibold display (`600–700`, or `400–500` for high-contrast serifs) with regular `400` body and `500–600` interactive labels. Avoid synthetic bold by loading only needed weights.
+- **Measure & wrapping:** constrain prose to `45–70ch` (`max-inline-size: 62ch`). Apply `text-wrap: balance` to headings and `text-wrap: pretty` to body paragraphs.
+- **Micro-labels & eyebrows:** uppercase `0.75rem` (`12px`) labels with `letter-spacing: 0.06em–0.08em`, weight `600`, and muted ink give crisp structural orientation above headlines or metric blocks.
+- **Fluid vs. stable scales:** use `clamp()` combining `rem` and `vw` for public display headings so scaling survives zoom; keep operational tool labels on a crisp, predictable `rem` scale.
 
 ```css
 :root {
-  --type-body: 1rem;
-  --type-label: .875rem;
-  --type-section: 1.25rem;
-  --type-title: 2rem;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --type-micro: 0.75rem;      /* 12px - eyebrows, badges, kbd */
+  --type-label: 0.875rem;     /* 14px - UI controls, table cells */
+  --type-body: 1rem;          /* 16px - primary reading */
+  --type-section: 1.25rem;    /* 20px - section headings */
+  --type-title: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+  --type-display: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
 }
-.prose { max-inline-size: 65ch; line-height: 1.65; }
-.amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.field-label { font-size: var(--type-label); font-weight: 600; }
+
+.display {
+  font-family: var(--font-display);
+  font-size: var(--type-display);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+.prose { max-inline-size: 62ch; font-size: var(--type-body); line-height: 1.62; text-wrap: pretty; }
+.eyebrow { font-size: var(--type-micro); font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
+.amount { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
 ```
 
-These values illustrate role relationships, not a package-wide preset. A tiny settings dialog does not need the same title scale as a campaign page. Reuse project tokens if they already express the roles.
+## Numeric comparison and legibility
 
-## Make numbers comparable
+- Apply `font-variant-numeric: tabular-nums` wherever amounts, counts, percentages, or timestamps align vertically. Right-align same-unit quantities in comparison columns; keep signs and units attached (`−$45`, not red `$45` alone).
+- Verify ambiguous glyphs (`I`, `l`, `1`, `0`, `O`) and diacritics in the chosen font for the product's actual languages.
+- Diagnose weak hierarchy by testing real content: if an oversized greeting buries a tiny `11px` transaction table, rebalance scale so primary task content leads.
 
-Use tabular numerals where the face supports them and repeated values benefit. Right-align same-unit quantities in a comparison column, keep the unit and sign attached, and distinguish missing from zero. Align dates and textual identifiers by their reading task rather than applying numeric alignment indiscriminately. A long account identifier may need grouping or a readable detail view, not a smaller global font.
+## Verify delivery and extremes
 
-A financial row showing `$45` in red loses meaning when color is unavailable. Prefer `−$45` or a clear expense label. A label such as “Change” needs a period and baseline if interpretation depends on them. Typography cannot repair an undefined measure; use [Charts](charts.md) and [Tables](tables.md) for that semantic decision.
-
-## Work through a weak hierarchy
-
-Suppose an overview has a 42px greeting, 32px totals, 11px transaction labels and six card subtitles. First identify the primary task: finding and comparing transactions. Preserve the greeting's wording if copy is protected. Reduce its visual priority, raise row text to a comfortable size, and remove only authorized redundant presentation. Use grouping and column alignment to support comparison. Then verify that summary totals remain discoverable; do not flatten all roles to the same size.
-
-In another task, a guesthouse page has a small property name above an anonymous slogan. A creation or copy-enabled redesign may put the name and location into the primary heading and make booking information readable. A typography-only task may instead improve scale and wrapping without rewriting the slogan. The same visual symptom has different permitted interventions.
-
-## Font choice and delivery
-
-Select a family for its letterforms, language coverage, weights, numerals, licensing and availability. Test ambiguous characters in the actual context: uppercase I, lowercase l, zero and O matter in codes. Check punctuation, accents and the languages the product supports. Do not assume that an attractive Latin display face covers an international product.
-
-Use only the weights needed. Provide a sensible fallback and avoid blocking the first useful text on a font download. Metric-compatible fallbacks reduce reflow, but verify the actual combination. Use `font-display` deliberately and preserve image/container space around text. A second family should have a distinct role; selecting two fashionable families does not establish hierarchy.
-
-For fluid display type, combine font-relative and viewport terms rather than using viewport units alone. Verify enlargement and intermediate widths. Product labels and dense tools often benefit from a stable rem scale; there is no requirement for every heading to grow with the window.
-
-## Verify and stop
-
-Test a long heading, a long translated label, the largest realistic amount, missing font delivery and text enlarged to 200% where applicable. Check clipping, overlap and action reachability; do not demand pixel-identical wrapping across languages. Let controls grow or wrap when appropriate. Never use `overflow:hidden` as the general solution to enlarged text.
-
-Inspect top, middle and lower regions. Verify that repeated roles remain consistent in dialogs, empty results and detail views. Measure actual text/background contrast using [Color](color.md). If readability improved only on the screenshot currently open, the pass is unfinished. Report what was rendered and what was inferred from source. Font novelty, a tidy token list and a passing contrast check are separate from a comfortable reading experience.
+Confirm the intended font actually loaded in network/computed styles rather than silently falling back. Inspect a long heading, translated labels, largest realistic numbers, `200%` text zoom, and narrow `390px` viewports without `overflow: hidden` clipping. Coordinate numeric semantics with [Charts](charts.md) and [Tables](tables.md), and foreground/background contrast with [Color](color.md).

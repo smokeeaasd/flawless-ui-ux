@@ -172,7 +172,7 @@ Continue in the same conversation as the interface develops:
 
 For new interfaces and broad redesigns, the agent considers at least three meaningfully different compositions internally before implementation, then chooses an approach for the product and task. Focused refinements preserve the authorized scope and established decisions.
 
-The bundled library includes 27 selectively loaded references: decision procedures for typography, layout, color, tables, charts, forms, state transitions, copy, motion, performance and platform conventions. Ten original worked cases connect diagnosis to implementation. [Eight web studies](skills/flawless-ui-ux/assets/examples/index.html) run without a build or dependencies; two native code studies require an existing SwiftUI or Compose project and are explicitly uncompiled here. These are examples to inspect and adapt, not a framework to install in your application. See the [coverage and validation record](docs/skill-expansion.md).
+The bundled library includes 28 selectively loaded references: named aesthetic directions (`aesthetic-directions.md`), concrete craft scales and OKLCH palette recipes for typography, layout, color, tables, charts, forms, state transitions, copy, motion, performance, screenshot self-critique, and platform conventions. Ten original worked cases connect diagnosis to implementation. [Eight web studies](skills/flawless-ui-ux/assets/examples/index.html) run without a build or dependencies; two native code studies require an existing SwiftUI or Compose project and are explicitly uncompiled here. These are examples to inspect and adapt, not a framework to install in your application. See the [coverage and validation record](docs/skill-expansion.md).
 
 The design guidance applies to web, native mobile, and desktop interfaces. The CLI's rendered checks cover browser interfaces; native verification uses appropriate platform and project tools.
 
@@ -246,6 +246,7 @@ The comparison separates **persistent**, **new**, and **no-longer-observed** fin
 | Text and layout | Computed font sizes and horizontal overflow at the sampled widths |
 | Assets and runtime | Visible broken images and uncaught JavaScript errors |
 | Copy and icons | Exact repeated phrases and arrow cues for contextual review |
+| Visual system | Rendered font families, type-scale ratio, weights, colors, border radii, and container counts for review |
 | Source | Literal pixel font sizes and arrow/icon cues in selected files |
 
 <details>
