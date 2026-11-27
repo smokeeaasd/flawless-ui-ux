@@ -1,59 +1,50 @@
 # Layout decisions and responsive structure
 
-Use when content order, grouping, density or adaptation prevents the task. Read [Direction](direction.md) for an authorized new composition and [Calibration](calibration.md) for refinement. A layout pass within an existing identity does not authorize replacing its visual language.
+Use when structuring space, grouping, elevation, density, or responsive behavior. Pair with [Direction](direction.md) for new compositions and [Calibration](calibration.md) for refinement.
 
-## Find the information path
+## Spatial rhythm and grouping ratios
 
-Write the first three things the visitor must understand or do. On a repair queue this might be finding a bicycle, identifying its status and opening the next action. On a public offer it might be recognizing the service, comparing terms and contacting the provider. On a guide it might be locating a topic, reading an explanation and returning to the index.
+Use a disciplined `4px`/`8px` spacing scale (`4, 8, 12, 16, 20, 24, 32, 48, 64, 96px`) and enforce **internal-tighter-than-external** spacing so grouping works without heavy boxes:
 
-Trace those steps in the implementation. Note where the eye, pointer and keyboard go. A tall summary block can push the actual work below the fold; an overly dense header can hide location; a persistent panel can preserve comparison or consume the space the primary work needs. The diagnosis is about these relationships, not whether a sidebar or card is fashionable.
+- **Internal vs. outer gap:** padding inside a group or card (`16px–24px`) should stay `<= 0.5x–0.65x` the gap separating independent sections (`40px–96px` on public surfaces; `20px–32px` on operational screens).
+- **Heading attachment:** place `1.5x–2.5x` more space above a section heading than between the heading and its own content.
+- **Section pacing:** alternate vertical rhythm (`clamp(3.5rem, 7vw, 6.5rem)` between major editorial/public bands; `1rem–1.5rem` between dense operational panels).
 
-Use a squint or reduced-detail view to test hierarchy. The primary region should remain recognizable without relying on every word. Then restore detail and verify that labels and controls are readable. Strong silhouette and readable content are complementary; a beautiful abstract composition can still fail as an interface.
+## Containers, concentric radii, and elevation
 
-## Group before adding containers
+Group with proximity and alignment first; add borders or surface shifts only when ownership, selection, or layered depth requires them.
 
-Related items should be closer to each other than to the next independent group. Inspect real spacing values and content lengths. If a border is the only reason two fields appear related, ask whether proximity and heading placement can do the job more clearly. Containers remain useful for selection, ownership, separate tasks and layered surfaces. Removing every card can destroy useful grouping.
-
-Use shared edges and deliberate exceptions. Align the heading, explanation, controls and records that belong to one region. Optical adjustments may be appropriate for icons and large type, but first establish the structural grid. A hero image can intentionally bleed beyond a text column; a randomly misaligned submit button usually communicates no such intent.
-
-Spacing should express relationships. A project may use a 4-unit or another established scale; preserve its meaningful steps. Repeating 24px everywhere makes a form's internal rhythm indistinguishable from the separation between forms. More space above a heading than between the heading and its content often helps ownership, but assess the actual composition rather than applying that ratio mechanically.
-
-## Choose density from the work
-
-Frequent comparison benefits from stable rows, aligned quantities and limited interruption. Exploratory content can allow larger images and more variation. Density is information per usable region, not simply small font size. Remove repetitive labels or unhelpful containers before shrinking working text. Conversely, large empty panels are not automatically premium: they may hide a lack of useful information.
-
-For a dashboard with four summaries, a chart and a record list, ask whether all three need equal emphasis. If the user is reconciling records, make the list accessible early and keep summaries compact. If the user is deciding whether cash covers upcoming bills, a projection and obligations may lead. The same dataset supports different compositions because the decision differs.
-
-## Adapt relationships, not screenshots
-
-Identify which region must remain paired with which other region. A service and its price should not separate; a row action should not drift to an unrelated record; a chart's legend must stay connected to its series. Reordering for visual convenience must not create a confusing DOM or focus sequence.
-
-Let breakpoints follow content pressure. Inspect narrow, intermediate and wide sizes instead of assuming that two named devices cover the space. A component used in both a main column and a narrow inspector may need container-aware behavior rather than a global viewport breakpoint. Prefer the project's supported layout primitives; do not introduce a compatibility-dependent feature without checking its target browsers.
+- **Concentric border radius:** nested rounded elements share the same center: `innerRadius = max(4px, outerRadius - innerInset)`. Example: a `20px` card with `12px` padding frames an inner image or chip at `8px`, never two mismatched `12px` corners stacked together.
+- **Layered elevation & hairline borders:** prefer a `1px` low-opacity border plus two soft shadow layers (a tight contact shadow + a wide ambient shadow) on light surfaces, and stepped surface lightness + subtle `rgba(255,255,255,0.12)` top rim on dark surfaces.
+- **Break equal-card monotony:** avoid stacking three or four identical icon-title-paragraph cards in every section. Use asymmetric grids (`grid-template-columns: 7fr 5fr`, `1.35fr 1fr`), aligned key-value rows, full-bleed contrasting bands, or a dominant focal piece beside compact supporting items.
 
 ```css
-.workspace { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 1.5rem; }
+.split-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20rem;
+  gap: 1.5rem;
+}
 .workspace > * { min-inline-size: 0; }
+
 @media (max-width: 60rem) {
+  .split-feature,
   .workspace { grid-template-columns: minmax(0, 1fr); }
 }
 ```
 
-This fixes a common grid minimum-size problem; it does not decide what a phone should show first. That decision still follows the task. A detail panel may move below a selected record, become a separate view or use a bounded dialog. Pick the model that preserves context and a return path.
+## Density and information path
 
-## Scroll, fixed regions and focus
+Trace the first three things the visitor must recognize or act on. Use a quick squint test on rendered screenshots: the primary focal anchor should remain unmistakable without reading copy, while operational tables and controls remain compact, aligned, and immediately reachable above the fold.
 
-Choose a scroll owner deliberately. Multiple nested scroll regions can make wheel, touch and keyboard navigation unpredictable. A fixed header should not cover anchored headings or focused controls. Reserve space for bottom action bars and device insets. Test zoom and tall labels, not only the default viewport.
+## Responsive adaptation, scroll, and focus
 
-An intentionally horizontal table is different from document overflow. When preserving two-dimensional comparison is justified, make the region discoverable and keyboard-operable as [Tables](tables.md) describes. A screenshot with no document overflow does not prove that essential values are visible or reachable.
-
-For reading, avoid forcing every section to one screen height. Content length, font settings and language vary. For marketing, a composed first view can be useful, but do not clip an action to protect a fixed-height design. For working screens, avoid entrance choreography or oversized framing that delays the task.
-
-## Worked intervention
-
-A queue has a promotional panel above its filters and rows. The user asks for easier scanning while keeping the feature set. Measure the space occupied by the promotion, locate search and status controls, and identify the required record fields. Reduce the promotion's priority or move it only when within scope. Place search and filters with the records; align status and next action consistently. At phone width, keep record identity and status together and provide an explicit detail action.
-
-Do not respond by adding another KPI row. Do not delete the promotion if its content is protected. The improvement should be explainable as fewer interruptions between arriving and selecting the right record, not “a cleaner look.”
-
-## Acceptance
-
-Run the task from arrival to result using pointer and keyboard. Inspect the layout with empty data, long content, enlarged text and realistic overlays. Check that primary actions remain findable and focus order follows the meaningful reading order. Capture corresponding states before and after where possible. If a rearrangement makes the opening more dramatic but slows the main task, revisit the structural hypothesis. Preserve useful variation; identical section silhouettes are not a requirement for coherence.
+- Adapt relationships, not thumbnails: keep labels paired with values, service names paired with prices, and row actions attached to their record at `390px` and intermediate widths.
+- Choose one clear scroll owner; avoid nested scroll traps. Keep genuinely two-dimensional matrices inside a labeled, keyboard-accessible horizontal scroll region per [Tables](tables.md).
+- Ensure sticky headers and bottom action bars never obscure focused controls or anchor jumps (`scroll-margin-top`), and test `200%` zoom and long labels without clipping.

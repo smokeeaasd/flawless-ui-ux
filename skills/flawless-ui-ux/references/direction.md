@@ -1,73 +1,44 @@
 # Direction
 
-Use for new interfaces, a new visual system, or an authorized replacement. Start from the task and available material, then make choices visible in the implementation.
+Use for new interfaces, a new visual system, or an authorized replacement. Start from the task and available material, pair with [Aesthetic directions](aesthetic-directions.md), and commit to concrete visual decisions before writing layout code.
 
-## Essential: explore composition before implementation
+## Explore composition and aesthetic register
 
-For new interfaces and broad redesigns, consider at least three meaningfully different ways to organize the primary content before committing to a layout. Work within the requested platform, explicit constraints, and authorized scope.
+For new interfaces and broad redesigns, sketch at least **three genuinely different approaches** internally before coding. Vary **both information hierarchy and aesthetic register**—not just button colors on the same hero-plus-3-cards scaffold:
 
-Vary the underlying composition, not merely the styling:
+- What leads the first viewport (product output, price/offer ledger, typographic thesis, interactive proof, or operational queue)?
+- Which aesthetic register fits best (Editorial/Print, Technical/Dense, Warm/Tactile, Atmospheric/Dark, or Bold/Graphic)?
+- What is the **one content-earned signature visual element** that makes this screen unmistakable to its domain?
+- How do typography, imagery, controls, and negative space create rhythm down the page?
+- How does the mobile layout keep the primary task and signature character intact?
 
-- What leads the initial view or main working area?
-- How do typography, imagery, controls, and information share space?
-- What creates rhythm across regions, screens, or states?
-- How does the composition express the product's identity?
-- How easily can users complete their primary task with the intended input methods?
-
-Choose the strongest approach for the actual context.
-
-Do not default to a familiar hero, card grid, sidebar, or screen structure simply because it is reliable or easy to implement. Conventional patterns remain valid when they are the best solution.
-
-Keep this exploration internal unless the user requests concepts. For small refinements, a fully specified composition, or constrained existing systems, preserve the authorized scope instead of forcing structural changes.
+Pick the strongest approach. Keep exploration internal unless concepts are requested. For narrow refinements or strict existing design systems, stay within authorized scope.
 
 ## Compose around the product
 
-Identify the first useful thing to see and the relationship that organizes the rest. A cash-planning screen may lead with available money and scheduled obligations; a release tool may lead with deployment state and the event timeline; a workshop page may lead with comparable service prices or arrival instructions. These are different information structures, not interchangeable card grids.
+Let the product's primary decision dictate the opening structure:
 
-Choose where visual presence belongs. An image, product demonstration, typographic composition, data display, or distinctive material treatment can carry the opening. Let supporting regions take the form their content needs: comparison, sequence, illustration, working table, or explanation. Coherence comes from shared visual relationships; sections need not have identical silhouettes.
+- A cash-planning workspace may lead with projected availability and upcoming obligations rather than generic KPI cards.
+- A release tool may lead with deployment status and an interactive handoff timeline.
+- A local workshop or café may lead with scannable offerings and prices paired with arrival hours.
 
-Match density to use. Keep operational information easy to compare; give expressive material enough scale to register. Richness can come from deliberate contrast between dense and open regions, a strong crop, precise alignment, varied proportions, or crafted details. Preserve useful content and visual character when simplifying.
+Give visual presence to what matters most. An expressive photograph, live data ledger, typographic anchor, or interactive preview can carry the opening while supporting bands take distinct, appropriate shapes (comparison table, timeline, compact checklist, dark contrast visit band). Coherence comes from shared type roles, hue-tinted surfaces, and spacing rhythm—not repeating identical card boxes in every section.
 
-## Establish visual roles
+## Establish the visual system contract
 
-Choose these together, using the actual text, values, and assets:
+Before generating full screens, write a compact **working visual contract** in notes (never as visitor-facing slogan copy):
 
-- **Typography:** select for the product's character, reading task, language, numbers, and available weights. Give titles, body, labels, and amounts distinct roles. Inspect a promising family in real content instead of accepting the scaffold's font by inertia. A familiar or system family can fit.
-- **Color:** distinguish surfaces, text, brand emphasis, and functional states. Decide where saturation or a dark region creates focus; inspect the relationships across the screen, not just individual swatches.
-- **Composition:** establish alignment, relative scale, grouping, and spacing. Make the main content lead while keeping useful secondary information accessible.
-- **Imagery and detail:** use actual product output, photography, illustration, textures, diagrams, borders, or motion where they serve the subject. Choose scale and treatment intentionally; avoid adding the same decoration to every region.
-- **Adaptation:** decide what rearranges on narrower screens while retaining hierarchy, legibility, and the main action.
+1. **Aesthetic register & mood:** e.g., *Technical/Precision Dense* or *Warm/Tactile Organic*.
+2. **Signature visual element:** the single distinctive focal choice rooted in real content.
+3. **Typography pairing & scale:** display family, body/UI family, mono family (if needed), modular ratio (`1.15–1.414`), and key weights/tracking.
+4. **Palette & surface hierarchy:** canvas, primary surface, raised surface, hairline border, primary/muted ink, focal accent, and light/dark mapping.
+5. **Spacing, radius & elevation rhythm:** base unit (`4px`/`8px`), internal vs. outer gap ratio, concentric radii, shadow/border style.
+6. **Mobile adaptation rule:** what stacks, reorders, or compacts at `390px` while keeping identity and action clear.
 
-An expressive event can use large type, vivid color, and a generous image while ticket details remain precise. An engineering workspace can express maturity through a confident information layout and distinctive typography while retaining saturated brand accents. Industry labels and requests such as “enterprise” do not prescribe one visual style.
+Build one representative vertical slice (opening, real content, primary action, secondary band, narrow state) and verify that real copy, long labels, numerals, and font weights hold up before expanding.
 
-## Use material as evidence
+## Use real material and carry finish through
 
-Inspect supplied references or assets before relying on them. Transfer a useful relationship—such as the balance between a preview and explanation—into the current product. Existing brand material can supply the direction; consult a design study only when its composition helps resolve an actual choice. Build directly when the direction is clear.
+Use real facts, supplied assets, and permitted media; identify illustrative data clearly and never fabricate testimonials, metrics, or nonexistent backend workflows. Consult [Service studies](service-studies.md) or [Product studies](product-studies.md) when a structural pattern needs clarification.
 
-For a commercial page, demonstrate what the product does and arrange distinct information around the next decision. A dashboard needs meaningful records and comparisons. Product names can inform character without becoming a recurring metaphor in the copy.
-
-Use real facts and permitted assets. Identify illustrative data, and never turn it into customer proof or performance claims. If an image-led direction lacks suitable material, acquire it within scope or choose a viable treatment using the content available.
-
-## Carry the direction through
-
-Implement the same type roles, alignment, color logic, and level of finish in lower sections, detail views, forms, and relevant states. Compare the result with the intended relationships when rendering is available. Revise a weak focal point or unsuitable structure rather than compensating with another slogan or decorative panel.
-
-## Make the alternatives consequential
-
-Use the same facts for each alternative. In a small internal sketch, describe the leading region, the supporting sequence, the main action and the small-screen transformation. If all three start with the same centered claim, two buttons and three benefit cards, they are one composition with different decoration. Do not generate three full implementations merely to satisfy exploration.
-
-For a fictional café with menu, hours and address, plausible alternatives are: a menu-led opening with current offerings and prices; a place-led opening with an honest photograph and visit information; and a compact neighborhood notice with hours first and menu below. The choice depends on whether people need to choose an item, understand the place or check a visit. None requires imaginary reviews or a reservation workflow. The [service studies](service-studies.md) make this comparison executable.
-
-For a cash workspace, alternatives could lead with obligations due, account availability or a timeline of cash movement. Test them against a concrete question such as “Can this team cover Friday's payments?” Count neither regions nor effects. Prefer the structure that makes the relevant amount, period and action discoverable while keeping supporting evidence nearby. The [product studies](product-studies.md) use explicit arithmetic so visual polish cannot hide a wrong answer.
-
-Choose using task evidence: can the first view orient the visitor, do neighboring regions explain different things, does the structure work with supplied content, and can it adapt without losing the task? If the direction depends on an unavailable video, photograph or dataset, resolve that dependency before making it the only source of meaning. A diagram or typographic composition can be a deliberate alternative.
-
-## Turn direction into implementation decisions
-
-Write a short working contract for the chosen approach. Name the leading element, the shared alignment, the type roles, the distribution of emphasis, the role of assets and the mobile reordering. These are relationships, not compulsory numerical tokens. Inspect actual long labels and amounts before fixing widths.
-
-Example: “The menu leads. Names and prices stay on the same row when possible; descriptions sit below names. A single dark visit region groups hours and address. On phones the photo moves below the menu rather than pushing prices out of view.” This answers decisions the implementation otherwise invents. “Make it polished and unique” does not.
-
-Build one representative vertical slice before multiplying the treatment: a heading, real content, an action, a secondary region and a narrow state. Check whether the supposed identity survives actual copy. If the chosen type has no required glyphs, the image crops away its subject or the layout needs shortened facts, revise the direction instead of concealing the conflict. Use [Typography](typography.md), [Layout](layout.md) and [Color](color.md) for the owning craft decisions.
-
-Carry the vocabulary into the less glamorous parts. A result count, validation message, footer and detail view should belong to the same product without inheriting the hero's scale. Reuse semantic roles and spacing relationships; do not paste the same large rounded enclosure around every kind of information. Inspect the whole page at actual viewing size before claiming the direction is implemented.
+Carry the exact same craft tokens—type roles, hue-tinted neutrals, hairline dividers, and calibrated spacing—into lower bands, footers, empty states, validation messages, and detail views. Use [Typography](typography.md), [Layout](layout.md), and [Color](color.md) for concrete scales and CSS implementations.
