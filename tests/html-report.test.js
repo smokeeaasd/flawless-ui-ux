@@ -37,6 +37,38 @@ test('optional HTML keeps report schema and exit semantics, escapes findings, an
     assert.ok(!escaped.includes('<script>'));
     assert.ok(!escaped.includes('<img src="https:'));
     assert.match(escaped, /default-src 'none'/);
+    assert.ok(!html.includes('id="visual-system"'));
+    const withVisual = structuredClone(report);
+    withVisual.observations = [{
+      surface: 'http://localhost:5173/',
+      viewport: '1440x900',
+      state: 'initial',
+      completedChecks: [],
+      targets: [],
+      visualMetrics: {
+        fontFamilyCount: 2,
+        fontFamilies: [{ family: '<script>evil</script>', count: 4 }, { family: 'Inter', count: 10 }],
+        fontSizeCount: 4,
+        fontSizes: [14, 16, 24, 48],
+        bodyFontSize: 16,
+        maxFontSize: 48,
+        displayToBodyRatio: 3,
+        fontWeightCount: 2,
+        fontWeights: [400, 700],
+        textColorCount: 2,
+        backgroundColorCount: 2,
+        borderRadiusCount: 1,
+        borderRadii: ['12px"><script>bad()</script>'],
+        cardLikeContainerCount: 3,
+      },
+    }];
+    const visualDir = path.join(workspace.root, 'visual-html');
+    await fs.mkdir(visualDir);
+    const visualHtml = await fs.readFile(await writeHtmlReport(withVisual, visualDir), 'utf8');
+    assert.match(visualHtml, /Visual system summary/);
+    assert.ok(visualHtml.includes('&lt;script&gt;evil&lt;/script&gt;'));
+    assert.ok(!visualHtml.includes('<script>'));
+    assert.ok(visualHtml.includes('16px -&gt; 48px, 3x'));
   } finally { workspace.cleanup(); }
 });
 

@@ -1,5 +1,6 @@
 import { finding, hash } from './shared.js';
 import { executeFlow } from './flow.js';
+import { summarizeVisualMetrics } from './visual-metrics.js';
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
 
@@ -23,7 +24,7 @@ function snapshot({ selector, inventory }) {
     const style = getComputedStyle(element), rect = element.getBoundingClientRect();
     return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none';
   });
-  const targets = [], text = [], small = [], overflow = [], images = [], arrows = [];
+  const targets = [], text = [], small = [], overflow = [], images = [], arrows = [], textSamples = [], boxSamples = [];
   for (const element of visible) {
     const target = locator(element), style = getComputedStyle(element), rect = element.getBoundingClientRect();
     targets.push(target);
@@ -32,7 +33,13 @@ function snapshot({ selector, inventory }) {
       const item = { target, text: ownText.slice(0, 400), tag: element.localName, size: parseFloat(style.fontSize), weight: style.fontWeight };
       text.push(item);
       if (item.size < 12) small.push(item);
+      textSamples.push({ fontFamily: style.fontFamily, fontSize: item.size, fontWeight: style.fontWeight, color: style.color, tag: element.localName });
     }
+    const hasCardChrome = !/^(inline|contents)$/.test(style.display)
+      && rect.width >= 100 && rect.height >= 40
+      && (parseFloat(style.paddingTop) >= 8 || parseFloat(style.paddingLeft) >= 8)
+      && ((parseFloat(style.borderTopWidth) > 0 && style.borderTopStyle !== 'none' && !/^rgba?\([^)]*,\s*0\)$/.test(style.borderTopColor)) || style.boxShadow !== 'none');
+    boxSamples.push({ backgroundColor: style.backgroundColor, borderRadius: style.borderRadius, hasCardChrome });
     if (/[↗↘↖↙→←↑↓➜➔]/u.test(ownText) || /arrow/i.test(`${element.getAttribute('aria-label') || ''} ${element.getAttribute('data-lucide') || ''} ${element.getAttribute('class') || ''}`)) arrows.push({ target, text: ownText.slice(0, 100) });
     if (rect.right > innerWidth + 2 || rect.left < -2) {
       overflow.push({ target, left: Math.round(rect.left), right: Math.round(rect.right) });
@@ -45,7 +52,7 @@ function snapshot({ selector, inventory }) {
       style: Object.fromEntries(['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'color', 'backgroundColor', 'padding', 'borderRadius', 'textAlign', 'gap'].map(key => [key, style[key]])) };
   }) : [];
   // Axe may use a different selector for the same element. Keep an explicit alias map.
-  return { targets, text, small, overflow, images, arrows, inventory: styles, inventoryTruncated: inventory && visible.filter(element => /^(h[1-6]|p|button|a|input|select|textarea)$/.test(element.localName) || element.hasAttribute('data-flawless-role')).length > 300, documentOverflow: selector ? region.scrollWidth > region.clientWidth + 2 : document.documentElement.scrollWidth > innerWidth + 2 };
+  return { targets, text, small, overflow, images, arrows, visualSamples: { textSamples, boxSamples }, inventory: styles, inventoryTruncated: inventory && visible.filter(element => /^(h[1-6]|p|button|a|input|select|textarea)$/.test(element.localName) || element.hasAttribute('data-flawless-role')).length > 300, documentOverflow: selector ? region.scrollWidth > region.clientWidth + 2 : document.documentElement.scrollWidth > innerWidth + 2 };
 }
 
 export async function inspectBrowser(options, output) {
@@ -100,6 +107,7 @@ export async function inspectBrowser(options, output) {
           const data = await page.evaluate(snapshot, { selector: options.selector, inventory: options.consistency });
           observation.targets = data.targets;
           observation.copy = data.text;
+          observation.visualMetrics = summarizeVisualMetrics(data.visualSamples);
           if (options.consistency) observation.inventory = data.inventory;
           if (data.inventoryTruncated) results.limits.push(`${label}: consistency inventory exceeded 300 elements; narrow the selector.`);
           observation.arrowInventory = data.arrows;
